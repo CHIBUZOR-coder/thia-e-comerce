@@ -2,13 +2,13 @@ import useFetch from "./carocel"; // Import the custom hook
 
 export const Kaftan = () => {
   const imageUrl = [
-    "/public/images/kaftan6.jpg",
-    "/public/images/kaftann.jpg",
-    "/public/images/kaf.jpg",
-    "/public/images/woman.jpg",
-    "/public/images/kaf2.jpg",
-    "/public/images/kaf3.jpg",
-    "/public/images/kaftann2.jpg",
+    "./public/images/kaftan6.jpg",
+    "./public/images/kaftann.jpg",
+    "./public/images/kaf.jpg",
+    "./public/images/woman.jpg",
+    "./public/images/kaf2.jpg",
+    "./public/images/kaf3.jpg",
+    "./public/images/kaftann2.jpg",
 
   ];
 
