@@ -78,7 +78,7 @@ export const Allslides = () => {
         </button>
       </div>
 
-      {/* Slide indicators */}
+      {/* Slide indicators application */}
       <div className="flex justify-center items-center bottom-0 mt-4">
         {imageUrl.map((_, index) => (
           <div
