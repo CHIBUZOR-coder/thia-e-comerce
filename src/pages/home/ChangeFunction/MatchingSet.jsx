@@ -1,4 +1,4 @@
-.import useFetch from "./carocel"; // Import the custom hook
+import useFetch from "./carocel"; // Import the custom hook
 
 export const MatchingSet = () => {
   const imageUrl = [
