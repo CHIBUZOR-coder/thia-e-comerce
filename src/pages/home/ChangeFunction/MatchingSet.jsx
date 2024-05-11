@@ -11,6 +11,9 @@ export const MatchingSet = () => {
     "./public/images/matchingset.jpg",
   ];
 
+
+  //taking my time
+
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
 
   return (
