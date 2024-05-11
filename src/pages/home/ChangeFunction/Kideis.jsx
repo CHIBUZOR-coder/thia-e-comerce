@@ -11,7 +11,7 @@ const Kiddies = () => {
     "../public/images/kidb.jpg",
     "../public/images/kid7.jpg",
 
-.
+
   ];
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
