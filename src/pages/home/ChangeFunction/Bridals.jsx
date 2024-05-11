@@ -2,10 +2,10 @@ import useFetch from "./carocel"; // Import the custom hook
 
 export const Bridals = () => {
   const imageUrl = [
-    "./public/images/thia2.jpg",
-    "./public/images/thia3.jpg",
-    "./public/images/aabb.jpg",
-    "./public/images/bridal.jpg",
+    "../public/images/thia2.jpg",
+    "../public/images/thia3.jpg",
+    "../public/images/aabb.jpg",
+    "../public/images/bridal.jpg",
   ];
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object

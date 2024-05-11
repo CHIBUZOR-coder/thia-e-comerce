@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 
 export const Allslides = () => {
   const imageUrl = [
-    "./public/images/coperateA.jpg",
-    "./public/images/938.jpg",
-    "./public/images/17533.jpg",
+    "../public/images/coperateA.jpg",
+    "../public/images/938.jpg",
+    "../public/images/17533.jpg",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,7 +20,7 @@ export const Allslides = () => {
 
   const prevSlide = () => {
     setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? imageUrl.length - 1 : prevSlide - 1
+      prevSlide === 0 ? imageUrl.length - 1 : prevSlide - 1.
     );
   };
 
