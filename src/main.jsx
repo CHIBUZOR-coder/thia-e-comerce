@@ -8,12 +8,12 @@ import Home from "./pages/home/Homee.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/thia-e-comerce/",
     element: <App />,
     children: [
       {
         path: "/thia-e-comerce/",
-        element:<Home/> ,
+        element: <Home />,
       },
     ],
   },
