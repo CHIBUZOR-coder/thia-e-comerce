@@ -4,12 +4,12 @@ const Kiddies = () => {
   const imageUrl = [
 
 
-    "../public/images/kidaa.jpg",
-    "../public/images/kid5.jpg",
-    "../public/images/kisa.jpg",
-    "../public/images/kidd.jpg",
-    "../public/images/kidb.jpg",
-    "../public/images/kid7.jpg",
+    "./images/kidaa.jpg",
+    "./images/kid5.jpg",
+    "./images/kisa.jpg",
+    "./images/kidd.jpg",
+    "./images/kidb.jpg",
+    "./images/kid7.jpg",
   ];
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object

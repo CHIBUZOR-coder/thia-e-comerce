@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 
 export const Allslides = () => {
   const imageUrl = [
-    "../public/images/coperateA.jpg",
-    "../public/images/938.jpg",
-    "../public/images/17533.jpg",
+    "./images/coperateA.jpg",
+    "./images/938.jpg",
+    "./images/17533.jpg",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
