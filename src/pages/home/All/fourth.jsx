@@ -14,7 +14,7 @@ export const Fourth = () => {
         href='/'
         className='flex justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white'
       >
-        Fourth
+        Buy
       </a>
     </div>
   )
