@@ -14,7 +14,7 @@ export const Kaftan = () => {
 
   return (
     <div
-      className="w-full flex justify-center trans items-end h-big3 "
+      className="w-full childd flex justify-center trans items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
       <a

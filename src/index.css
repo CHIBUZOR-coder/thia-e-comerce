@@ -2,9 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+.a1,
+.a2,
+.a3,
+.a4,
+.a5 {
+    background-size: cover;
+    background-position: center center;
+}
 
+/* Add your background images */
+.a1 {
+    background-image: url(/public/images/aabb.jpg);
+}
 
+.a2 {
+    background-image: url(/public/images/aabb.jpg);
+}
 
+.a3 {
+    background-image: url(/public/images/Ashoebi21.jpg);
+}
+
+.a4 {
+    background-image: url(/public/images/4767.jpg);
+}
+
+.a5 {
+    background-image: url(/public/images/214.jpg);
+}
 
 .logo {
     background: url(../public/images/ThiaLogo.png) center center/ cover;
@@ -27,54 +53,20 @@
     @apply transition ease-in-out duration-1000 bg-blackk hover:scale-105 font-semibold text-white rounded-sm py-1 flex justify-center px-4 shadow-md hover:bg-yellow-500 hover:text-white border border-gray-600 items-center gap-2
 }
 
+.childd {
+    @apply rounded-md
+}
 
+.carocel {
+    @apply rounded-lg
+}
 
 .trans {
     transition: ease-in-out .4s;
 }
 
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center center;
 
-    /* This ensures the image covers the entire container */
-}
-
-.carousel {
-    display: flex;
-    overflow: hidden;
-    width: 100% !important;
-}
-
-
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: #fff;
-    /* Change to desired active color */
-}
-
-/* Add this CSS to your stylesheet */
-.slide {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
 
 .names {
     border: 1px solid rgb(239, 229, 229);

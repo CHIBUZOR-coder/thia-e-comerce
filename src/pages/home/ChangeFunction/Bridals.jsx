@@ -20,7 +20,7 @@ export const Bridals = () => {
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
   return (
     <div
-      className="w-full flex justify-center trans items-end h-big3 "
+      className="w-full childd flex justify-center trans items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
       <a
