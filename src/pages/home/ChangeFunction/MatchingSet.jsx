@@ -6,9 +6,16 @@ export const MatchingSet = () => {
     "./images/match9.jpg",
     "./images/match7.jpg",
     "./images/match6.jpg",
-    "./images/match6.jpg",
+  
     "./images/matchinSet.jpg",
-    "./images/matchingset.jpg",
+
+    "./images/match4.jpg",
+    "./images/match5.jpg",
+    "./images/match.jpg",
+
+    "./images/match8.jpg",
+    "./images/match11.jpg",
+    "./images/matcha.jpg",
   ];
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object

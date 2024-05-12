@@ -4,8 +4,17 @@ export const Bridals = () => {
   const imageUrl = [
     "./images/thia2.jpg",
     "./images/thia3.jpg",
-    "./images/aabb.jpg",
-    "./images/bridal.jpg",
+    "./images/bridal000.jpg",
+    "./images/brialppp.jpg",
+    "./images/brial666.jpg",
+    "./images/brial111.jpg",
+    "./images/brialppp.jpg",
+    "./images/brialppp.jpg",
+    "./images/bridal77.jpg",
+    "./images/bridal3.jpg",
+    "./images/bridal44.jpg",
+    "./images/bridalooo.jpg",
+  
   ];
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object

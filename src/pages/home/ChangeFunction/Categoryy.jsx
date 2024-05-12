@@ -64,7 +64,7 @@ const Category = () => {
   };
 
   return (
-    <div className=" w-full md:w-1/2 overflow-hidden md:m-0 mt-3 md:py-16 ">
+    <div className=" w-full  md:w-1/2 overflow-hidden md:m-0 mt-3 md:py-16 ">
       <h1 className="text-3xl md:py-6 font-sans flex justify-center font-semibold">
         Category
       </h1>
@@ -76,9 +76,8 @@ const Category = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`w-full transition ease-in-out duration-1000 bg-slate-400 ${
-              index === currentSlide ? "" : "hidden"
-            } flex justify-center  `}
+            className={`w-full transition ease-in-out duration-1000 bg-slate-400 ${index === currentSlide ? "" : "hidden"
+              } flex justify-center  `}
           >
             {slide}
           </div>
@@ -86,13 +85,13 @@ const Category = () => {
         {/* Manual navigation buttons */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-l"
+          className="absolute top-1/2 left-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-l"
         >
           Prev
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-r"
+          className="absolute top-1/2 right-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-r"
         >
           Next
         </button>
@@ -102,9 +101,8 @@ const Category = () => {
         {slides.map((_, index) => (
           <span
             key={index}
-            className={`mx-1 h-3 w-3 rounded-full cursor-pointer ${
-              index === currentSlide ? "bg-gray-900" : "bg-gray-400"
-            }`}
+            className={`mx-1 h-3 w-3 rounded-full cursor-pointer ${index === currentSlide ? "bg-gray-900" : "bg-gray-400"
+              }`}
             onClick={() => setCurrentSlide(index)}
           />
         ))}

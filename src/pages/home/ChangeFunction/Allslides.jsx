@@ -46,7 +46,7 @@ export const Allslides = () => {
 
       <div className="carousel relative top-0 w-full overflow-hidden">
         <button
-          className="absolute left-2 top-1/2 px-2 py-1 carocel-btn rounded-l"
+          className="absolute left-3 top-1/2 px-2 py-1 carocel-btn rounded-l"
           onClick={prevSlide}
         >
           Prev
@@ -71,7 +71,7 @@ export const Allslides = () => {
         ))}
 
         <button
-          className="absolute right-2 top-1/2 px-2 py-1 carocel-btn rounded-r"
+          className="absolute right-3 top-1/2 px-2 py-1 carocel-btn rounded-r"
           onClick={nextSlide}
         >
           Next
