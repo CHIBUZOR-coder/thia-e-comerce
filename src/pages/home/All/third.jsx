@@ -1,7 +1,7 @@
 import useFetch from './ImageStyle'
 
 export const Third = () => {
-  const imageUrl = './images/bridal99.jpg'
+  const imageUrl = './images/bridal77.jpg'
 
   const { style } = useFetch(imageUrl) // Call the custom hook to get the style object
 
