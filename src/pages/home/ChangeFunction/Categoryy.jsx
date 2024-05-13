@@ -165,7 +165,7 @@ const Category = () => {
       if (!isPaused && !isMouseOver) {
         nextSlide();
       }
-    }, 10000); // Change slide every 10 seconds
+    }, 30000); // Change slide every 10 seconds
     return () => clearInterval(intervalId); // Cleanup function to clear the interval
   }, [nextSlide, isPaused, isMouseOver]); // Re-run effect when nextSlide, isPaused, or isMouseOver changes
 
