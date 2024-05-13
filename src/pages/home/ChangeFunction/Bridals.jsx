@@ -1,3 +1,4 @@
+import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
 
 export const Bridals = () => {
@@ -14,8 +15,9 @@ export const Bridals = () => {
     "./images/bridal3.jpg",
     "./images/bridal44.jpg",
     "./images/bridalooo.jpg",
-  
   ];
+
+  PreloadImages(imageUrl);
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
   return (

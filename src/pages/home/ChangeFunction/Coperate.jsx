@@ -1,8 +1,8 @@
+import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
 
 export const Coperate = () => {
   const imageUrl = [
-  
     "./images/938.jpg",
     "./images/17533.jpg",
     "./images/red.jpg",
@@ -15,10 +15,9 @@ export const Coperate = () => {
     "./images/cop6.jpg",
     "./images/cop7.jpg",
     "./images/cop8.jpg",
-
-
   ];
 
+  PreloadImages(imageUrl);
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
 
   return (
