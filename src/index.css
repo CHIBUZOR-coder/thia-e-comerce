@@ -61,35 +61,46 @@
     @apply rounded-lg
 }
 
+.carsel {
+    @apply rounded-lg
+}
+
+.carsel:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    /* --box--shadow-2: 0 3px 15px rgba(0, 0, 0.3); */
+}
+
 .trans {
     transition: ease-in-out .4s;
 }
 
 
 
+.names {
+    @apply hover:scale-105
+}
 
 .names {
     border: 1px solid rgb(239, 229, 229);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 
     &:hover {
         border: 1px solid yellow;
         background-color: black;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
 
 .carocel-btn {
-    @apply bg-trans text-white hover:bg-black
-}
-
-.carocel-btn {
-    border: 1px solid yellow;
+    @apply bg-trans text-white hover:bg-black hover:scale-105
 }
 
 .carocel-btn {
     border: 1px solid rgb(239, 229, 229);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 
     &:hover {
         border: 1px solid yellow;
-
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
