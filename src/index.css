@@ -58,7 +58,7 @@
 }
 
 .carocel {
-    @apply rounded-lg
+    @apply rounded-md
 }
 
 .carsel {
@@ -74,6 +74,13 @@
     transition: ease-in-out .4s;
 }
 
+.rightProduct {
+    background: url(/public/images/stylish.jpg)center center/ cover;
+}
+
+.leftProduct{
+    background-color: rgb(255, 185, 72);
+}
 
 
 .names {
@@ -104,3 +111,23 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 }
+
+
+.udtext{
+    @apply text-2xl
+}
+.udtext{
+    text-decoration-color: white;
+    transition: ease-in-out 1sec;
+    &&:hover{
+        text-decoration: none;
+    }
+}
+
+.thiaLogo{
+    background: url(/public/images/logo4.png) center center/ cover;
+}
+/* 
+.footer{
+    background: url(/public/images/logo4.png) center center/ cover;
+} */

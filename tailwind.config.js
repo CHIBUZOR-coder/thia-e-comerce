@@ -19,6 +19,8 @@ export default {
         big: "400px",
         big2: "580px",
         big3: "500px",
+        product: "710px",
+        product2: "740px",
       },
     },
   },

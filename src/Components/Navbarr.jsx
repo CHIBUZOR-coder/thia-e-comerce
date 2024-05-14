@@ -16,13 +16,13 @@ const Navbar = () => {
     SetIsmenuOpen(!IsmenuOpen);
   };
   const NavItems = [
-    { tittle: "Ankara", path: "" },
-    { tittle: "Ashoebi", path: "" },
-    { tittle: "Cooperate", path: "" },
-    { tittle: "Kaftan", path: "" },
-    { tittle: "Bridals", path: "" },
-    { tittle: "Matching Set ", path: "" },
-    { tittle: "Kiddies", path: "" },
+    { tittle: "Home", path: "" },
+    { tittle: "About", path: "" },
+    { tittle: "Services", path: "" },
+    { tittle: "Reviews", path: "" },
+    { tittle: "Contact", path: "" },
+    { tittle: " Hot Sales ", path: "" },
+    { tittle: "Shop All", path: "" },
   ];
   return (
     <header className="max-w-screen-2xl xl:px-28 bg-white px-4 absolute top-0 left-0 right-0">
@@ -54,7 +54,7 @@ const Navbar = () => {
         </div>
         {/* ************************ */}
         {/* Navbar toogler for sm devices */}
-        <div className="md:hidden block" >
+        <div className="md:hidden block">
           <button onClick={toggle}>
             {IsmenuOpen ? (
               <FaTimes className=" h-6 w-6 text-blackk" />
