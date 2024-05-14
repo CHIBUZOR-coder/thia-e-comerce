@@ -54,7 +54,7 @@ const Allslides = () => {
   }
 
   return (
-    <div className="w-full md:w-1/2 px-0 md:px-2 overflow-hidden md:m-0 mt-3 md:py-16">
+    <div className="w-full md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 mt-3 md:py-16">
       <h1 className="text-3xl md:py-6 font-sans flex justify-center font-semibold">
         Featured
       </h1>
