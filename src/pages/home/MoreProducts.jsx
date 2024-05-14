@@ -1,9 +1,10 @@
 const MoreProducts = () => {
   return (
-    <div className="py-4">
+    <div className="py-4  xl:px-28 px-4">
+      <h1 className="tittle">Made to offer</h1>
       {/* product card */}
       <div className="max-w-screen-2xl xl:px-28 flex flex-col md:flex-row">
-        <div className="w-full flex flex-col gap-0  items-center leftProduct h-product2 md:h-product md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3  md:py-16">
+        <div className="w-full flex flex-col gap-0  items-center leftProduct h-product md:h-product md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3  md:py-16">
           <div className="flex w-3/4 flex-col py-3 text-xl text-white justify-center items-start">
             <p className="py-1">
               We are proud to offer you our service Made to order. It means you
@@ -25,14 +26,10 @@ const MoreProducts = () => {
               </a>
             </div>
 
-
-
-            <div className=" mt-10 thiaLogo h-40  flex flex-col items-center w-full">
-
-            </div>
+            <div className=" mt-10 thiaLogo h-36  flex flex-col items-center w-full"></div>
           </div>
         </div>
-        <div className="w-full rightProduct h-product md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3 bg-red-800 md:py-16"></div>
+        <div className="w-full rightProduct h-product  md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3 bg-red-800 md:py-16"></div>
       </div>
     </div>
   );

@@ -2,6 +2,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-.tittle{
+.tittle {
     @apply text-3xl font-semibold capitalize text-center my-2
+}
+
+.anchor {
+    @apply h-10 flex justify-center items-center
+}
+
+.anchor {
+    text-decoration-color: white;
+    text-decoration: none;
+    transition: ease-in-out 2sec;
+
+    &&:hover {
+        text-decoration-color: white;
+        text-decoration: underline;
+    }
 }

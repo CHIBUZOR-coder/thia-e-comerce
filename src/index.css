@@ -127,7 +127,7 @@
 .thiaLogo{
     background: url(/public/images/logo4.png) center center/ cover;
 }
-/* 
-.footer{
-    background: url(/public/images/logo4.png) center center/ cover;
-} */
+
+.footerLogo{
+    background: url(/public/images/fotter-modified.png) center center/ cover;
+}
