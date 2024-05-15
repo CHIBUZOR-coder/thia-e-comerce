@@ -7,16 +7,17 @@
 }
 
 .anchor {
-    @apply h-10 flex justify-center items-center
+    @apply h-10 text-footerlinks no-underline hover:underline hover:text-black flex justify-center items-center transition ease-in-out duration-700
 }
 
-.anchor {
-    text-decoration-color: white;
-    text-decoration: none;
-    transition: ease-in-out 2sec;
+.decorate2 {
+    @apply text-footerlinks hover:text-black transition ease-in-out duration-500
+}
 
-    &&:hover {
-        text-decoration-color: white;
-        text-decoration: underline;
-    }
+.decorate22{
+    @apply text-footerlinks hover:text-black transition ease-in-out duration-500
+}
+
+.subnav {
+    border: 1px solid rgb(101, 99, 99);
 }

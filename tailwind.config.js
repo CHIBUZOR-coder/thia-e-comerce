@@ -10,6 +10,7 @@ export default {
         trans: "	rgba(30, 26, 26, 0.6)",
         trans2: "rgb(0,0,0,0.5)",
         btn: "rgba(229,231,235,0.6)",
+        footerlinks: "rgb(101,99,99)",
       },
 
       fontFamily: {
@@ -20,7 +21,11 @@ export default {
         big2: "580px",
         big3: "500px",
         product: "750px",
-        product2: "400px",
+        product2: "750px",
+      },
+
+      maxHeight: {
+        first: "430px",
       },
     },
   },
