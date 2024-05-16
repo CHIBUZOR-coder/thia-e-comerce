@@ -46,7 +46,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full mt-32 md:mt-0  px-5 flex justify-center">
+        <div className="w-full mt-28 md:mt-0  px-5 flex justify-center">
           <div className="w-full flex flex-col md:flex-row items-center md:justify-center md:gap-x-80 md:items-center">
 
             <div className="  flex flex-col gap-1 w-1/2 justify-center md:items-start items-center">
