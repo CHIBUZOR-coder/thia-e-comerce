@@ -23,7 +23,9 @@ export default {
         product: "750px",
         product2: "800px",
       },
-
+      width: {
+        our: "400px",
+      },
       maxHeight: {
         first: "480px",
       },
