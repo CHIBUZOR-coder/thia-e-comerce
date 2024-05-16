@@ -58,7 +58,7 @@ const Home = () => {
             
 
             <div className="flex   w-full justify-center items-center">
-              <a href="#top" className=" mt-10 footerLogo h-40  flex flex-col items-center w-40"></a>
+              <a href="#top" className=" mt-10 footerLogo h-32  flex flex-col items-center w-40"></a>
             </div>
 
             <div className=" my-9 md:my-auto">
