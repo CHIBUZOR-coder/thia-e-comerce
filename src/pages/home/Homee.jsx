@@ -19,8 +19,8 @@ const Home = () => {
 
       <MoreProducts />
 
-      <div className=" mt-16 pt-5 footer w-full h-product2 md:max-h-first  bg-primary">
-        <div className="flex my-10 flex-col justify-center items-center w-full  text-center">
+      <div className=" mt-16 pt-5 flex flex-col gap-32 footer w-full h-product2 md:max-h-first  bg-primary">
+        <div className="flex  flex-col justify-center items-center w-full  text-center">
           <h2 className="font-semibold">Links</h2>
           <div className="flex w-full md:w-1/2 h-20 md:h-20 text-center justify-center flex-wrap  gap-5 gap-x-7 md:gap-0 md:gap-x-8 px-20">
             {/* <a className="w-4" href="/">Made to order </a>
@@ -46,12 +46,12 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full mt-28 md:mt-0  px-5 flex justify-center">
+        <div className="w-full mt-40 md:mt-0  px-5 flex justify-center">
           <div className="w-full flex flex-col md:flex-row items-center md:justify-center md:gap-x-80 md:items-center">
 
             <div className="  flex flex-col gap-1 w-1/2 justify-center md:items-start items-center">
               <h2 className="font-semibold">Our Adress</h2>
-              <p>
+              <p className="flex items-center justify-center">
                 No.42 Ogbaga Road, <br /> Abakaliki, Ebonyi State
               </p>
             </div>

@@ -124,7 +124,7 @@ import { useEffect } from "react";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
-   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -153,7 +153,6 @@ const Navbar = () => {
       window.removeEventListener("resize", updateScreenWidth);
     };
   }, []);
-
 
   return (
     <header className="max-w-screen-2xl xl:px-28 bg-white px-4 absolute top-0 left-0 right-0">
@@ -250,60 +249,72 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div>
+      <div className="">
         <ul
-          className={`bg-black text-white px-4 py-2 rounded ${
+          className={`bg-black relative flex justify-between  text-white px-4 py-2 rounded ${
             isMenuOpen && screenWidth < 760 ? "" : "hidden"
           }`}
         >
-          {NavItems.map(({ tittle }) => (
-            <li
-              key={tittle}
-              className="text-white hover:text-footerlinks transition ease-in-out duration-700 my-3 cursor-pointer w-20"
-            >
-              {/* Conditional rendering of span for "Shop All" */}
-              {tittle === "Shop All" ? (
-                <span className="relative flex   gap-1 w-24">
-                  {tittle}
-                  <span onClick={toggle2} className="text-red-500">
-                    {/* <IoIosArrowDown className="h-6 w-6 text-black" /> */}
+          <div className="">
+            {NavItems.map(({ tittle }) => (
+              <li
+                key={tittle}
+                className="text-white hover:text-footerlinks transition ease-in-out duration-700 my-3 cursor-pointer w-20"
+              >
+                {/* Conditional rendering of span for "Shop All" */}
+                {tittle === "Shop All" ? (
+                  <span className="relative flex   gap-1 w-24">
+                    {tittle}
+                    <span onClick={toggle2} className="text-red-500">
+                      {/* <IoIosArrowDown className="h-6 w-6 text-black" /> */}
 
-                    {isLinkOpen ? (
-                      <IoIosArrowUp className="h-6 w-6 text-white" />
-                    ) : (
-                      <IoIosArrowDown className="h-6 w-6 text-white" />
-                    )}
+                      {isLinkOpen ? (
+                        <IoIosArrowUp className="h-6 w-6 text-white" />
+                      ) : (
+                        <IoIosArrowDown className="h-6 w-6 text-white" />
+                      )}
+                    </span>
+                    <ul
+                      className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
+                        isLinkOpen ? "" : "hidden"
+                      }`}
+                    >
+                      <a className="decorate22" href="/">
+                        Ankara
+                      </a>
+                      <a className="decorate22" href="/">
+                        Ashoebi
+                      </a>
+                      <a className="decorate22" href="/">
+                        Coperate
+                      </a>
+                      <a className="decorate22" href="/">
+                        Kaftan
+                      </a>
+                      <a className="decorate22" href="/">
+                        Matching Set
+                      </a>
+                      <a className="decorate22" href="/">
+                        Kiddies
+                      </a>
+                    </ul>
                   </span>
-                  <ul
-                    className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
-                      isLinkOpen ? "" : "hidden"
-                    }`}
-                  >
-                    <a className="decorate22" href="/">
-                      Ankara
-                    </a>
-                    <a className="decorate22" href="/">
-                      Ashoebi
-                    </a>
-                    <a className="decorate22" href="/">
-                      Coperate
-                    </a>
-                    <a className="decorate22" href="/">
-                      Kaftan
-                    </a>
-                    <a className="decorate22" href="/">
-                      Matching Set
-                    </a>
-                    <a className="decorate22" href="/">
-                      Kiddies
-                    </a>
-                  </ul>
-                </span>
-              ) : (
-                <a href="/">{tittle}</a>
-              )}
-            </li>
-          ))}
+                ) : (
+                  <a href="/">{tittle}</a>
+                )}
+              </li>
+            ))}
+          </div>
+          <div className="text-lg flex h-1/2 text-white sm:flex gap-4 md:hidden ">
+            <a href="/" className="flex items-baseline">
+              <FaUser />
+              Account
+            </a>
+            <a href="/" className="flex items-baseline">
+              <FaShoppingBag />
+              Shop
+            </a>
+          </div>
         </ul>
       </div>
     </header>

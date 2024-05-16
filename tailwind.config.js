@@ -21,11 +21,11 @@ export default {
         big2: "580px",
         big3: "500px",
         product: "750px",
-        product2: "750px",
+        product2: "800px",
       },
 
       maxHeight: {
-        first: "430px",
+        first: "480px",
       },
     },
   },
