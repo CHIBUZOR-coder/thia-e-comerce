@@ -46,7 +46,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full mt-40 md:mt-0  px-5 flex justify-center">
+        <div className="w-full mt-32 md:mt-0  px-5 flex justify-center">
           <div className="w-full flex flex-col md:flex-row items-center md:justify-center md:gap-x-80 md:items-center">
 
             <div className="  flex flex-col gap-1 w-1/2 justify-center md:items-start items-center">
@@ -58,7 +58,7 @@ const Home = () => {
             
 
             <div className="flex   w-full justify-center items-center">
-              <a href="#top" className=" mt-10 footerLogo h-32  flex flex-col items-center w-40"></a>
+              <a href="#top" className=" mt-10 footerLogo h-40  flex flex-col items-center w-40"></a>
             </div>
 
             <div className=" my-9 md:my-auto">
