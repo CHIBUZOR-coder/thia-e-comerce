@@ -305,15 +305,22 @@ const Navbar = () => {
               </li>
             ))}
           </div>
-          <div className="text-lg flex h-1/2 text-white sm:flex gap-4 md:hidden ">
-            <a href="/" className="flex items-baseline">
-              <FaUser />
-              Account
-            </a>
-            <a href="/" className="flex items-baseline">
-              <FaShoppingBag />
-              Shop
-            </a>
+
+          <div>
+            <div className="text-lg flex h-1/2.5 text-white sm:flex gap-4 md:hidden ">
+              <a href="/" className="flex items-baseline">
+                <FaUser />
+                Account
+              </a>
+              <a href="/" className="flex items-baseline">
+                <FaShoppingBag />
+                Shop
+              </a>
+            </div>
+
+            <div className="flex justify-end mt-3">
+              <FaSearch className="text-white w-5 h-5 cursor-pointer  md:hidden" />
+            </div>
           </div>
         </ul>
       </div>
