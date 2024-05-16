@@ -119,10 +119,12 @@ import {
 } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
+   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -139,7 +141,19 @@ const Navbar = () => {
     { tittle: "Shop All", path: "", id: "7" },
   ];
 
-  //
+  useEffect(() => {
+    // Function to update screen width on window resize
+    const updateScreenWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", updateScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateScreenWidth);
+    };
+  }, []);
+
 
   return (
     <header className="max-w-screen-2xl xl:px-28 bg-white px-4 absolute top-0 left-0 right-0">
@@ -239,7 +253,7 @@ const Navbar = () => {
       <div>
         <ul
           className={`bg-black text-white px-4 py-2 rounded ${
-            isMenuOpen ? "" : "hidden"
+            isMenuOpen && screenWidth < 769 ? "" : "hidden"
           }`}
         >
           {NavItems.map(({ tittle }) => (
@@ -262,7 +276,7 @@ const Navbar = () => {
                   </span>
                   <ul
                     className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
-                      isLinkOpen ? "" : "hidden"
+                      isLinkOpen && screen < 760 ? "" : "hidden"
                     }`}
                   >
                     <a className="decorate22" href="/">
