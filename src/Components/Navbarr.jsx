@@ -253,7 +253,7 @@ const Navbar = () => {
       <div>
         <ul
           className={`bg-black text-white px-4 py-2 rounded ${
-            isMenuOpen && screenWidth < 769 ? "" : "hidden"
+            isMenuOpen && screenWidth < 760 ? "" : "hidden"
           }`}
         >
           {NavItems.map(({ tittle }) => (
@@ -276,7 +276,7 @@ const Navbar = () => {
                   </span>
                   <ul
                     className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
-                      isLinkOpen && screen < 760 ? "" : "hidden"
+                      isLinkOpen ? "" : "hidden"
                     }`}
                   >
                     <a className="decorate22" href="/">
