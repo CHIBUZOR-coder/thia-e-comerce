@@ -4,12 +4,12 @@ import Category from "./ChangeFunction/Categoryy";
 import Allslides from "./All/Allslides";
 import MoreProducts from "./MoreProducts";
 import Footer from "./Footer";
-import Navbar from "../../Components/Navbarr";
+
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+    
       <div>
         <Banner />
       </div>

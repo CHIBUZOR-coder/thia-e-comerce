@@ -1,10 +1,10 @@
-import Navbar from "../../Components/Navbarr";
+
 
 const Aboutt = () => {
   return (
     <div className=" ">
-      <Navbar />
-      <div>Service page: IMported Navbar <br /> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem, vitae.</div>
+    
+      Service 
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import Navbar from "../Components/Navbarr";
+
 
 const showAll = () => {
   return (
