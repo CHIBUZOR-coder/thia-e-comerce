@@ -25,7 +25,7 @@ const Navbar = () => {
   const NavItems = [
     { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
     { tittle: "About", path: "/thia-e-comerce/About", id: "2" },
-    { tittle: "Services", path: "/thia-e-comerce/ghgh", id: "3" },
+    { tittle: "Services", path: "/thia-e-comerce/Service", id: "3" },
     { tittle: "Reviews", path: "/thia-e-comerce/Reviews", id: "4" },
     { tittle: "Contact", path: "/thia-e-comerce/Contact", id: "5" },
     { tittle: "Hot Sales", path: "/thia-e-comerce/HotSales", id: "6" },
@@ -117,28 +117,28 @@ const Navbar = () => {
                       isLinkOpen ? "" : "hidden"
                     }`}
                   >
-                    <a className="decorate2" href="/">
+                    <Link className="decorate2" to="/">
                       Ankara
-                    </a>
-                    <a className="decorate2" href="/">
+                    </Link>
+                    <Link className="decorate2" to="/">
                       Ashoebi
-                    </a>
-                    <a className="decorate2" href="/">
+                    </Link>
+                    <Link className="decorate2" to="/">
                       Coperate
-                    </a>
-                    <a className="decorate2" href="/">
+                    </Link>
+                    <Link className="decorate2" to="/">
                       Kaftan
-                    </a>
-                    <a className="decorate2" href="/">
+                    </Link>
+                    <Link className="decorate2" to="/">
                       Matching Set
-                    </a>
-                    <a className="decorate2" href="/">
+                    </Link>
+                    <Link className="decorate2" to="/">
                       Kiddies
-                    </a>
+                    </Link>
                   </ul>
                 </span>
               ) : (
-                <a href={`${path}`}>{tittle}</a>
+                <Link to={`${path}`}>{tittle}</Link>
               )}
             </li>
           ))}
@@ -177,28 +177,28 @@ const Navbar = () => {
                         isLinkOpen ? "" : "hidden"
                       }`}
                     >
-                      <a className="decorate22" href="/">
+                      <Link className="decorate22" to="/">
                         Ankara
-                      </a>
-                      <a className="decorate22" href="/">
+                      </Link>
+                      <Link className="decorate22" to="/">
                         Ashoebi
-                      </a>
-                      <a className="decorate22" href="/">
+                      </Link>
+                      <Link className="decorate22" to="/">
                         Coperate
-                      </a>
-                      <a className="decorate22" href="/">
+                      </Link>
+                      <Link className="decorate22" to="/">
                         Kaftan
-                      </a>
-                      <a className="decorate22" href="/">
+                      </Link>
+                      <Link className="decorate22" to="/">
                         Matching Set
-                      </a>
-                      <a className="decorate22" href="/">
+                      </Link>
+                      <Link className="decorate22" to="/">
                         Kiddies
-                      </a>
+                      </Link>
                     </ul>
                   </span>
                 ) : (
-                  <a href={path}>{tittle}</a>
+                  <Link to={path}>{tittle}</Link>
                 )}
               </li>
             ))}
