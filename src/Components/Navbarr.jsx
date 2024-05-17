@@ -92,7 +92,7 @@ const Navbar = () => {
       <hr />
 
       {/* Big Screen */}
-      <div className="pt-4">
+      <div className="pt-4 hidden md:block ">
         <ul className="md:flex items-center justify-between font-semibold text-black hidden gap-4">
           {NavItems.map(({ tittle, path }) => (
             <li
@@ -138,11 +138,12 @@ const Navbar = () => {
                   </ul>
                 </span>
               ) : (
-                <a  href={`${path}`}>{tittle}</a>
+                <a href={`${path}`}>{tittle}</a>
               )}
             </li>
           ))}
         </ul>
+        
       </div>
 
       {/* Mobile menu */}
@@ -226,3 +227,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
