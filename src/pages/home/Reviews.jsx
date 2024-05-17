@@ -1,12 +1,6 @@
 
-
 const Reviews = () => {
-  return (
-    <div>
-    
-      Prviews
-    </div>
-  );
+  return <div>Review Page: Loading...</div>;
 };
 
 export default Reviews;

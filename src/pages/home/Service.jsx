@@ -1,10 +1,8 @@
-
-
 const Aboutt = () => {
   return (
     <div className=" ">
     
-      Service 
+      Service Page: Loading...
     </div>
   );
 };
