@@ -4,7 +4,12 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home/Homee.jsx";
-
+import About from "./pages/home/About.jsx";
+import Service from "./pages/home/Ghgh.jsx";
+import Reviews from "./pages/home/Reviews.jsx";
+import Contact from "./pages/home/Contact.jsx";
+import HotSales from "./pages/home/HotSales.jsx";
+import Aboutt from "./pages/home/Ghgh.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +19,31 @@ const router = createBrowserRouter([
       {
         path: "/thia-e-comerce/",
         element: <Home />,
+      },
+
+      {
+        path: "/thia-e-comerce/About",
+        element: <About />,
+      },
+
+      {
+        path: "/thia-e-comerce/Contact",
+        element: <Contact />,
+      },
+
+      {
+        path: "/thia-e-comerce/ghgh",
+        element: <Aboutt />,
+      },
+
+      {
+        path: "/thia-e-comerce/Reviews",
+        element: <Reviews />,
+      },
+
+      {
+        path: "/thia-e-comerce/HotSales",
+        element: <HotSales />,
       },
     ],
   },

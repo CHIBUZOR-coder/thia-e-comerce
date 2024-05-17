@@ -1,113 +1,4 @@
-// import {
-//   FaBars,
-//   FaSearch,
-//   FaShoppingBag,
-//   FaTimes,
-//   FaUser,
-// } from "react-icons/fa";
-// // import logo from "../../public/logo.png";
-// // import logo99bb from "../public/images/logo9.png";
-// import { list } from "postcss";
-// import { useState } from "react";
 
-// const Navbar = () => {
-//   const [IsmenuOpen, SetIsmenuOpen] = useState(false);
-//   const toggle = () => {
-//     SetIsmenuOpen(!IsmenuOpen);
-//   };
-//   const NavItems = [
-//     { tittle: "Home", path: "", id: "1" },
-//     { tittle: "About", path: "", id: "2" },
-//     { tittle: "Services", path: "", id: "3" },
-//     { tittle: "Reviews", path: "", id: "4" },
-//     { tittle: "Contact", path: "", id: "5" },
-//     { tittle: " Hot Sales ", path: "", id: "6" },
-//     { tittle: "Shop All", path: "", id: "7" },
-//   ];
-
-//   let showAll = NavItems[3];
-
-//   console.log(showAll);
-//   return (
-//     <header className="max-w-screen-2xl xl:px-28 bg-white px-4 absolute top-0 left-0 right-0">
-//       <nav className="flex justify-between container md:py-4 py-4">
-//         {/* ************************ */}
-//         {/* search Bar */}
-//         <FaSearch className="text-blackk w-5 h-5 cursor-pointer hidden md:block" />
-//         {/* ************************ */}
-//         {/* logo */}
-//         <a
-//           className=""
-//           style={{ display: "inline-block", width: "fit-content" }}
-//           href="/"
-//         >
-//           {" "}
-//           <div className="logo bg-slate-500  h-24 w-24"></div>
-//         </a>
-//         {/* ************************ */}
-//         {/* Account & User */}
-//         <div className="text-lg text-blackk sm:flex gap-4 hidden">
-//           <a href="/" className="flex items-baseline ">
-//             <FaUser />
-//             Account
-//           </a>
-//           <a href="/" className="flex items-baseline ">
-//             <FaShoppingBag />
-//             Shop
-//           </a>
-//         </div>
-//         {/* ************************ */}
-//         {/* Navbar toogler for sm devices */}
-//         <div className="md:hidden block">
-//           <button onClick={toggle}>
-//             {IsmenuOpen ? (
-//               <FaTimes className=" h-6 w-6 text-blackk" />
-//             ) : (
-//               <FaBars className=" h-6 w-6 text-blackk" />
-//             )}
-//           </button>
-//         </div>
-//         {/* ************************ */}
-//       </nav>
-//       <hr />
-
-//       {/* Big Screen */}
-//       <div className="pt-4">
-//         <ul className="md:flex items-center justify-between font-semibold text-blackk hidden gap-4">
-//           {NavItems.map(({ tittle }) => (
-//             <li
-//               key={tittle}
-//               className=" decorate no-underline hover:underline text-footerlinks hover:text-black transition ease-in-out duration-700"
-//             >
-//               <a href="/">{tittle}</a>
-//             </li>
-//           ))}
-//         </ul>
-
-//       </div>
-
-//       {/* Mobile menu  */}
-//       <div>
-//         <ul
-//           className={`bg-black text-white px-4 py-2 rounded ${
-//             IsmenuOpen ? "" : "hidden"
-//           } `}
-//         >
-//           {NavItems.map(({ tittle }) => (
-//             <li
-//               key={tittle}
-//               className=" text-footerlinks hover:text-black transition ease-in-out duration-700 my-3 cursor-pointer w-8"
-//             >
-//               <a href="/">{tittle}</a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
 
 // Inside your Navbar component
 import {
@@ -120,7 +11,7 @@ import {
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
@@ -132,13 +23,13 @@ const Navbar = () => {
     setIsLinkOpen(!isLinkOpen);
   };
   const NavItems = [
-    { tittle: "Home", path: "", id: "1" },
-    { tittle: "About", path: "", id: "2" },
-    { tittle: "Services", path: "", id: "3" },
-    { tittle: "Reviews", path: "", id: "4" },
-    { tittle: "Contact", path: "", id: "5" },
-    { tittle: "Hot Sales", path: "", id: "6" },
-    { tittle: "Shop All", path: "", id: "7" },
+    { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
+    { tittle: "About", path: "/thia-e-comerce/About", id: "2" },
+    { tittle: "Services", path: "/thia-e-comerce/ghgh", id: "3" },
+    { tittle: "Reviews", path: "/thia-e-comerce/Reviews", id: "4" },
+    { tittle: "Contact", path: "/thia-e-comerce/Contact", id: "5" },
+    { tittle: "Hot Sales", path: "/thia-e-comerce/HotSales", id: "6" },
+    { tittle: "Shop All", path: "/", id: "7" },
   ];
 
   useEffect(() => {
@@ -154,8 +45,14 @@ const Navbar = () => {
     };
   }, []);
 
+  console.log("hi")
+  
+
+
+
+
   return (
-    <header className="max-w-screen-2xl xl:px-28 bg-white px-4 absolute top-0 left-0 right-0">
+    <header className=" xl:px-28 bg-white px-4  top-0 left-0 right-0">
       <nav className="flex justify-between container md:py-4 py-4">
         {/* Search Bar */}
         <FaSearch className="text-black w-5 h-5 cursor-pointer hidden md:block" />
@@ -164,18 +61,18 @@ const Navbar = () => {
         <a
           className=""
           style={{ display: "inline-block", width: "fit-content" }}
-          href="/"
+          href="/thia-e-comerce/Home"
         >
           <div className="logo bg-slate-500 h-24 w-24"></div>
         </a>
 
         {/* Account & User */}
-        <div className="text-lg text-black sm:flex gap-4 hidden">
-          <a href="/" className="flex items-baseline">
+        <div className="text-lg text-black md:flex gap-4 hidden">
+          <a href="/thia-e-comerce/Home" className="flex items-baseline">
             <FaUser />
             Account
           </a>
-          <a href="/" className="flex items-baseline">
+          <a href="/thia-e-comerce/Home" className="flex items-baseline">
             <FaShoppingBag />
             Shop
           </a>
@@ -197,7 +94,7 @@ const Navbar = () => {
       {/* Big Screen */}
       <div className="pt-4">
         <ul className="md:flex items-center justify-between font-semibold text-black hidden gap-4">
-          {NavItems.map(({ tittle }) => (
+          {NavItems.map(({ tittle, path }) => (
             <li
               key={tittle}
               className="decorate no-underline hover:underline text-footerlinks hover:text-black transition ease-in-out duration-700"
@@ -241,7 +138,7 @@ const Navbar = () => {
                   </ul>
                 </span>
               ) : (
-                <a href="/">{tittle}</a>
+                <a  href={`${path}`}>{tittle}</a>
               )}
             </li>
           ))}
@@ -249,14 +146,14 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className="">
+      <div className=" md:hidden block">
         <ul
           className={`bg-black relative flex justify-between  text-white px-4 py-2 rounded ${
             isMenuOpen && screenWidth < 760 ? "" : "hidden"
           }`}
         >
           <div className="">
-            {NavItems.map(({ tittle }) => (
+            {NavItems.map(({ tittle, path }) => (
               <li
                 key={tittle}
                 className="text-white hover:text-footerlinks transition ease-in-out duration-700 my-3 cursor-pointer w-20"
@@ -300,7 +197,7 @@ const Navbar = () => {
                     </ul>
                   </span>
                 ) : (
-                  <a href="/">{tittle}</a>
+                  <a href={path}>{tittle}</a>
                 )}
               </li>
             ))}

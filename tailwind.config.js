@@ -27,7 +27,7 @@ export default {
         our: "400px",
       },
       maxHeight: {
-        first: "480px",
+        first: "440px",
       },
     },
   },

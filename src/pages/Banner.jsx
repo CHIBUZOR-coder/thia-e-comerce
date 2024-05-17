@@ -2,7 +2,7 @@ import { FaShoppingBag } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <div className="bg-primary max-w-screen-2xl   pt-20  md:pt-36 xl:px-28 px-4">
+    <div  className="bg-primary   pt-20  md:pt-8 xl:px-28 px-4">
       <div className="py-28 flex flex-col md:flex-row justify-between items-center gap-14 ">
         <div className="md:w-1/2">
           <h1 className="text-5xl font-light">Collections</h1>
