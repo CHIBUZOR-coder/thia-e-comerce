@@ -131,3 +131,12 @@
 .footerLogo{
     background: url(/public/images/fotter-modified.png) center center/ cover;
 }
+
+
+.pics1{
+    background: url(/public/images/product.jpg) center center/ cover;
+}
+
+.pics2 {
+    background: url(/public/images/prdde.jpg) center center/ cover;
+}

@@ -22,6 +22,16 @@ export default {
         big3: "500px",
         product: "750px",
         product2: "800px",
+        pics: "450px",
+        product3: "1000px",
+        big4: "1000px",
+      },
+
+      right: {
+        primary: "30px",
+      },
+      left: {
+        primary: "30px",
       },
       width: {
         our: "400px",
