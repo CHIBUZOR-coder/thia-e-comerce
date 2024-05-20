@@ -1,5 +1,3 @@
-
-
 // Inside your Navbar component
 import {
   FaBars,
@@ -45,11 +43,7 @@ const Navbar = () => {
     };
   }, []);
 
-  console.log("hi")
-  
-
-
-
+  console.log("hi");
 
   return (
     <header className=" xl:px-28 bg-white px-4  top-0 left-0 right-0">
@@ -113,7 +107,7 @@ const Navbar = () => {
                     )}
                   </span>
                   <ul
-                    className={`bg-primary2 absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
+                    className={`bg-primary2 absolute subnav top-6 flex flex-col justify-center w-36 gap-2 z-20  px-4 py-5 transition ease-in-out duration-700    ${
                       isLinkOpen ? "" : "hidden"
                     }`}
                   >
@@ -143,7 +137,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        
       </div>
 
       {/* Mobile menu */}
@@ -227,4 +220,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

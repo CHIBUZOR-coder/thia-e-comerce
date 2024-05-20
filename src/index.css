@@ -78,7 +78,7 @@
     background: url(/public/images/stylish.jpg)center center/ cover;
 }
 
-.leftProduct{
+.leftProduct {
     background-color: rgb(255, 185, 72);
 }
 
@@ -113,30 +113,62 @@
 }
 
 
-.udtext{
+.udtext {
     @apply text-2xl
 }
-.udtext{
+
+.udtext {
     text-decoration-color: white;
     transition: ease-in-out 1sec;
-    &&:hover{
+
+    &&:hover {
         text-decoration: none;
     }
 }
 
-.thiaLogo{
+.thiaLogo {
     background: url(/public/images/logo4.png) center center/ cover;
 }
 
-.footerLogo{
+.footerLogo {
     background: url(/public/images/fotter-modified.png) center center/ cover;
 }
 
 
-.pics1{
+.pics1 {
     background: url(/public/images/product.jpg) center center/ cover;
 }
 
 .pics2 {
     background: url(/public/images/prdde.jpg) center center/ cover;
 }
+
+.talor1 {
+    background: url(/public/images/talor1.jpg) center center/ cover;
+}
+
+.talor2 {
+    background: url(/public/images/talor2.jpg) center center/ cover;
+}
+
+.talor3 {
+    background: url(/public/images/talor3.jpg) center center/ cover;
+}
+
+
+.talor4 {
+    background: url(/public/images/talor4.jpg) center center/ cover;
+}
+.talor5 {
+    background: url(/public/images/talor5.jpg) center center/ cover;
+}
+
+.tal{
+    @apply rounded-sm 
+}
+
+
+
+
+
+

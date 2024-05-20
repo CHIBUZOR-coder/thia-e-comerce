@@ -23,8 +23,11 @@ export default {
         product: "750px",
         product2: "800px",
         pics: "450px",
-        product3: "1000px",
-        big4: "1000px",
+        product3: "600px",
+        big4: "1100px",
+        ppic: "1000px",
+        ppic2: "800px",
+        pic5: "2500px",
       },
 
       right: {
@@ -38,6 +41,10 @@ export default {
       },
       maxHeight: {
         first: "440px",
+      },
+
+      minHeight: {
+        primary: "520px",
       },
     },
   },
