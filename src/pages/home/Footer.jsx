@@ -33,7 +33,7 @@ const Footer = () => {
 
         <div className="w-full mt-32 md:-mt-10   flex justify-center">
           <div className="w-full flex flex-col md:flex-row items-center  justify-center  lg:gap-x-80 md:items-center">
-            <div className="  flex flex-col gap-1 lg:w-our justify-center md:items-start items-center">
+            <div className="  flex flex-col gap-1  lg:w-our justify-center md:items-start items-center">
               <h2 className="font-semibold">Our Adress</h2>
               <p className="flex items-center justify-center">
                 No.42 Ogbaga Road, <br /> Abakaliki, Ebonyi State
@@ -41,8 +41,8 @@ const Footer = () => {
             </div>
             <div className="flex   w-full justify-center items-center">
               <a
-                href="/"
-                className=" mt-10 footerLogo h-40  flex flex-col items-center w-40"
+                href="/thia-e-comerce/"
+                className=" mt-10 footerLogo h-32  flex flex-col items-center w-32"
               ></a>
             </div>
             <div className=" my-9 md:my-auto">

@@ -19,10 +19,10 @@ const MoreProducts = () => {
               </p>
               <h2 className="py-1">Read more about it</h2>
               <div className="flex flex-col">
-                <a className="py-1 udtext underline" href="/">
+                <a className="py-1 udtext text-2xl underline" href="/">
                   Made to order
                 </a>
-                <a className="py-1 udtext  underline" href="/">
+                <a className="py-1 udtext text-2xl underline" href="/">
                   Altreations
                 </a>
               </div>

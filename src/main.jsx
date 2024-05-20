@@ -5,11 +5,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home/Homee.jsx";
 import About from "./pages/home/About.jsx";
-import Service from "./pages/home/Service.jsx";
+
 import Reviews from "./pages/home/Reviews.jsx";
 import Contact from "./pages/home/Contact.jsx";
-import HotSales from "./pages/home/HotSales.jsx";
-
+import Custom from "./pages/home/Custom.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,10 +30,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
 
-      {
-        path: "/thia-e-comerce/Service",
-        element: <Service />,
-      },
+     
 
       {
         path: "/thia-e-comerce/Reviews",
@@ -42,8 +38,8 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/thia-e-comerce/HotSales",
-        element: <HotSales />,
+        path: "/thia-e-comerce/Custom",
+        element: <Custom  />,
       },
     ],
   },

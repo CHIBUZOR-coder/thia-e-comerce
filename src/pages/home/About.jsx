@@ -3,8 +3,8 @@ import Footer from "./Footer";
 const About = () => {
   return (
     <div>
-      <div className=" xl:px-28 px-5">
-        <div className="flex flex-col md:min-h-primary my-10  md:flex-row w-full justify-center items-center md:items-start">
+      <div className=" ">
+        <div className="flex  xl:px-28 px-4 bg-primary  flex-col md:min-h-primary py-10  md:flex-row w-full justify-center items-center md:items-start">
           <div className="md:w-1/2 w-full">
             <div>
               <h2 className="text-xl font-semibold my-2 capitalize">
@@ -48,7 +48,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 w-full h-pic5 md:h-ppic my-10">
+        <div className="xl:px-28 px-4 grid grid-cols-1 md:grid-cols-2  gap-4 w-full h-pic5 md:h-ppic my-10">
           <div className=" row-span-1 h-20  ">
             <p className=" pta ">
               In the production of outerwear, it's like the shining star of one
@@ -82,23 +82,24 @@ const About = () => {
 
         <div className="flex justify-center items-center w-full">
           <p className="text-center lowercase">
-            <span className="uppercase"> R</span>INOMATA PER LA SUA ALTA SPECIALIZZAZIONE NELLA
-            PRODUZIONE DEL CAPOSPALLA, RAPPRESENTA IL FIORE ALL’OCCHIELLO DI UNO
-            DEI POLI MANIFATTURIERI DEL TERRITORIO MARCHIGIANO. LA FORZA DEL
-            GRUPPO RISIEDE NEL MIX SAPIENTE FRA ARTIGIANALITÀ, MANUFATTO E
-            TRADIZIONE CHE SI SPOSANO CON L’INNOVAZIONE, LA RICERCA E IL DESIGN.
-            RENOWNED FOR ITS HIGH SPECIALIZATION IN THE PRODUCTION OF OUTERWEAR,
-            IT REPRESENTS THE FLAGSHIP OF ONE OF THE MANUFACTURING CENTERS IN
-            THE MARCHE REGION. THE STRENGTH OF THE GROUP LIES IN THE SKILFUL MIX
-            OF CRAFTSMANSHIP, ARTEFACTS AND TRADITION WHICH ARE COMBINED WITH
-            INNOVATION, RESEARCH AND DESIGN. IL FORTE CARATTERE ITALIANO CHE LA
-            CONTRADDISTINGUONO NELL'AMBITO DELLA PRODUZIONE E DELLA CREATIVITÀ,
-            NON HA IMPEDITO ALLA MANIFATTURA PAOLONI DI SVILUPPARE UN'EFFICACE
-            VOCAZIONE INTERNAZIONALE IN TERMINI DISTRIBUTIVI E DI MARKETING. THE
-            STRONG ITALIAN CHARACTER THAT DISTINGUISHES IT IN THE FIELD OF
-            PRODUCTION AND CREATIVITY HAS NOT PREVENTED MANIFATTURA PAOLONI FROM
-            DEVELOPING AN EFFECTIVE INTERNATIONAL VOCATION IN TERMS OF
-            DISTRIBUTION AND MARKETING.
+            <span className="uppercase"> R</span>INOMATA PER LA SUA ALTA
+            SPECIALIZZAZIONE NELLA PRODUZIONE DEL CAPOSPALLA, RAPPRESENTA IL
+            FIORE ALL’OCCHIELLO DI UNO DEI POLI MANIFATTURIERI DEL TERRITORIO
+            MARCHIGIANO. LA FORZA DEL GRUPPO RISIEDE NEL MIX SAPIENTE FRA
+            ARTIGIANALITÀ, MANUFATTO E TRADIZIONE CHE SI SPOSANO CON
+            L’INNOVAZIONE, LA RICERCA E IL DESIGN. RENOWNED FOR ITS HIGH
+            SPECIALIZATION IN THE PRODUCTION OF OUTERWEAR, IT REPRESENTS THE
+            FLAGSHIP OF ONE OF THE MANUFACTURING CENTERS IN THE MARCHE REGION.
+            THE STRENGTH OF THE GROUP LIES IN THE SKILFUL MIX OF CRAFTSMANSHIP,
+            ARTEFACTS AND TRADITION WHICH ARE COMBINED WITH INNOVATION, RESEARCH
+            AND DESIGN. IL FORTE CARATTERE ITALIANO CHE LA CONTRADDISTINGUONO
+            NELL'AMBITO DELLA PRODUZIONE E DELLA CREATIVITÀ, NON HA IMPEDITO
+            ALLA MANIFATTURA PAOLONI DI SVILUPPARE UN'EFFICACE VOCAZIONE
+            INTERNAZIONALE IN TERMINI DISTRIBUTIVI E DI MARKETING. THE STRONG
+            ITALIAN CHARACTER THAT DISTINGUISHES IT IN THE FIELD OF PRODUCTION
+            AND CREATIVITY HAS NOT PREVENTED MANIFATTURA PAOLONI FROM DEVELOPING
+            AN EFFECTIVE INTERNATIONAL VOCATION IN TERMS OF DISTRIBUTION AND
+            MARKETING.
           </p>
         </div>
       </div>

@@ -112,9 +112,8 @@
     }
 }
 
-
-.udtext {
-    @apply text-2xl
+.altr{
+    text-decoration-color:black !important;
 }
 
 .udtext {
@@ -168,7 +167,9 @@
 }
 
 
-
+.customm{
+    background: url(/public/images/customm.jpg) center center/ cover;
+}
 
 
 

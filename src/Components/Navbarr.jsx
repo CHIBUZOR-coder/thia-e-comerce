@@ -23,10 +23,10 @@ const Navbar = () => {
   const NavItems = [
     { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
     { tittle: "About", path: "/thia-e-comerce/About", id: "2" },
-    { tittle: "Services", path: "/thia-e-comerce/Service", id: "3" },
+
     { tittle: "Reviews", path: "/thia-e-comerce/Reviews", id: "4" },
     { tittle: "Contact", path: "/thia-e-comerce/Contact", id: "5" },
-    { tittle: "Hot Sales", path: "/thia-e-comerce/HotSales", id: "6" },
+    { tittle: "Custom Fit", path: "/thia-e-comerce/Custom", id: "6" },
     { tittle: "Shop All", path: "/", id: "7" },
   ];
 

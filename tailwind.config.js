@@ -28,6 +28,7 @@ export default {
         ppic: "1000px",
         ppic2: "800px",
         pic5: "2500px",
+        custom: "600px",
       },
 
       right: {
@@ -37,14 +38,14 @@ export default {
         primary: "30px",
       },
       width: {
-        our: "400px",
+        our: "500px",
       },
       maxHeight: {
         first: "440px",
       },
 
       minHeight: {
-        primary: "520px",
+        primary: "620px",
       },
     },
   },
