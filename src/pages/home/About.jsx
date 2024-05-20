@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div>
       <div className=" ">
-        <div className="flex  xl:px-28 px-4 bg-primary  flex-col md:min-h-primary py-10  md:flex-row w-full justify-center items-center md:items-start">
+        <div className="flex  md:px-28 px-4 bg-primary  flex-col md:min-h-primary py-10  md:flex-row w-full justify-center items-center md:items-start">
           <div className="md:w-1/2 w-full">
             <div>
               <h2 className="text-xl font-semibold my-2 capitalize">
@@ -48,7 +48,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="xl:px-28 px-4 grid grid-cols-1 md:grid-cols-2  gap-4 w-full h-pic5 md:h-ppic my-10">
+        <div className="md:px-28 px-4 grid grid-cols-1 md:grid-cols-2  gap-4 w-full h-pic5 md:h-ppic my-10">
           <div className=" row-span-1 h-20  ">
             <p className=" pta ">
               In the production of outerwear, it's like the shining star of one
@@ -80,7 +80,7 @@ const About = () => {
           <div className="talor4 tal row-span-1"></div>
         </div>
 
-        <div className="flex justify-center items-center w-full">
+        <div className="md:px-28 px-4 flex justify-center items-center w-full">
           <p className="text-center lowercase">
             <span className="uppercase"> R</span>INOMATA PER LA SUA ALTA
             SPECIALIZZAZIONE NELLA PRODUZIONE DEL CAPOSPALLA, RAPPRESENTA IL

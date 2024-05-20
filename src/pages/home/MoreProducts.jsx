@@ -1,6 +1,6 @@
 const MoreProducts = () => {
   return (
-    <div className="py-4 md:mt-auto mt-10 flex flex-col  xl:px-28 px-4">
+    <div className="py-4 md:mt-auto mt-10 flex flex-col  md:px-28 px-4">
       <h1 className="tittle">Made to offer</h1>
       {/* product card */}
       <div className="flex flex-col justify-center items-center">

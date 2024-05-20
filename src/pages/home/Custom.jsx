@@ -3,7 +3,7 @@ import Footer from "./Footer";
 const Custom = () => {
   return (
     <div className=" ">
-      <div className="flex flex-col xl:px-28 px-4 bg-primary items-start  py-10">
+      <div className="flex flex-col md:px-28 px-4 bg-primary items-start  py-10">
         <div>
           <p className=" text-4xl my-4 font-semibold capitalize">
             Order Your Ideal Fit
@@ -38,7 +38,7 @@ const Custom = () => {
         </div>
       </div>
 
-      <div className="xl:px-28 px-4 w-full">
+      <div className="md:px-28 px-4 w-full">
         <div className="customm w-full h-custom rounded-sm my-10"></div>
       </div>
 

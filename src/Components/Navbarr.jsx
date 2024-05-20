@@ -46,7 +46,7 @@ const Navbar = () => {
   console.log("hi");
 
   return (
-    <header className=" xl:px-28 bg-white px-4  top-0 left-0 right-0">
+    <header className=" md:px-28 bg-white px-4  top-0 left-0 right-0">
       <nav className="flex justify-between container md:py-4 py-4">
         {/* Search Bar */}
         <FaSearch className="text-black w-5 h-5 cursor-pointer hidden md:block" />
