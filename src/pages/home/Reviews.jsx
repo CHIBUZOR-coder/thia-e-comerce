@@ -1,148 +1,237 @@
-import React, { useEffect, useState } from "react";
+// import React from "react";
+// import PropTypes from "prop-types";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import useFetch from "./Usefetch";
+// import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+// import Footer from "./Footer";
+// const CustomPrevArrow = ({ onClick }) => {
+//   return (
+//     <div
+//       className="fixed top-1/2 transform rev -translate-y-1/2 left-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+//       onClick={onClick}
+//     >
+//       <IoIosArrowDropleft className="w-6 h-6 text-black" />
+//     </div>
+//   );
+// };
+
+// CustomPrevArrow.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
+
+// const CustomNextArrow = ({ onClick }) => {
+//   return (
+//     <div
+//       className="fixed top-1/2 transform rev -translate-y-1/2 right-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+//       onClick={onClick}
+//     >
+//       <IoIosArrowDropright className="w-6 h-6 text-black" />
+//     </div>
+//   );
+// };
+
+// CustomNextArrow.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
+
+// const Reviews = () => {
+//   const {
+//     data: reviews,
+//     isLoading,
+//     error,
+//   } = useFetch("http://localhost:8000/Clients");
+
+//   const settings = {
+//     dots: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     autoplaySpeed: 5000,
+//     prevArrow: <CustomPrevArrow />,
+//     nextArrow: <CustomNextArrow />,
+//     responsive: [
+//       {
+//         breakpoint: 1000,
+//         settings: {
+//           slidesToShow: 2,
+//         },
+//       },
+//       {
+//         breakpoint: 500,
+//         settings: {
+//           slidesToShow: 1,
+//         },
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div className="relative">
+//       {isLoading ? (
+//         <div>Loading reviews...</div>
+//       ) : error ? (
+//         <div>Error: {error}</div>
+//       ) : (
+//         <Slider {...settings}>
+//           {reviews?.map((review) => (
+//             <div
+//               key={review._id}
+//               className="relative bg-gray-100 h-[450px] rounded-md shadow-md"
+//             >
+//               <div className="h-[200px] flex justify-center items-center p-2 mt-4 w-full bg-blue-400">
+//                 <img
+//                   className="cursor-pointer z-10 rounded-full h-44 w-44"
+//                   src={`./RiviewImage/${review.image}.jpg`}
+//                   alt="client image"
+//                 />
+//               </div>
+//               <div className="mt-12 px-3">
+//                 <p className="mt-2 flex justify-center items-center font-semibold">
+//                   {review.name}, <br />
+//                 </p>
+//                 <p className="mt-2 flex justify-center items-center font-semibold">
+//                   {review.location}
+//                 </p>
+//                 <p className="italic flex justify-center items-center pl-3">
+//                   {review.text}
+//                 </p>
+//               </div>
+//             </div>
+//           ))}
+//         </Slider>
+//       )}
+//       <div className="w-full flex justify-center items-center">
+//         <div className="revLogo w-1/2 h-56 rounded-sm shadow-lg"></div>{" "}
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// };
+
+// export default Reviews;
+
+import React from "react";
+import PropTypes from "prop-types";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import useFetch from "./Usefetch";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import Footer from "./Footer";
+
+const CustomPrevArrow = ({ onClick }) => {
+  return (
+    <div
+      className="absolute top-28 rev transform -translate-y-1/2 left-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+      onClick={onClick}
+    >
+      <IoIosArrowDropleft className="w-6 h-6 text-black" />
+    </div>
+  );
+};
+
+CustomPrevArrow.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+const CustomNextArrow = ({ onClick }) => {
+  return (
+    <div
+      className="absolute top-28 rev transform -translate-y-1/2 right-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+      onClick={onClick}
+    >
+      <IoIosArrowDropright className="w-6 h-6 text-black" />
+    </div>
+  );
+};
+
+CustomNextArrow.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({
-    name: "",
-    location: "",
-    text: "",
-  });
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/reviews");
-      const data = await response.json();
-      setReviews(data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching reviews:", error);
-      setLoading(false);
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/api/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        fetchReviews();
-        setFormData({
-          name: "",
-          location: "",
-          text: "",
-        });
-      } else {
-        console.error("Error submitting review:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error submitting review:", error);
-    }
-  };
+  const {
+    data: reviews,
+    isLoading,
+    error,
+  } = useFetch("http://localhost:8000/Clients");
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="container  bg-slate-600 w-full mx-auto p-4">
-      <div className=" bg-primary w-full">
-        <div className="xl:px-28 px-4 flex flex-col justify-center items-center  ">
-          <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
-
-          <form onSubmit={handleSubmit} className="mb-8 w-1/2">
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Location
-              </label>
-              <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Review
-              </label>
-              <textarea
-                name="text"
-                value={formData.text}
-                onChange={handleChange}
-                required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Submit Review
-            </button>
-          </form>
-        </div>
+    <div className="relative ">
+      <div className=" bg-primary px-2 py-10 mb-10 ">
+        {isLoading ? (
+          <div>Loading reviews...</div>
+        ) : error ? (
+          <div>Error: {error}</div>
+        ) : (
+          <div className="relative">
+            <Slider {...settings}>
+              {reviews?.map((review) => (
+                <div
+                  key={review._id}
+                  className="relative bg-white h-[450px] rounded-md shadow-md"
+                >
+                  <div className="h-[200px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400">
+                    <img
+                      className="cursor-pointer object-cover z-10 rounded-full h-44 w-44"
+                      src={`./RiviewImage/${review.image}.jpg`}
+                      alt="client image"
+                    />
+                  </div>
+                  <div className="mt-12 px-3">
+                    <p className="mt-2 flex justify-center items-center font-semibold">
+                      {review.name}, <br />
+                    </p>
+                    <p className="mt-2 flex justify-center items-center font-semibold">
+                      {review.location}
+                    </p>
+                    <p className="italic flex justify-center items-center pl-3">
+                      {review.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+            {/* <CustomPrevArrow onClick={() => settings.slickPrev()} />
+            <CustomNextArrow onClick={() => settings.slickNext()} /> */}
+          </div>
+        )}
       </div>
 
-      {loading ? (
-        <div>Loading reviews...</div>
-      ) : (
-        <Slider {...settings}>
-          {reviews.map((review) => (
-            <div
-              key={review._id}
-              className="p-4 bg-gray-100 rounded-md shadow-md"
-            >
-              <p className="italic">"{review.text}"</p>
-              <p className="mt-2 font-semibold">
-                - {review.name}, {review.location}
-              </p>
-            </div>
-          ))}
-        </Slider>
-      )}
+      <div className="w-full flex justify-center items-center">
+        <div className="revLogo w-1/2 h-56 rounded-sm shadow-lg"></div>
+      </div>
+      <Footer />
     </div>
   );
 };

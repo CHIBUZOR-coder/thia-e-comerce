@@ -112,8 +112,8 @@
     }
 }
 
-.altr{
-    text-decoration-color:black !important;
+.altr {
+    text-decoration-color: black !important;
 }
 
 .udtext {
@@ -158,18 +158,42 @@
 .talor4 {
     background: url(/public/images/talor4.jpg) center center/ cover;
 }
+
 .talor5 {
     background: url(/public/images/talor5.jpg) center center/ cover;
 }
 
-.tal{
-    @apply rounded-sm 
+.tal {
+    @apply rounded-sm
 }
 
 
-.customm{
+.customm {
     background: url(/public/images/customm.jpg) center center/ cover;
 }
 
 
 
+.rev:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.93);
+
+}
+
+.active-nav-item {
+    color: red;
+    /* Change to your desired active color */
+}
+
+.rev{
+    @apply hover:scale-105 transition ease-in-out duration-300
+}
+
+.slick-slide > div {
+    margin: 0 5px;
+}
+
+
+.revLogo{
+    background: url(/public/images/logo4.png) center center/ cover;
+    
+}

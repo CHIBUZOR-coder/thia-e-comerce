@@ -43,7 +43,7 @@ export default {
       maxHeight: {
         first: "440px",
       },
-
+     
       minHeight: {
         primary: "620px",
       },

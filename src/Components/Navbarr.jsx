@@ -9,11 +9,13 @@ import {
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const location = useLocation();
   const toggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -91,7 +93,9 @@ const Navbar = () => {
           {NavItems.map(({ tittle, path }) => (
             <li
               key={tittle}
-              className="decorate no-underline hover:underline text-footerlinks hover:text-black transition ease-in-out duration-700"
+              className={`decorate no-underline hover:underline text-footerlinks hover:text-black transition ease-in-out duration-700 ${
+                location.pathname === path ? "active-nav-item" : "" // <--- Added conditional class
+              }`}
             >
               {/* Conditional rendering of span for "Shop All" */}
               {tittle === "Shop All" ? (
@@ -150,7 +154,9 @@ const Navbar = () => {
             {NavItems.map(({ tittle, path }) => (
               <li
                 key={tittle}
-                className="text-white hover:text-footerlinks transition ease-in-out duration-700 my-3 cursor-pointer w-20"
+                className={`decorate no-underline hover:underline text-white hover:text-black transition ease-in-out duration-700 ${
+                  location.pathname === path ? "active-nav-item" : "" // <--- Added conditional class
+                }`}
               >
                 {/* Conditional rendering of span for "Shop All" */}
                 {tittle === "Shop All" ? (
