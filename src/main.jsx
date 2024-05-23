@@ -9,6 +9,7 @@ import About from "./pages/home/About.jsx";
 import Reviews from "./pages/home/Reviews.jsx";
 import Contact from "./pages/home/Contact.jsx";
 import Custom from "./pages/home/Custom.jsx";
+import Akara from "./pages/home/ShopCategory/Akara.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +31,6 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
 
-     
-
       {
         path: "/thia-e-comerce/Reviews",
         element: <Reviews />,
@@ -39,7 +38,12 @@ const router = createBrowserRouter([
 
       {
         path: "/thia-e-comerce/Custom",
-        element: <Custom  />,
+        element: <Custom />,
+      },
+
+      {
+        path: "/thia-e-comerce/Akara",
+        element: <Akara />,
       },
     ],
   },

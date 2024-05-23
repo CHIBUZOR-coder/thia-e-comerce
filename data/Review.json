@@ -6,7 +6,6 @@
       "image": "Confy",
       "location": "Los Angeles",
       "text": "Amazing quality and fast shipping."
-
     },
     {
       "id": "2",
@@ -14,9 +13,7 @@
       "image": "Roselyn",
       "location": "New York",
       "text": " Great product! Highly recommend."
-
     },
-   
     {
       "id": "3",
       "name": "Stella Ode",
@@ -30,9 +27,7 @@
       "image": "Annie",
       "location": "Chicago",
       "text": "Customer service was very helpful."
-
     },
-    
     {
       "id": "6",
       "name": "Emelda",
@@ -74,7 +69,6 @@
       "image": "Nkechi",
       "location": "Houston",
       "text": "I love it! Will buy again."
-
     },
     {
       "id": "11",
@@ -82,6 +76,94 @@
       "image": "Irene",
       "location": "Canada",
       "text": "nice, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
+    },
+    {
+      "id": "61f5",
+      "name": "Emekalam Chibuzor ",
+      "location": "Maryland",
+      "text": "well done",
+      "image": ""
+    },
+    {
+      "id": "40a4",
+      "name": "PatrickOfm",
+      "location": "Manchester Uk",
+      "text": "bIought it for my and she was very happy",
+      "image": ""
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "title": " Gown",
+      "category": "Gown",
+      "price": 63.85,
+      "image": "2923",
+      "status": "Best Selers"
+    },
+    {
+      "id": 2,
+      "title": "Matching",
+      "category": "Matching",
+      "price": 130.00,
+      "image": "ankara2",
+      "status": "Best Selers"
+    },
+    {
+      "id": 3,
+      "title": "Gown",
+      "category": "Gown",
+      "price": 53.00,
+      "image": "47625",
+      "status": "Best Selers"
+    },
+    {
+      "id": 4,
+      "title": "Pinner Four",
+      "category": "Pinner Four",
+      "price": 63.85,
+      "image": "5052",
+      "status": "New Arriaval"
+    },
+    {
+      "id": 5,
+      "title": "Suit",
+      "category": "Suit",
+      "price": 236.00,
+      "image": "2148747911",
+      "status": "New Arriaval"
+    },
+    {
+      "id": 6,
+      "title": " Gown",
+      "category": "Gown",
+      "price": 198.00,
+      "image": "ankara",
+      "status": "Best Selers"
+    },
+    {
+      "id": 7,
+      "title": "Nike Repel Miler",
+      "category": "Hoodies",
+      "price": 120.50,
+      "image": "red2",
+      "status": "Best Selers"
+    },
+    {
+      "id": 8,
+      "title": " Fitted",
+      "category": "Fitted",
+      "price": 160.00,
+      "image": "woman",
+      "status": "Old Trending"
+    },
+    {
+      "id": 9,
+      "title": "Gown",
+      "category": "Gown",
+      "price": 120.50,
+      "image": "fine",
+      "status": "Best Selers"
     }
   ]
 }

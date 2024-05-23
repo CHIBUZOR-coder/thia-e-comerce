@@ -111,11 +111,11 @@ const Navbar = () => {
                     )}
                   </span>
                   <ul
-                    className={`bg-primary2 absolute subnav top-6 flex flex-col justify-center w-36 gap-2 z-20  px-4 py-5 transition ease-in-out duration-700    ${
+                    className={`bg-primary2 absolute subnav top-6 flex flex-col justify-center w-36 gap-2 z-10  px-4 py-5 transition ease-in-out duration-700    ${
                       isLinkOpen ? "" : "hidden"
                     }`}
                   >
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Akara">
                       Ankara
                     </Link>
                     <Link className="decorate2" to="/">
@@ -172,11 +172,11 @@ const Navbar = () => {
                       )}
                     </span>
                     <ul
-                      className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2  px-4 py-5 transition ease-in-out duration-700    ${
+                      className={`bg-primary2 text-black absolute subnav top-6 flex flex-col justify-center w-36 gap-2 z-10 px-4 py-5 transition ease-in-out duration-700    ${
                         isLinkOpen ? "" : "hidden"
                       }`}
                     >
-                      <Link className="decorate22" to="/">
+                      <Link className="decorate22" to="/thia-e-comerce/Akara">
                         Ankara
                       </Link>
                       <Link className="decorate22" to="/">

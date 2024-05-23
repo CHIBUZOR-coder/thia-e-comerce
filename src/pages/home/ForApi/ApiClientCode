@@ -123,99 +123,6 @@ import useFetch from "./Usefetch";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Footer from "./Footer";
 
-const Clients = [
-  {
-    id: "1",
-    name: "Confy",
-    image: "Confy",
-    location: "Los Angeles",
-    text: "Amazing quality and fast shipping.",
-  },
-  {
-    id: "2",
-    name: "Roselyn",
-    image: "Roselyn",
-    location: "New York",
-    text: " Great product! Highly recommend.",
-  },
-  {
-    id: "3",
-    name: "Stella Ode",
-    image: "Stella",
-    location: "Dubai",
-    text: "Awesome, i got the perfect fit!",
-  },
-  {
-    id: "4",
-    name: "Annie",
-    image: "Annie",
-    location: "Chicago",
-    text: "Customer service was very helpful.",
-  },
-  {
-    id: "6",
-    name: "Emelda",
-    image: "Emelda",
-    location: "Usa",
-    text: "Adada Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?",
-  },
-  {
-    id: "7",
-    name: "Ebere",
-    image: "Ebere",
-    location: "New York",
-    text: "A very good work, Lorem ipsum dolor sit amet, consectetur",
-  },
-  {
-    id: "8",
-    name: "Amaka",
-    image: "Amaka",
-    location: "Usa",
-    text: "A very good work. sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?",
-  },
-  {
-    id: "9",
-    name: " Cynthia ",
-    image: "thia1",
-    location: "United Kingdom",
-    text: "good one",
-  },
-  {
-    id: "10",
-    name: "Uju",
-    image: "uju",
-    location: "France",
-    text: "A very good work.  elit. Quasi eveniet officiis asperiores totam soluta. Iure? ",
-  },
-  {
-    id: "5",
-    name: " Nkechi",
-    image: "Nkechi",
-    location: "Houston",
-    text: "I love it! Will buy again.",
-  },
-  {
-    id: "11",
-    name: "Irene ",
-    image: "Irene",
-    location: "Canada",
-    text: "nice, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?",
-  },
-  {
-    id: "61f5",
-    name: "Emekalam Chibuzor ",
-    location: "Maryland",
-    text: "well done",
-    image: "",
-  },
-  {
-    id: "40a4",
-    name: "PatrickOfm",
-    location: "Manchester Uk",
-    text: "bIought it for my and she was very happy",
-    image: "",
-  },
-];
 const CustomPrevArrow = ({ onClick }) => {
   return (
     <div
@@ -282,38 +189,43 @@ const Reviews = () => {
   return (
     <div className="relative ">
       <div className=" bg-primary px-2 py-10 mb-10 ">
-       
-          
+        {isLoading ? (
+          <div>Loading reviews...</div>
+        ) : error ? (
+          <div>Error: {error}</div>
+        ) : (
           <div className="relative">
             <Slider {...settings}>
-              {Clients.map((client) => (
+              {reviews?.map((review) => (
                 <div
-                  key={client.id}
+                  key={review._id}
                   className="relative bg-white h-[450px] rounded-md shadow-md"
                 >
                   <div className="h-[200px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400">
                     <img
-                      className="cursor-pointer object-cover  rounded-full h-44 w-44"
-                      src={`./RiviewImage/${client.image}.jpg`}
+                      className="cursor-pointer object-cover z-10 rounded-full h-44 w-44"
+                      src={`./RiviewImage/${review.image}.jpg`}
                       alt="client image"
                     />
                   </div>
                   <div className="mt-12 px-3">
                     <p className="mt-2 flex justify-center items-center font-semibold">
-                      {client.name}, <br />
+                      {review.name}, <br />
                     </p>
                     <p className="mt-2 flex justify-center items-center font-semibold">
-                      {client.location}
+                      {review.location}
                     </p>
                     <p className="italic flex justify-center items-center pl-3">
-                      {client.text}
+                      {review.text}
                     </p>
                   </div>
                 </div>
               ))}
             </Slider>
+            {/* <CustomPrevArrow onClick={() => settings.slickPrev()} />
+            <CustomNextArrow onClick={() => settings.slickNext()} /> */}
           </div>
-    
+        )}
       </div>
 
       <div className="w-full pt-5 px-3 flex justify-center items-center">
