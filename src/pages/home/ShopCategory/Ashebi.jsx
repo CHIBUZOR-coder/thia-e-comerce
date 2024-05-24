@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import PropTypes from "prop-types";
 // import "slick-carousel/slick/slick.css";
@@ -10,7 +9,7 @@
 // import { FaFilter } from "react-icons/fa";
 // import { data } from "autoprefixer";
 
-// const Reviews = () => {
+// const Ashebi = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
 //   const [filteredItems, setFilteredItems] = useState([]);
 //   const [sortOptions, setSortOptions] = useState("Default");
@@ -18,7 +17,7 @@
 //     data: items,
 //     isLoading,
 //     error,
-//   } = useFetch("http://localhost:8000/Products");
+//   } = useFetch("http://localhost:8000/Ashoebi");
 
 //   // Function to filter items based on the selected category
 //   const filterItems = (category) => {
@@ -80,9 +79,9 @@
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Suit")}
+//               onClick={() => filterItems("Lace")}
 //             >
-//               Suit
+//               Lace
 //             </span>
 //             <span
 //               className="cursor-pointer"
@@ -92,15 +91,15 @@
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Fitted")}
+//               onClick={() => filterItems("Short")}
 //             >
-//               Fitted
+//               Short
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Pinner Four")}
+//               onClick={() => filterItems("Nino Farbic")}
 //             >
-//               Pinner Four
+//               Nino
 //             </span>
 //           </div>
 //           <div className="flex justify-center items-center">
@@ -162,20 +161,7 @@
 //   );
 // };
 
-// export default Reviews;
-
-
-
-
-
-
-
-
-
-
-
-
-
+// export default Ashebi;
 
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
@@ -188,88 +174,88 @@ import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
 
-const Akara = () => {
+const Ashebi = () => {
   const Items = useMemo(
     () => [
       {
         id: 1,
-        title: "Gown",
+        title: " Gown",
         category: "Gown",
         price: 63.85,
-        image: "2923",
-        status: "Best Sellers",
+        image: "ash32",
+        status: "Best Selers",
       },
       {
         id: 2,
-        title: "Matching",
-        category: "Matching",
+        title: "Off Neck",
+        category: "Lace",
         price: 130.0,
-        image: "ankara2",
-        status: "Best Sellers",
+        image: "ahee22",
+        status: "Best Selers",
       },
       {
         id: 3,
         title: "Gown",
-        category: "Gown",
+        category: "Lace",
         price: 53.0,
-        image: "47625",
-        status: "Best Sellers",
+        image: "ahoeb22",
+        status: "Best Selers",
       },
       {
         id: 4,
         title: "Pinner Four",
-        category: "Pinner Four",
+        category: "Short",
         price: 63.85,
-        image: "5052",
-        status: "New Arrival",
+        image: "ashe24",
+        status: "New Arriaval",
       },
       {
         id: 5,
-        title: "Suit",
-        category: "Suit",
+        title: "Fitte Lace",
+        category: "Lace",
         price: 236.0,
-        image: "2148747911",
-        status: "New Arrival",
+        image: "ashebi22",
+        status: "New Arriaval",
       },
       {
         id: 6,
-        title: "Gown",
-        category: "Gown",
+        title: "Exposed Net Gown",
+        category: "short",
         price: 198.0,
-        image: "ankara",
-        status: "Best Sellers",
+        image: "ashoebi2",
+        status: "Best Selers",
       },
       {
         id: 7,
-        title: "Half Sleeve",
-        category: "Gown",
+        title: "Exposed Net Gown",
+        category: "Short",
         price: 120.5,
-        image: "red2",
-        status: "Best Sellers",
+        image: "ashoebiii",
+        status: "Best Selers",
       },
       {
         id: 8,
-        title: "Fitted",
-        category: "Fitted",
+        title: " Shifon Gown",
+        category: "Gown",
         price: 160.0,
-        image: "woman",
+        image: "save",
         status: "Old Trending",
       },
       {
         id: 9,
-        title: "Gown",
-        category: "Gown",
+        title: "Nino Gown",
+        category: "Nino Farbic",
         price: 120.5,
-        image: "fine",
-        status: "Best Sellers",
+        image: "aaabbb",
+        status: "Best Selers",
       },
       {
         id: 10,
-        title: "Gown",
-        category: "Gown",
+        title: "Lace Gown",
+        category: "Lace",
         price: 122.5,
-        image: "fine",
-        status: "Best Sellers",
+        image: "lace",
+        status: "Best Selers",
       },
     ],
     []
@@ -327,9 +313,9 @@ const Akara = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Suit")}
+              onClick={() => filterItems("Lace")}
             >
-              Suit
+              Lace
             </span>
             <span
               className="cursor-pointer"
@@ -339,15 +325,15 @@ const Akara = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Fitted")}
+              onClick={() => filterItems("Short")}
             >
-              Fitted
+              Short
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Pinner Four")}
+              onClick={() => filterItems("Nino")}
             >
-              Pinner Four
+              Nino Faric
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -403,4 +389,4 @@ const Akara = () => {
   );
 };
 
-export default Akara;
+export default Ashebi;

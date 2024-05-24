@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import PropTypes from "prop-types";
 // import "slick-carousel/slick/slick.css";
@@ -10,7 +9,7 @@
 // import { FaFilter } from "react-icons/fa";
 // import { data } from "autoprefixer";
 
-// const Reviews = () => {
+// const Coprate  = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
 //   const [filteredItems, setFilteredItems] = useState([]);
 //   const [sortOptions, setSortOptions] = useState("Default");
@@ -18,7 +17,7 @@
 //     data: items,
 //     isLoading,
 //     error,
-//   } = useFetch("http://localhost:8000/Products");
+//   } = useFetch("http://localhost:8000/Coperate");
 
 //   // Function to filter items based on the selected category
 //   const filterItems = (category) => {
@@ -80,27 +79,22 @@
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Suit")}
+//               onClick={() => filterItems("Native")}
 //             >
-//               Suit
+//               Native
+//             </span>
+
+//             <span
+//               className="cursor-pointer"
+//               onClick={() => filterItems("Matching")}
+//             >
+//               Matching
 //             </span>
 //             <span
 //               className="cursor-pointer"
 //               onClick={() => filterItems("Gown")}
 //             >
 //               Gown
-//             </span>
-//             <span
-//               className="cursor-pointer"
-//               onClick={() => filterItems("Fitted")}
-//             >
-//               Fitted
-//             </span>
-//             <span
-//               className="cursor-pointer"
-//               onClick={() => filterItems("Pinner Four")}
-//             >
-//               Pinner Four
 //             </span>
 //           </div>
 //           <div className="flex justify-center items-center">
@@ -162,9 +156,7 @@
 //   );
 // };
 
-// export default Reviews;
-
-
+// export default Coprate ;
 
 
 
@@ -188,88 +180,88 @@ import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
 
-const Akara = () => {
+const Coprate = () => {
   const Items = useMemo(
     () => [
       {
         id: 1,
-        title: "Gown",
-        category: "Gown",
+        title: "Pink Suit",
+        category: "Matching",
         price: 63.85,
-        image: "2923",
-        status: "Best Sellers",
+        image: "cop3",
+        status: "Best Selers",
       },
       {
         id: 2,
-        title: "Matching",
+        title: "Sleavless",
         category: "Matching",
         price: 130.0,
-        image: "ankara2",
-        status: "Best Sellers",
+        image: "cop7",
+        status: "Best Selers",
       },
       {
         id: 3,
-        title: "Gown",
+        title: "Fitted Gown",
         category: "Gown",
         price: 53.0,
-        image: "47625",
-        status: "Best Sellers",
+        image: "cop6",
+        status: "Best Selers",
       },
       {
         id: 4,
-        title: "Pinner Four",
-        category: "Pinner Four",
+        title: "Fitte White Colla",
+        category: "Gown",
         price: 63.85,
-        image: "5052",
-        status: "New Arrival",
+        image: "cop2",
+        status: "New Arriaval",
       },
       {
         id: 5,
-        title: "Suit",
-        category: "Suit",
+        title: "Pinner5 Slevles Gown",
+        category: "Gown",
         price: 236.0,
-        image: "2148747911",
-        status: "New Arrival",
+        image: "ashebi22",
+        status: "New Arriaval",
       },
       {
         id: 6,
-        title: "Gown",
+        title: "Fitte Long Sleaves",
         category: "Gown",
         price: 198.0,
-        image: "ankara",
-        status: "Best Sellers",
+        image: "ashoebi2",
+        status: "Best Selers",
       },
       {
         id: 7,
-        title: "Half Sleeve",
-        category: "Gown",
+        title: "Native Material",
+        category: "Native",
         price: 120.5,
-        image: "red2",
-        status: "Best Sellers",
+        image: "cop8",
+        status: "Best Selers",
       },
       {
         id: 8,
-        title: "Fitted",
-        category: "Fitted",
+        title: " Net Sleavs Gown",
+        category: "Gown",
         price: 160.0,
-        image: "woman",
+        image: "coperate1",
         status: "Old Trending",
       },
       {
         id: 9,
-        title: "Gown",
-        category: "Gown",
+        title: "Off Shoulder Matching",
+        category: "Matching",
         price: 120.5,
-        image: "fine",
-        status: "Best Sellers",
+        image: "cop1",
+        status: "Best Selers",
       },
       {
         id: 10,
-        title: "Gown",
-        category: "Gown",
+        title: "Native Suit",
+        category: "Native",
         price: 122.5,
-        image: "fine",
-        status: "Best Sellers",
+        image: "2148747911",
+        status: "Best Selers",
       },
     ],
     []
@@ -327,9 +319,15 @@ const Akara = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Suit")}
+              onClick={() => filterItems("Native")}
             >
-              Suit
+              Native
+            </span>
+            <span
+              className="cursor-pointer"
+              onClick={() => filterItems("Matching")}
+            >
+              Matching
             </span>
             <span
               className="cursor-pointer"
@@ -337,18 +335,7 @@ const Akara = () => {
             >
               Gown
             </span>
-            <span
-              className="cursor-pointer"
-              onClick={() => filterItems("Fitted")}
-            >
-              Fitted
-            </span>
-            <span
-              className="cursor-pointer"
-              onClick={() => filterItems("Pinner Four")}
-            >
-              Pinner Four
-            </span>
+           
           </div>
           <div className="flex justify-center items-center">
             <div className="bg-black p-2">
@@ -403,4 +390,4 @@ const Akara = () => {
   );
 };
 
-export default Akara;
+export default Coprate;

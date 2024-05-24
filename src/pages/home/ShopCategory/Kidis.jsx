@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import PropTypes from "prop-types";
 // import "slick-carousel/slick/slick.css";
@@ -10,7 +9,7 @@
 // import { FaFilter } from "react-icons/fa";
 // import { data } from "autoprefixer";
 
-// const Reviews = () => {
+// const Kidis = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
 //   const [filteredItems, setFilteredItems] = useState([]);
 //   const [sortOptions, setSortOptions] = useState("Default");
@@ -18,7 +17,7 @@
 //     data: items,
 //     isLoading,
 //     error,
-//   } = useFetch("http://localhost:8000/Products");
+//   } = useFetch("http://localhost:8000/Kides");
 
 //   // Function to filter items based on the selected category
 //   const filterItems = (category) => {
@@ -80,27 +79,27 @@
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Suit")}
+//               onClick={() => filterItems("Long")}
 //             >
-//               Suit
+//               Long
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Gown")}
+//               onClick={() => filterItems("Short")}
 //             >
-//               Gown
+//               Short
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Fitted")}
+//               onClick={() => filterItems("Native")}
 //             >
-//               Fitted
+//               Native
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Pinner Four")}
+//               onClick={() => filterItems("Matching")}
 //             >
-//               Pinner Four
+//               Matching
 //             </span>
 //           </div>
 //           <div className="flex justify-center items-center">
@@ -162,20 +161,7 @@
 //   );
 // };
 
-// export default Reviews;
-
-
-
-
-
-
-
-
-
-
-
-
-
+// export default Kidis;
 
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
@@ -188,88 +174,82 @@ import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
 
-const Akara = () => {
+const Kidis = () => {
   const Items = useMemo(
     () => [
       {
         id: 1,
-        title: "Gown",
-        category: "Gown",
-        price: 63.85,
-        image: "2923",
-        status: "Best Sellers",
+        title: "Ashoebi Gold Gown",
+        category: "Long",
+        price: 130.0,
+        image: "kidb",
+        status: "Best Selers",
       },
       {
         id: 2,
-        title: "Matching",
-        category: "Matching",
-        price: 130.0,
-        image: "ankara2",
-        status: "Best Sellers",
+        title: "Shifon Flower Gown",
+        category: "Long",
+        price: 198.0,
+        image: "kisa",
+        status: "Best Selers",
       },
+
       {
         id: 3,
-        title: "Gown",
-        category: "Gown",
-        price: 53.0,
-        image: "47625",
-        status: "Best Sellers",
+        title: "Red Ankara",
+        category: "Short",
+        price: 130.0,
+        image: "kid6",
+        status: "Best Selers",
       },
       {
         id: 4,
-        title: "Pinner Four",
-        category: "Pinner Four",
-        price: 63.85,
-        image: "5052",
-        status: "New Arrival",
+        title: "Short Flower Gown",
+        category: "Short",
+        price: 53.0,
+        image: "kidd",
+        status: "Best Selers",
       },
       {
         id: 5,
-        title: "Suit",
-        category: "Suit",
+        title: "Coperate Fited ",
+        category: "Matching",
         price: 236.0,
-        image: "2148747911",
-        status: "New Arrival",
+        image: "kid5",
+        status: "New Arriaval",
       },
       {
         id: 6,
-        title: "Gown",
-        category: "Gown",
-        price: 198.0,
-        image: "ankara",
-        status: "Best Sellers",
+        title: "Native Flower Gown",
+        category: "Native",
+        " price": 120.5,
+        image: "kid3",
+        status: "Best Selers",
       },
       {
         id: 7,
-        title: "Half Sleeve",
-        category: "Gown",
-        price: 120.5,
-        image: "red2",
-        status: "Best Sellers",
-      },
-      {
-        id: 8,
-        title: "Fitted",
-        category: "Fitted",
+        title: "Yellow Lining Ankara",
+        category: "Short",
         price: 160.0,
-        image: "woman",
+        image: "kid2",
         status: "Old Trending",
       },
       {
-        id: 9,
-        title: "Gown",
-        category: "Gown",
-        price: 120.5,
-        image: "fine",
-        status: "Best Sellers",
+        id: 8,
+        title: "Red Ashoebi",
+        category: "Native",
+        price: 160.0,
+        image: "kida",
+        status: "Old Trending",
       },
+
       {
-        id: 10,
-        title: "Gown",
-        category: "Gown",
-        price: 122.5,
-        image: "fine",
-        status: "Best Sellers",
+        id: 9,
+        title: " White Special",
+        category: "short",
+        price: 63.85,
+        image: "kidcc",
+        status: "Best Selers",
       },
     ],
     []
@@ -327,27 +307,27 @@ const Akara = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Suit")}
+              onClick={() => filterItems("Long")}
             >
-              Suit
+              Long
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Gown")}
+              onClick={() => filterItems("Short")}
             >
-              Gown
+              Short
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Fitted")}
+              onClick={() => filterItems("Native")}
             >
-              Fitted
+              Native
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Pinner Four")}
+              onClick={() => filterItems("Matching")}
             >
-              Pinner Four
+              Matching
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -403,4 +383,4 @@ const Akara = () => {
   );
 };
 
-export default Akara;
+export default Kidis;

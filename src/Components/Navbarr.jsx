@@ -118,19 +118,19 @@ const Navbar = () => {
                     <Link className="decorate2" to="/thia-e-comerce/Akara">
                       Ankara
                     </Link>
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Ashebi">
                       Ashoebi
                     </Link>
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Coprate">
                       Coperate
                     </Link>
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Kaftn">
                       Kaftan
                     </Link>
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Matchng">
                       Matching Set
                     </Link>
-                    <Link className="decorate2" to="/">
+                    <Link className="decorate2" to="/thia-e-comerce/Kidis">
                       Kiddies
                     </Link>
                   </ul>
@@ -176,22 +176,62 @@ const Navbar = () => {
                         isLinkOpen ? "" : "hidden"
                       }`}
                     >
-                      <Link className="decorate22" to="/thia-e-comerce/Akara">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Akara"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Akara"
+                      >
                         Ankara
                       </Link>
-                      <Link className="decorate22" to="/">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Ashebi"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Ashebi"
+                      >
                         Ashoebi
                       </Link>
-                      <Link className="decorate22" to="/">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/" ? "text-red-500" : ""
+                        }`}
+                        to="/thia-e-comerce/Coprate"
+                      >
                         Coperate
                       </Link>
-                      <Link className="decorate22" to="/">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Kaftn"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Kaftn"
+                      >
                         Kaftan
                       </Link>
-                      <Link className="decorate22" to="/">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Matchng"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Matchng"
+                      >
                         Matching Set
                       </Link>
-                      <Link className="decorate22" to="/">
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Kidis"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Kidis"
+                      >
                         Kiddies
                       </Link>
                     </ul>

@@ -10,6 +10,11 @@ import Reviews from "./pages/home/Reviews.jsx";
 import Contact from "./pages/home/Contact.jsx";
 import Custom from "./pages/home/Custom.jsx";
 import Akara from "./pages/home/ShopCategory/Akara.jsx";
+import Ashebi from "./pages/home/ShopCategory/Ashebi.jsx";
+import Coprate from "./pages/home/ShopCategory/Coprate.jsx";
+import Kaftn from "./pages/home/ShopCategory/Kaftn.jsx";
+import Matchng from "./pages/home/ShopCategory/Matchng.jsx";
+import Kidis from "./pages/home/ShopCategory/Kidis.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +49,27 @@ const router = createBrowserRouter([
       {
         path: "/thia-e-comerce/Akara",
         element: <Akara />,
+      },
+
+      {
+        path: "/thia-e-comerce/Ashebi",
+        element: <Ashebi />,
+      },
+      {
+        path: "/thia-e-comerce/Coprate",
+        element: <Coprate />,
+      },
+      {
+        path: "/thia-e-comerce/Kaftn",
+        element: <Kaftn />,
+      },
+      {
+        path: "/thia-e-comerce/Matchng",
+        element: <Matchng />,
+      },
+      {
+        path: "/thia-e-comerce/Kidis",
+        element: <Kidis />,
       },
     ],
   },
