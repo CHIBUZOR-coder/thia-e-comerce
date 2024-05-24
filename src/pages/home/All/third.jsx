@@ -15,7 +15,7 @@ export const Third = () => {
     >
       <a
         href="/"
-        className="flex justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
+        className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Buy
       </a>

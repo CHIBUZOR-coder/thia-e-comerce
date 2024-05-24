@@ -19,7 +19,7 @@ export const Ankara = () => {
     >
       <a
         href="/thia-e-comerce/Akara"
-        className="flex justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
+        className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Ankara
       </a>

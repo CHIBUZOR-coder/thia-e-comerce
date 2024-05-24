@@ -22,7 +22,7 @@ const Kiddies = () => {
     >
       <a
         href="/thia-e-comerce/Kidis"
-        className="flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
+        className="italic  flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Kiddies
       </a>

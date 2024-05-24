@@ -84,34 +84,36 @@
 
 
 .names {
-    @apply hover:scale-105
+    @apply hover:scale-105 bg-trans transition ease-in-out duration-500
 }
 
 .names {
     border: 1px solid rgb(239, 229, 229);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     &:hover {
-        border: 1px solid yellow;
-        background-color: black;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        background-color: rgba(0, 0, 0, 0.6);
+        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     }
 }
 
 .carocel-btn {
-    @apply bg-trans text-white  hover:scale-125 transition ease-in-out duration-500
+    @apply bg-trans text-white hover:scale-125 transition ease-in-out duration-500
 }
 
 .carocel-btn {
- 
+
     border: 1px solid black;
-  
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-      
-        background-color: rgba(0, 0, 0, 0.5);;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        ;
     }
 }
 
@@ -187,16 +189,16 @@
     /* Change to your desired active color */
 }
 
-.rev{
+.rev {
     @apply hover:scale-105 transition ease-in-out duration-300
 }
 
-.slick-slide > div {
+.slick-slide>div {
     margin: 0 5px;
 }
 
 
-.revLogo{
+.revLogo {
     background: url(/public/images/logo4.png) center center/ cover;
-    
+
 }
