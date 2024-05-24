@@ -7,7 +7,6 @@
 // import MatchingSet from "./MatchingSet";
 // import Kaftan from "./Kaftan";
 
-
 // const Category = () => {
 //   // Declare the array of JSX elements
 //   const slides = useMemo(
@@ -113,8 +112,6 @@
 
 // export default Category;
 
-
-
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Ankara from "./Ankara";
 import Ashoebi from "./Ashoebi";
@@ -123,7 +120,7 @@ import Coperate from "./Coperate";
 import Kiddies from "./Kideis";
 import MatchingSet from "./MatchingSet";
 import Kaftan from "./Kaftan";
-
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 const Category = () => {
   // Declare the array of JSX elements
@@ -181,7 +178,7 @@ const Category = () => {
   };
 
   return (
-    <div  className="w-full px-1 md:px-2 md:w-1/2 overflow-hidden md:m-0 mt-10 md:mt-5 md:py-16">
+    <div className="w-full px-1 md:px-2 md:w-1/2 overflow-hidden md:m-0 mt-10 md:mt-5 md:py-16">
       <h1 className="text-3xl md:py-6 font-sans flex justify-center font-semibold">
         Category
       </h1>
@@ -208,18 +205,18 @@ const Category = () => {
             </div>
           ))}
           {/* Manual navigation buttons */}
-          <button
+          <div
             onClick={prevSlide}
-            className="absolute top-1/2 left-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-l"
+            className="absolute  top-1/2 left-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-full "
           >
-            Prev
-          </button>
-          <button
+            <IoIosArrowDropleft className="w-6 h-6 " />
+          </div>
+          <div
             onClick={nextSlide}
-            className="absolute top-1/2 right-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-r"
+            className="absolute top-1/2 right-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-full"
           >
-            Next
-          </button>
+            <IoIosArrowDropright className="w-6 h-6 " />
+          </div>
         </div>
       </div>
       {/* Navigation dots */}

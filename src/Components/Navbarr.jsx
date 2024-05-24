@@ -154,7 +154,7 @@ const Navbar = () => {
             {NavItems.map(({ tittle, path }) => (
               <li
                 key={tittle}
-                className={`decorate no-underline hover:underline text-white hover:text-black transition ease-in-out duration-700 ${
+                className={`decorate no-underline hover:underline text-white  transition ease-in-out duration-700 ${
                   location.pathname === path ? "active-nav-item" : "" // <--- Added conditional class
                 }`}
               >

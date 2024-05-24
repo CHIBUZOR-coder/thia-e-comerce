@@ -11,7 +11,7 @@
 }
 
 .decorate2 {
-    @apply text-footerlinks hover:text-black transition ease-in-out duration-500
+    @apply text-footerlinks md:hover:text-black transition ease-in-out duration-500 
 }
 
 .decorate22{

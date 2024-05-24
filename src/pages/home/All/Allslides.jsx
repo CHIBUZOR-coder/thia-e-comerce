@@ -1,57 +1,63 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
-import First from './first'
-import Second from './second'
-import Third from './third'
-import Fourth from './fourth'
-import Fifth from './fifth'
-
+import First from "./first";
+import Second from "./second";
+import Third from "./third";
+import Fourth from "./fourth";
+import Fifth from "./fifth";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 const Allslides = () => {
   // Declare the array of JSX elements
   const slides = useMemo(
-    () => [<First key={First} />, <Second key={Second} />, <Third key={Third} />, <Fourth key={Fourth}/>, <Fifth key={Fifth}/> ],
+    () => [
+      <First key={First} />,
+      <Second key={Second} />,
+      <Third key={Third} />,
+      <Fourth key={Fourth} />,
+      <Fifth key={Fifth} />,
+    ],
     []
-  )
+  );
 
   // State to track the current slide index
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-  const [isMouseOver, setIsMouseOver] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   // Function to move to the next slide
   const nextSlide = useCallback(() => {
-    setCurrentSlide(prevSlide =>
+    setCurrentSlide((prevSlide) =>
       prevSlide === slides.length - 1 ? 0 : prevSlide + 1
-    )
-  }, [slides])
+    );
+  }, [slides]);
 
   // Function to move to the previous slide
   const prevSlide = useCallback(() => {
-    setCurrentSlide(prevSlide =>
+    setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-    )
-  }, [slides])
+    );
+  }, [slides]);
 
   // Automatic sliding
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (!isPaused && !isMouseOver) {
-        nextSlide()
+        nextSlide();
       }
-    }, 10000) // Change slide every 10 seconds
-    return () => clearInterval(intervalId) // Cleanup function to clear the interval
-  }, [nextSlide, isPaused, isMouseOver]) // Re-run effect when nextSlide, isPaused, or isMouseOver changes
+    }, 10000); // Change slide every 10 seconds
+    return () => clearInterval(intervalId); // Cleanup function to clear the interval
+  }, [nextSlide, isPaused, isMouseOver]); // Re-run effect when nextSlide, isPaused, or isMouseOver changes
 
   // Event handlers for pause and continue on mouseover and mouseout
   const handleMouseOver = () => {
-    setIsMouseOver(true)
-    setIsPaused(true)
-  }
+    setIsMouseOver(true);
+    setIsPaused(true);
+  };
 
   const handleMouseOut = () => {
-    setIsMouseOver(false)
-    setIsPaused(false)
-  }
+    setIsMouseOver(false);
+    setIsPaused(false);
+  };
 
   return (
     <div className="w-full md:w-1/2 px-1 md:px-2 overflow-hidden mt-16 md:-mt-10  md:py-16">
@@ -81,18 +87,20 @@ const Allslides = () => {
             </div>
           ))}
           {/* Manual navigation buttons */}
-          <button
+
+          <div
             onClick={prevSlide}
-            className="absolute top-1/2 left-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-l"
+            className="absolute  top-1/2 left-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-full "
           >
-            Prev
-          </button>
-          <button
+            <IoIosArrowDropleft className="w-6 h-6" />
+          </div>
+
+          <div
             onClick={nextSlide}
-            className="absolute top-1/2 right-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-r"
+            className="absolute top-1/2 right-3 transform -translate-y-1/2 px-2 py-1 carocel-btn rounded-full"
           >
-            Next
-          </button>
+            <IoIosArrowDropright className="w-6 h-6 " />
+          </div>
         </div>
       </div>
       {/* Navigation dots */}
@@ -109,6 +117,6 @@ const Allslides = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Allslides
+export default Allslides;
