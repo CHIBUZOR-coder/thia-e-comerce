@@ -106,7 +106,7 @@ const Ashebi = () => {
         </div>
         <div>
           {isLoading ? (
-            <div>Loading reviews...</div>
+            <div>Loading Data...</div>
           ) : error ? (
             <div>Error: {error}</div>
           ) : (
