@@ -85,7 +85,7 @@ const Reviews = () => {
               <div className="h-[200px] flex justify-center items-center p-2 mt-4 w-full bg-blue-400">
                 <img
                   className="cursor-pointer z-10 rounded-full h-44 w-44"
-                  src={`./RiviewImage/${review.image}.jpg`}
+                  src={`/RiviewImage/${review.image}.jpg`}
                   alt="client image"
                 />
               </div>
