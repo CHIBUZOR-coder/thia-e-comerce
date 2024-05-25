@@ -13,10 +13,7 @@ export const Ashoebi = () => {
     "./images/aaabbb.jpg",
     "./images/ahoeb22.jpg",
     "./images/ash32.jpg",
-    "./RiviewImage/Confy",
-    "./RiviewImage/Ebere",
-    "./RiviewImage/Emelda",
-    "./RiviewImage/Irene",
+    
   ];
   PreloadImages(imageUrl);
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
