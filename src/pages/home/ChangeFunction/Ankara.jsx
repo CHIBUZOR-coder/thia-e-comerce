@@ -9,6 +9,13 @@ export const Ankara = () => {
     "./images/ankara2.jpg",
     "./images/47625.jpg",
     "./images/5052.jpg",
+    "./images/talor5.jpg",
+    "./images/talor2.jpg",
+    "./images/talor3.jpg",
+    "./images/talor4.jpg",
+    "./images/talor1.jpg",
+   
+    "./RiviewImage/uju",
   ];
 
   PreloadImages(imageUrl);
