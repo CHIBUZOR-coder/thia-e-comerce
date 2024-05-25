@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { PreloadImages } from "../../../Components/PreloadImages"; // Assuming PreloadImages is the correct function
 import useFetch from "./ImageStyle";
+import { Link } from "react-router-dom";
 
 const First = () => {
   const imageUrl = "./images/aabb.jpg";
@@ -16,12 +17,12 @@ const First = () => {
       className="w-full childd  flex justify-center  items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
-      <a
-        href="/"
+      <Link
+        to="/"
         className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Buy{" "}
-      </a>
+      </Link>
     </div>
   );
 };

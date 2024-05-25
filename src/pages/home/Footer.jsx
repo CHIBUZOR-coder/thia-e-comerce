@@ -1,6 +1,7 @@
 
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
@@ -13,21 +14,21 @@ const Footer = () => {
           <a className="w-4" href="/">Care Guide</a>
           <a className="w-4" href="/">About Thia</a>
           <a className="w-4" href="/"> Delivery, Terms & Conditions</a> */}
-            <a className="anchor" href="/">
-              Made to order{" "}
+            <a className="anchor" href="/thia-e-comerce/Custom">
+              Custom Fit{" "}
             </a>
-            <a className="anchor" href="/">
+            <Link className="anchor" to="/">
               Size Guide{" "}
-            </a>
-            <a className="anchor" href="/">
+            </Link>
+            <Link className="anchor" to="/">
               Delivery, Terms & Conditions{" "}
-            </a>
-            <a className="anchor" href="/">
+            </Link>
+            <Link className="anchor" to="/">
               Care Guide{" "}
-            </a>
-            <a className="anchor" href="/">
+            </Link>
+            <Link className="anchor" to="/">
               About Thia{" "}
-            </a>
+            </Link>
           </div>
         </div>
 

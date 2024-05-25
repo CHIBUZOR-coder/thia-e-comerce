@@ -1,5 +1,7 @@
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
+import { Link, useLocation } from "react-router-dom";
+
 
 export const Ashoebi = () => {
   const imageUrl = [
@@ -20,12 +22,11 @@ export const Ashoebi = () => {
       className="w-full childd flex justify-center trans items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
-      <a
-        href="/thia-e-comerce/Ashebi"
+      <Link to="/thia-e-comerce/Ashebi"
         className="italic  flex justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Ashoebi
-      </a>
+      </Link>
     </div>
   );
 };

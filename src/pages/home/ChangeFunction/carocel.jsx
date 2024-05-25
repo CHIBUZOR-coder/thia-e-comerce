@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 export const useFetch = (imageUrl) => {
   const interval = 5000; // Interval in milliseconds (e.g., 5000ms = 5 seconds)
   const [currentIndex, setCurrentIndex] = useState(0);

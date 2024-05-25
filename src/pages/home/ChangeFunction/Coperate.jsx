@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
+
 
 export const Coperate = () => {
   const imageUrl = [
@@ -25,12 +27,12 @@ export const Coperate = () => {
       className="w-full childd flex justify-center trans items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
-      <a
-        href="/thia-e-comerce/Coprate"
+      <Link
+        to="/thia-e-comerce/Coprate"
         className="italic  flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Coperate
-      </a>
+      </Link>
     </div>
   );
 };

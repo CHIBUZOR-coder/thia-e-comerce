@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
 
@@ -28,12 +29,12 @@ export const MatchingSet = () => {
       className="w-full childd flex justify-center trans items-end h-big3 "
       style={style} // Use the style object returned by the custom hook
     >
-      <a
-        href="/thia-e-comerce/Matchng"
+      <Link
+        to="/thia-e-comerce/Matchng"
         className="italic  flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Matching
-      </a>
+      </Link>
     </div>
   );
 };

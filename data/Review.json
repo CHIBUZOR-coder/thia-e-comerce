@@ -12,14 +12,14 @@
       "name": "Roselyn",
       "image": "Roselyn",
       "location": "New York",
-      "text": " Great product! Highly recommend."
+      "text": "Great product! Highly recommend."
     },
     {
       "id": "3",
       "name": "Stella Ode",
       "image": "Stella",
       "location": "Dubai",
-      "text": "Awesome, i got the perfect fit!"
+      "text": "Awesome, I got the perfect fit!"
     },
     {
       "id": "4",
@@ -32,7 +32,7 @@
       "id": "6",
       "name": "Emelda",
       "image": "Emelda",
-      "location": "Usa",
+      "location": "USA",
       "text": "Adada Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
     },
     {
@@ -46,60 +46,60 @@
       "id": "8",
       "name": "Amaka",
       "image": "Amaka",
-      "location": "Usa",
-      "text": "A very good work. sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
+      "location": "USA",
+      "text": "A very good work. Sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
     },
     {
       "id": "9",
-      "name": " Cynthia ",
+      "name": "Cynthia",
       "image": "thia1",
       "location": "United Kingdom",
-      "text": "good one"
+      "text": "Good one"
     },
     {
       "id": "10",
       "name": "Uju",
       "image": "uju",
       "location": "France",
-      "text": "A very good work.  elit. Quasi eveniet officiis asperiores totam soluta. Iure? "
+      "text": "A very good work. Elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
     },
     {
       "id": "5",
-      "name": " Nkechi",
+      "name": "Nkechi",
       "image": "Nkechi",
       "location": "Houston",
       "text": "I love it! Will buy again."
     },
     {
       "id": "11",
-      "name": "Irene ",
+      "name": "Irene",
       "image": "Irene",
       "location": "Canada",
-      "text": "nice, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
+      "text": "Nice, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi eveniet officiis asperiores totam soluta. Iure?"
     },
     {
       "id": "61f5",
-      "name": "Emekalam Chibuzor ",
+      "name": "Emekalam Chibuzor",
       "location": "Maryland",
-      "text": "well done",
+      "text": "Well done",
       "image": ""
     },
     {
       "id": "40a4",
       "name": "PatrickOfm",
-      "location": "Manchester Uk",
-      "text": "bIought it for my and she was very happy",
+      "location": "Manchester UK",
+      "text": "Bought it for my and she was very happy",
       "image": ""
     }
   ],
   "Ankara": [
     {
       "id": 1,
-      "title": " Gown",
+      "title": "Gown",
       "category": "Gown",
       "price": 63.85,
       "image": "2923",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 2,
@@ -107,7 +107,7 @@
       "category": "Matching",
       "price": 130.00,
       "image": "ankara2",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 3,
@@ -115,7 +115,7 @@
       "category": "Gown",
       "price": 53.00,
       "image": "47625",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 4,
@@ -123,7 +123,7 @@
       "category": "Pinner Four",
       "price": 63.85,
       "image": "5052",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 5,
@@ -131,27 +131,27 @@
       "category": "Suit",
       "price": 236.00,
       "image": "2148747911",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 6,
-      "title": " Gown",
+      "title": "Gown",
       "category": "Gown",
       "price": 198.00,
       "image": "ankara",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 7,
-      "title": "Half Sleave",
+      "title": "Half Sleeve",
       "category": "Gown",
       "price": 120.50,
       "image": "red2",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 8,
-      "title": " Fitted",
+      "title": "Fitted",
       "category": "Fitted",
       "price": 160.00,
       "image": "woman",
@@ -163,7 +163,7 @@
       "category": "Gown",
       "price": 120.50,
       "image": "fine",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 10,
@@ -171,17 +171,17 @@
       "category": "Gown",
       "price": 122.50,
       "image": "fine",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     }
   ],
   "Ashoebi": [
     {
       "id": 1,
-      "title": " Gown",
+      "title": "Gown",
       "category": "Gown",
       "price": 63.85,
       "image": "ash32",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 2,
@@ -189,7 +189,7 @@
       "category": "Lace",
       "price": 130.00,
       "image": "ahee22",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 3,
@@ -197,7 +197,7 @@
       "category": "Lace",
       "price": 53.00,
       "image": "ahoeb22",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 4,
@@ -205,23 +205,23 @@
       "category": "Short",
       "price": 63.85,
       "image": "ashe24",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 5,
-      "title": "Fitte Lace",
+      "title": "Fitted Lace",
       "category": "Lace",
       "price": 236.00,
       "image": "ashebi22",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 6,
       "title": "Exposed Net Gown",
-      "category": "short",
+      "category": "Short",
       "price": 198.00,
       "image": "ashoebi2",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 7,
@@ -229,11 +229,11 @@
       "category": "Short",
       "price": 120.50,
       "image": "ashoebiii",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 8,
-      "title": " Shifon Gown",
+      "title": "Shifon Gown",
       "category": "Gown",
       "price": 160.00,
       "image": "save",
@@ -242,10 +242,10 @@
     {
       "id": 9,
       "title": "Nino Gown",
-      "category": "Nino Farbic",
+      "category": "Nino Fabric",
       "price": 120.50,
       "image": "aaabbb",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 10,
@@ -253,25 +253,25 @@
       "category": "Lace",
       "price": 122.50,
       "image": "lace",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     }
   ],
-  "Coperate": [
+  "Corporate": [
     {
       "id": 1,
       "title": "Pink Suit",
       "category": "Matching",
       "price": 63.85,
       "image": "cop3",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 2,
-      "title": "Sleavless",
+      "title": "Sleeveless",
       "category": "Matching",
       "price": 130.00,
       "image": "cop7",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 3,
@@ -279,71 +279,63 @@
       "category": "Gown",
       "price": 53.00,
       "image": "cop6",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 4,
-      "title": "Fitte White Colla",
+      "title": "Fitted White Collar",
       "category": "Gown",
       "price": 63.85,
       "image": "cop2",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 5,
-      "title": "Pinner5 Slevles Gown",
-      "category": "Gown",
-      "price": 236.00,
-      "image": "ashebi22",
-      "status": "New Arriaval"
-    },
-    {
-      "id": 6,
-      "title": "Fitte Long Sleaves",
+      "title": "Fitted Long Sleeves",
       "category": "Gown",
       "price": 198.00,
       "image": "ashoebi2",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "Native Material",
       "category": "Native",
       "price": 120.50,
       "image": "cop8",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
-      "id": 8,
-      "title": " Net Sleavs Gown",
+      "id": 7,
+      "title": "Net Sleeves Gown",
       "category": "Gown",
       "price": 160.00,
       "image": "coperate1",
       "status": "Old Trending"
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Off Shoulder Matching",
       "category": "Matching",
       "price": 120.50,
       "image": "cop1",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
-      "id": 10,
+      "id": 9,
       "title": "Native Suit",
       "category": "Native",
       "price": 122.50,
       "image": "2148747911",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
-      "id": 1,
-      " title": "Multi Colored",
+      "id": 10,
+      "title": "Multi Colored",
       "category": "Long",
-      " price": 63.85,
-      " image": "kaftan6",
-      "status": "Best Selers"
+      "price": 63.85,
+      "image": "kaftan6",
+      "status": "Best Sellers"
     }
   ],
   "Kaftan": [
@@ -353,19 +345,19 @@
       "category": "Long",
       "price": 130.0,
       "image": "kaftan6",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 2,
-      "title": "Fela Sleav",
+      "title": "Fela Sleeve",
       "category": "Long",
       "price": 130.0,
       "image": "kaftan5",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 3,
-      "title": "Multi Colored short Gown",
+      "title": "Multi Colored Short Gown",
       "category": "Short",
       "price": 160.0,
       "image": "kaftan2",
@@ -373,11 +365,11 @@
     },
     {
       "id": 4,
-      "title": "Buba kaftan",
+      "title": "Buba Kaftan",
       "category": "Long",
       "price": 53.0,
       "image": "kaftan4",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 5,
@@ -385,15 +377,15 @@
       "category": "Shifon",
       "price": 236.0,
       "image": "shifon",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 6,
       "title": "Simple Matching",
       "category": "Matching",
-      " price": 120.5,
+      "price": 120.5,
       "image": "kaf",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 7,
@@ -405,29 +397,29 @@
     },
     {
       "id": 8,
-      "title": "Shifon Special Red & lack",
+      "title": "Shifon Special Red & Black",
       "category": "Shifon",
       "price": 198.0,
       "image": "kaftann",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 9,
-      "title": " White Special",
+      "title": "White Special",
       "category": "Long",
       "price": 63.85,
       "image": "kaf3",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     }
   ],
   "Matching": [
     {
       "id": 1,
-      "title": " Fela Sleav",
+      "title": "Fela Sleeve",
       "category": "Shifon",
       "price": 63.85,
       "image": "matchinSet",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 2,
@@ -435,7 +427,7 @@
       "category": "Native",
       "price": 130.0,
       "image": "matcha",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 3,
@@ -451,7 +443,7 @@
       "category": "Native",
       "price": 53.0,
       "image": "match2",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 5,
@@ -459,15 +451,15 @@
       "category": "Shifon",
       "price": 236.0,
       "image": "match1",
-      "status": "New Arriaval"
+      "status": "New Arrival"
     },
     {
       "id": 6,
       "title": "Fela Up & Down Special",
       "category": "Native",
-      " price": 120.5,
+      "price": 120.5,
       "image": "matchb",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 7,
@@ -479,11 +471,11 @@
     },
     {
       "id": 8,
-      "title": "Coperate matching Set",
+      "title": "Corporate Matching Set",
       "category": "Native",
       "price": 198.0,
       "image": "match6",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     },
     {
       "id": 9,
@@ -491,10 +483,9 @@
       "category": "Shifon",
       "price": 63.85,
       "image": "match5",
-      "status": "Best Selers"
+      "status": "Best Sellers"
     }
   ],
-
   "Kides": [
     {
       "id": 1,
@@ -512,7 +503,6 @@
       "image": "kisa",
       "status": "Best Selers"
     },
-   
     {
       "id": 3,
       "title": "Red Ankara",
@@ -561,7 +551,6 @@
       "image": "kida",
       "status": "Old Trending"
     },
-   
     {
       "id": 9,
       "title": " White Special",

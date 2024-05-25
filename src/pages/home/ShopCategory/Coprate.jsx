@@ -44,13 +44,6 @@
 //     let sortedItems = [...filteredItems];
 
 //     switch (option) {
-//       case "A-Z":
-//         sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-//         break;
-
-//       case "Z-A":
-//         sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-//         break;
 
 //       case "Low-High":
 //         sortedItems.sort((a, b) => a.price - b.price);
@@ -108,8 +101,7 @@
 //               className="cursor-pointer border-2 border-black"
 //             >
 //               <option value="default">Default</option>
-//               <option value="A-Z">A-Z</option>
-//               <option value="Z-A">Z-A</option>
+//            
 //               <option value="Low-High">Low-High</option>
 //               <option value="High-Low">High-Low</option>
 //             </select>
@@ -148,7 +140,7 @@
 //           )}
 //         </div>
 //       </div>
-//       <div className="w-full pt-5 px-3 flex justify-center items-center">
+//       <div className="w-full  bg-white py-5  flex justify-center items-center">
 //         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
 //       </div>
 //       <Footer />
@@ -215,16 +207,9 @@ const Coprate = () => {
         image: "cop2",
         status: "New Arriaval",
       },
+      
       {
         id: 5,
-        title: "Pinner5 Slevles Gown",
-        category: "Gown",
-        price: 236.0,
-        image: "ashebi22",
-        status: "New Arriaval",
-      },
-      {
-        id: 6,
         title: "Fitte Long Sleaves",
         category: "Gown",
         price: 198.0,
@@ -232,7 +217,7 @@ const Coprate = () => {
         status: "Best Selers",
       },
       {
-        id: 7,
+        id: 6,
         title: "Native Material",
         category: "Native",
         price: 120.5,
@@ -240,7 +225,7 @@ const Coprate = () => {
         status: "Best Selers",
       },
       {
-        id: 8,
+        id: 7,
         title: " Net Sleavs Gown",
         category: "Gown",
         price: 160.0,
@@ -248,7 +233,7 @@ const Coprate = () => {
         status: "Old Trending",
       },
       {
-        id: 9,
+        id: 8,
         title: "Off Shoulder Matching",
         category: "Matching",
         price: 120.5,
@@ -256,7 +241,7 @@ const Coprate = () => {
         status: "Best Selers",
       },
       {
-        id: 10,
+        id: 9,
         title: "Native Suit",
         category: "Native",
         price: 122.5,
@@ -289,12 +274,7 @@ const Coprate = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-      case "A-Z":
-        sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "Z-A":
-        sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-        break;
+     
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -335,7 +315,6 @@ const Coprate = () => {
             >
               Gown
             </span>
-           
           </div>
           <div className="flex justify-center items-center">
             <div className="bg-black p-2">
@@ -348,8 +327,7 @@ const Coprate = () => {
               className="cursor-pointer border-2 border-black"
             >
               <option value="Default">Default</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
+            
               <option value="Low-High">Low-High</option>
               <option value="High-Low">High-Low</option>
             </select>
@@ -357,7 +335,7 @@ const Coprate = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.slice(0, 9).map((review) => (
+            {filteredItems.map((review) => (
               <div
                 key={review.id}
                 className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
@@ -382,7 +360,7 @@ const Coprate = () => {
           </div>
         </div>
       </div>
-      <div className="w-full pt-5 px-3 flex justify-center items-center">
+      <div className="w-full  bg-white py-5  flex justify-center items-center">
         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
       </div>
       <Footer />

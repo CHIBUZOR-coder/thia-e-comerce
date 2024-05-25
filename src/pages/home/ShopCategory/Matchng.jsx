@@ -44,13 +44,7 @@
 //     let sortedItems = [...filteredItems];
 
 //     switch (option) {
-//       case "A-Z":
-//         sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-//         break;
-
-//       case "Z-A":
-//         sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-//         break;
+//      
 
 //       case "Low-High":
 //         sortedItems.sort((a, b) => a.price - b.price);
@@ -102,8 +96,7 @@
 //               className="cursor-pointer border-2 border-black"
 //             >
 //               <option value="default">Default</option>
-//               <option value="A-Z">A-Z</option>
-//               <option value="Z-A">Z-A</option>
+//            
 //               <option value="Low-High">Low-High</option>
 //               <option value="High-Low">High-Low</option>
 //             </select>
@@ -142,7 +135,7 @@
 //           )}
 //         </div>
 //       </div>
-//       <div className="w-full pt-5 px-3 flex justify-center items-center">
+//       <div className="w-full  bg-white py-5 flex justify-center items-center">
 //         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
 //       </div>
 //       <Footer />
@@ -210,7 +203,7 @@ const Matchng = () => {
         id: 6,
         title: "Fela Up & Down Special",
         category: "Native",
-        " price": 120.5,
+        price: 120.5,
         image: "matchb",
         status: "Best Selers",
       },
@@ -264,12 +257,7 @@ const Matchng = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-      case "A-Z":
-        sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "Z-A":
-        sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-        break;
+    
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -316,8 +304,7 @@ const Matchng = () => {
               className="cursor-pointer border-2 border-black"
             >
               <option value="Default">Default</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
+             
               <option value="Low-High">Low-High</option>
               <option value="High-Low">High-Low</option>
             </select>
@@ -350,7 +337,7 @@ const Matchng = () => {
           </div>
         </div>
       </div>
-      <div className="w-full pt-5 px-3 flex justify-center items-center">
+      <div className="w-full  bg-white py-5  flex justify-center items-center">
         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
       </div>
       <Footer />

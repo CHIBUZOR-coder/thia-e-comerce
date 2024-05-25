@@ -63,5 +63,81 @@
             "price": 160.00,
             "image": ""
         }
+    ],
+
+
+    "Kides": [
+        {
+            "id": 1,
+            "title": "Ashoebi Gold Gown",
+            "category": "Long",
+            "price": 130.0,
+            "image": "kidb",
+            "status": "Best Selers"
+        },
+        {
+            "id": 2,
+            "title": "Shifon Flower Gown",
+            "category": "Long",
+            "price": 198.0,
+            "image": "kisa",
+            "status": "Best Selers"
+        },
+        {
+            "id": 3,
+            "title": "Red Ankara",
+            "category": "Short",
+            "price": 130.0,
+            "image": "kid6",
+            "status": "Best Selers"
+        },
+        {
+            "id": 4,
+            "title": "Short Flower Gown",
+            "category": "Short",
+            "price": 53.0,
+            "image": "kidd",
+            "status": "Best Selers"
+        },
+        {
+            "id": 5,
+            "title": "Coperate Fited ",
+            "category": "Matching",
+            "price": 236.0,
+            "image": "kid5",
+            "status": "New Arriaval"
+        },
+        {
+            "id": 6,
+            "title": "Native Flower Gown",
+            "category": "Native",
+            " price": 120.5,
+            "image": "kid3",
+            "status": "Best Selers"
+        },
+        {
+            "id": 7,
+            "title": "Yellow Lining Ankara",
+            "category": "Short",
+            "price": 160.0,
+            "image": "kid2",
+            "status": "Old Trending"
+        },
+        {
+            "id": 8,
+            "title": "Red Ashoebi",
+            "category": "Native",
+            "price": 160.0,
+            "image": "kida",
+            "status": "Old Trending"
+        },
+        {
+            "id": 9,
+            "title": " White Special",
+            "category": "short",
+            "price": 63.85,
+            "image": "kidcc",
+            "status": "Best Selers"
+        }
     ]
 }

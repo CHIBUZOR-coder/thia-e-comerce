@@ -21,52 +21,37 @@
 
 //   // Function to filter items based on the selected category
 //   const filterItems = (category) => {
-//     const filtered =
-//       category === "All"
-//         ? items
-//         : items.filter((item) => item.category === category);
-//     setFilteredItems(filtered);
 //     setSelectCategory(category);
 //   };
 
-//   // Update filteredItems when items data is loaded
+//   // New useEffect hook to handle filtering and sorting
 //   useEffect(() => {
 //     if (items) {
-//       setFilteredItems(items);
+//       let sortedItems =
+//         selectCategory === "All"
+//           ? [...items]
+//           : items.filter((item) => item.category === selectCategory);
+
+//       switch (sortOptions) {
+
+//         case "Low-High":
+//           sortedItems.sort((a, b) => a.price - b.price);
+//           break;
+//         case "High-Low":
+//           sortedItems.sort((a, b) => b.price - a.price);
+//           break;
+//         case "Default":
+//         default:
+//           // No sorting applied, just filtered items
+//           break;
+//       }
+//       setFilteredItems(sortedItems);
 //     }
-//   }, [items]);
+//   }, [sortOptions, selectCategory, items]);
 
 //   // Sorting function
 //   const handleSortChange = (option) => {
 //     setSortOptions(option);
-
-//     // Logic for sorting
-//     let sortedItems = [...filteredItems];
-
-//     switch (option) {
-//       case "A-Z":
-//         sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-//         break;
-
-//       case "Z-A":
-//         sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-//         break;
-
-//       case "Low-High":
-//         sortedItems.sort((a, b) => a.price - b.price);
-//         break;
-
-//       case "High-Low":
-//         sortedItems.sort((a, b) => b.price - a.price);
-//         break;
-
-//       case "Default":
-//       default:
-//         // Reset to the initial state of filteredItems based on the current category
-//         filterItems(selectCategory);
-//         return;
-//     }
-//     setFilteredItems(sortedItems);
 //   };
 
 //   return (
@@ -112,9 +97,8 @@
 //               value={sortOptions}
 //               className="cursor-pointer border-2 border-black"
 //             >
-//               <option value="default">Default</option>
-//               <option value="A-Z">A-Z</option>
-//               <option value="Z-A">Z-A</option>
+//               <option value="Default">Default</option>
+
 //               <option value="Low-High">Low-High</option>
 //               <option value="High-Low">High-Low</option>
 //             </select>
@@ -153,7 +137,7 @@
 //           )}
 //         </div>
 //       </div>
-//       <div className="w-full pt-5 px-3 flex justify-center items-center">
+//       <div className="w-full bg-white py-5 px-3 flex justify-center items-center">
 //         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
 //       </div>
 //       <Footer />
@@ -162,6 +146,12 @@
 // };
 
 // export default Ashebi;
+
+
+
+
+
+
 
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
@@ -283,12 +273,7 @@ const Ashebi = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-      case "A-Z":
-        sortedItems.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "Z-A":
-        sortedItems.sort((a, b) => b.title.localeCompare(a.title));
-        break;
+     
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -331,9 +316,9 @@ const Ashebi = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Nino")}
+              onClick={() => filterItems("Nino Farbic")}
             >
-              Nino Faric
+              Nino
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -347,8 +332,7 @@ const Ashebi = () => {
               className="cursor-pointer border-2 border-black"
             >
               <option value="Default">Default</option>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
+
               <option value="Low-High">Low-High</option>
               <option value="High-Low">High-Low</option>
             </select>
@@ -356,7 +340,7 @@ const Ashebi = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.slice(0, 9).map((review) => (
+            {filteredItems.map((review) => (
               <div
                 key={review.id}
                 className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
@@ -381,7 +365,7 @@ const Ashebi = () => {
           </div>
         </div>
       </div>
-      <div className="w-full pt-5 px-3 flex justify-center items-center">
+      <div className="w-full  bg-white py-5  flex justify-center items-center">
         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
       </div>
       <Footer />

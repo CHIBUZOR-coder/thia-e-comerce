@@ -2,7 +2,7 @@ import Footer from "./Footer";
 
 const Custom = () => {
   return (
-    <div className=" ">
+    <div id="custom" className=" ">
       <div className="flex flex-col  bg-primary items-start  py-10">
         <div className="md:px-28 px-4">
           <div>
