@@ -26,7 +26,7 @@ const Footer = () => {
             <Link className="anchor" to="/">
               Care Guide{" "}
             </Link>
-            <Link className="anchor" to="/thia-e-comerce/AoutThia">
+            <Link className="anchor" to="/thia-e-comerce/AboutThia">
               About Thia{" "}
             </Link>
           </div>

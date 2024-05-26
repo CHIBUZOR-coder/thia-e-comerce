@@ -15,7 +15,7 @@ import Coprate from "./pages/home/ShopCategory/Coprate.jsx";
 import Kaftn from "./pages/home/ShopCategory/Kaftn.jsx";
 import Matchng from "./pages/home/ShopCategory/Matchng.jsx";
 import Kidis from "./pages/home/ShopCategory/Kidis.jsx";
-import AoutThia from "./pages/home/AoutThia.jsx";
+import AboutThia from "./pages/home/AboutThia.jsx";
 
 const router = createBrowserRouter([
   {
@@ -73,8 +73,8 @@ const router = createBrowserRouter([
         element: <Kidis />,
       },
       {
-        path: "/thia-e-comerce/AoutThia",
-        element: <AoutThia />,
+        path: "/thia-e-comerce/AboutThia",
+        element: <AboutThia />,
       },
     ],
   },
