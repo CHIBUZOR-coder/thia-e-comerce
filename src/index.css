@@ -94,7 +94,7 @@
     &:hover {
 
         background-color: rgba(0, 0, 0, 0.6);
-        
+
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     }
 }
@@ -201,4 +201,22 @@
 .revLogo {
     background: url(/public/images/logo4.png) center center/ cover;
 
+}
+
+.thiaContact {
+    background: url(/public/images/thia1.jpg) center center/ cover;
+}
+
+
+.contactIcons {
+    @apply h-10 w-10 bg-location text-white rounded-full 
+}
+
+.contactIcons{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    
+}
+
+.italic{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

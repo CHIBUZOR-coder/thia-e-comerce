@@ -11,6 +11,7 @@ export default {
         trans2: "rgb(0,0,0,0.5)",
         btn: "rgba(229,231,235,0.6)",
         footerlinks: "rgb(101,99,99)",
+        location: "rgb(79,70,229)",
       },
 
       fontFamily: {
@@ -43,7 +44,7 @@ export default {
       maxHeight: {
         first: "440px",
       },
-     
+
       minHeight: {
         primary: "620px",
       },

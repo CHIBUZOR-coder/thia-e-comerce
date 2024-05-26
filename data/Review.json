@@ -551,5 +551,21 @@
       "image": "kidcc",
       "status": "Best Selers"
     }
+  ],
+  "Messages": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "subject": "Product Inquiry",
+      "message": "I would like to know more about the Adicolor Classics Joggers."
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "subject": "Order Status",
+      "message": "Can you update me on the status of my order #12345?"
+    }
   ]
 }
