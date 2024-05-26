@@ -9,7 +9,7 @@ import Footer from "./Footer";
 const CustomPrevArrow = ({ onClick }) => {
   return (
     <div
-      className="fixed top-1/2 transform rev -translate-y-1/2 left-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+      className="absolute top-28 transform rev -translate-y-1/2 left-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
       onClick={onClick}
     >
       <IoIosArrowDropleft className="w-6 h-6 text-black" />
@@ -24,7 +24,7 @@ CustomPrevArrow.propTypes = {
 const CustomNextArrow = ({ onClick }) => {
   return (
     <div
-      className="fixed top-1/2 transform rev -translate-y-1/2 right-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
+      className="absolute top-28 transform rev -translate-y-1/2 right-4 w-8 h-8 cursor-pointer z-20 flex justify-center items-center bg-white rounded-full shadow"
       onClick={onClick}
     >
       <IoIosArrowDropright className="w-6 h-6 text-black" />
@@ -85,7 +85,7 @@ const Reviews = () => {
               <div className="h-[200px] flex justify-center items-center p-2 mt-4 w-full bg-blue-400">
                 <img
                   className="cursor-pointer z-10 rounded-full h-44 w-44"
-                  src={`/RiviewImage/${review.image}.jpg`}
+                  src={`./RiviewImage/${review.image}.jpg`}
                   alt="client image"
                 />
               </div>
