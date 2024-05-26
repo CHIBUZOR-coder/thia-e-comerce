@@ -137,11 +137,13 @@ const Navbar = () => {
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/" ? "text-red-500" : ""
+                        location.pathname === "/thia-e-comerce/Coprate"
+                          ? "text-red-500"
+                          : ""
                       }`}
                       to="/thia-e-comerce/Coprate"
                     >
-                      Coperate
+                    Coperate
                     </Link>
                     <Link
                       className={`decorate2 ${
