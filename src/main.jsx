@@ -16,6 +16,10 @@ import Kaftn from "./pages/home/ShopCategory/Kaftn.jsx";
 import Matchng from "./pages/home/ShopCategory/Matchng.jsx";
 import Kidis from "./pages/home/ShopCategory/Kidis.jsx";
 import AboutThia from "./pages/home/AboutThia.jsx";
+import SizeGuide from "./pages/home/SizeGuide.jsx";
+import Terms from "./pages/home/Terms.jsx";
+import Care from "./pages/home/Care.jsx";
+import Bridls from "./pages/home/ShopCategory/Bridls.jsx";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +69,10 @@ const router = createBrowserRouter([
         element: <Kaftn />,
       },
       {
+        path: "/thia-e-comerce/Bridls",
+        element: <Bridls />,
+      },
+      {
         path: "/thia-e-comerce/Matchng",
         element: <Matchng />,
       },
@@ -75,6 +83,18 @@ const router = createBrowserRouter([
       {
         path: "/thia-e-comerce/AboutThia",
         element: <AboutThia />,
+      },
+      {
+        path: "/thia-e-comerce/SizeGuide",
+        element: <SizeGuide />,
+      },
+      {
+        path: "/thia-e-comerce/Terms",
+        element: <Terms />,
+      },
+      {
+        path: "/thia-e-comerce/Care",
+        element: <Care />,
       },
     ],
   },

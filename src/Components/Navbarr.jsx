@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const location = useLocation();
+  const location = useLocation();
   const toggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -143,7 +143,7 @@ const Navbar = () => {
                       }`}
                       to="/thia-e-comerce/Coprate"
                     >
-                    Coperate
+                      Coperate
                     </Link>
                     <Link
                       className={`decorate2 ${
@@ -154,6 +154,16 @@ const Navbar = () => {
                       to="/thia-e-comerce/Kaftn"
                     >
                       Kaftan
+                    </Link>
+                    <Link
+                      className={`decorate2 ${
+                        location.pathname === "/thia-e-comerce/Bridls"
+                          ? "text-red-500"
+                          : ""
+                      }`}
+                      to="/thia-e-comerce/Bridls"
+                    >
+                      Bridals
                     </Link>
                     <Link
                       className={`decorate2 ${
@@ -256,6 +266,18 @@ const Navbar = () => {
                       >
                         Kaftan
                       </Link>
+
+                      <Link
+                        className={`decorate2 ${
+                          location.pathname === "/thia-e-comerce/Bridls"
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                        to="/thia-e-comerce/Bridls"
+                      >
+                        Bridals
+                      </Link>
+
                       <Link
                         className={`decorate2 ${
                           location.pathname === "/thia-e-comerce/Matchng"

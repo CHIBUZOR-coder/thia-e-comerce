@@ -404,6 +404,104 @@
       "status": "Best Sellers"
     }
   ],
+  "Bridals": [
+    {
+      "id": 1,
+      "title": "Sleavless && Net Sleeve",
+      "category": "Sleave",
+      "price": 63.85,
+      "image": "aabb",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 2,
+      "title": "Flare Gown",
+      "category": "Sleavless",
+      "price": 130.0,
+      "image": "bridal",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 3,
+      "title": "Sweeper Gown",
+      "category": "Sleave",
+      "price": 160.0,
+      "image": "bridal000",
+      "status": "Old Trending"
+    },
+    {
+      "id": 4,
+      "title": "Ashoebi Bridal Gown",
+      "category": "Sleaveless",
+      "price": 53.0,
+      "image": "brialppp",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 5,
+      "title": "Flower Shoulder ",
+      "category": "Sleave",
+      "price": 236.0,
+      "image": "brial99",
+      "status": "New Arrival"
+    },
+    {
+      "id": 6,
+      "title": "Shifon Bridal Gown",
+      "category": "Shifon",
+      "price": 120.5,
+      "image": "brial111",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 7,
+      "title": "Net Sleave",
+      "category": "Sleave",
+      "price": 160.0,
+      "image": "bridalooo",
+      "status": "Old Trending"
+    },
+    {
+      "id": 8,
+      "title": "Tralditional Gown",
+      "category": "Native",
+      "price": 195.0,
+      "image": "abb2",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 9,
+      "title": "Flare White",
+      "category": "Sleave",
+      "price": 63.85,
+      "image": "bridal44",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 10,
+      "title": "Lace & Shifoon Mix",
+      "category": "Shifon",
+      "price": 63.85,
+      "image": "bridal77",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 11,
+      "title": "Buterfly Lace Gown",
+      "category": "Sleave",
+      "price": 63.85,
+      "image": "product",
+      "status": "Best Sellers"
+    },
+    {
+      "id": 12,
+      "title": "Lace Special",
+      "category": "Sleaveless",
+      "price": 198.0,
+      "image": "thia2",
+      "status": "Best Sellers"
+    }
+  ],
   "Matching": [
     {
       "id": 1,

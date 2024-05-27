@@ -17,15 +17,15 @@ const Footer = () => {
             <a className="anchor" href="/thia-e-comerce/Custom">
               Custom Fit{" "}
             </a>
-            <Link className="anchor" to="/">
+            <a className="anchor" href="/thia-e-comerce/SizeGuide">
               Size Guide{" "}
-            </Link>
-            <Link className="anchor" to="/">
+            </a>
+            <Link className="anchor" to="/thia-e-comerce/Terms">
               Delivery, Terms & Conditions{" "}
             </Link>
-            <Link className="anchor" to="/">
+            <a className="anchor" href="/thia-e-comerce/Care">
               Care Guide{" "}
-            </Link>
+            </a>
             <a className="anchor" href="/thia-e-comerce/AboutThia">
               About Thia{" "}
             </a>
