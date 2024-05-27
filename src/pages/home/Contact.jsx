@@ -66,7 +66,7 @@ const FormReview = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                className="outline-none mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
               />
             </div>
             <div className="mb-4">
@@ -80,7 +80,7 @@ const FormReview = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                className="outline-none mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
               />
             </div>
             <div className="mb-4">
@@ -94,7 +94,7 @@ const FormReview = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                className=" outline-none mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
               />
             </div>
             <div className="mb-4">
@@ -107,7 +107,7 @@ const FormReview = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                className="outline-none mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
               />
             </div>
             <button

@@ -21,3 +21,7 @@
 .subnav {
     border: 1px solid rgb(101, 99, 99);
 }
+
+.help{
+    @apply text-footerlinks hover:text-black transition ease-in-out duration-300 cursor-pointer
+}
