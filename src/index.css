@@ -13,32 +13,32 @@
 
 /* Add your background images */
 .a1 {
-    background-image: url(./images/aabb.jpg);
+    background-image: url(/public/images/aabb.jpg);
 }
 
 .a2 {
-    background-image: url(./images/aabb.jpg);
+    background-image: url(/public/images/aabb.jpg);
 }
 
 .a3 {
-    background-image: url(./images/Ashoebi21.jpg);
+    background-image: url(/public/images/Ashoebi21.jpg);
 }
 
 .a4 {
-    background-image: url(./images/4767.jpg);
+    background-image: url(/public/images/4767.jpg);
 }
 
 .a5 {
-    background-image: url(./images/214.jpg);
+    background-image: url(/public/images/214.jpg);
 }
 
 .logo {
-    background: url(./images/ThiaLogo.png) center center/ cover;
+    background: url(/public/images/ThiaLogo.png) center center/ cover;
 
 }
 
 .thia {
-    background: url(./images/thia2.jpg) center center/ cover;
+    background: url(/public/images/thia2.jpg) center center/ cover;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
 
@@ -75,7 +75,7 @@
 }
 
 .rightProduct {
-    background: url(./images/stylish.jpg)center center/ cover;
+    background: url(/public/images/stylish.jpg)center center/ cover;
 }
 
 .leftProduct {
@@ -131,20 +131,20 @@
 }
 
 .thiaLogo {
-    background: url(./images/logo4.png) center center/ cover;
+    background: url(/public/images/logo4.png) center center/ cover;
 }
 
 .footerLogo {
-    background: url(./images/fotter-modified.png) center center/ cover;
+    background: url(/public/images/fotter-modified.png) center center/ cover;
 }
 
 
 .pics1 {
-    background: url(./images/product.jpg) center center/ cover;
+    background: url(/public/images/product.jpg) center center/ cover;
 }
 
 .pics2 {
-    background: url(./images/prdde.jpg) center center/ cover;
+    background: url(/public/images/prdde.jpg) center center/ cover;
 }
 
 .talor1 {
@@ -161,11 +161,11 @@
 
 
 .talor4 {
-    background: url(./images/talor4.jpg) center center/ cover;
+    background: url(/public/images/talor4.jpg) center center/ cover;
 }
 
 .talor5 {
-    background: url(./images/talor5.jpg) center center/ cover;
+    background: url(/public/images/talor5.jpg) center center/ cover;
 }
 
 .tal {
@@ -174,7 +174,7 @@
 
 
 .customm {
-    background: url(./images/customm.jpg) center center/ cover;
+    background: url(/public/images/customm.jpg) center center/ cover;
 }
 
 
@@ -199,16 +199,16 @@
 
 
 .revLogo {
-    background: url(./images/logo4.png) center center/ cover;
+    background: url(/public/images/logo4.png) center center/ cover;
 
 }
 
 .thiaContact {
-background: url(./images/thia1.jpg) center center/ cover;
+background: url(/public/images/thia1.jpg) center center/ cover;
 }
 
 .AoutThiaPics {
-    background: url(./images/thia1.jpg) center center/ cover;
+    background: url(/public/images/thia1.jpg) center center/ cover;
 }
 
 .contactIcons {
