@@ -346,7 +346,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = ({handleSearch }) => {
+const Navbar = ({handleSearch}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -661,7 +661,7 @@ const Navbar = ({handleSearch }) => {
 };
 
 Navbar.propTypes = {
-  handelSearch: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 export default Navbar;
