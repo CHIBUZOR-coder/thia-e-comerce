@@ -5,7 +5,7 @@ const SearchPage = () => {
   return (
     <div>
       <div className="md:px-8 px-4 ">
-        <div className="w-full py-10 flex justify-center items-center text-4xl">
+        <div className="w-full md:py-10 py-4 flex justify-center items-center md:text-4xl">
           <GoSearch className="h-5 w-5 text-black" />
           <input
             className="w-3/4 h-20 outline-none"
