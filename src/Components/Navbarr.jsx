@@ -381,7 +381,7 @@ const Navbar = ({handleSearch }) => {
   }, []);
 
   return (
-    <header className="relative md:px-28 bg-white px-4 headerrr z-40 ">
+    <header className="relative md:px-28 bg-white px-4 headerrr ">
       <nav className="flex justify-between container md:py-4 py-4 relative ">
         {/* Search Bar */}
         <FaSearch

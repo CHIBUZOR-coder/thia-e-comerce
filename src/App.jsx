@@ -51,13 +51,13 @@ function App() {
             IsSearchOpen ? "open" : "closed"
           }  `}
         >
-          <div className="absolute md:px-16 px-4  w-full top-[200px] ">
-            <div className="flex justify-end w-full p-2 my-2">
+          <div className="absolute z-40 md:px-16 px-4  w-full md:top-[200px] top[50px] ">
+            <div className="flex justify-end  w-full p-2 my-2">
               <span onClick={handleSearch}>
                 <FaXmark className="h-6 w-6 cursor-pointer" />
               </span>
             </div>
-            <p className="text-3xl font-semibold capitalize my-4">Search</p>
+            <p className="text-3xl font-semibold capitalize ">Search</p>
 
             <div>
               <div className="flex w-full justify-center items-center p-2 gap-5">
