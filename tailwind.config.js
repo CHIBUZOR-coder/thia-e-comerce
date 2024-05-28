@@ -12,6 +12,8 @@ export default {
         btn: "rgba(229,231,235,0.6)",
         footerlinks: "rgb(101,99,99)",
         location: "rgb(79,70,229)",
+        media: "rgb(122,102,251)",
+        green: "rgb(0,128,0)",
       },
 
       fontFamily: {

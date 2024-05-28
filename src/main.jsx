@@ -20,6 +20,7 @@ import SizeGuide from "./pages/home/SizeGuide.jsx";
 import Terms from "./pages/home/Terms.jsx";
 import Care from "./pages/home/Care.jsx";
 import Bridls from "./pages/home/ShopCategory/Bridls.jsx";
+import SearchPage from "./pages/home/SearchPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "/thia-e-comerce/Care",
         element: <Care />,
+      },
+      {
+        path: "/thia-e-comerce/SearchPage",
+        element: <SearchPage />,
       },
     ],
   },
