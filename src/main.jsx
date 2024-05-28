@@ -21,6 +21,7 @@ import Terms from "./pages/home/Terms.jsx";
 import Care from "./pages/home/Care.jsx";
 import Bridls from "./pages/home/ShopCategory/Bridls.jsx";
 import SearchPage from "./pages/home/SearchPage.jsx";
+import ShowAll from "./pages/ShopAll.jsx";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: "/thia-e-comerce/SearchPage",
         element: <SearchPage />,
+      },
+      {
+        path: "/thia-e-comerce/Ankara/:id",
+        element: <ShowAll />,
       },
     ],
   },

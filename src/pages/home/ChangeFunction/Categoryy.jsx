@@ -184,16 +184,16 @@ const Category = () => {
       </h1>
       <div className="carsel w-full">
         <div
-          className="relative flex w-full  transition ease-in-out duration-1000"
+          className="relative flex w-full   transition ease-in-out duration-1000"
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`w-full carocel transition ease-in-out duration-1000 bg-slate-400 ${
+              className={`w-full carocel transition  ease-in-out duration-1000 bg-slate-400 ${
                 index === currentSlide ? "" : "hidden"
-              } flex justify-center  `}
+              } flex justify-center   `}
             >
               {React.cloneElement(slide, {
                 style: {

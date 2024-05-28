@@ -370,10 +370,10 @@ const Akara = () => {
             {filteredItems.map((review) => (
               <div
                 key={review.id}
-                className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
+                className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px] xl:h[700px] rounded-md shadow-md"
               >
                 <div
-                  className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
+                  className="h-[600px]  md:h-[500px] xl:h[600px]  flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                   style={{
                     background: `url(./images/${review.image}.jpg) center center/ cover`,
                   }}

@@ -22,7 +22,9 @@ export default {
       height: {
         big: "400px",
         big2: "580px",
-        big3: "500px",
+        big3: "600px",
+        large: "800px",
+
         product: "750px",
         product2: "800px",
         pics: "450px",
