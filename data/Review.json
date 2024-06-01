@@ -99,7 +99,9 @@
       "category": "Gown",
       "price": 63.85,
       "image": "2923",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 2,
@@ -107,7 +109,9 @@
       "category": "Matching",
       "price": 130.00,
       "image": "ankara2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 3,
@@ -115,7 +119,9 @@
       "category": "Gown",
       "price": 53.00,
       "image": "47625",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 4,
@@ -123,7 +129,9 @@
       "category": "Pinner Four",
       "price": 63.85,
       "image": "5052",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 5,
@@ -131,7 +139,9 @@
       "category": "Suit",
       "price": 236.00,
       "image": "2148747911",
-      "status": "New Arrival"
+      "status": "New Arrival,",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 6,
@@ -139,7 +149,9 @@
       "category": "Gown",
       "price": 198.00,
       "image": "ankara",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 7,
@@ -147,7 +159,9 @@
       "category": "Gown",
       "price": 120.50,
       "image": "red2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 8,
@@ -155,7 +169,9 @@
       "category": "Fitted",
       "price": 160.00,
       "image": "woman",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 9,
@@ -163,7 +179,9 @@
       "category": "Gown",
       "price": 120.50,
       "image": "fine",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     }
   ],
   "Ashoebi": [
@@ -173,7 +191,9 @@
       "category": "Gown",
       "price": 63.85,
       "image": "ash32",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 2,
@@ -181,7 +201,9 @@
       "category": "Lace",
       "price": 130.00,
       "image": "ahee22",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 3,
@@ -189,7 +211,9 @@
       "category": "Lace",
       "price": 53.00,
       "image": "ahoeb22",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 4,
@@ -197,7 +221,9 @@
       "category": "Short",
       "price": 63.85,
       "image": "ashe24",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 5,
@@ -205,7 +231,9 @@
       "category": "Lace",
       "price": 236.00,
       "image": "ashebi22",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 6,
@@ -213,7 +241,9 @@
       "category": "Short",
       "price": 198.00,
       "image": "ashoebi2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 7,
@@ -221,7 +251,9 @@
       "category": "Short",
       "price": 120.50,
       "image": "ashoebiii",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 8,
@@ -229,7 +261,9 @@
       "category": "Gown",
       "price": 160.00,
       "image": "save",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 48
     },
     {
       "id": 9,
@@ -237,7 +271,9 @@
       "category": "Nino Fabric",
       "price": 120.50,
       "image": "aaabbb",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 10,
@@ -245,7 +281,9 @@
       "category": "Lace",
       "price": 122.50,
       "image": "lace",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Coperate": [
@@ -255,7 +293,9 @@
       "category": "Matching",
       "price": 63.85,
       "image": "cop3",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 2,
@@ -263,7 +303,9 @@
       "category": "Matching",
       "price": 130.00,
       "image": "cop7",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 3,
@@ -271,7 +313,9 @@
       "category": "Gown",
       "price": 53.00,
       "image": "cop6",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 4,
@@ -279,7 +323,9 @@
       "category": "Gown",
       "price": 63.85,
       "image": "cop2",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 5,
@@ -287,7 +333,9 @@
       "category": "Gown",
       "price": 198.00,
       "image": "ashoebi2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 6,
@@ -295,7 +343,9 @@
       "category": "Native",
       "price": 120.50,
       "image": "cop8",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 7,
@@ -303,7 +353,9 @@
       "category": "Gown",
       "price": 160.00,
       "image": "coperate1",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 8,
@@ -311,7 +363,9 @@
       "category": "Matching",
       "price": 120.50,
       "image": "cop1",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 9,
@@ -319,7 +373,9 @@
       "category": "Native",
       "price": 122.50,
       "image": "2148747911",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 10,
@@ -327,7 +383,9 @@
       "category": "Long",
       "price": 63.85,
       "image": "kaftan6",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Kaftan": [
@@ -337,7 +395,9 @@
       "category": "Long",
       "price": 130.0,
       "image": "kaftan6",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 2,
@@ -345,7 +405,9 @@
       "category": "Long",
       "price": 130.0,
       "image": "kaftan5",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 3,
@@ -353,7 +415,9 @@
       "category": "Short",
       "price": 160.0,
       "image": "kaftan2",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 4,
@@ -361,7 +425,9 @@
       "category": "Long",
       "price": 53.0,
       "image": "kaftan4",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 5,
@@ -369,15 +435,19 @@
       "category": "Shifon",
       "price": 236.0,
       "image": "shifon",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 6,
       "title": "Simple Matching",
-      "category": "Matching",
+      "category": "Short",
       "price": 120.5,
       "image": "kaf",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 7,
@@ -385,7 +455,9 @@
       "category": "Long",
       "price": 160.0,
       "image": "jackie",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 8,
@@ -393,7 +465,9 @@
       "category": "Shifon",
       "price": 198.0,
       "image": "kaftann",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 9,
@@ -401,7 +475,9 @@
       "category": "Long",
       "price": 63.85,
       "image": "kaf3",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Bridals": [
@@ -411,7 +487,9 @@
       "category": "Sleave",
       "price": 63.85,
       "image": "aabb",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 2,
@@ -419,7 +497,9 @@
       "category": "Sleavless",
       "price": 130.0,
       "image": "bridal",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 3,
@@ -427,7 +507,9 @@
       "category": "Sleave",
       "price": 160.0,
       "image": "bridal000",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 4,
@@ -435,7 +517,9 @@
       "category": "Sleaveless",
       "price": 53.0,
       "image": "brialppp",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 5,
@@ -443,7 +527,9 @@
       "category": "Sleave",
       "price": 236.0,
       "image": "brial99",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 6,
@@ -451,7 +537,9 @@
       "category": "Shifon",
       "price": 120.5,
       "image": "brial111",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 7,
@@ -459,7 +547,9 @@
       "category": "Sleave",
       "price": 160.0,
       "image": "bridalooo",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 8,
@@ -467,7 +557,9 @@
       "category": "Native",
       "price": 195.0,
       "image": "abb2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 9,
@@ -475,7 +567,9 @@
       "category": "Sleave",
       "price": 63.85,
       "image": "bridal44",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 10,
@@ -483,7 +577,9 @@
       "category": "Shifon",
       "price": 63.85,
       "image": "bridal77",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 11,
@@ -491,7 +587,9 @@
       "category": "Sleave",
       "price": 63.85,
       "image": "product",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 12,
@@ -499,7 +597,9 @@
       "category": "Sleaveless",
       "price": 198.0,
       "image": "thia2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Matching": [
@@ -509,7 +609,9 @@
       "category": "Shifon",
       "price": 63.85,
       "image": "matchinSet",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 2,
@@ -517,7 +619,9 @@
       "category": "Native",
       "price": 130.0,
       "image": "matcha",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 3,
@@ -525,7 +629,9 @@
       "category": "Native",
       "price": 160.0,
       "image": "matchingset",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 4,
@@ -533,7 +639,9 @@
       "category": "Native",
       "price": 53.0,
       "image": "match2",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 5,
@@ -541,7 +649,9 @@
       "category": "Shifon",
       "price": 236.0,
       "image": "match1",
-      "status": "New Arrival"
+      "status": "New Arrival",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 6,
@@ -549,7 +659,9 @@
       "category": "Native",
       "price": 120.5,
       "image": "matchb",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 7,
@@ -557,7 +669,9 @@
       "category": "Native",
       "price": 160.0,
       "image": "match7",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 8,
@@ -565,7 +679,9 @@
       "category": "Native",
       "price": 198.0,
       "image": "match6",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed",
+      "size": 38
     },
     {
       "id": 9,
@@ -573,7 +689,9 @@
       "category": "Shifon",
       "price": 63.85,
       "image": "match5",
-      "status": "Best Sellers"
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Kides": [
@@ -583,7 +701,9 @@
       "category": "Long",
       "price": 130.0,
       "image": "kidb",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 2,
@@ -591,7 +711,9 @@
       "category": "Long",
       "price": 198.0,
       "image": "kisa",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 36
     },
     {
       "id": 3,
@@ -599,7 +721,9 @@
       "category": "Short",
       "price": 130.0,
       "image": "kid6",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 4,
@@ -607,7 +731,9 @@
       "category": "Short",
       "price": 53.0,
       "image": "kidd",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 38
     },
     {
       "id": 5,
@@ -615,7 +741,9 @@
       "category": "Matching",
       "price": 236.0,
       "image": "kid5",
-      "status": "New Arriaval"
+      "status": "New Arriaval",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 42
     },
     {
       "id": 6,
@@ -623,7 +751,9 @@
       "category": "Native",
       " price": 120.5,
       "image": "kid3",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
     },
     {
       "id": 7,
@@ -631,7 +761,8 @@
       "category": "Short",
       "price": 160.0,
       "image": "kid2",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      "
     },
     {
       "id": 8,
@@ -639,7 +770,9 @@
       "category": "Native",
       "price": 160.0,
       "image": "kida",
-      "status": "Old Trending"
+      "status": "Old Trending",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     },
     {
       "id": 9,
@@ -647,7 +780,9 @@
       "category": "short",
       "price": 63.85,
       "image": "kidcc",
-      "status": "Best Selers"
+      "status": "Best Selers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 34
     }
   ],
   "Messages": [

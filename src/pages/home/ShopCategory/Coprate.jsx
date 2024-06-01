@@ -7,9 +7,9 @@
 // import Footer from "../Footer";
 // import { PreloadImages } from "../../../Components/PreloadImages";
 // import { FaFilter } from "react-icons/fa";
-// import { data } from "autoprefixer";
+// import { Link } from "react-router-dom";
 
-// const Coprate  = () => {
+// const Coprate = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
 //   const [filteredItems, setFilteredItems] = useState([]);
 //   const [sortOptions, setSortOptions] = useState("Default");
@@ -44,15 +44,12 @@
 //     let sortedItems = [...filteredItems];
 
 //     switch (option) {
-
 //       case "Low-High":
 //         sortedItems.sort((a, b) => a.price - b.price);
 //         break;
-
 //       case "High-Low":
 //         sortedItems.sort((a, b) => b.price - a.price);
 //         break;
-
 //       case "Default":
 //       default:
 //         // Reset to the initial state of filteredItems based on the current category
@@ -76,7 +73,6 @@
 //             >
 //               Native
 //             </span>
-
 //             <span
 //               className="cursor-pointer"
 //               onClick={() => filterItems("Matching")}
@@ -100,8 +96,7 @@
 //               value={sortOptions}
 //               className="cursor-pointer border-2 border-black"
 //             >
-//               <option value="default">Default</option>
-           
+//               <option value="Default">Default</option>
 //               <option value="Low-High">Low-High</option>
 //               <option value="High-Low">High-Low</option>
 //             </select>
@@ -114,27 +109,28 @@
 //             <div>Error: {error}</div>
 //           ) : (
 //             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-//               {filteredItems.map((review) => (
-//                 <div
-//                   key={review.id}
+//               {filteredItems.map((item) => (
+//                 <Link
+//                   key={item.id}
+//                   to={`/thia-e-comerce/Coperate/${item.id}`}
 //                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
 //                 >
 //                   <div
 //                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
 //                     style={{
-//                       background: `url(./images/${review.image}.jpg) center center/ cover`,
+//                       background: `url(./images/${item.image}.jpg) center center/ cover`,
 //                     }}
 //                   ></div>
 //                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
 //                     <p className="mt-2 w-full font-semibold">
-//                       {review.title} <br />
+//                       {item.title} <br />
 //                     </p>
 //                     <div className="flex justify-between w-full items-center">
-//                       <p className="italic">{review.status}</p>
-//                       <p className="font-semibold">${review.price}</p>
+//                       <p className="italic">{item.status}</p>
+//                       <p className="font-semibold">${item.price}</p>
 //                     </div>
 //                   </div>
-//                 </div>
+//                 </Link>
 //               ))}
 //             </div>
 //           )}
@@ -148,7 +144,10 @@
 //   );
 // };
 
-// export default Coprate ;
+// export default Coprate;
+
+
+
 
 
 
@@ -162,15 +161,11 @@
 
 
 import React, { useState, useEffect, useMemo } from "react";
-import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import useFetch from "../Usefetch";
-import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
-import Footer from "../Footer";
-import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
-import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 const Coprate = () => {
   const Items = useMemo(
@@ -181,15 +176,15 @@ const Coprate = () => {
         category: "Matching",
         price: 63.85,
         image: "cop3",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 2,
-        title: "Sleavless",
+        title: "Sleeveless",
         category: "Matching",
         price: 130.0,
         image: "cop7",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 3,
@@ -197,24 +192,23 @@ const Coprate = () => {
         category: "Gown",
         price: 53.0,
         image: "cop6",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 4,
-        title: "Fitte White Colla",
+        title: "Fitted White Collar",
         category: "Gown",
         price: 63.85,
         image: "cop2",
-        status: "New Arriaval",
+        status: "New Arrival",
       },
-      
       {
         id: 5,
-        title: "Fitte Long Sleaves",
+        title: "Fitted Long Sleeves",
         category: "Gown",
         price: 198.0,
         image: "ashoebi2",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 6,
@@ -222,11 +216,11 @@ const Coprate = () => {
         category: "Native",
         price: 120.5,
         image: "cop8",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 7,
-        title: " Net Sleavs Gown",
+        title: "Net Sleeves Gown",
         category: "Gown",
         price: 160.0,
         image: "coperate1",
@@ -238,7 +232,7 @@ const Coprate = () => {
         category: "Matching",
         price: 120.5,
         image: "cop1",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
       {
         id: 9,
@@ -246,7 +240,7 @@ const Coprate = () => {
         category: "Native",
         price: 122.5,
         image: "2148747911",
-        status: "Best Selers",
+        status: "Best Sellers",
       },
     ],
     []
@@ -274,7 +268,6 @@ const Coprate = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-     
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -327,40 +320,40 @@ const Coprate = () => {
               className="cursor-pointer border-2 border-black"
             >
               <option value="Default">Default</option>
-
               <option value="Low-High">Low-High</option>
               <option value="High-Low">High-Low</option>
             </select>
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.map((review) => (
-              <div
-                key={review.id}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {filteredItems.map((item) => (
+              <Link
+                key={item.id}
+                to={`/thia-e-comerce/Coperate/${item.id}`}
                 className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px] xl:h[700px] rounded-md shadow-md"
               >
                 <div
-                  className="h-[600px]   md:h-[500px] xl:h[600px]  flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
+                  className="h-[600px] md:h-[500px] xl:h[600px]  flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                   style={{
-                    background: `url(./images/${review.image}.jpg) center center/ cover`,
+                    background: `url(./images/${item.image}.jpg) center center/ cover`,
                   }}
                 ></div>
                 <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
                   <p className="mt-2 w-full font-semibold">
-                    {review.title} <br />
+                    {item.title} <br />
                   </p>
                   <div className="flex justify-between w-full items-center">
-                    <p className="italic">{review.status}</p>
-                    <p className="font-semibold">${review.price}</p>
+                    <p className="italic">{item.status}</p>
+                    <p className="font-semibold">${item.price}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
-      <div className="w-full  bg-white py-5  flex justify-center items-center">
+      <div className="w-full bg-white py-5 flex justify-center items-center">
         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
       </div>
       <Footer />

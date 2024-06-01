@@ -173,8 +173,9 @@ import Footer from "../Footer";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
 
-const Kidis = () => {
+const Kidies = () => {
   const Items = useMemo(
     () => [
       {
@@ -184,6 +185,9 @@ const Kidis = () => {
         price: 130.0,
         image: "kidb",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 2,
@@ -192,8 +196,10 @@ const Kidis = () => {
         price: 198.0,
         image: "kisa",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 36,
       },
-
       {
         id: 3,
         title: "Red Ankara",
@@ -201,6 +207,9 @@ const Kidis = () => {
         price: 130.0,
         image: "kid6",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 40,
       },
       {
         id: 4,
@@ -209,6 +218,9 @@ const Kidis = () => {
         price: 53.0,
         image: "kidd",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 38,
       },
       {
         id: 5,
@@ -217,14 +229,20 @@ const Kidis = () => {
         price: 236.0,
         image: "kid5",
         status: "New Arriaval",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 42,
       },
       {
         id: 6,
         title: "Native Flower Gown",
         category: "Native",
-         price: 120.5,
+        " price": 120.5,
         image: "kid3",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 40,
       },
       {
         id: 7,
@@ -233,6 +251,8 @@ const Kidis = () => {
         price: 160.0,
         image: "kid2",
         status: "Old Trending",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
       },
       {
         id: 8,
@@ -241,8 +261,10 @@ const Kidis = () => {
         price: 160.0,
         image: "kida",
         status: "Old Trending",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
-
       {
         id: 9,
         title: " White Special",
@@ -250,6 +272,9 @@ const Kidis = () => {
         price: 63.85,
         image: "kidcc",
         status: "Best Selers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
     ],
     []
@@ -344,27 +369,28 @@ const Kidis = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.slice(0, 9).map((review) => (
-              <div
-                key={review.id}
+            {filteredItems.slice(0, 9).map((item) => (
+              <Link
+                to={`/thia-e-comerce/Kidies/${item.id}`}
+                key={item.id}
                 className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px] xl:h[700px] rounded-md shadow-md"
               >
                 <div
                   className="h-[600px]  md:h-[500px] xl:h[600px]  flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                   style={{
-                    background: `url(./images/${review.image}.jpg) center center/ cover`,
+                    background: `url(./images/${item.image}.jpg) center center/ cover`,
                   }}
                 ></div>
                 <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
                   <p className="mt-2 w-full font-semibold">
-                    {review.title} <br />
+                    {item.title} <br />
                   </p>
                   <div className="flex justify-between w-full items-center">
-                    <p className="italic">{review.status}</p>
-                    <p className="font-semibold">${review.price}</p>
+                    <p className="italic">{item.status}</p>
+                    <p className="font-semibold">${item.price}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -377,4 +403,4 @@ const Kidis = () => {
   );
 };
 
-export default Kidis;
+export default Kidies;

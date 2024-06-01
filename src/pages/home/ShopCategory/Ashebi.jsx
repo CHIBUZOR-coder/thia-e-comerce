@@ -7,7 +7,7 @@
 // import Footer from "../Footer";
 // import { PreloadImages } from "../../../Components/PreloadImages";
 // import { FaFilter } from "react-icons/fa";
-// import { data } from "autoprefixer";
+// import { Link } from "react-router-dom";
 
 // const Ashebi = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
@@ -33,7 +33,6 @@
 //           : items.filter((item) => item.category === selectCategory);
 
 //       switch (sortOptions) {
-
 //         case "Low-High":
 //           sortedItems.sort((a, b) => a.price - b.price);
 //           break;
@@ -82,7 +81,7 @@
 //             </span>
 //             <span
 //               className="cursor-pointer"
-//               onClick={() => filterItems("Nino Farbic")}
+//               onClick={() => filterItems("Nino Fabric")}
 //             >
 //               Nino
 //             </span>
@@ -98,7 +97,6 @@
 //               className="cursor-pointer border-2 border-black"
 //             >
 //               <option value="Default">Default</option>
-
 //               <option value="Low-High">Low-High</option>
 //               <option value="High-Low">High-Low</option>
 //             </select>
@@ -111,27 +109,28 @@
 //             <div>Error: {error}</div>
 //           ) : (
 //             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-//               {filteredItems.map((review) => (
-//                 <div
-//                   key={review.id}
+//               {filteredItems.map((item) => (
+//                 <Link
+//                   to={`/thia-e-comerce/Ashoebi/${item.id}`}
+//                   key={item.id}
 //                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
 //                 >
 //                   <div
 //                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
 //                     style={{
-//                       background: `url(./images/${review.image}.jpg) center center/ cover`,
+//                       background: `url(./images/${item.image}.jpg) center center/ cover`,
 //                     }}
 //                   ></div>
 //                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
 //                     <p className="mt-2 w-full font-semibold">
-//                       {review.title} <br />
+//                       {item.title} <br />
 //                     </p>
 //                     <div className="flex justify-between w-full items-center">
-//                       <p className="italic">{review.status}</p>
-//                       <p className="font-semibold">${review.price}</p>
+//                       <p className="italic">{item.status}</p>
+//                       <p className="font-semibold">${item.price}</p>
 //                     </div>
 //                   </div>
-//                 </div>
+//                 </Link>
 //               ))}
 //             </div>
 //           )}
@@ -153,6 +152,10 @@
 
 
 
+
+
+
+
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
@@ -163,17 +166,21 @@ import Footer from "../Footer";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
 
-const Ashebi = () => {
+const Akara = () => {
   const Items = useMemo(
     () => [
       {
         id: 1,
-        title: " Gown",
+        title: "Gown",
         category: "Gown",
         price: 63.85,
         image: "ash32",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 40,
       },
       {
         id: 2,
@@ -181,7 +188,10 @@ const Ashebi = () => {
         category: "Lace",
         price: 130.0,
         image: "ahee22",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 36,
       },
       {
         id: 3,
@@ -189,7 +199,10 @@ const Ashebi = () => {
         category: "Lace",
         price: 53.0,
         image: "ahoeb22",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 38,
       },
       {
         id: 4,
@@ -197,23 +210,32 @@ const Ashebi = () => {
         category: "Short",
         price: 63.85,
         image: "ashe24",
-        status: "New Arriaval",
+        status: "New Arrival",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 36,
       },
       {
         id: 5,
-        title: "Fitte Lace",
+        title: "Fitted Lace",
         category: "Lace",
         price: 236.0,
         image: "ashebi22",
-        status: "New Arriaval",
+        status: "New Arrival",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 40,
       },
       {
         id: 6,
         title: "Exposed Net Gown",
-        category: "short",
+        category: "Short",
         price: 198.0,
         image: "ashoebi2",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 7,
@@ -221,23 +243,32 @@ const Ashebi = () => {
         category: "Short",
         price: 120.5,
         image: "ashoebiii",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 8,
-        title: " Shifon Gown",
+        title: "Shifon Gown",
         category: "Gown",
         price: 160.0,
         image: "save",
         status: "Old Trending",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 48,
       },
       {
         id: 9,
         title: "Nino Gown",
-        category: "Nino Farbic",
+        category: "Nino Fabric",
         price: 120.5,
         image: "aaabbb",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 10,
@@ -245,7 +276,10 @@ const Ashebi = () => {
         category: "Lace",
         price: 122.5,
         image: "lace",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
     ],
     []
@@ -273,7 +307,6 @@ const Ashebi = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-     
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -316,7 +349,7 @@ const Ashebi = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Nino Farbic")}
+              onClick={() => filterItems("Nino Fabric")}
             >
               Nino
             </span>
@@ -340,27 +373,28 @@ const Ashebi = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.map((review) => (
-              <div
-                key={review.id}
-                className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px] xl:[700px] rounded-md shadow-md"
+            {filteredItems.slice(0, 9).map((item) => (
+              <Link
+                to={`/thia-e-comerce/Ashoebi/${item.id}`}
+                key={item.id}
+                className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px]  xl:h[700px]  rounded-md shadow-md"
               >
                 <div
-                  className="h-[600px]  md:h-[500px] xl:h[600px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
+                  className="h-[600px]   md:h-[500px] xl:h[600px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                   style={{
-                    background: `url(./images/${review.image}.jpg) center center/ cover`,
+                    background: `url(./images/${item.image}.jpg) center center/ cover`,
                   }}
                 ></div>
                 <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
                   <p className="mt-2 w-full font-semibold">
-                    {review.title} <br />
+                    {item.title} <br />
                   </p>
                   <div className="flex justify-between w-full items-center">
-                    <p className="italic">{review.status}</p>
-                    <p className="font-semibold">${review.price}</p>
+                    <p className="italic">{item.status}</p>
+                    <p className="font-semibold">${item.price}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -373,4 +407,4 @@ const Ashebi = () => {
   );
 };
 
-export default Ashebi;
+export default Akara;

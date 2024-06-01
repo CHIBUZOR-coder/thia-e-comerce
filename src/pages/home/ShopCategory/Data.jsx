@@ -80,7 +80,7 @@ export const AnkaraItems = () =>
     []
   );
 
-export const Ashoebi = () =>
+export const AshoebiItems = () =>
   useMemo(
     () => [
       {

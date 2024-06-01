@@ -8,6 +8,7 @@
 // import { PreloadImages } from "../../../Components/PreloadImages";
 // import { FaFilter } from "react-icons/fa";
 // import { data } from "autoprefixer";
+// import { Link } from "react-router-dom";
 
 // const Coprate = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
@@ -73,10 +74,11 @@
 //     <div className="relative bg-primary">
 //       <div className="px-6 py-10 mb-10">
 //         <div className="flex justify-between py-6 items-start md:items-center">
-//           <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-6 items-start md:items-center">
+//        <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-6 items-start md:items-center">
 //             <span className="cursor-pointer" onClick={() => filterItems("All")}>
 //               All
 //             </span>
+
 //             <span
 //               className="cursor-pointer"
 //               onClick={() => filterItems("Long")}
@@ -94,12 +96,6 @@
 //               onClick={() => filterItems("Matching")}
 //             >
 //               Matching
-//             </span>
-//             <span
-//               className="cursor-pointer"
-//               onClick={() => filterItems("Shifon")}
-//             >
-//               Shifon
 //             </span>
 //           </div>
 //           <div className="flex justify-center items-center">
@@ -127,27 +123,28 @@
 //             <div>Error: {error}</div>
 //           ) : (
 //             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-//               {filteredItems.map((review) => (
-//                 <div
-//                   key={review.id}
+//               {filteredItems.map((item) => (
+//                 <Link
+//                   to={`/thia-e-comerce/Kaftan/${item.id}`}
+//                   key={item.id}
 //                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
 //                 >
 //                   <div
 //                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
 //                     style={{
-//                       background: `url(./images/${review.image}.jpg) center center/ cover`,
+//                       background: `url(./images/${item.image}.jpg) center center/ cover`,
 //                     }}
 //                   ></div>
 //                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
 //                     <p className="mt-2 w-full font-semibold">
-//                       {review.title} <br />
+//                       {item.title} <br />
 //                     </p>
 //                     <div className="flex justify-between w-full items-center">
-//                       <p className="italic">{review.status}</p>
-//                       <p className="font-semibold">${review.price}</p>
+//                       <p className="italic">{item.status}</p>
+//                       <p className="font-semibold">${item.price}</p>
 //                     </div>
 //                   </div>
-//                 </div>
+//                 </Link>
 //               ))}
 //             </div>
 //           )}
@@ -163,8 +160,6 @@
 
 // export default Coprate;
 
-
-
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
@@ -175,61 +170,77 @@ import Footer from "../Footer";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
 
-const Kaftn = () => {
+const Kaftan = () => {
   const Items = useMemo(
     () => [
       {
         id: 1,
         title: "Multi Colored",
         category: "Long",
-        price: 63.85,
+        price: 130.0,
         image: "kaftan6",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 2,
-        title: "Fela Sleav",
+        title: "Fela Sleeve",
         category: "Long",
         price: 130.0,
         image: "kaftan5",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 40,
       },
       {
         id: 3,
-        title: "Multi Colored short Gown",
+        title: "Multi Colored Short Gown",
         category: "Short",
         price: 160.0,
         image: "kaftan2",
         status: "Old Trending",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 36,
       },
       {
         id: 4,
-        title: "Buba kaftan",
+        title: "Buba Kaftan",
         category: "Long",
         price: 53.0,
         image: "kaftan4",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 38,
       },
-
       {
         id: 5,
         title: "Shifon Special Green",
         category: "Shifon",
         price: 236.0,
         image: "shifon",
-        status: "New Arriaval",
+        status: "New Arrival",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 42,
       },
-
       {
         id: 6,
         title: "Simple Matching",
-        category: "Matching",
+        category: "Short",
         price: 120.5,
         image: "kaf",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
-
       {
         id: 7,
         title: "White Lining",
@@ -237,23 +248,31 @@ const Kaftn = () => {
         price: 160.0,
         image: "jackie",
         status: "Old Trending",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
-
       {
         id: 8,
-        title: "Shifon Special Red & lack",
+        title: "Shifon Special Red & Black",
         category: "Shifon",
         price: 198.0,
         image: "kaftann",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
       {
         id: 9,
-        title: " White Special",
+        title: "White Special",
         category: "Long",
         price: 63.85,
         image: "kaf3",
-        status: "Best Selers",
+        status: "Best Sellers",
+        Description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        size: 34,
       },
     ],
     []
@@ -281,7 +300,6 @@ const Kaftn = () => {
     let sortedItems = [...filteredItems];
 
     switch (option) {
-     
       case "Low-High":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
@@ -304,6 +322,7 @@ const Kaftn = () => {
             <span className="cursor-pointer" onClick={() => filterItems("All")}>
               All
             </span>
+
             <span
               className="cursor-pointer"
               onClick={() => filterItems("Long")}
@@ -321,13 +340,6 @@ const Kaftn = () => {
               onClick={() => filterItems("Matching")}
             >
               Matching
-            </span>
-
-            <span
-              className="cursor-pointer"
-              onClick={() => filterItems("Shifon")}
-            >
-              Shifon
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -349,27 +361,28 @@ const Kaftn = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-            {filteredItems.slice(0, 9).map((review) => (
-              <div
-                key={review.id}
+            {filteredItems.slice(0, 9).map((item) => (
+              <Link
+                to={`/thia-e-comerce/Kaftan/${item.id}`}
+                key={item.id}
                 className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[600px]  xl:h[700px]  rounded-md shadow-md"
               >
                 <div
                   className="h-[600px]   md:h-[500px] xl:h[600px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                   style={{
-                    background: `url(./images/${review.image}.jpg) center center/ cover`,
+                    background: `url(./images/${item.image}.jpg) center center/ cover`,
                   }}
                 ></div>
                 <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
                   <p className="mt-2 w-full font-semibold">
-                    {review.title} <br />
+                    {item.title} <br />
                   </p>
                   <div className="flex justify-between w-full items-center">
-                    <p className="italic">{review.status}</p>
-                    <p className="font-semibold">${review.price}</p>
+                    <p className="italic">{item.status}</p>
+                    <p className="font-semibold">${item.price}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -382,4 +395,4 @@ const Kaftn = () => {
   );
 };
 
-export default Kaftn;
+export default Kaftan;
