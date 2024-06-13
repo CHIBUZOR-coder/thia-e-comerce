@@ -22,9 +22,9 @@ const Footer = () => {
             <Link className="anchor" to="/thia-e-comerce/Terms">
               Delivery, Terms & Conditions{" "}
             </Link>
-            <a className="anchor" href="/thia-e-comerce/Care">
+            <Link className="anchor" to="/thia-e-comerce/Care">
               Care Guide{" "}
-            </a>
+            </Link>
             <a className="anchor" href="/thia-e-comerce/AboutThia">
               About Thia{" "}
             </a>

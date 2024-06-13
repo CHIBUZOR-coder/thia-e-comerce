@@ -85,8 +85,12 @@ function App() {
 
             <div className="flex flex-col gap-2">
               <span className="help">Customer Care</span>
-              <span className="help">Delivery Information</span>
-              <span className="help">Returns and Exchanges</span>
+              <Link to="/thia-e-comerce/Terms" className="help">
+                Delivery Information
+              </Link>
+              <Link to="/thia-e-comerce/Care" className="help">
+                Care Guide
+              </Link>
               <span className="help">FAQs</span>
             </div>
           </div>
