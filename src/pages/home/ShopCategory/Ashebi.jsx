@@ -153,7 +153,7 @@
 
 
 
-
+//The commented code above is set for when there is incorporation the backend It uses the shop container, while The code below is set to make the project avalable for viewing on web and it uses the shopp container.
 
 
 import React, { useState, useEffect, useMemo } from "react";
@@ -168,7 +168,7 @@ import { FaFilter } from "react-icons/fa";
 import { data } from "autoprefixer";
 import { Link } from "react-router-dom";
 
-const Akara = () => {
+const Ashebi = () => {
   const Items = useMemo(
     () => [
       {
@@ -331,9 +331,9 @@ const Akara = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Lace")}
+              onClick={() => filterItems("Suit")}
             >
-              Lace
+              Suit
             </span>
             <span
               className="cursor-pointer"
@@ -341,17 +341,19 @@ const Akara = () => {
             >
               Gown
             </span>
+
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Short")}
+              onClick={() => filterItems("Fitted")}
             >
-              Short
+              Fitted
             </span>
+
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Nino Fabric")}
+              onClick={() => filterItems("Pinner Four")}
             >
-              Nino
+              Pinner Four
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -407,4 +409,4 @@ const Akara = () => {
   );
 };
 
-export default Akara;
+export default Ashebi;

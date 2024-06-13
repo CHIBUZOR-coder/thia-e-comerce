@@ -8,6 +8,7 @@
 // import { PreloadImages } from "../../../Components/PreloadImages";
 // import { FaFilter } from "react-icons/fa";
 // import { data } from "autoprefixer";
+// import { Link } from "react-router-dom";
 
 // const Kidis = () => {
 //   const [selectCategory, setSelectCategory] = useState("All");
@@ -127,27 +128,28 @@
 //             <div>Error: {error}</div>
 //           ) : (
 //             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-//               {filteredItems.map((review) => (
-//                 <div
-//                   key={review.id}
+//               {filteredItems.map((item) => (
+//                 <Link
+//                   to={`/thia-e-comerce/Kidies/${item.id}`}
+//                   key={item.id}
 //                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
 //                 >
 //                   <div
 //                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
 //                     style={{
-//                       background: `url(./images/${review.image}.jpg) center center/ cover`,
+//                       background: `url(./images/${item.image}.jpg) center center/ cover`,
 //                     }}
 //                   ></div>
 //                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
 //                     <p className="mt-2 w-full font-semibold">
-//                       {review.title} <br />
+//                       {item.title} <br />
 //                     </p>
 //                     <div className="flex justify-between w-full items-center">
-//                       <p className="italic">{review.status}</p>
-//                       <p className="font-semibold">${review.price}</p>
+//                       <p className="italic">{item.status}</p>
+//                       <p className="font-semibold">${item.price}</p>
 //                     </div>
 //                   </div>
-//                 </div>
+//                 </Link>
 //               ))}
 //             </div>
 //           )}
@@ -162,6 +164,17 @@
 // };
 
 // export default Kidis;
+
+
+
+
+
+
+
+//The commented code above is set for when there is incorporation the backend It uses the shop container, while The code below is set to make the project avalable for viewing on web and it uses the shopp container.
+
+
+
 
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";

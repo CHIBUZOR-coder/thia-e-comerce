@@ -160,6 +160,14 @@
 
 // export default Coprate;
 
+
+
+
+
+
+
+//The commented code above is set for when there is incorporation the backend It uses the shop container, while The code below is set to make the project avalable for viewing on web and it uses the shopp container.
+
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";

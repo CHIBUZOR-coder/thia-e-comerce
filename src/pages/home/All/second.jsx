@@ -16,7 +16,7 @@ export const Second = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
-        to="/"
+        to="/thia-e-comerce/Ashoebi/1"
         className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Buy{" "}

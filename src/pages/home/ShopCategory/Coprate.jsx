@@ -154,6 +154,7 @@
 
 
 
+//The commented code above is set for when there is incorporation the backend It uses the shop container, while The code below is set to make the project avalable for viewing on web and it uses the shopp container.
 
 
 
