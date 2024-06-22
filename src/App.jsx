@@ -91,7 +91,9 @@ function App() {
               <Link to="/thia-e-comerce/Care" className="help">
                 Care Guide
               </Link>
-              <span className="help">FAQs</span>
+              <a href="/thia-e-comerce/FAQs " className="help">
+                FAQs
+              </a>
             </div>
           </div>
         </div>

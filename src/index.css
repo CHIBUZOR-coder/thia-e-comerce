@@ -290,3 +290,15 @@ background: url(/public/images/thia1.jpg) center center/ cover;
 .sizeval{
     @apply border hover:border-rose-950 rounded-md cursor-pointer w-1/2 flex justify-center items-center border-red-500 transition ease-in-out duration-300
 }
+
+.faq{
+    @apply  font-semibold
+}
+
+.dropp{
+    @apply mt-4 w-full transition ease-in-out duration-700
+}
+
+.questions{
+    @apply cursor-pointer
+}

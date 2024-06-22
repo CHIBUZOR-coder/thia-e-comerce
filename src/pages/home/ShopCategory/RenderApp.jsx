@@ -145,6 +145,9 @@ import {
 } from "./Data.jsx";
 import { useMemo } from "react";
 import Kidies from "./Kidis.jsx";
+import ShopAll from "../ShopAll.jsx";
+import FAQs from "../FAQs.jsx";
+import { useState } from "react";
 
 const RenderAppWithData = () => {
   const ankaraItems = useMemo(() => AnkaraItems(), []);
@@ -153,7 +156,12 @@ const RenderAppWithData = () => {
   const bridalItems = useMemo(() => BridalItems(), []);
   const kaftanItems = useMemo(() => KaftanItems(), []);
   const kidItems = useMemo(() => KidItems(), []);
-    const   matchingItems = useMemo(() =>   MatchingItems(), []);
+  const matchingItems = useMemo(() => MatchingItems(), []);
+ const [IsQuestionOpen, setIsQuestionOpen] = useState(false);
+
+const handleAnswerShow2 = () => {
+  setIsQuestionOpen((prev) => !prev);
+};
 
   const router = createBrowserRouter([
     {
@@ -165,6 +173,15 @@ const RenderAppWithData = () => {
         { path: "/thia-e-comerce/Contact", element: <Contact /> },
         { path: "/thia-e-comerce/Reviews", element: <Reviews /> },
         { path: "/thia-e-comerce/Custom", element: <Custom /> },
+        {
+          path: "/thia-e-comerce/FAQs",
+          element: (
+            <FAQs
+              handleAnswerShow2={handleAnswerShow2}
+              IsQuestionOpen={IsQuestionOpen}
+            />
+          ),
+        },
         {
           path: "/thia-e-comerce/Akara",
           element: <Akara data={ankaraItems} />,
@@ -181,14 +198,21 @@ const RenderAppWithData = () => {
           path: "/thia-e-comerce/Kaftn",
           element: <Kaftn data={kaftanItems} />,
         }, // Provide respective data
-        { path: "/thia-e-comerce/Bridls", element: <Bridls data={bridalItems} /> }, // Provide respective data
-        { path: "/thia-e-comerce/Matchng", element: <Matchng data={matchingItems} /> }, // Provide respective data
+        {
+          path: "/thia-e-comerce/Bridls",
+          element: <Bridls data={bridalItems} />,
+        }, // Provide respective data
+        {
+          path: "/thia-e-comerce/Matchng",
+          element: <Matchng data={matchingItems} />,
+        }, // Provide respective data
         { path: "/thia-e-comerce/Kidis", element: <Kidies data={kidItems} /> }, // Provide respective data
         { path: "/thia-e-comerce/AboutThia", element: <AboutThia /> },
         { path: "/thia-e-comerce/SizeGuide", element: <SizeGuide /> },
         { path: "/thia-e-comerce/Terms", element: <Terms /> },
         { path: "/thia-e-comerce/Care", element: <Care /> },
         { path: "/thia-e-comerce/SearchPage", element: <SearchPage /> },
+        { path: "/thia-e-comerce/ShopAll", element: <ShopAll /> },
         {
           path: "/thia-e-comerce/Ankara/:id",
           element: <Shopp dataItems={ankaraItems} />,

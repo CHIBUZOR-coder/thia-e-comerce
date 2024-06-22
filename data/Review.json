@@ -800,5 +800,94 @@
       "subject": "Order Status",
       "message": "Can you update me on the status of my order #12345?"
     }
+  ],
+  "ShopAll": [
+    {
+        "id": 1,
+        "title": "Multi Colored",
+        "category": "Long",
+        "price": 130.0,
+        "image": "kaftan6",
+        "status": "Best Sellers",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 34
+    },
+    {
+        "id": 2,
+        "title": "Matching Ankara",
+       " category": "Native",
+        "price": 130.0,
+        "image": "matcha",
+        "status": "Best Sellers",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 40
+    },
+    {
+        "id": 3,
+        "title": "Sweeper Gown",
+        "category": "Sleave",
+        "price": 160.0,
+        "image": "bridal000",
+        "status": "Old Trending",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 42
+    },
+    {
+        "id": 4,
+        "title": "Fitted White Collar",
+        "category": "Gown",
+        "price": 63.85,
+        "image": "cop2",
+        "status": "New Arrival"
+    },
+    {
+       " id": 5,
+        "title": "Coperate Fited ",
+        "category": "Matching",
+        "price": 236.0,
+        "image": "kid5",
+        "status": "New Arriaval",
+       " Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 42
+    },
+    {
+        "id": 7,
+        "title": "Half Sleeve",
+        "category": "Gown",
+        "price": 120.5,
+        "image": "red2",
+        "status": "Best Sellers",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 34
+    },
+    {
+        "i": 8,
+        "title": "Shifon Gown",
+        "category": "Fitted",
+        "price": 160.0,
+        "image": "save",
+       "status": "Old Trending",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+       " size": 48
+    },
+    {
+        "id": 9,
+        "title": "White Special",
+        "category": "Long",
+        "price": 63.85,
+        "image": "kaf3",
+        "status": "Best Sellers",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+        "size": 34
+    },{
+      "id": 10,
+      "title": "Native Suit",
+      "category": "Suit",
+      "price": 122.50,
+      "image": "2148747911",
+      "status": "Best Sellers",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam vel ratione atque eum iure placealaborum et,  quaerat ullam animi rem nam enim architecto quod perferen numquam sed?      ",
+      "size": 40
+    }
   ]
 }
