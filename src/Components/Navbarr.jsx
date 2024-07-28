@@ -48,13 +48,13 @@
 //   console.log("hi");
 
 //   return (
-//     <header className=" md:px-28 bg-white px-4  top-0 left-0 right-0">
+//     <header className="top-0 left-0 right-0 px-4 bg-white  md:px-28">
 //       <div className="  bg-blue-500 search absolute w-[400px]   left-0 right-0 h-full">
 
 //       </div>
-//       <nav  className="flex justify-between container md:py-4 py-4">
+//       <nav  className="container flex justify-between py-4 md:py-4">
 //         {/* Search Bar */}
-//         <FaSearch className="text-black w-5 h-5 cursor-pointer hidden md:block" />
+//         <FaSearch className="hidden w-5 h-5 text-black cursor-pointer md:block" />
 
 //         {/* Logo */}
 //         <a
@@ -62,11 +62,11 @@
 //           style={{ display: "inline-block", width: "fit-content" }}
 //           href="/thia-e-comerce/Home"
 //         >
-//           <div className="logo bg-slate-500 h-24 w-24"></div>
+//           <div className="w-24 h-24 logo bg-slate-500"></div>
 //         </a>
 
 //         {/* Account & User */}
-//         <div className="text-lg text-black md:flex gap-4 hidden">
+//         <div className="hidden gap-4 text-lg text-black md:flex">
 //           <a href="/thia-e-comerce/Home" className="flex items-baseline">
 //             <FaUser />
 //             Account
@@ -78,12 +78,12 @@
 //         </div>
 
 //         {/* Navbar toggler for sm devices */}
-//         <div className="md:hidden block">
+//         <div className="block md:hidden">
 //           <button onClick={toggle}>
 //             {isMenuOpen ? (
-//               <FaTimes className="h-6 w-6 text-black" />
+//               <FaTimes className="w-6 h-6 text-black" />
 //             ) : (
-//               <FaBars className="h-6 w-6 text-black" />
+//               <FaBars className="w-6 h-6 text-black" />
 //             )}
 //           </button>
 //         </div>
@@ -91,8 +91,8 @@
 //       <hr />
 
 //       {/* Big Screen */}
-//       <div className="pt-4 hidden hider z-20 md:block ">
-//         <ul className="md:flex items-center justify-between font-semibold text-black hidden gap-4">
+//       <div className="z-20 hidden pt-4 hider md:block ">
+//         <ul className="items-center justify-between hidden gap-4 font-semibold text-black md:flex">
 //           {NavItems.map(({ tittle, path }) => (
 //             <li
 //               key={tittle}
@@ -102,15 +102,15 @@
 //             >
 //               {/* Conditional rendering of span for "Shop All" */}
 //               {tittle === "Shop All" ? (
-//                 <span className="relative flex justify-center items-center gap-1">
+//                 <span className="relative flex items-center justify-center gap-1">
 //                   {tittle}
 //                   <span onClick={toggle2} className="text-red-500">
-//                     {/* <IoIosArrowDown className="h-6 w-6 text-black" /> */}
+//                     {/* <IoIosArrowDown className="w-6 h-6 text-black" /> */}
 
 //                     {isLinkOpen ? (
-//                       <IoIosArrowUp className="h-6 w-6 text-black" />
+//                       <IoIosArrowUp className="w-6 h-6 text-black" />
 //                     ) : (
-//                       <IoIosArrowDown className="h-6 w-6 text-black" />
+//                       <IoIosArrowDown className="w-6 h-6 text-black" />
 //                     )}
 //                   </span>
 //                   <ul
@@ -199,7 +199,7 @@
 //       </div>
 
 //       {/* Mobile menu */}
-//       <div className=" md:hidden block">
+//       <div className="block  md:hidden">
 //         <ul
 //           className={`bg-black relative flex justify-between  text-white px-4 py-2 rounded ${
 //             isMenuOpen && screenWidth < 760 ? "" : "hidden"
@@ -215,15 +215,15 @@
 //               >
 //                 {/* Conditional rendering of span for "Shop All" */}
 //                 {tittle === "Shop All" ? (
-//                   <span className="relative flex   gap-1 w-24">
+//                   <span className="relative flex w-24 gap-1">
 //                     {tittle}
 //                     <span onClick={toggle2} className="text-red-500">
-//                       {/* <IoIosArrowDown className="h-6 w-6 text-black" /> */}
+//                       {/* <IoIosArrowDown className="w-6 h-6 text-black" /> */}
 
 //                       {isLinkOpen ? (
-//                         <IoIosArrowUp className="h-6 w-6 text-white" />
+//                         <IoIosArrowUp className="w-6 h-6 text-white" />
 //                       ) : (
-//                         <IoIosArrowDown className="h-6 w-6 text-white" />
+//                         <IoIosArrowDown className="w-6 h-6 text-white" />
 //                       )}
 //                     </span>
 //                     <ul
@@ -323,7 +323,7 @@
 //             </div>
 
 //             <div className="flex justify-end mt-3">
-//               <FaSearch className="text-white w-5 h-5 cursor-pointer  md:hidden" />
+//               <FaSearch className="w-5 h-5 text-white cursor-pointer md:hidden" />
 //             </div>
 //           </div>
 //         </ul>
@@ -346,7 +346,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = ({handleSearch}) => {
+const Navbar = ({ handleSearch, handleCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -381,12 +381,12 @@ const Navbar = ({handleSearch}) => {
   }, []);
 
   return (
-    <header className="relative md:px-28 bg-white px-4 headerrr ">
-      <nav className="flex justify-between container md:py-4 py-4 relative ">
+    <header className="relative px-4 bg-white md:px-28 headerrr ">
+      <nav className="container relative flex justify-between py-4 md:py-4 ">
         {/* Search Bar */}
         <FaSearch
           onClick={handleSearch}
-          className="text-black w-5 h-5 cursor-pointer hidden md:block"
+          className="hidden w-5 h-5 text-black cursor-pointer md:block"
         />
 
         {/* Logo */}
@@ -395,28 +395,30 @@ const Navbar = ({handleSearch}) => {
           style={{ display: "inline-block", width: "fit-content" }}
           href="/thia-e-comerce/Home"
         >
-          <div className="logo bg-slate-500 h-24 w-24"></div>
+          <div className="w-24 h-24 logo bg-slate-500"></div>
         </a>
 
         {/* Account & User */}
-        <div className="text-lg text-black md:flex gap-4 hidden">
+        <div className="hidden gap-4 text-lg text-black md:flex z-20">
           <a href="/thia-e-comerce/Home" className="flex items-baseline">
             <FaUser />
             Account
           </a>
-          <a href="/thia-e-comerce/Home" className="flex items-baseline">
-            <FaShoppingBag />
+
+          {/* Cart*/}
+          <span className="flex items-baseline z-20">
+            <FaShoppingBag  onClick={handleCart} />
             Shop
-          </a>
+          </span>
         </div>
 
         {/* Navbar toggler for sm devices */}
-        <div className="md:hidden block">
+        <div className="block md:hidden">
           <button onClick={toggle}>
             {isMenuOpen ? (
-              <FaTimes className="h-6 w-6 text-black" />
+              <FaTimes className="w-6 h-6 text-black" />
             ) : (
-              <FaBars className="h-6 w-6 text-black" />
+              <FaBars className="w-6 h-6 text-black" />
             )}
           </button>
         </div>
@@ -424,8 +426,8 @@ const Navbar = ({handleSearch}) => {
       <hr />
 
       {/* Big Screen */}
-      <div className="pt-4 largeScreen hidden  hider md:block">
-        <ul className="md:flex items-center justify-between font-semibold text-black hidden gap-4">
+      <div className="hidden pt-4 largeScreen hider md:block">
+        <ul className="items-center justify-between hidden gap-4 font-semibold text-black md:flex">
           {NavItems.map(({ tittle, path }) => (
             <li
               key={tittle}
@@ -434,13 +436,13 @@ const Navbar = ({handleSearch}) => {
               }`}
             >
               {tittle === "Shop All" ? (
-                <span className="relative flex justify-center items-center gap-1">
+                <span className="relative flex items-center justify-center gap-1">
                   {tittle}
                   <span onClick={toggle2} className="text-red-500">
                     {isLinkOpen ? (
-                      <IoIosArrowUp className="h-6 w-6 text-black" />
+                      <IoIosArrowUp className="w-6 h-6 text-black" />
                     ) : (
-                      <IoIosArrowDown className="h-6 w-6 text-black" />
+                      <IoIosArrowDown className="w-6 h-6 text-black" />
                     )}
                   </span>
                   <ul
@@ -529,7 +531,7 @@ const Navbar = ({handleSearch}) => {
       </div>
 
       {/* Mobile menu */}
-      <div className="md:hidden block">
+      <div className="block md:hidden">
         <ul
           className={`bg-black relative flex justify-between text-white px-4 py-2 rounded ${
             isMenuOpen && screenWidth < 760 ? "" : "hidden"
@@ -544,13 +546,13 @@ const Navbar = ({handleSearch}) => {
                 }`}
               >
                 {tittle === "Shop All" ? (
-                  <span className="relative flex gap-1 w-24">
+                  <span className="relative flex w-24 gap-1">
                     {tittle}
                     <span onClick={toggle2} className="text-red-500">
                       {isLinkOpen ? (
-                        <IoIosArrowUp className="h-6 w-6 text-white" />
+                        <IoIosArrowUp className="w-6 h-6 text-white" />
                       ) : (
-                        <IoIosArrowDown className="h-6 w-6 text-white" />
+                        <IoIosArrowDown className="w-6 h-6 text-white" />
                       )}
                     </span>
                     <ul
@@ -650,7 +652,7 @@ const Navbar = ({handleSearch}) => {
             <div className="flex justify-end mt-3">
               <FaSearch
                 onClick={handleSearch}
-                className="text-white w-5 h-5 cursor-pointer md:hidden"
+                className="w-5 h-5 text-white cursor-pointer md:hidden"
               />
             </div>
           </div>
@@ -662,6 +664,7 @@ const Navbar = ({handleSearch}) => {
 
 Navbar.propTypes = {
   handleSearch: PropTypes.func.isRequired,
+  handleCart: PropTypes.func.isRequired,
 };
 
 export default Navbar;

@@ -8,7 +8,20 @@ import { Link } from "react-router-dom";
 
 function App() {
   const [IsSearchOpen, SetIsSearchOpen] = useState(false);
+  const [IsCartOpen, SetIsCarthOpen] = useState(false);
   const inputRef = useRef(null);
+
+  const handleCart = () => {
+    console.log("Cart open");
+    SetIsCarthOpen(!IsCartOpen);
+    stopScreenScroll(!IsCartOpen);
+
+    // if (!IsCartOpen) {
+    //   setTimeout(() => {
+    //     inputRef.current.focus();
+    //   }, 100); // Delay to ensure the modal is rendered
+    // }
+  };
 
   const handleSearch = () => {
     console.log("open");
@@ -37,15 +50,46 @@ function App() {
     }
   };
 
+  const closeCartModal = (e) => {
+    if (e.target.classList.contains("coverDiv2")) {
+      SetIsCarthOpen(false);
+      stopScreenScroll(false);
+    }
+  };
+
   return (
     <>
       <div className=" ">
-        <Navbar handleSearch={handleSearch} />
+        <Navbar handleSearch={handleSearch} handleCart={handleCart} />
         <Outlet />
       </div>
+
+      <div
+        onClick={closeCartModal}
+        className={`absolute w-full top-0  left-0 h-[100vh] z-10 coverDiv2  ${
+          IsCartOpen ? "open" : ""
+        } `}
+      >
+        <div
+          className={`search2 absolute w-full md:w-1/4 top-0 right-0 flex flex-col justify-center items-center   h-[100vh] z-30 text-black bg-white ${
+            IsCartOpen ? "open" : "closed"
+          }  `}
+        >
+          <div className=" w-full flex justify-center items-center  text-center">
+            <span className="md:w-[200px] w-full">You have no items in your shopping bag</span>
+          </div>
+
+          <div className=" absolute flex justify-center items-center w-full bottom-0  left-0 ">
+            <span className="w-1/2 md:w-full h-[60px] flex justify-center items-center hover:bg-red-700 transition ease-in-out duration-500 bg-red-600 rounded-sm text-white ">
+              Shop Our Collection
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div
         onClick={closeSearchModal}
-        className={`absolute w-full top-0 left-0 right-0 h-[100vh] z-10 coverDiv ${
+        className={`absolute w-full top-0 left-0 right-0 h-[100vh] z-10 coverDiv  ${
           IsSearchOpen ? "open" : ""
         } `}
       >

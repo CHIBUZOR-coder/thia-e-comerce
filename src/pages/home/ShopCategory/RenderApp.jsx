@@ -134,6 +134,7 @@ import Care from "../Care.jsx";
 import Bridls from "./Bridls.jsx";
 import SearchPage from "../SearchPage.jsx";
 import Shopp from "../../Shopp.jsx";
+import Cart from "../Cart";
 import {
   AnkaraItems,
   AshoebiItems,
@@ -157,11 +158,11 @@ const RenderAppWithData = () => {
   const kaftanItems = useMemo(() => KaftanItems(), []);
   const kidItems = useMemo(() => KidItems(), []);
   const matchingItems = useMemo(() => MatchingItems(), []);
- const [IsQuestionOpen, setIsQuestionOpen] = useState(false);
+  const [IsQuestionOpen, setIsQuestionOpen] = useState(false);
 
-const handleAnswerShow2 = () => {
-  setIsQuestionOpen((prev) => !prev);
-};
+  const handleAnswerShow2 = () => {
+    setIsQuestionOpen((prev) => !prev);
+  };
 
   const router = createBrowserRouter([
     {
@@ -173,6 +174,7 @@ const handleAnswerShow2 = () => {
         { path: "/thia-e-comerce/Contact", element: <Contact /> },
         { path: "/thia-e-comerce/Reviews", element: <Reviews /> },
         { path: "/thia-e-comerce/Custom", element: <Custom /> },
+        { path: "/thia-e-comerce/Cart", element: <Cart /> },
         {
           path: "/thia-e-comerce/FAQs",
           element: (

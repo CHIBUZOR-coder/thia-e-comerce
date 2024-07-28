@@ -1,12 +1,12 @@
 const MoreProducts = () => {
   return (
-    <div className="py-4 md:mt-auto mt-10 flex flex-col  md:px-28 px-4">
+    <div className="flex flex-col px-4 py-4 mt-10 md:mt-auto bg-primary md:px-28">
       <h1 className="tittle">Made to offer</h1>
       {/* product card */}
-      <div className="flex flex-col justify-center items-center">
-        <div className="max-w-screen-2xl xl:px-28 flex flex-col md:flex-row ">
-          <div className="w-full flex flex-col gap-0  items-center leftProduct h-product md:h-product md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3  md:py-16">
-            <div className="flex w-3/4 flex-col py-3 text-xl text-white justify-center items-start">
+      <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col max-w-screen-2xl xl:px-28 md:flex-row ">
+          <div className="flex flex-col items-center w-full gap-0 px-1 overflow-hidden leftProduct h-product md:h-product md:w-1/2 md:px-2 md:m-0 md:mt-3 md:py-16">
+            <div className="flex flex-col items-start justify-center w-3/4 py-3 text-xl text-white">
               <p className="py-1">
                 We are proud to offer you our service Made to order. It means
                 you can order our Essential styles in your size whenever you
@@ -19,18 +19,18 @@ const MoreProducts = () => {
               </p>
               <h2 className="py-1">Read more about it</h2>
               <div className="flex flex-col">
-                <a className="py-1 udtext text-2xl underline" href="/">
+                <a className="py-1 text-2xl underline udtext" href="/">
                   Made to order
                 </a>
-                <a className="py-1 udtext text-2xl underline" href="/">
+                <a className="py-1 text-2xl underline udtext" href="/">
                   Altreations
                 </a>
               </div>
 
-              <div className=" mt-10 thiaLogo h-36  flex flex-col items-center w-full"></div>
+              <div className="flex flex-col items-center w-full mt-10 thiaLogo h-36"></div>
             </div>
           </div>
-          <div className="w-full rightProduct h-product  md:w-1/2 px-1 md:px-2 overflow-hidden md:m-0 md:mt-3 bg-red-800 md:py-16"></div>
+          <div className="w-full px-1 overflow-hidden bg-red-800 rightProduct h-product md:w-1/2 md:px-2 md:m-0 md:mt-3 md:py-16"></div>
         </div>
       </div>
     </div>

@@ -3,11 +3,11 @@ import Footer from "./Footer";
 const About = () => {
   return (
     <div>
-      <div className=" ">
-        <div className="flex  md:px-28 px-4 bg-primary  flex-col md:min-h-primary py-10  md:flex-row w-full justify-center items-center md:items-start">
-          <div className="md:w-1/2 w-full">
+      <div className="">
+        <div className="flex  flex-col items-center justify-center w-full px-4 py-10 md:px-28 bg-primary md:min-h-primary md:flex-row md:items-start">
+          <div className="w-full md:w-1/2">
             <div>
-              <h2 className="text-xl font-semibold my-2 capitalize">
+              <h2 className="my-2 text-xl font-semibold capitalize">
                 Thia's Apparel
               </h2>
             </div>
@@ -27,7 +27,7 @@ const About = () => {
             <hr className="mt-8" />
 
             <div>
-              <h2 className="text-xl font-semibold mt-4 capitalize">
+              <h2 className="mt-4 text-xl font-semibold capitalize">
                 Contemporary Heritage
               </h2>
             </div>
@@ -42,15 +42,15 @@ const About = () => {
               coats, technical outerwear, and casual knitwear.
             </p>
           </div>
-          <div className="md:w-1/2 w-full flex flex-col relative justify-center md:px-4 items-center py-2 gap-y-5 md:gap-y-0 md:block ">
-            <div className="pics1 h-ppic2 md:h-pics md:w-1/2 w-full  transition ease-in-out duration-300 md:hover:scale-105 z-10 md:absolute  md:left-4 md:top-10  rounded-sm"></div>
-            <div className="pics2 h-ppic2 md:h-pics md:w-1/2 w-full  transition ease-in-out duration-300 md:hover:scale-105   md:absolute  right-4  rounded-sm hover:z-10 "></div>
+          <div className="relative flex flex-col items-center justify-center w-full py-2 md:w-1/2 md:px-4 gap-y-5 md:gap-y-0 md:block ">
+            <div className="z-10 w-full transition duration-300 ease-in-out rounded-sm pics1 h-ppic2 md:h-pics md:w-1/2 md:hover:scale-105 md:absolute md:left-4 md:top-10"></div>
+            <div className="w-full transition duration-300 ease-in-out rounded-sm pics2 h-ppic2 md:h-pics md:w-1/2 md:hover:scale-105 md:absolute right-4 hover:z-10 "></div>
           </div>
         </div>
 
-        <div className="md:px-28 px-4 grid grid-cols-1 md:grid-cols-2  gap-4 w-full h-pic5 md:h-ppic my-10">
-          <div className=" row-span-1 h-20  ">
-            <p className=" pta ">
+        <div className="grid w-full grid-cols-1 gap-4 px-4 my-10 md:px-28 md:grid-cols-2 h-pic5 md:h-ppic">
+          <div className="h-20 row-span-1 ">
+            <p className=" pta">
               In the production of outerwear, it's like the shining star of one
               of the manufacturing hubs in the Marche region. The group's
               strength comes from the clever blend of craftsmanship,
@@ -69,18 +69,18 @@ const About = () => {
 
           {/* <div className="talor5 tal "></div>
         <div className="talor1 tal "></div>
-        <div className="talor2 tal  "></div>
+        <div className="talor2 tal "></div>
         <div className="talor3 tal "></div>
         <div className="talor4 tal"></div> */}
 
-          <div className="talor5 tal row-span-1 md:row-span-2"></div>
-          <div className="talor1 tal row-span-1 md:row-span-1"></div>
-          <div className="talor2 tal row-span-1 md:row-span-2"></div>
-          <div className="talor3 tal row-span-1"></div>
-          <div className="talor4 tal row-span-1"></div>
+          <div className="row-span-1 talor5 tal md:row-span-2"></div>
+          <div className="row-span-1 talor1 tal md:row-span-1"></div>
+          <div className="row-span-1 talor2 tal md:row-span-2"></div>
+          <div className="row-span-1 talor3 tal"></div>
+          <div className="row-span-1 talor4 tal"></div>
         </div>
 
-        <div className="md:px-28 px-4 flex justify-center items-center w-full">
+        <div className="flex items-center justify-center w-full px-4 md:px-28">
           <p className="text-center lowercase">
             <span className="uppercase"> R</span>INOMATA PER LA SUA ALTA
             SPECIALIZZAZIONE NELLA PRODUZIONE DEL CAPOSPALLA, RAPPRESENTA IL

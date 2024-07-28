@@ -2,232 +2,220 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+body {
+  overflow: hidden;
+}
 .a1,
 .a2,
 .a3,
 .a4,
 .a5 {
-    background-size: cover;
-    background-position: center center;
+  background-size: cover;
+  background-position: center center;
 }
 
 /* Add your background images */
 .a1 {
-    background-image: url(/public/images/aabb.jpg);
+  background-image: url(/public/images/aabb.jpg);
 }
 
 .a2 {
-    background-image: url(/public/images/aabb.jpg);
+  background-image: url(/public/images/aabb.jpg);
 }
 
 .a3 {
-    background-image: url(/public/images/Ashoebi21.jpg);
+  background-image: url(/public/images/Ashoebi21.jpg);
 }
 
 .a4 {
-    background-image: url(/public/images/4767.jpg);
+  background-image: url(/public/images/4767.jpg);
 }
 
 .a5 {
-    background-image: url(/public/images/214.jpg);
+  background-image: url(/public/images/214.jpg);
 }
 
 .logo {
-    background: url(/public/images/ThiaLogo.png) center center/ cover;
-
+  background: url(/public/images/ThiaLogo.png) center center/ cover;
 }
 
 .thia {
-    background: url(/public/images/thia2.jpg) center center/ cover;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-
-
+  background: url(/public/images/thia2.jpg) center center/ cover;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
 }
 
 .thin:hover {
-    transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .btn {
-    @apply transition ease-in-out duration-1000 bg-blackk hover:scale-105 font-semibold text-white rounded-sm py-1 flex justify-center px-4 shadow-md hover:bg-yellow-500 hover:text-white border border-gray-600 items-center gap-2
+  @apply transition ease-in-out duration-1000 bg-blackk hover:scale-105 font-semibold text-white rounded-sm py-1 flex justify-center px-4 shadow-md hover:bg-yellow-500 hover:text-white border border-gray-600 items-center gap-2;
 }
 
 .childd {
-    @apply rounded-md
+  @apply rounded-md;
 }
 
 .carocel {
-    @apply rounded-md
+  @apply rounded-md;
 }
 
 .carsel {
-    @apply rounded-lg
+  @apply rounded-lg;
 }
 
 .carsel:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    /* --box--shadow-2: 0 3px 15px rgba(0, 0, 0.3); */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* --box--shadow-2: 0 3px 15px rgba(0, 0, 0.3); */
 }
 
 .trans {
-    transition: ease-in-out .4s;
+  transition: ease-in-out 0.4s;
 }
 
 .rightProduct {
-    background: url(/public/images/stylish.jpg)center center/ cover;
+  background: url(/public/images/stylish.jpg) center center/ cover;
 }
 
 .leftProduct {
-    background-color: rgb(255, 185, 72);
-}
-
-
-.names {
-    @apply hover:scale-105 bg-trans transition ease-in-out duration-500
+  background-color: rgb(255, 185, 72);
 }
 
 .names {
-    border: 1px solid rgb(239, 229, 229);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  @apply hover:scale-105 bg-trans transition ease-in-out duration-500;
+}
 
-    &:hover {
+.names {
+  border: 1px solid rgb(239, 229, 229);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-        background-color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  }
 }
 
 .carocel-btn {
-    @apply bg-trans text-white hover:scale-125 transition ease-in-out duration-500
+  @apply bg-trans text-white hover:scale-125 transition ease-in-out duration-500;
 }
 
 .carocel-btn {
+  border: 1px solid black;
 
-    border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 
-    &:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-
-        background-color: rgba(0, 0, 0, 0.5);
-        ;
-    }
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .altr {
-    text-decoration-color: black !important;
+  text-decoration-color: black !important;
 }
 
 .udtext {
-    text-decoration-color: white;
-    transition: ease-in-out 1sec;
+  text-decoration-color: white;
+  transition: ease-in-out 1sec;
 
-    &&:hover {
-        text-decoration: none;
-    }
+  &&:hover {
+    text-decoration: none;
+  }
 }
 
 .thiaLogo {
-    background: url(/public/images/logo4.png) center center/ cover;
+  background: url(/public/images/logo4.png) center center/ cover;
 }
 
 .footerLogo {
-    background: url(/public/images/fotter-modified.png) center center/ cover;
+  background: url(/public/images/fotter-modified.png) center center/ cover;
 }
 
-
 .pics1 {
-    background: url(/public/images/product.jpg) center center/ cover;
+  background: url(/public/images/product.jpg) center center/ cover;
 }
 
 .pics2 {
-    background: url(/public/images/prdde.jpg) center center/ cover;
+  background: url(/public/images/prdde.jpg) center center/ cover;
 }
 
 .talor1 {
-    background: url(/public/images/talor1.jpg) center center/ cover;
+  background: url(/public/images/talor1.jpg) center center/ cover;
 }
 
 .talor2 {
-    background: url(/public/images/talor2.jpg) center center/ cover;
+  background: url(/public/images/talor2.jpg) center center/ cover;
 }
 
 .talor3 {
-    background: url(/public/images/talor3.jpg) center center/ cover;
+  background: url(/public/images/talor3.jpg) center center/ cover;
 }
 
-
 .talor4 {
-    background: url(/public/images/talor4.jpg) center center/ cover;
+  background: url(/public/images/talor4.jpg) center center/ cover;
 }
 
 .talor5 {
-    background: url(/public/images/talor5.jpg) center center/ cover;
+  background: url(/public/images/talor5.jpg) center center/ cover;
 }
 
 .tal {
-    @apply rounded-sm
+  @apply rounded-sm;
 }
-
 
 .customm {
-    background: url(/public/images/customm.jpg) center center/ cover;
+  background: url(/public/images/customm.jpg) center center/ cover;
 }
 
-
-
 .rev:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.93);
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.93);
 }
 
 .active-nav-item {
-    color: red;
-    /* Change to your desired active color */
+  color: red;
+  /* Change to your desired active color */
 }
 
 .rev {
-    @apply hover:scale-105 transition ease-in-out duration-300
+  @apply hover:scale-105 transition ease-in-out duration-300;
 }
 
-.slick-slide>div {
-    margin: 0 5px;
+.slick-slide > div {
+  margin: 0 5px;
 }
-
 
 .revLogo {
-    background: url(/public/images/logo4.png) center center/ cover;
-
+  background: url(/public/images/logo4.png) center center/ cover;
 }
 
 .thiaContact {
-background: url(/public/images/thia1.jpg) center center/ cover;
+  background: url(/public/images/thia1.jpg) center center/ cover;
 }
 
 .AoutThiaPics {
-    background: url(/public/images/thia1.jpg) center center/ cover;
+  background: url(/public/images/thia1.jpg) center center/ cover;
 }
 
 .contactIcons {
-    @apply h-10 w-10 bg-location text-white rounded-full
+  @apply h-10 w-10 bg-location text-white rounded-full;
 }
 
 .contactIcons {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .italic {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-
-.size{
-    @apply text-2xl font-semibold
+.size {
+  @apply text-2xl font-semibold;
 }
 
 /* 
@@ -235,70 +223,120 @@ background: url(/public/images/thia1.jpg) center center/ cover;
     z-index: 4;
 } */
 
-
-
 @keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(-100%);
+  }
 
-    to {
-        transform: translateX(0);
-    }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideOut {
-    from {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(0);
+  }
 
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
+
 .search {
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .search.open {
-    animation-name: slideIn;
+  animation-name: slideIn;
 }
 
 .search.closed {
-
-    animation-name: slideOut;
+  animation-name: slideOut;
 }
+
 .coverDiv {
-    background-color: rgba(0, 0, 0, 0.6);
-        transition: all 1s ease-in-out;
-        opacity: 0;
-        /* Start with invisible */
-        visibility: hidden;
-        /* Start as hidden */
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  /* Start with invisible */
+  visibility: hidden;
+  /* Start as hidden */
 }
-
 .coverDiv.open {
-    opacity: 1;
-    /* Fully visible when open */
-    visibility: visible;
-    /* Fully visible when open */
+  opacity: 1;
+  /* Fully visible when open */
+  visibility: visible;
+  /* Fully visible when open */
 }
 
 
-.sizeval{
-    @apply border hover:border-rose-950 rounded-md cursor-pointer w-1/2 flex justify-center items-center border-red-500 transition ease-in-out duration-300
+
+
+
+@keyframes slideIn2 {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
-.faq{
-    @apply  font-semibold
+@keyframes slideOut2 {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
 }
 
-.dropp{
-    @apply mt-4 w-full transition ease-in-out duration-700
+
+
+.coverDiv2 {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  /* Start with invisible */
+  visibility: hidden;
+  /* Start as hidden */
+}
+.coverDiv2.open {
+  opacity: 1;
+  /* Fully visible when open */
+  visibility: visible;
+  /* Fully visible when open */
 }
 
-.questions{
-    @apply cursor-pointer
+.search2 {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.search2.open {
+  animation-name: slideIn2;
+}
+.search2.closed {
+  animation-name: slideOut2;
+
+}
+
+.sizeval {
+  @apply border hover:border-rose-950 rounded-md cursor-pointer w-1/2 flex justify-center items-center border-red-500 transition ease-in-out duration-300;
+}
+
+.faq {
+  @apply font-semibold;
+}
+
+.dropp {
+  @apply mt-4 w-full transition ease-in-out duration-700;
+}
+
+.questions {
+  @apply cursor-pointer;
 }
