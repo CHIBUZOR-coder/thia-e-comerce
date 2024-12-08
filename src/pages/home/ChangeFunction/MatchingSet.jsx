@@ -1,24 +1,14 @@
 import { Link } from "react-router-dom";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
+import { useContext } from "react";
+import { DataContext } from "../../../Components/DataContext";
 
 export const MatchingSet = () => {
-  const imageUrl = [
-    "./images/match1.jpg",
-    "./images/match9.jpg",
-    "./images/match7.jpg",
-    "./images/match6.jpg",
+  const { MatchingProducts } = useContext(DataContext);
 
-    "./images/matchinSet.jpg",
-
-    "./images/match4.jpg",
-    "./images/match5.jpg",
-    "./images/match.jpg",
-
-    "./images/match8.jpg",
-    "./images/match11.jpg",
-    "./images/matcha.jpg",
-  ];
+  const imageUrl = MatchingProducts.map((item) => item.image);
+  // console.log(imageUrl);
 
   PreloadImages(imageUrl);
 

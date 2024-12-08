@@ -45,7 +45,7 @@ const FormReview = () => {
   return (
     <div className="bg-primary my-3 w-full">
       <div className="xl:px-28 px-4 flex flex-col justify-center items-center">
-        <h2 className="text-2xl font-bold mb-4">Customer Reviews</h2>
+        <h2 className="text-2xl font-bold mb-4">Add Your Review</h2>
 
         <form onSubmit={handleSubmit} className="mb-8 w-1/2">
           <div className="mb-4">
@@ -61,6 +61,7 @@ const FormReview = () => {
               className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
           </div>
+
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Location
@@ -74,6 +75,8 @@ const FormReview = () => {
               className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
           </div>
+
+
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Review
@@ -86,6 +89,7 @@ const FormReview = () => {
               className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
           </div>
+          
           <button
             type="submit"
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

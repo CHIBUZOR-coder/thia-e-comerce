@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
+import { useContext } from "react";
+import { DataContext } from "../../../Components/DataContext";
 
 const Kiddies = () => {
-  const imageUrl = [
-    "./images/kidaa.jpg",
-    "./images/kid5.jpg",
-    "./images/kisa.jpg",
-    "./images/kidd.jpg",
-    "./images/kidb.jpg",
-    "./images/kid7.jpg",
-  ];
+  const { KidiesProducts } = useContext(DataContext);
 
+  const imageUrl = KidiesProducts.map((item) => item.image);
+  // console.log(imageUrl);
   PreloadImages(imageUrl);
 
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object

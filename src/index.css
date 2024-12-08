@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 body {
   overflow-x: hidden;
 }
@@ -243,7 +240,6 @@ body {
   }
 }
 
-
 .search {
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -272,10 +268,6 @@ body {
   /* Fully visible when open */
 }
 
-
-
-
-
 @keyframes slideIn2 {
   from {
     transform: translateX(100%);
@@ -295,8 +287,6 @@ body {
     transform: translateX(100%);
   }
 }
-
-
 
 .coverDiv2 {
   background-color: rgba(0, 0, 0, 0.6);
@@ -322,7 +312,6 @@ body {
 }
 .search2.closed {
   animation-name: slideOut2;
-
 }
 
 .sizeval {
@@ -339,4 +328,105 @@ body {
 
 .questions {
   @apply cursor-pointer;
+}
+
+@keyframes subIn {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(70%);
+  }
+}
+
+.subnav {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.subnav.subopen {
+  animation-name: subIn;
+}
+
+table th,
+td {
+  @apply p-2 text-center;
+}
+
+.lightMode:nth-child(EVEN) {
+  background-color: rgba(226, 253, 255, 0.7);
+}
+
+/* AdminBlueBlackColor */
+.darkMode:nth-child(EVEN) {
+  background-color: rgba(10, 25, 47, 0.7);
+}
+
+.darkModeTh_tr {
+  background-color: rgb(10, 25, 47, 0.7);
+}
+
+.lightModeTh_tr {
+  background-color: rgba(226, 253, 255, 0.7);
+}
+
+.formdark {
+  background-color: rgb(10, 25, 47, 0.7);
+}
+
+.formLight {
+  background-color: rgba(226, 253, 255, 0.8);
+}
+
+.ainput {
+  @apply w-full h-8 p-2;
+}
+
+/* form liht and dark toggle colors */
+.addRemovebtnDarkMode {
+  background-color: rgb(44, 14, 55, 0.9);
+  border: 1px solid rgb(107, 114, 128);
+  color: rgb(107, 114, 128);
+}
+
+.addRemovebtnLightMode_RemoveProduct {
+  background-color: rgb(232, 253, 255, 0.9);
+  border: 1px solid rgb(107, 114, 128);
+  color: rgb(107, 114, 128);
+}
+
+.addRemovebtnLightMode_AddProduct {
+  background-color: rgb(232, 253, 255, 0.9);
+  border: 1px solid rgb(107, 114, 128);
+  color: rgb(107, 114, 128);
+}
+
+.addRemovebtnDarkMode {
+  background-color: rgb(44, 14, 55, 0.9);
+  border: 1px solid rgb(107, 114, 128);
+  color: rgb(107, 114, 128);
+}
+
+.pop {
+  @apply scale-110;
+}
+/* 
+.fd{
+  background-color: rgb(0, 0, 255);
+} */
+
+.Acct_links {
+  height: 0;
+  opacity: 0; /* Content is initially invisible */
+  overflow: hidden;
+  transition: height 0.6s ease-in-out, opacity 0.3s ease-in-out;
+  transition-delay: 0s, 0.2s; /* Delay opacity transition until height transition is done */
+}
+
+.expanded {
+  height: 140px;
+  opacity: 1; /* Content becomes visible after height transition */
+  transition: height 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  transition-delay: 0.1s, 0.4s; /* Reverse delay for smooth transition */
 }

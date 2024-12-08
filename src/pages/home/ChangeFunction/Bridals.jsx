@@ -1,22 +1,14 @@
+import { useContext } from "react";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import useFetch from "./carocel"; // Import the custom hook
 import { Link, useLocation } from "react-router-dom";
+import { DataContext } from "../../../Components/DataContext";
 
 export const Bridals = () => {
-  const imageUrl = [
-    "./images/thia2.jpg",
-    "./images/thia3.jpg",
-    "./images/bridal000.jpg",
-    "./images/brialppp.jpg",
-    "./images/brial666.jpg",
-    "./images/brial111.jpg",
-    "./images/brialppp.jpg",
-    "./images/brialppp.jpg",
-    "./images/bridal77.jpg",
-    "./images/bridal3.jpg",
-    "./images/bridal44.jpg",
-    "./images/bridalooo.jpg",
-  ];
+  const { BridalProducts } = useContext(DataContext);
+
+  const imageUrl = BridalProducts.map((item) => item.image);
+  // console.log(imageUrl);
 
   PreloadImages(imageUrl);
 
@@ -27,7 +19,7 @@ export const Bridals = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
-        to="/"
+        to="/thia-e-comerce/Bridls"
         className="italic  flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Bridals

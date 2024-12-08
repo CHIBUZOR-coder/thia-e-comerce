@@ -1,10 +1,19 @@
 import useFetch from './ImageStyle'
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import {PreloadImages } from "../../../Components/PreloadImages";
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../../Components/DataContext';
 
 export const Fourth = () => {
-  const imageUrl = "./images/kaf.jpg";
+  
+
+  const { Allproducts } = useContext(DataContext);
+
+  const product = Allproducts.find((item) => item.style === "Simple Matching");
+  // console.log(product);
+
+
+  const imageUrl = product.image;
 
   
     PreloadImages([imageUrl]); // Preload the image after the component mounts
@@ -18,7 +27,7 @@ export const Fourth = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
-        to="/thia-e-comerce/Kaftan/6"
+        to="/thia-e-comerce/Kaftan/35"
         className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Buy
