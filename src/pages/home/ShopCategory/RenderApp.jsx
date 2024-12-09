@@ -34,6 +34,8 @@ import AdminHome3 from "../../../Admin/AdminHome3.jsx";
 import AdminHome4 from "../../../Admin/AdminHome4.jsx";
 import Login from "../../Login.jsx";
 import Account from "../../../Components/Account.jsx";
+import Signin from "../../Signup.jsx";
+import Signup from "../../Signup.jsx";
 
 const RenderAppWithData = () => {
   const {
@@ -108,6 +110,7 @@ const RenderAppWithData = () => {
         { path: "/thia-e-comerce/ShopAll", element: <ShopAll /> },
         { path: "/thia-e-comerce/Login", element: <Login /> },
         { path: "/thia-e-comerce/Account", element: <Account /> },
+        { path: "/thia-e-comerce/Signup", element: <Signup /> },
         {
           path: "/thia-e-comerce/Ankara/:id",
           element: <Shopp dataItems={AnkaraProducts} />,

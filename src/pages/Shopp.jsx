@@ -66,6 +66,7 @@ const Shopp = ({ dataItems }) => {
   };
 
   const handleIncrease = () => {
+    console.log("Increase button clicked");
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../Components/DataContext";
 
 const Login = () => {
@@ -81,7 +81,10 @@ const Login = () => {
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>{ setEmail(e.target.value)
+                console.log(email);
+                
+              }}
               required
             />
             <input
@@ -103,6 +106,20 @@ const Login = () => {
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
+          <div>
+            <div className="w-full flex justify-center items-center gap-2">
+              <p>Dont have an account?</p>
+              <Link className="text-blue-500" to={"/thia-e-comerce/Signup"}>
+                Create Account
+              </Link>
+            </div>
+            <div className="w-full flex justify-center items-center gap-2">
+              <p> Forgot your</p>
+              <Link className="text-blue-500" to={""}>
+                password
+              </Link>
+            </div>
+          </div>
         </form>
       </div>
     );

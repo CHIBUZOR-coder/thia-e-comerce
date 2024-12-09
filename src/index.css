@@ -430,3 +430,12 @@ td {
   transition: height 0.6s ease-in-out, opacity 0.6s ease-in-out;
   transition-delay: 0.1s, 0.4s; /* Reverse delay for smooth transition */
 }
+
+
+.createAcctInputDiv{
+@apply w-[80%] 
+}
+
+.createAcctInput{
+@apply bg-input w-full p-4 rounded-tr-lg  rounded-bl-lg
+}

@@ -18,6 +18,10 @@ const DataProvider = ({ children }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [erroMess, setErrorMess] = useState(null);
   const { setItem, getItem, deleteItem } = useLocalStorage("userInfo");
+  const [CartItems, SetCartItems] = useState(() => {
+    const storedData = localStorage.getItem("CartItems");
+    return storedData ? JSON.parse(storedData) : []; // Ensure it's always an array
+  });
 
   //*********************** */
   //Retrieving all stored data in loca storage for user authentification
@@ -79,37 +83,6 @@ const DataProvider = ({ children }) => {
     }
   };
 
-  // const checkTokenExpiry = async () => {
-  //   try {
-  //     const userInfo = localStorage.getItem("userInfo"); // Get userInfo from localStorage
-
-  //     if (!userInfo) {
-  //       // Check if userInfo is not in localStorage
-  //       console.log("userInfo not found");
-  //       return; // If userInfo doesn't exist, exit the function
-  //     }
-
-  //     const parsedUserInfo = JSON.parse(userInfo); // Parse userInfo if it exists
-
-  //     // Continue with the rest of the code if userInfo exists
-  //     console.log("userInfo found");
-
-  //     const expTime = parsedUserInfo.exp * 1000; // Convert exp from seconds to milliseconds
-  //     const currentTime = Date.now(); // Get current time in milliseconds
-
-  //     // Check if the token is expired
-  //     if (expTime < currentTime) {
-  //       console.log("Token expired");
-  //       // Handle token expiry (e.g., log out user)
-  //     } else {
-  //       console.log("Token not expired");
-  //       // Handle valid token
-  //     }
-  //   } catch (error) {
-  //     console.error("Error parsing userInfo from localStorage:", error);
-  //   }
-  // };
-
   // *********************************/
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
   const Autentification = async () => {
@@ -144,6 +117,40 @@ const DataProvider = ({ children }) => {
     checkTokenExpiry();
   }, []);
 
+  const fetchCart = async () => {
+    if (isUser) {
+      // authenticated
+      const res = await fetch("http://localhost:5000/api/getCart", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          credentials: "include",
+        },
+      });
+      const data = await res.json();
+      //  console.log("without", data);
+      if (res.ok) {
+        // console.log("with produtcs",data.data.products)
+        console.log(CartItems);
+        console.log(SetCartItems(data));
+        SetCartItems(data); // change the operator both statement has to be true
+      } else {
+        console.log("error", "Could not get cart");
+      }
+      // authenticated done
+    } else {
+      // unauthenticated
+      const localCart = localStorage.getItem("cartItems");
+      console.log(localCart);
+      if (localCart) {
+        SetCartItems(JSON.parse(localCart));
+      } else {
+        SetCartItems([]); // Clear cart items if nothing is in local storage
+      }
+      // unauthenticated done
+    }
+  };
+
   //****************************************** */
   //Login form. it is called from login component when a user tries to login
   const handleLogin = async (email, password) => {
@@ -157,12 +164,41 @@ const DataProvider = ({ children }) => {
         credentials: "include",
       });
 
-      const data = await response.json();
-
+      let data;
+      let localCartItems;
+      data = await response.json();
       if (response.ok) {
         console.log("Login successful:", data.message);
         // UserLogALert(data.role);
         setIsLogin(true);
+        localCartItems = getItem("cartItems");
+
+        if (localCartItems) {
+          await Promise.all(
+            localCartItems.products.map(async (item) => {
+              const res = await fetch("http://localhost:5000/api/addToCart", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  clothId: parseInt(item.product.id),
+                  quantity: parseInt(item.quantity),
+                }),
+                credentials: "include",
+              });
+
+              const cartdata = await res.json();
+
+              if (res.ok) {
+                console.log("cartdata", cartdata);
+                deleteItem("cartItems");
+                SetCartItems(cartdata.data);
+                fetchCart();
+              }
+            })
+          );
+        }
 
         return data;
       } else {
@@ -195,11 +231,6 @@ const DataProvider = ({ children }) => {
   // const { userRole } = useContext(VerifyContext);
 
   // console.log("IsUser:", userRole);
-
-  const [CartItems, SetCartItems] = useState(() => {
-    const storedData = localStorage.getItem("CartItems");
-    return storedData ? JSON.parse(storedData) : []; // Ensure it's always an array
-  });
 
   // Ensure CartItems is an array before using reduce
   const cartCount = Array.isArray(CartItems)
@@ -241,7 +272,7 @@ const DataProvider = ({ children }) => {
 
   // AddToCart function in the front-end
   const AddToCart = async (prod, num) => {
-    if (userRole) {
+    if (isUser) {
       try {
         const res = await fetch("http://localhost:5000/api/addToCart", {
           method: "POST",
@@ -316,6 +347,7 @@ const DataProvider = ({ children }) => {
         Allproducts,
         AddToCart,
         cartCount,
+        CartItems,
         lightMode,
         isUser,
         UserInfo,
