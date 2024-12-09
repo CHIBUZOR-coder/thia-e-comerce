@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,13 +7,12 @@ import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Footer from "../Footer";
 import { PreloadImages } from "../../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
-import { data } from "autoprefixer";
 import { Link } from "react-router-dom";
 import DataResolve from "../DataResolve";
 import { DataContext } from "../../../Components/DataContext";
 
 const Matchng = () => {
-  const { error, isLoading, MatchinProducts: items } = useContext(DataContext);
+  const { MatchingProducts: items, error, isLoading } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -21,44 +20,36 @@ const Matchng = () => {
 
   // Function to filter items based on the selected category
   const filterItems = (category) => {
-    const filtered =
-      category === "All"
-        ? items
-        : items.filter((item) => item.category === category);
-    setFilteredItems(filtered);
     setSelectCategory(category);
   };
 
-  // Update filteredItems when items data is loaded
+  // New useEffect hook to handle filtering and sorting
   useEffect(() => {
     if (items) {
-      setFilteredItems(items);
+      let sortedItems =
+        selectCategory === "All"
+          ? [...items]
+          : items.filter((item) => item.category === selectCategory);
+
+      switch (sortOptions) {
+        case "Low-High":
+          sortedItems.sort((a, b) => a.price - b.price);
+          break;
+        case "High-Low":
+          sortedItems.sort((a, b) => b.price - a.price);
+          break;
+        case "Default":
+        default:
+          // No sorting applied, just filtered items
+          break;
+      }
+      setFilteredItems(sortedItems);
     }
-  }, [items]);
+  }, [sortOptions, selectCategory, items]);
 
   // Sorting function
   const handleSortChange = (option) => {
     setSortOptions(option);
-
-    // Logic for sorting
-    let sortedItems = [...filteredItems];
-
-    switch (option) {
-      case "Low-High":
-        sortedItems.sort((a, b) => a.price - b.price);
-        break;
-
-      case "High-Low":
-        sortedItems.sort((a, b) => b.price - a.price);
-        break;
-
-      case "Default":
-      default:
-        // Reset to the initial state of filteredItems based on the current category
-        filterItems(selectCategory);
-        return;
-    }
-    setFilteredItems(sortedItems);
   };
 
   return (
@@ -71,16 +62,29 @@ const Matchng = () => {
             </span>
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Native")}
+              onClick={() => filterItems("Suit")}
             >
-              Native
+              Suit
+            </span>
+            <span
+              className="cursor-pointer"
+              onClick={() => filterItems("Gown")}
+            >
+              Gown
             </span>
 
             <span
               className="cursor-pointer"
-              onClick={() => filterItems("Shifon")}
+              onClick={() => filterItems("Fitted")}
             >
-              Shifon
+              Fitted
+            </span>
+
+            <span
+              className="cursor-pointer"
+              onClick={() => filterItems("Pinner Four")}
+            >
+              Pinner Four
             </span>
           </div>
           <div className="flex justify-center items-center">
@@ -93,8 +97,7 @@ const Matchng = () => {
               value={sortOptions}
               className="cursor-pointer border-2 border-black"
             >
-              <option value="default">Default</option>
-
+              <option value="Default">Default</option>
               <option value="Low-High">Low-High</option>
               <option value="High-Low">High-Low</option>
             </select>
@@ -109,9 +112,9 @@ const Matchng = () => {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
               {filteredItems.map((item) => (
                 <Link
-                  to={`/thia-e-comerce/Matching/${item.id}`}
+                  to={`/thia-e-comerce/Ankara/${item.id}`}
                   key={item.id}
-                  className="relative bg-whiteitem:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
+                  className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >
                   <div
                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
@@ -121,7 +124,7 @@ const Matchng = () => {
                   ></div>
                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
                     <p className="mt-2 w-full font-semibold">
-                      {item.title} <br />
+                      {item.style} <br />
                     </p>
                     <div className="flex justify-between w-full items-center">
                       <p className="italic">{item.status}</p>
@@ -134,7 +137,7 @@ const Matchng = () => {
           )}
         </div>
       </div>
-      <div className="w-full  bg-white py-5 flex justify-center items-center">
+      <div className="w-full bg-white py-5 px-3 flex justify-center items-center">
         <div className="revLogo w-full md:w-1/2 h-64 md:h-56 rounded-sm shadow-lg"></div>
       </div>
       <Footer />

@@ -127,7 +127,7 @@ const Reviews = () => {
                   <div
                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                     style={{
-                      background: `url(./images/${item.image}.jpg) center center/ cover`,
+                      background: `url(${item.image}) center center/ cover`,
                     }}
                   ></div>
                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
