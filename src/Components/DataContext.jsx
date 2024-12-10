@@ -126,14 +126,17 @@ const DataProvider = ({ children }) => {
           "Content-Type": "application/json",
           credentials: "include",
         },
+        credentials: "include",
       });
       const data = await res.json();
       //  console.log("without", data);
       if (res.ok) {
         // console.log("with produtcs",data.data.products)
+        console.log(data);
+
+        SetCartItems(data);
         console.log(CartItems);
-        console.log(SetCartItems(data));
-        SetCartItems(data); // change the operator both statement has to be true
+        // change the operator both statement has to be true
       } else {
         console.log("error", "Could not get cart");
       }
@@ -179,7 +182,7 @@ const DataProvider = ({ children }) => {
               const res = await fetch("http://localhost:5000/api/addToCart", {
                 method: "POST",
                 headers: {
-                "Content-Type": "application/json",
+                  "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                   clothId: parseInt(item.product.id),
@@ -266,12 +269,16 @@ const DataProvider = ({ children }) => {
   const CoperateProducts = filterProductsByBrand("coperate");
   const KaftanProducts = filterProductsByBrand("kaftan");
   const MatchingProducts = filterProductsByBrand("matching");
+ useEffect(()=>{
+   console.log(MatchingProducts);
+ }, [MatchingProducts])
+  
   const BridalProducts = filterProductsByBrand("bridals");
   const KidiesProducts = filterProductsByBrand("kidies");
   const Featured = filterProductsByBrand("featured");
 
   // AddToCart function in the front-end
-  const AddToCart = async (prod, num) => {
+  const AddToCart = async (prod, num, clothSize) => {
     if (isUser) {
       try {
         const res = await fetch("http://localhost:5000/api/addToCart", {
@@ -279,7 +286,11 @@ const DataProvider = ({ children }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ clothId: prod.id, quantity: num }), // Use prod.id and num
+          body: JSON.stringify({
+            clothId: prod.id,
+            quantity: num,
+            sizee: clothSize,
+          }), // Use prod.id and num
           credentials: "include",
         });
 
@@ -287,6 +298,7 @@ const DataProvider = ({ children }) => {
         if (res.ok) {
           SetCartItems(data.data); // Add the updated cart items
           console.log(data);
+          fetchCart();
           // console.log(data);
 
           showHide(true, "Product was added to cart successfully", "false");
@@ -310,10 +322,12 @@ const DataProvider = ({ children }) => {
         storedCart.products[currentItemIndex].quantity += num;
         storedCart.products[currentItemIndex].amount =
           storedCart.products[currentItemIndex].quantity * prod.price;
+        storedCart.products.size = clothSize;
       } else {
         storedCart.products.push({
           product: prod,
           quantity: num,
+          size: clothSize,
           amount: prod.price * num,
         });
       }

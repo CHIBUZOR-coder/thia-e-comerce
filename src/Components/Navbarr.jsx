@@ -13,7 +13,7 @@ import {
 import { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
-import { UseQuantity } from "../pages/home/Quantity";
+// import { UseQuantity } from "../pages/home/Quantity";
 import { DataContext } from "./DataContext";
 
 const Navbar = ({ handleSearch, handleCart }) => {

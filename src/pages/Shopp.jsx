@@ -12,12 +12,15 @@ const Shopp = ({ dataItems }) => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
-  const [Quantity, setQuantity] = useState(() => {
-    // Check if a saved value exists in localStorage
-    const savedQuantity = localStorage.getItem("Quantity");
-    // If there is a saved value, use it, otherwise default to 1
-    return savedQuantity ? parseInt(savedQuantity, 10) : 1;
-  });
+  const [selectedValue, setSelectedValue] = useState(null);
+  // const [Quantity, setQuantity] = useState(() => {
+  //   // Check if a saved value exists in localStorage
+  //   const savedQuantity = localStorage.getItem("Quantity");
+  //   // If there is a saved value, use it, otherwise default to 1
+  //   return savedQuantity ? parseInt(savedQuantity, 10) : 1;
+  // });
+
+  const [Quantity, setQuantity] = useState(1);
   // const InputRef = useRef();
 
   console.log(Quantity);
@@ -28,6 +31,10 @@ const Shopp = ({ dataItems }) => {
     setQuantity(event.target.value);
   };
   // console.log(inputCount);
+
+  useEffect(() => {
+    console.log(dataItems);
+  },[]);
 
   const sizeValues = useMemo(
     () => ({
@@ -49,26 +56,44 @@ const Shopp = ({ dataItems }) => {
   }, [id, dataItems]);
 
   useEffect(() => {
+    // Ensure that the item is available and has a valid size
     if (item && item.size) {
       const sizeKey = Object.keys(sizeValues).find(
         (key) => sizeValues[key].value === item.size
       );
-      setSelectedSize(sizeKey || null);
+
+      // If a matching size is found, set it as the default
+      if (sizeKey) {
+        setSelectedSize(sizeKey);
+      } else {
+        // If no matching size is found, reset to null or a default size
+        setSelectedSize(Object.keys(sizeValues)[0]); // Set to the first size as default
+      }
     }
-  }, [item, sizeValues]);
+  }, [item, sizeValues]); // Re-run whenever item or sizeValues changes
 
-  useEffect(() => {
-    localStorage.setItem("quantity", Quantity);
-  }, [Quantity]);
-
+  // useEffect(() => {
+  //   localStorage.setItem("quantity", Quantity);
+  // }, [Quantity]);
   const handleSizeSelect = (sizeKey) => {
-    setSelectedSize(sizeKey);
+    setSelectedSize(sizeKey); // Update the selected size key
+
+    // Log the value associated with the selected key
+    const selected = sizeValues[sizeKey]?.value;
+    setSelectedValue(selected);
+    console.log(`Selected size value: ${selectedValue}`);
   };
 
   const handleIncrease = () => {
     console.log("Increase button clicked");
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
+
+  useEffect(() => {
+    if (selectedSize) {
+      console.log(`Selected size: ${selectedSize}`);
+    }
+  }, [selectedSize]);
 
   const handleDecrease = () => {
     setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
@@ -151,7 +176,8 @@ const Shopp = ({ dataItems }) => {
                     onClick={() => {
                       AddToCart(
                         itemWithQuantity,
-                        itemWithQuantity.quantity
+                        itemWithQuantity.quantity,
+                        selectedValue
                       );
                       // console.log(itemWithQuantity);
                       // console.log(Quantity);
@@ -184,5 +210,3 @@ const Shopp = ({ dataItems }) => {
 // };
 
 export default Shopp;
-
-

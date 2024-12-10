@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbarr";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { QuantityProvider } from "./pages/home/Quantity";
+
 
 import {
   FaBars,

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../../../App.jsx";
 import Home from "../Homee.jsx";
@@ -10,7 +10,7 @@ import Akara from "./Akara.jsx";
 import Ashebi from "./Ashebi.jsx";
 import Coprate from "./Coprate.jsx";
 import Kaftn from "./Kaftn.jsx";
-import Matchng from "./Matchng.jsx";
+// import Matchng from "./Matchng.jsx";
 import AboutThia from "../AboutThia.jsx";
 import SizeGuide from "../SizeGuide.jsx";
 import Terms from "../Terms.jsx";
@@ -37,17 +37,23 @@ import Account from "../../../Components/Account.jsx";
 import Signin from "../../Signup.jsx";
 import Signup from "../../Signup.jsx";
 
+import Matching from "./Matchingg.jsx";
+
 const RenderAppWithData = () => {
   const {
     AnkaraProducts,
     AhebiProducts,
     CoperateProducts,
-    Kaftanproducts,
-    MatchinProducts,
+    KaftanProducts,
+    MatchingProducts,
     BridalProducts,
     KidiesProducts,
     lightMode,
   } = useContext(DataContext);
+
+  useEffect(() => {
+    console.log(MatchingProducts);
+  }, [MatchingProducts]);
   // No need to use useMemo if you're directly calling the context value
 
   const [IsQuestionOpen, setIsQuestionOpen] = useState(false);
@@ -99,7 +105,7 @@ const RenderAppWithData = () => {
         },
         {
           path: "/thia-e-comerce/Matchng",
-          element: <Matchng />,
+          element: <Matching />,
         },
         { path: "/thia-e-comerce/Kidis", element: <Kidies /> },
         { path: "/thia-e-comerce/AboutThia", element: <AboutThia /> },
@@ -129,11 +135,11 @@ const RenderAppWithData = () => {
         },
         {
           path: "/thia-e-comerce/Kaftan/:id",
-          element: <Shopp dataItems={Kaftanproducts} />,
+          element: <Shopp dataItems={KaftanProducts} />,
         },
         {
           path: "/thia-e-comerce/Matching/:id",
-          element: <Shopp dataItems={MatchinProducts} />,
+          element: <Shopp dataItems={MatchingProducts} />,
         },
         {
           path: "/thia-e-comerce/Kidies/:id",

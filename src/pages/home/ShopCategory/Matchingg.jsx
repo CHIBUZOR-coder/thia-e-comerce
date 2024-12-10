@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import DataResolve from "../DataResolve";
 import { DataContext } from "../../../Components/DataContext";
 
-const Matchng = () => {
+const Matching = () => {
   const { MatchingProducts: items, error, isLoading } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
@@ -112,7 +112,7 @@ const Matchng = () => {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
               {filteredItems.map((item) => (
                 <Link
-                  to={`/thia-e-comerce/Ankara/${item.id}`}
+                  to={`/thia-e-comerce/Matching/${item.id}`}
                   key={item.id}
                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >
@@ -145,4 +145,4 @@ const Matchng = () => {
   );
 };
 
-export default Matchng;
+export default Matching;
