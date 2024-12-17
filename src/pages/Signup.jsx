@@ -60,6 +60,8 @@ const Signup = () => {
       let data;
       if (res.ok) {
         data = await res.json();
+
+        localStorage.removeItem("UsercartIems");
         console.log(data);
         setTimeout(() => {
           // window.location.href = "/thia-e-comerce/Login";

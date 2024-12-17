@@ -51,9 +51,9 @@ const RenderAppWithData = () => {
     lightMode,
   } = useContext(DataContext);
 
-  useEffect(() => {
-    console.log(MatchingProducts);
-  }, [MatchingProducts]);
+  // useEffect(() => {
+  //   console.log(MatchingProducts);
+  // }, [MatchingProducts]);
   // No need to use useMemo if you're directly calling the context value
 
   const [IsQuestionOpen, setIsQuestionOpen] = useState(false);

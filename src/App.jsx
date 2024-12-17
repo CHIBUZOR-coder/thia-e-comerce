@@ -6,7 +6,6 @@ import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-
 import {
   FaBars,
   FaSearch,
@@ -23,25 +22,80 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [iscartItems, SetIscartTitems] = useState(false);
+  //Search Featues initialization below
+  const [fetchStart, setFetchStart] = useState(false);
+  const [result, setResult] = useState(null);
+  const [searchTem, setSearchTem] = useState("");
+  const [error, setError] = useState(true);
+  const [heightTrue, setheightTrue] = useState(false);
+  ////////End
   const location = useLocation();
   const textRef = useRef(null);
   const [isLoading, setIsloading] = useState(true);
-  const { Allproducts } = useContext(DataContext);
+  // const { UserInfo } = useContext(DataContext);
 
-  useEffect(() => {
-    if (textRef.current) {
-      const cartText = textRef.current.innerText;
-      console.log("Cart Text:", cartText);
-      // console.log("Page URL:", location.pathname);
-      // Perform your comparison here
-      if (cartText === location.pathname) {
-        console.log("Cart text matches page URL");
-      } else {
-        console.log("Cart text does not match page URL");
+  const localData = JSON.parse(localStorage.getItem("cartItems")) || false;
+  const UserInfo = JSON.parse(localStorage.getItem("userInfo")) || false;
+  console.log("Local Storage Data:", localData);
+
+  let cartitems;
+  if (!UserInfo) {
+    cartitems = localData ? localData.products : [];
+  } else {
+    cartitems = localData ? localData : [];
+  }
+
+  console.log("Cart Items:", cartitems);
+  // console.log(typeof cartitems);
+
+  const HandleFetchStart = async (value) => {
+    try {
+      let data;
+      const res = await fetch("http://localhost:5000/api/cloths", {
+        method: "GET",
+        headers: {
+          "Content-Type": "Application/Json",
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch search results");
       }
+
+      data = await res.json();
+      setResult(
+        data.filter((cloth) => {
+          return (
+            value &&
+            cloth &&
+            cloth.style &&
+            cloth.style.toLowerCase().includes(value)
+          );
+        })
+      );
+
+      console.log(result);
+    } catch (error) {
+      console.error("Error fetching search results:", error.message);
+      setError("Failed to fetch search results. Please try again.");
     }
-  }, [location]);
+  };
+
+  const handleInputChange = (e) => {
+    e.preventDefault();
+
+    const value = e.target.value;
+    if (value) {
+      setheightTrue(true);
+    } else {
+      setheightTrue(false);
+    }
+    setSearchTem(value); // Update search term state
+    HandleFetchStart(value); // Perform the fetch
+    if (value.length <= 0) {
+      setheightTrue(false);
+    }
+  };
 
   const NavItems = [
     { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
@@ -141,19 +195,19 @@ function App() {
             {/* smallscreen Cart header */}
             <div
               onClick={closeCartModal}
-              className={`absolute w-full top-0 left-0 h-[100vh] z-10 coverDiv2  ${
+              className={`absolute  w-full top-0 left-0 min-h-[100vh] z-10 coverDiv2  ${
                 IsCartOpen ? "open" : ""
               } `}
             >
               {/* Cart section */}
               <div
-                className={`search2 absolute w-full md:w-[35%] top-0 right-0 flex flex-col justify-center items-center bg-white h-[100vh] z-50 text-black  ${
+                className={`search2 absolute w-full md:w-[45%] h-[100vh] overflow-y-scroll  gap-3  top-0 right-0 flex flex-col justify-center  items-start bg-white  z-50 text-black  ${
                   IsCartOpen ? "open" : "closed"
                 }  `}
               >
-                <header className="absolute top-0 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 ">
+                <header className=" top-0 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 ">
                   {/* Cart Navbar */}
-                  <nav className="container relative flex justify-between py-4 md:py-4 bg-gray-600 ">
+                  <nav className="container navcart relative bg-blue-800  flex justify-between md:justify-center  p-2 ">
                     <a
                       className=""
                       style={{ display: "inline-block", width: "fit-content" }}
@@ -173,8 +227,8 @@ function App() {
                   </nav>
                   <hr />
 
-                  {/* Cart navbar  Menu conten  */}
-                  <div className="block md:hidden">
+                  {/* Cart navbar  Menu conten small screen */}
+                  <div className="block md:hidden ">
                     <ul
                       className={`bg-black relative flex justify-between text-white px-4 py-4 rounded ${
                         isMenuOpen && screenWidth < 760 ? "" : "hidden"
@@ -326,46 +380,72 @@ function App() {
                   {/* Cart navbar  Menu conten  */}
                 </header>
 
-                <div className="flex flex-col gap-20 w-full mt-2 md:mt-28">
-                  <div className="w-full flex justify-center items-center">
-                    {iscartItems ? (
-                      <table className="p-2 bg-red-500 w-full">
+                <div className="w-full flex  justify-center items-center">
+                  {cartitems && cartitems.length >= 1 ? (
+                    <div className="w-full flex justify-start h-[300px] overflow-scroll md:justify-center items-start">
+                      <table className="table-auto text-gray-500  bg-slate-700   w-full">
                         <thead>
-                          <th>Item</th>
-                          <th>Details</th>
+                          <tr className="bg-red-400 sticky top-0 left-0">
+                            <th className="w-[10%]">S/n</th>
+                            <th className="">Style</th>
+                            <th className="">Size</th>
+                            <th className="">Quantity</th>
+                            <th className="">Amount</th>
+                            <th className="">Image</th>
+                          </tr>
                         </thead>
                         <tbody>
-                          <tr className=" bg-gray-600 w-full ">
-                            <td className="w-1/2">
-                              <div className="w-full bg-[url(/images/cop1.jpg)] bg-cover bg-center h-[150px] "></div>
-                            </td>
-                            <td className=" flex flex-col p-4 bg-yellow-300 ">
-                              <p>Body warmmer jacket</p>
-                              <p>size 35</p>
-                              <p>size 35</p>
-                              <p>3,400</p>
-                              <p>quantity:2</p>
-                            </td>
-                          </tr>
+                          {cartitems.map((item, index) => (
+                            <tr key={item.id} className="font-semibold">
+                              <td>{Number(index + 1)}</td>
+                              <td>
+                                {UserInfo ? item.style : item.product.style}
+                              </td>
+                              <td>
+                                {UserInfo ? item.sizee : item.product.size}
+                              </td>
+                              <td>
+                                {UserInfo
+                                  ? item.quantity
+                                  : item.product.quantity}
+                              </td>
+                              <td>
+                                ${UserInfo ? item.amount : item.product.amount}
+                              </td>
+                              <td className="flex justify-center items-center">
+                                <img
+                                  src={
+                                    UserInfo ? item.image : item.product.image
+                                  }
+                                  alt={
+                                    UserInfo ? item.image : item.product.image
+                                  }
+                                  className="h-[50px] w-[40px] object-cover"
+                                />
+                              </td>
+                            </tr>
+                          ))}
                         </tbody>
                       </table>
-                    ) : (
-                      <div className=" w-full flex justify-center items-center cartSection  text-center">
-                        <span className="md:w-[200px] w-full">
-                          You have no items in your shopping bag
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="w-full flex justify-center items-center cartSection text-center">
+                      <span className="md:w-[200px] w-full">
+                        You have no items in your shopping bag
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-                  <div className="  flex justify-center items-center w-full   md:top-1/2  left-0 ">
-                    <a
-                      href={`/thia-e-comerce/Allshops`}
-                      className="w-5/6  h-[60px] flex justify-center items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white "
-                    >
-                      Shop Our Collection
-                    </a>
-                  </div>
+                <div className="  flex justify-center items-center w-full   md:top-1/2  py-4 ">
+                  <a
+                    href={`/thia-e-comerce/Allshops`}
+                    className="w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white "
+                  >
+                    {cartitems && cartitems.length >= 1
+                      ? "Shop More"
+                      : "Shop Our Collections"}
+                  </a>
                 </div>
               </div>
             </div>
@@ -380,8 +460,8 @@ function App() {
             >
               <div
                 className={`search absolute w-full md:w-1/2 top-0 left-0  h-[100vh] z-30 text-black bg-white ${
-                  IsSearchOpen ? "open" : "closed"
-                }  `}
+                  result ? "overflow-y-scroll" : ""
+                } ${IsSearchOpen ? "open" : "closed"}  `}
               >
                 <div className="absolute z-40 md:px-16 px-4 w-full md:top-[200px] top[50px] ">
                   <div className="flex justify-end w-full p-2 my-2">
@@ -395,6 +475,7 @@ function App() {
                     <div className="flex w-full justify-center items-center p-2 gap-5">
                       <input
                         type="text"
+                        onChange={(e) => handleInputChange(e)}
                         ref={inputRef}
                         className="w-full h-10 outline-none"
                         placeholder="What are you looking for?"
@@ -410,7 +491,39 @@ function App() {
                   </div>
 
                   <hr className="my-2" />
+                  <div
+                    className={` w-full ${
+                      heightTrue ? " h-[200px] " : ""
+                    } overflow-y-scroll `}
+                  >
+                    {result && result.length > 0 ? (
+                      result.map((product) => (
+                        <div
+                          key={product.id}
+                          className="result-item p-4 border-b w-full    bg-spinbg  flex justify-start items-center gap-4"
+                        >
+                          <p className="product-name  font-semibold">
+                            {product.style}
+                          </p>
+                          <p className="product-name  font-semibold">
+                            {product.brand}
+                          </p>
+                          <p
+                            className="product-description text-gray-600 bg-cover bg-center bg-no-repeat w-[60px] h-[80px] border border-gray-300 rounded-md"
+                            style={{ backgroundImage: `url(${product.image})` }}
+                          ></p>
 
+                          <p className="product-price text-green-500">
+                            ${product.price}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-center text-gray-500 mt-4">
+                        No results found.
+                      </p>
+                    )}
+                  </div>
                   <div className="my-2">
                     <p className="font-bold">Help</p>
                   </div>

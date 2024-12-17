@@ -23,18 +23,20 @@ const Shopp = ({ dataItems }) => {
   const [Quantity, setQuantity] = useState(1);
   // const InputRef = useRef();
 
+  const { sizeError } = useContext(DataContext);
   console.log(Quantity);
 
   const InputCounter = (event) => {
     // setInputCount(e.target.value);
     // setInputCount(parseInt(e.target.value, 10) || 1);
-    setQuantity(event.target.value);
+    // setQuantity(event.target.value);
+    setQuantity(Number(event.target.value) || 1);
   };
   // console.log(inputCount);
 
-  useEffect(() => {
-    console.log(dataItems);
-  },[]);
+  // useEffect(() => {
+  //   console.log(dataItems);
+  // },[]);
 
   const sizeValues = useMemo(
     () => ({
@@ -55,22 +57,31 @@ const Shopp = ({ dataItems }) => {
     }
   }, [id, dataItems]);
 
-  useEffect(() => {
-    // Ensure that the item is available and has a valid size
-    if (item && item.size) {
-      const sizeKey = Object.keys(sizeValues).find(
-        (key) => sizeValues[key].value === item.size
-      );
+  // useEffect(() => {
+  //   // Ensure that the item is available and has a valid size
+  //   if (item && item.size) {
+  //     const sizeKey = Object.keys(sizeValues).find(
+  //       (key) => sizeValues[key].value === item.size
+  //     );
 
-      // If a matching size is found, set it as the default
-      if (sizeKey) {
-        setSelectedSize(sizeKey);
-      } else {
-        // If no matching size is found, reset to null or a default size
-        setSelectedSize(Object.keys(sizeValues)[0]); // Set to the first size as default
-      }
+  //     // If a matching size is found, set it as the default
+  //     if (sizeKey) {
+  //       setSelectedSize(sizeKey);
+  //     } else {
+  //       // If no matching size is found, reset to null or a default size
+  //       setSelectedSize(Object.keys(sizeValues)[0]); // Set to the first size as default
+  //     }
+  //   }
+  // }, [item, sizeValues]); // Re-run whenever item or sizeValues changes
+
+  useEffect(() => {
+    if (item) {
+      const defaultSizeKey = Object.keys(sizeValues)[0]; // Default to first size
+      setSelectedSize(defaultSizeKey);
+      setSelectedValue(sizeValues[defaultSizeKey].value);
     }
-  }, [item, sizeValues]); // Re-run whenever item or sizeValues changes
+  }, [item, sizeValues]);
+
 
   // useEffect(() => {
   //   localStorage.setItem("quantity", Quantity);
@@ -81,6 +92,8 @@ const Shopp = ({ dataItems }) => {
     // Log the value associated with the selected key
     const selected = sizeValues[sizeKey]?.value;
     setSelectedValue(selected);
+    console.log(selectedValue);
+
     console.log(`Selected size value: ${selectedValue}`);
   };
 
@@ -95,6 +108,10 @@ const Shopp = ({ dataItems }) => {
     }
   }, [selectedSize]);
 
+  useEffect(() => {
+    console.log(`Selected val: ${selectedValue}`);
+  }, []);
+
   const handleDecrease = () => {
     setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
   };
@@ -103,7 +120,13 @@ const Shopp = ({ dataItems }) => {
     return <p>Loading...</p>; // Show "item not found" message if the item is not found
   }
 
-  const itemWithQuantity = { ...item, quantity: Quantity, amount: 0 };
+  // const itemWithQuantity = { ...item, quantity: Quantity, amount: 0 };
+  const itemWithQuantity = {
+    ...item,
+    quantity: Quantity,
+    amount: item.price * Quantity,
+  };
+
   return (
     <div>
       <div className="md:px-28 py-10 px-4">
@@ -160,8 +183,12 @@ const Shopp = ({ dataItems }) => {
                 </div>
               </div>
               <div className="w-full flex flex-col gap-2 my-6">
-                <label htmlFor="quantity" className="font-semibold">
-                  Quantity
+                <label
+                  htmlFor="quantity"
+                  className="font-semibold flex justify-start items-center gap-2"
+                >
+                  <p> Quantity</p>
+                  {/* <p className="text-red-600">{sizeError ? "Required" : ""}</p> */}
                 </label>
                 <QuantityInput
                   Quantity={Quantity}
@@ -196,17 +223,5 @@ const Shopp = ({ dataItems }) => {
     </div>
   );
 };
-
-// Shopp.propTypes = {
-//   dataItems: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       thia_id: PropTypes.number.isRequired,
-//       title: PropTypes.string.isRequired,
-//       price: PropTypes.number.isRequired,
-//       status: PropTypes.string.isRequired,
-//       image: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
 
 export default Shopp;

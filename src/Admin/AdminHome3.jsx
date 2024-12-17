@@ -27,7 +27,7 @@ const AdminHome3 = () => {
         <table
           className={`min-w-[800px]  ${
             lightMode ? " bg-pink1" : "bg-AnavDark2"
-          } text-gray-500 mt-2`}
+          } text-gray-500 mt-2 `}
         >
           <thead>
             <tr

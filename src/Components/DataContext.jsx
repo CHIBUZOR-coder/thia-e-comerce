@@ -15,18 +15,22 @@ const DataProvider = ({ children }) => {
   const [lightMode, setlightMode] = useState(true);
   const [lightModWeb, setlightModeWeb] = useState(true);
 
+  const [cartCount, setCartCount] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [erroMess, setErrorMess] = useState(null);
   const { setItem, getItem, deleteItem } = useLocalStorage("userInfo");
-  const [CartItems, SetCartItems] = useState(() => {
-    const storedData = localStorage.getItem("CartItems");
-    return storedData ? JSON.parse(storedData) : []; // Ensure it's always an array
-  });
+  const [CartItems, SetCartItems] = useState([]);
+  const [Products, SetProducts] = useState([]);
+
+  const [appCart, setAppcart] = useState(null);
+  const [sizeError, setSizeError] = useState(false);
 
   //*********************** */
   //Retrieving all stored data in loca storage for user authentification
   const IsAuthentified = getItem("isAuthentified") || false;
   console.log("Auth", IsAuthentified);
+  const localCart = getItem("cartItems") ? getItem("cartItems") : [];
+  console.log("localCrat", localCart);
 
   const UserInfo = getItem("userInfo") || false;
   console.log("userInfo:", UserInfo);
@@ -54,9 +58,10 @@ const DataProvider = ({ children }) => {
         console.log("Token has expired. Clearing localStorage and cookies...");
 
         // Clear the localStorage items related to authentication
-        localStorage.removeItem("userInfo");
-        localStorage.removeItem("isAuthentified");
-
+        // localStorage.removeItem("userInfo");
+        // localStorage.removeItem("isAuthentified");
+        // localStorage.removeItem("UsercartIems");
+        localStorage.clear();
         // Send a request to the backend to clear the HTTP-only cookie
         const res = await fetch("http://localhost:5000/clear-cookies", {
           method: "POST",
@@ -119,38 +124,37 @@ const DataProvider = ({ children }) => {
 
   const fetchCart = async () => {
     if (isUser) {
-      // authenticated
-      const res = await fetch("http://localhost:5000/api/getCart", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          credentials: "include",
-        },
-        credentials: "include",
-      });
-      const data = await res.json();
-      //  console.log("without", data);
-      if (res.ok) {
-        // console.log("with produtcs",data.data.products)
-        console.log(data);
+      // Authenticated user
+      try {
+        const res = await fetch("http://localhost:5000/api/getCart", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // Keep it only here
+        });
+        const data = await res.json();
 
-        SetCartItems(data);
-        console.log(CartItems);
-        // change the operator both statement has to be true
-      } else {
-        console.log("error", "Could not get cart");
+        if (res.ok) {
+          console.log(data);
+          // Save to local storage and update state
+
+          SetCartItems(data.data); // Assuming data is an array of cart items
+          localStorage.setItem("cartItems", JSON.stringify(data.data));
+        } else {
+          console.log("error", "Could not get cart");
+        }
+      } catch (error) {
+        console.error("Failed to fetch cart:", error);
       }
-      // authenticated done
     } else {
-      // unauthenticated
+      // Unauthenticated user
       const localCart = localStorage.getItem("cartItems");
-      console.log(localCart);
       if (localCart) {
         SetCartItems(JSON.parse(localCart));
       } else {
         SetCartItems([]); // Clear cart items if nothing is in local storage
       }
-      // unauthenticated done
     }
   };
 
@@ -171,6 +175,7 @@ const DataProvider = ({ children }) => {
       let localCartItems;
       data = await response.json();
       if (response.ok) {
+        localStorage.removeItem("UsercartIems");
         console.log("Login successful:", data.message);
         // UserLogALert(data.role);
         setIsLogin(true);
@@ -231,14 +236,26 @@ const DataProvider = ({ children }) => {
     }
   }, [isLogin]);
 
-  // const { userRole } = useContext(VerifyContext);
+  useEffect(() => {
+    console.log("CartItems:", CartItems);
+    if (localCart.products) {
+      SetProducts(localCart.products);
+    } else if (localCart) {
+      SetProducts(localCart);
+    }
+    console.log("products", Products);
+    // console.log("count", cartCount);
+  }, [CartItems]); // Dependency is CartItems to ensure this effect runs only when CartItems change
 
-  // console.log("IsUser:", userRole);
+  useEffect(() => {
+    console.log("products updated", Products); // Log for debugging purposes
+    const Cartcount = Products.reduce((acc, curr) => acc + curr.quantity, 0);
+    setCartCount(Cartcount); // Update cartCount here
+  }, [Products]); // Dependencies: Products array should trigger when items are added/removed
 
-  // Ensure CartItems is an array before using reduce
-  const cartCount = Array.isArray(CartItems)
-    ? CartItems.reduce((acc, curr) => acc + curr.quantity, 0)
-    : 0;
+  useEffect(() => {
+    console.log("cartcount", cartCount);
+  }, [cartCount]);
 
   const HandleModeChangeWeb = () => {
     setlightModeWeb(!lightModWeb);
@@ -269,16 +286,88 @@ const DataProvider = ({ children }) => {
   const CoperateProducts = filterProductsByBrand("coperate");
   const KaftanProducts = filterProductsByBrand("kaftan");
   const MatchingProducts = filterProductsByBrand("matching");
- useEffect(()=>{
-   console.log(MatchingProducts);
- }, [MatchingProducts])
-  
+  //  useEffect(()=>{
+  //    console.log(MatchingProducts);
+  //  }, [MatchingProducts])
+
   const BridalProducts = filterProductsByBrand("bridals");
   const KidiesProducts = filterProductsByBrand("kidies");
   const Featured = filterProductsByBrand("featured");
 
   // AddToCart function in the front-end
+  // const AddToCart = async (prod, num, clothSize) => {
+  //   if (isUser) {
+  //     try {
+  //       const res = await fetch("http://localhost:5000/api/addToCart", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           clothId: prod.id,
+  //           quantity: num,
+  //           sizee: clothSize,
+  //         }), // Use prod.id and num
+  //         credentials: "include",
+  //       });
+
+  //       const data = await res.json();
+  //       if (res.ok) {
+  //         // Add the updated cart items
+  //         console.log(data);
+  //         SetCartItems(data.data);
+  //         console.log("data/data:", data.data);
+
+  //         console.log("carttt", CartItems);
+
+  //         fetchCart();
+  //         // console.log(data);
+
+  //         showHide(true, "Product was added to cart successfully", "false");
+  //       } else {
+  //         showHide(false, "Error", "Product was not added to cart");
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   } else {
+  //     // Handling localStorage for anonymous users
+  //     const storedCart = JSON.parse(localStorage.getItem("cartItems")) || {
+  //       products: [],
+  //     };
+
+  //     const existingItemIndex = storedCart.products.findIndex(
+  //       (item) => item.product.id === prod.id && item.size === clothSize
+  //     );
+
+  //     if (existingItemIndex !== -1) {
+  //       // If item exists, update the quantity and amount
+  //       storedCart.products[existingItemIndex].quantity += num;
+  //       storedCart.products[existingItemIndex].amount =
+  //         storedCart.products[existingItemIndex].quantity * prod.price;
+  //     } else {
+  //       // If item doesn't exist, add new item
+  //       storedCart.products.push({
+  //         product: prod,
+  //         quantity: num,
+  //         size: clothSize,
+  //         amount: prod.price * num,
+  //       });
+  //     }
+
+  //     localStorage.setItem("cartItems", JSON.stringify(storedCart));
+
+  //     SetCartItems(storedCart); // Update state
+  //     showHide(true, "Product was added to cart successfully", "false");
+  //   }
+  // };
+
   const AddToCart = async (prod, num, clothSize) => {
+    if (!clothSize) {
+      setSizeError(true);
+      return;
+    }
+
     if (isUser) {
       try {
         const res = await fetch("http://localhost:5000/api/addToCart", {
@@ -290,17 +379,14 @@ const DataProvider = ({ children }) => {
             clothId: prod.id,
             quantity: num,
             sizee: clothSize,
-          }), // Use prod.id and num
+          }),
           credentials: "include",
         });
 
         const data = await res.json();
         if (res.ok) {
-          SetCartItems(data.data); // Add the updated cart items
-          console.log(data);
-          fetchCart();
-          // console.log(data);
-
+          SetCartItems(data.data); // Set updated cart items
+          fetchCart(); // Fetch updated cart from server
           showHide(true, "Product was added to cart successfully", "false");
         } else {
           showHide(false, "Error", "Product was not added to cart");
@@ -309,21 +395,22 @@ const DataProvider = ({ children }) => {
         console.log(error);
       }
     } else {
-      // Handling localStorage for guest users
+      // Handling localStorage for anonymous users
       const storedCart = JSON.parse(localStorage.getItem("cartItems")) || {
         products: [],
       };
 
-      const currentItemIndex = storedCart.products.findIndex(
-        (item) => item.product.id === parseInt(prod.id)
+      const existingItemIndex = storedCart.products.findIndex(
+        (item) => item.product.id === prod.id && item.size === clothSize
       );
 
-      if (currentItemIndex !== -1) {
-        storedCart.products[currentItemIndex].quantity += num;
-        storedCart.products[currentItemIndex].amount =
-          storedCart.products[currentItemIndex].quantity * prod.price;
-        storedCart.products.size = clothSize;
+      if (existingItemIndex !== -1) {
+        // If item exists, update the quantity and amount
+        storedCart.products[existingItemIndex].quantity += num;
+        storedCart.products[existingItemIndex].amount =
+          storedCart.products[existingItemIndex].quantity * prod.price;
       } else {
+        // If item doesn't exist, add new item
         storedCart.products.push({
           product: prod,
           quantity: num,
@@ -333,7 +420,8 @@ const DataProvider = ({ children }) => {
       }
 
       localStorage.setItem("cartItems", JSON.stringify(storedCart));
-      SetCartItems(storedCart);
+
+      SetCartItems(storedCart); // Update state
       showHide(true, "Product was added to cart successfully", "false");
     }
   };
@@ -361,7 +449,8 @@ const DataProvider = ({ children }) => {
         Allproducts,
         AddToCart,
         cartCount,
-        CartItems,
+        sizeError,
+        appCart,
         lightMode,
         isUser,
         UserInfo,

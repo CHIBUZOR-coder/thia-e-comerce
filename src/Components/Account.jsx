@@ -50,6 +50,7 @@ const Account = () => {
         data = await res.json();
         console.log(data);
         window.location.href = "/thia-e-comerce/";
+        localStorage.clear();
       }
     } catch (error) {
       console.log("unable to logout", error.message);
@@ -305,7 +306,9 @@ const Account = () => {
             </h2>
 
             <div className="w-full flex flex-col gap-8">
-              <p className="font-semibold lg:text-lg md:text-[15px] ">Your Account Summary</p>
+              <p className="font-semibold lg:text-lg md:text-[15px] ">
+                Your Account Summary
+              </p>
               <p className=" text-lg ">Your Orders</p>
               <p className=" text-lg ">Your Addresses</p>
             </div>

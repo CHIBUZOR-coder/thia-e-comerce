@@ -26,11 +26,15 @@ const Navbar = ({ handleSearch, handleCart }) => {
     setIsMenuOpen(!IsMenuOpen);
   };
 
-  const { cartCount, isUser, IsAuthentified } = useContext(DataContext);
+  const { isUser, cartCount } = useContext(DataContext);
 
-  useEffect(() => {
-    console.log(cartCount);
-  }, [cartCount]);
+  console.log(cartCount);
+  
+
+
+  // useEffect(() => {
+  //   console.log(cartCount);
+  // }, [cartCount]);
 
   //  console.log(totalQuantity)
   const togglee = () => {
@@ -391,7 +395,7 @@ const Navbar = ({ handleSearch, handleCart }) => {
                 ></div>
                 <FaShoppingBag className="text-[23px]"></FaShoppingBag>
                 <p className="absolute text-[18px] top-[4px] font-semibold  text-black">
-                  {cartCount}
+                  {cartCount} 
                 </p>
               </span>
             </div>

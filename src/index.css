@@ -431,11 +431,34 @@ td {
   transition-delay: 0.1s, 0.4s; /* Reverse delay for smooth transition */
 }
 
-
-.createAcctInputDiv{
-@apply w-[80%] 
+.createAcctInputDiv {
+  @apply w-[80%];
 }
 
-.createAcctInput{
-@apply bg-input w-full p-4 rounded-tr-lg  rounded-bl-lg
+.createAcctInput {
+  @apply bg-input w-full p-4 rounded-tr-lg  rounded-bl-lg;
+}
+
+.cartTable table thead {
+  position: sticky;
+  top: 0;
+  background-color: white; /* Make sure the header stands out */
+  z-index: 10; /* Ensure it's above other content */
+}
+
+
+@media screen and (max-width: 500px) {
+  /* Styles for small screens */
+  .navcart {
+    /* background-color: gray; */
+    margin-top: -7rem;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  /* Styles for small screens */
+  .navcart {
+    background-color: yellow;
+    margin-top: 6rem;
+  }
 }
