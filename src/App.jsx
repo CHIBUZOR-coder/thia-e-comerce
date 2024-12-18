@@ -32,7 +32,7 @@ function App() {
   const location = useLocation();
   const textRef = useRef(null);
   const [isLoading, setIsloading] = useState(true);
-  // const { UserInfo } = useContext(DataContext);
+  const { pop, setErrorMess, HandlePop } = useContext(DataContext);
 
   const localData = JSON.parse(localStorage.getItem("cartItems")) || false;
   const UserInfo = JSON.parse(localStorage.getItem("userInfo")) || false;
@@ -498,8 +498,10 @@ function App() {
                   >
                     {result && result.length > 0 ? (
                       result.map((product) => (
-                        <div
+                        <Link
+                          to={`/thia-e-comerce/${product?.brand}/${product?.id}`}
                           key={product.id}
+                          onClick={handleSearch}
                           className="result-item p-4 border-b w-full    bg-spinbg  flex justify-start items-center gap-4"
                         >
                           <p className="product-name  font-semibold">
@@ -516,7 +518,7 @@ function App() {
                           <p className="product-price text-green-500">
                             ${product.price}
                           </p>
-                        </div>
+                        </Link>
                       ))
                     ) : (
                       <p className="text-center text-gray-500 mt-4">

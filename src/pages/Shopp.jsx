@@ -8,35 +8,27 @@ import { DataContext } from "../Components/DataContext";
 import QuantityInput from "./home/ShopCategory/Qantity";
 
 const Shopp = ({ dataItems }) => {
-  const { AddToCart } = useContext(DataContext);
   const { id } = useParams();
+
   const [item, setItem] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedValue, setSelectedValue] = useState(null);
-  // const [Quantity, setQuantity] = useState(() => {
-  //   // Check if a saved value exists in localStorage
-  //   const savedQuantity = localStorage.getItem("Quantity");
-  //   // If there is a saved value, use it, otherwise default to 1
-  //   return savedQuantity ? parseInt(savedQuantity, 10) : 1;
-  // });
-
   const [Quantity, setQuantity] = useState(1);
   // const InputRef = useRef();
-
-  const { sizeError } = useContext(DataContext);
+  const { AddToCart, HandlePop, pop } = useContext(DataContext);
   console.log(Quantity);
+  const HandleAddCartPop = (val1, val2, val3) => {
+    HandlePop();
+    AddToCart(val1, val2, val3);
+  };
+
+  useEffect(() => {
+    console.log(pop);
+  }, [pop]);
 
   const InputCounter = (event) => {
-    // setInputCount(e.target.value);
-    // setInputCount(parseInt(e.target.value, 10) || 1);
-    // setQuantity(event.target.value);
     setQuantity(Number(event.target.value) || 1);
   };
-  // console.log(inputCount);
-
-  // useEffect(() => {
-  //   console.log(dataItems);
-  // },[]);
 
   const sizeValues = useMemo(
     () => ({
@@ -57,23 +49,6 @@ const Shopp = ({ dataItems }) => {
     }
   }, [id, dataItems]);
 
-  // useEffect(() => {
-  //   // Ensure that the item is available and has a valid size
-  //   if (item && item.size) {
-  //     const sizeKey = Object.keys(sizeValues).find(
-  //       (key) => sizeValues[key].value === item.size
-  //     );
-
-  //     // If a matching size is found, set it as the default
-  //     if (sizeKey) {
-  //       setSelectedSize(sizeKey);
-  //     } else {
-  //       // If no matching size is found, reset to null or a default size
-  //       setSelectedSize(Object.keys(sizeValues)[0]); // Set to the first size as default
-  //     }
-  //   }
-  // }, [item, sizeValues]); // Re-run whenever item or sizeValues changes
-
   useEffect(() => {
     if (item) {
       const defaultSizeKey = Object.keys(sizeValues)[0]; // Default to first size
@@ -81,7 +56,6 @@ const Shopp = ({ dataItems }) => {
       setSelectedValue(sizeValues[defaultSizeKey].value);
     }
   }, [item, sizeValues]);
-
 
   // useEffect(() => {
   //   localStorage.setItem("quantity", Quantity);
@@ -198,22 +172,22 @@ const Shopp = ({ dataItems }) => {
                 />
               </div>
               <div>
-                <button className="w-full h-10 flex justify-center my-4 items-center gap-3 bg-red-500 text-white font-bold border-red-500 rounded-md transition ease-in-out duration-300 shadow-slate-800 hover:bg-red-200 hover:text-red-500 px-4">
-                  <span
-                    onClick={() => {
-                      AddToCart(
-                        itemWithQuantity,
-                        itemWithQuantity.quantity,
-                        selectedValue
-                      );
-                      // console.log(itemWithQuantity);
-                      // console.log(Quantity);
-                    }}
-                  >
-                    Add To Cart
-                  </span>
-                  <FaPlus />
-                </button>
+                <span
+                  className={`w-full ${
+                    pop ? "pop" : ""
+                  } h-10 flex justify-center my-4 cursor-pointer items-center gap-3 bg-red-500 text-white font-bold border-red-500 rounded-md transition ease-in-out duration-300 shadow-slate-800 hover:bg-red-200 hover:text-red-500 px-4`}
+                  onClick={() => {
+                    HandleAddCartPop(
+                      itemWithQuantity,
+                      itemWithQuantity.quantity,
+                      selectedValue
+                    );
+                    // console.log(itemWithQuantity);
+                    // console.log(Quantity);
+                  }}
+                >
+                  Add To Cart <FaPlus />
+                </span>
               </div>
             </div>
           </div>

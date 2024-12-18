@@ -14,7 +14,7 @@ export const DataContext = createContext();
 const DataProvider = ({ children }) => {
   const [lightMode, setlightMode] = useState(true);
   const [lightModWeb, setlightModeWeb] = useState(true);
-
+  const [pop, setPop] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [erroMess, setErrorMess] = useState(null);
@@ -248,7 +248,7 @@ const DataProvider = ({ children }) => {
   }, [CartItems]); // Dependency is CartItems to ensure this effect runs only when CartItems change
 
   useEffect(() => {
-    console.log("products updated", Products); // Log for debugging purposes
+    console.log("products Updated", Products); // Log for debugging purposes
     const Cartcount = Products.reduce((acc, curr) => acc + curr.quantity, 0);
     setCartCount(Cartcount); // Update cartCount here
   }, [Products]); // Dependencies: Products array should trigger when items are added/removed
@@ -261,7 +261,6 @@ const DataProvider = ({ children }) => {
     setlightModeWeb(!lightModWeb);
   };
 
-  const [pop, setPop] = useState(false);
   const HandlePop = () => {
     setPop(true);
     setTimeout(() => setPop(false), 200);
@@ -282,85 +281,15 @@ const DataProvider = ({ children }) => {
     Allproducts?.filter((product) => product.brand === brand) || [];
 
   const AnkaraProducts = filterProductsByBrand("Ankara");
-  const AhebiProducts = filterProductsByBrand("Ashebi");
+  const AhebiProducts = filterProductsByBrand("Ashoebi");
+  //THE Inconsitency happend when i had the name Ashebi
   const CoperateProducts = filterProductsByBrand("coperate");
   const KaftanProducts = filterProductsByBrand("kaftan");
   const MatchingProducts = filterProductsByBrand("matching");
-  //  useEffect(()=>{
-  //    console.log(MatchingProducts);
-  //  }, [MatchingProducts])
 
   const BridalProducts = filterProductsByBrand("bridals");
   const KidiesProducts = filterProductsByBrand("kidies");
   const Featured = filterProductsByBrand("featured");
-
-  // AddToCart function in the front-end
-  // const AddToCart = async (prod, num, clothSize) => {
-  //   if (isUser) {
-  //     try {
-  //       const res = await fetch("http://localhost:5000/api/addToCart", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           clothId: prod.id,
-  //           quantity: num,
-  //           sizee: clothSize,
-  //         }), // Use prod.id and num
-  //         credentials: "include",
-  //       });
-
-  //       const data = await res.json();
-  //       if (res.ok) {
-  //         // Add the updated cart items
-  //         console.log(data);
-  //         SetCartItems(data.data);
-  //         console.log("data/data:", data.data);
-
-  //         console.log("carttt", CartItems);
-
-  //         fetchCart();
-  //         // console.log(data);
-
-  //         showHide(true, "Product was added to cart successfully", "false");
-  //       } else {
-  //         showHide(false, "Error", "Product was not added to cart");
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     // Handling localStorage for anonymous users
-  //     const storedCart = JSON.parse(localStorage.getItem("cartItems")) || {
-  //       products: [],
-  //     };
-
-  //     const existingItemIndex = storedCart.products.findIndex(
-  //       (item) => item.product.id === prod.id && item.size === clothSize
-  //     );
-
-  //     if (existingItemIndex !== -1) {
-  //       // If item exists, update the quantity and amount
-  //       storedCart.products[existingItemIndex].quantity += num;
-  //       storedCart.products[existingItemIndex].amount =
-  //         storedCart.products[existingItemIndex].quantity * prod.price;
-  //     } else {
-  //       // If item doesn't exist, add new item
-  //       storedCart.products.push({
-  //         product: prod,
-  //         quantity: num,
-  //         size: clothSize,
-  //         amount: prod.price * num,
-  //       });
-  //     }
-
-  //     localStorage.setItem("cartItems", JSON.stringify(storedCart));
-
-  //     SetCartItems(storedCart); // Update state
-  //     showHide(true, "Product was added to cart successfully", "false");
-  //   }
-  // };
 
   const AddToCart = async (prod, num, clothSize) => {
     if (!clothSize) {
@@ -369,6 +298,7 @@ const DataProvider = ({ children }) => {
     }
 
     if (isUser) {
+      HandlePop();
       try {
         const res = await fetch("http://localhost:5000/api/addToCart", {
           method: "POST",

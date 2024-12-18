@@ -33,7 +33,7 @@ const First = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
-        to="/thia-e-comerce/Bridals/39"
+        to={`/thia-e-comerce/Bridals/${product.id}`}
         className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
         Buy{" "}
