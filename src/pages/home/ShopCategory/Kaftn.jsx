@@ -112,7 +112,7 @@ const Kaftn = () => {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
               {filteredItems.map((item) => (
                 <Link
-                  to={`/thia-e-comerce/Kaftan/${item.id}`}
+                  to={`/Kaftan/${item.id}`}
                   key={item.id}
                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >

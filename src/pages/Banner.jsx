@@ -10,7 +10,7 @@ const Banner = () => {
           <p className="mt-2 mb-6 text-xl">
             Explore And Shop Different Collections, You Deserve the best
           </p>
-          <Link to={`/thia-e-comerce/ShopAll`} className="btn w-36">
+          <Link to={`/ShopAll`} className="btn w-36">
             <FaShoppingBag /> Shop Now
           </Link>
         </div>

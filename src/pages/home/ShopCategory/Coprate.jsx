@@ -116,7 +116,7 @@ const Coprate = () => {
               {filteredItems.map((item) => (
                 <Link
                   key={item.id}
-                  to={`/thia-e-comerce/Coperate/${item.id}`}
+                  to={`/Coperate/${item.id}`}
                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >
                   <div

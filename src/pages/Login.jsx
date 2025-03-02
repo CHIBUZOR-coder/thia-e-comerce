@@ -46,7 +46,7 @@ const Login = () => {
       console.log(user);
       const redirectTimeout = setTimeout(() => {
         navigate(
-          user === "ADMIN" ? "/thia-e-comerce/Admin" : "/thia-e-comerce/"
+          user === "ADMIN" ? "/Admin" : "/"
         );
       }, 2000);
       return () => clearTimeout(redirectTimeout);

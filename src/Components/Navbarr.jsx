@@ -51,11 +51,11 @@ const Navbar = ({ handleSearch, handleCart }) => {
     setIsLinkOpen(!isLinkOpen);
   };
   const NavItems = [
-    { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
-    { tittle: "About", path: "/thia-e-comerce/About", id: "2" },
-    { tittle: "Reviews", path: "/thia-e-comerce/Reviews", id: "4" },
-    { tittle: "Contact", path: "/thia-e-comerce/Contact", id: "5" },
-    { tittle: "Custom Fit", path: "/thia-e-comerce/Custom", id: "6" },
+    { tittle: "Home", path: "/", id: "1" },
+    { tittle: "About", path: "/About", id: "2" },
+    { tittle: "Reviews", path: "/Reviews", id: "4" },
+    { tittle: "Contact", path: "/Contact", id: "5" },
+    { tittle: "Custom Fit", path: "/Custom", id: "6" },
     { tittle: "Shop All", path: "/", id: "7" },
   ];
 
@@ -110,7 +110,7 @@ const Navbar = ({ handleSearch, handleCart }) => {
         <Link
           className=""
           style={{ display: "inline-block", width: "fit-content" }}
-          to="/thia-e-comerce/"
+          to="/"
         >
           <div className="w-24 h-24 logo bg-slate-500"></div>
         </Link>
@@ -135,7 +135,7 @@ const Navbar = ({ handleSearch, handleCart }) => {
           </span>
           <Link
             to={`${
-              isUser ? "/thia-e-comerce/Account" : "/thia-e-comerce/Login"
+              isUser ? "/Account" : "/Login"
             }`}
             className="flex items-baseline "
           >
@@ -188,7 +188,7 @@ const Navbar = ({ handleSearch, handleCart }) => {
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Akara"
+                      to="/Akara"
                     >
                       Ankara
                     </Link>
@@ -198,57 +198,57 @@ const Navbar = ({ handleSearch, handleCart }) => {
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Ashebi"
+                      to="/Ashebi"
                     >
                       Ashoebi
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/thia-e-comerce/Coprate"
+                        location.pathname === "/Coprate"
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Coprate"
+                      to="/Coprate"
                     >
                       Coperate
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/thia-e-comerce/Kaftn"
+                        location.pathname === "/Kaftn"
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Kaftn"
+                      to="/Kaftn"
                     >
                       Kaftan
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/thia-e-comerce/Bridls"
+                        location.pathname === "/Bridls"
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Bridls"
+                      to="/Bridls"
                     >
                       Bridals
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/thia-e-comerce/Matchng"
+                        location.pathname === "/Matchng"
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Matchng"
+                      to="/Matchng"
                     >
                       Matching Set
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === "/thia-e-comerce/Kidis"
+                        location.pathname === "/Kidis"
                           ? "text-red-500"
                           : ""
                       }`}
-                      to="/thia-e-comerce/Kidis"
+                      to="/Kidis"
                     >
                       Kiddies
                     </Link>
@@ -295,22 +295,22 @@ const Navbar = ({ handleSearch, handleCart }) => {
                       <Link
                         onClick={handleClose}
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Akara"
+                          location.pathname === "/Akara"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Akara"
+                        to="/Akara"
                       >
                         Ankara
                       </Link>
                       <Link
                         onClick={handleClose}
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Ashebi"
+                          location.pathname === "/Ashebi"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Ashebi"
+                        to="/Ashebi"
                       >
                         Ashoebi
                       </Link>
@@ -318,47 +318,47 @@ const Navbar = ({ handleSearch, handleCart }) => {
                         className={`decorate2 ${
                           location.pathname === "/" ? "text-red-500" : ""
                         }`}
-                        to="/thia-e-comerce/Coprate"
+                        to="/Coprate"
                       >
                         Coperate
                       </Link>
                       <Link
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Kaftn"
+                          location.pathname === "/Kaftn"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Kaftn"
+                        to="/Kaftn"
                       >
                         Kaftan
                       </Link>
                       <Link
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Bridls"
+                          location.pathname === "/Bridls"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Bridls"
+                        to="/Bridls"
                       >
                         Bridals
                       </Link>
                       <Link
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Matchng"
+                          location.pathname === "/Matchng"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Matchng"
+                        to="/Matchng"
                       >
                         Matching Set
                       </Link>
                       <Link
                         className={`decorate2 ${
-                          location.pathname === "/thia-e-comerce/Kidis"
+                          location.pathname === "/Kidis"
                             ? "text-red-500"
                             : ""
                         }`}
-                        to="/thia-e-comerce/Kidis"
+                        to="/Kidis"
                       >
                         Kiddies
                       </Link>
@@ -379,9 +379,9 @@ const Navbar = ({ handleSearch, handleCart }) => {
               <Link
                 onClick={togglee}
                 to={`${
-                  isUser ? "/thia-e-comerce/Account" : "/thia-e-comerce/Login"
+                  isUser ? "/Account" : "/Login"
                 }`}
-                href="/thia-e-comerce/Login"
+                href="/Login"
                 className="flex items-baseline"
               >
                 <FaUser className="text-[23px]"></FaUser>

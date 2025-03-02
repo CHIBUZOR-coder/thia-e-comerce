@@ -13,19 +13,19 @@ const Footer = () => {
           <a className="w-4" href="/">Care Guide</a>
           <a className="w-4" href="/">About Thia</a>
           <a className="w-4" href="/"> Delivery, Terms & Conditions</a> */}
-            <a className="anchor" href="/thia-e-comerce/Custom">
+            <a className="anchor" href="/Custom">
               Custom Fit{" "}
             </a>
-            <a className="anchor" href="/thia-e-comerce/SizeGuide">
+            <a className="anchor" href="/SizeGuide">
               Size Guide{" "}
             </a>
-            <Link className="anchor" to="/thia-e-comerce/Terms">
+            <Link className="anchor" to="/Terms">
               Delivery, Terms & Conditions{" "}
             </Link>
-            <Link className="anchor" to="/thia-e-comerce/Care">
+            <Link className="anchor" to="/Care">
               Care Guide{" "}
             </Link>
-            <a className="anchor" href="/thia-e-comerce/AboutThia">
+            <a className="anchor" href="/AboutThia">
               About Thia{" "}
             </a>
           </div>
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center justify-center w-full">
               <a
-                href="/thia-e-comerce/"
+                href="/"
                 className="flex flex-col items-center w-32 h-32 mt-10  footerLogo"
               ></a>
             </div>

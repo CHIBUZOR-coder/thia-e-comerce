@@ -64,18 +64,18 @@ const RenderAppWithData = () => {
 
   const router = createBrowserRouter([
     {
-      path: "/thia-e-comerce/",
+      path: "/",
       element: <App />,
       children: [
-        { path: "/thia-e-comerce/", element: <Home /> },
-        { path: "/thia-e-comerce/About", element: <About /> },
-        { path: "/thia-e-comerce/Contact", element: <Contact /> },
-        { path: "/thia-e-comerce/Reviews", element: <Reviews /> },
-        { path: "/thia-e-comerce/Custom", element: <Custom /> },
-        { path: "/thia-e-comerce/Allshops", element: <Allshops /> },
+        { path: "/", element: <Home /> },
+        { path: "/About", element: <About /> },
+        { path: "/Contact", element: <Contact /> },
+        { path: "/Reviews", element: <Reviews /> },
+        { path: "/Custom", element: <Custom /> },
+        { path: "/Allshops", element: <Allshops /> },
 
         {
-          path: "/thia-e-comerce/FAQs",
+          path: "/FAQs",
           element: (
             <FAQs
               handleAnswerShow2={handleAnswerShow2}
@@ -84,92 +84,92 @@ const RenderAppWithData = () => {
           ),
         },
         {
-          path: "/thia-e-comerce/Akara",
+          path: "/Akara",
           element: <Akara />,
         },
         {
-          path: "/thia-e-comerce/Ashebi",
+          path: "/Ashebi",
           element: <Ashebi />,
         },
         {
-          path: "/thia-e-comerce/Coprate",
+          path: "/Coprate",
           element: <Coprate />,
         },
         {
-          path: "/thia-e-comerce/Kaftn",
+          path: "/Kaftn",
           element: <Kaftn />,
         },
         {
-          path: "/thia-e-comerce/Bridls",
+          path: "/Bridls",
           element: <Bridls />,
         },
         {
-          path: "/thia-e-comerce/Matchng",
+          path: "/Matchng",
           element: <Matching />,
         },
-        { path: "/thia-e-comerce/Kidis", element: <Kidies /> },
-        { path: "/thia-e-comerce/AboutThia", element: <AboutThia /> },
-        { path: "/thia-e-comerce/SizeGuide", element: <SizeGuide /> },
-        { path: "/thia-e-comerce/Terms", element: <Terms /> },
-        { path: "/thia-e-comerce/Care", element: <Care /> },
-        { path: "/thia-e-comerce/SearchPage", element: <SearchPage /> },
-        { path: "/thia-e-comerce/ShopAll", element: <ShopAll /> },
-        { path: "/thia-e-comerce/Login", element: <Login /> },
-        { path: "/thia-e-comerce/Account", element: <Account /> },
-        { path: "/thia-e-comerce/Signup", element: <Signup /> },
+        { path: "/Kidis", element: <Kidies /> },
+        { path: "/AboutThia", element: <AboutThia /> },
+        { path: "/SizeGuide", element: <SizeGuide /> },
+        { path: "/Terms", element: <Terms /> },
+        { path: "/Care", element: <Care /> },
+        { path: "/SearchPage", element: <SearchPage /> },
+        { path: "/ShopAll", element: <ShopAll /> },
+        { path: "/Login", element: <Login /> },
+        { path: "/Account", element: <Account /> },
+        { path: "/Signup", element: <Signup /> },
         {
-          path: "/thia-e-comerce/Ankara/:id",
+          path: "/Ankara/:id",
           element: <Shopp dataItems={AnkaraProducts} />,
         },
         {
-          path: "/thia-e-comerce/Ashoebi/:id",
+          path: "/Ashoebi/:id",
           element: <Shopp dataItems={AhebiProducts} />,
         },
         {
-          path: "/thia-e-comerce/Coperate/:id",
+          path: "/Coperate/:id",
           element: <Shopp dataItems={CoperateProducts} />,
         },
         {
-          path: "/thia-e-comerce/Bridals/:id",
+          path: "/Bridals/:id",
           element: <Shopp dataItems={BridalProducts} />,
         },
         {
-          path: "/thia-e-comerce/Kaftan/:id",
+          path: "/Kaftan/:id",
           element: <Shopp dataItems={KaftanProducts} />,
         },
         {
-          path: "/thia-e-comerce/Matching/:id",
+          path: "/Matching/:id",
           element: <Shopp dataItems={MatchingProducts} />,
         },
         {
-          path: "/thia-e-comerce/Kidies/:id",
+          path: "/Kidies/:id",
           element: <Shopp dataItems={KidiesProducts} />,
         },
       ],
     },
 
     {
-      path: "/thia-e-comerce/Admin",
+      path: "/Admin",
       element: <ProductsApp />,
       children: [
         {
-          path: "/thia-e-comerce/Admin",
+          path: "/Admin",
           element: <AdminHome />,
         },
         {
-          path: "/thia-e-comerce/Admin/AddProduct",
+          path: "/Admin/AddProduct",
           element: <AddProduct />,
         },
         {
-          path: "/thia-e-comerce/Admin/AdminHome2",
+          path: "/Admin/AdminHome2",
           element: <AdminHome2 />,
         },
         {
-          path: "/thia-e-comerce/Admin/AdminHome3",
+          path: "/Admin/AdminHome3",
           element: <AdminHome3 />,
         },
         {
-          path: "/thia-e-comerce/Admin/AdminHome4",
+          path: "/Admin/AdminHome4",
           element: <AdminHome4 />,
         },
       ],
