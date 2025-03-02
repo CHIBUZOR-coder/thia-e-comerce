@@ -84,7 +84,8 @@ const AddProduct = () => {
 
     // Append the image field if there is an image
     if (product.image) {
-      formData.append("image", product.image); // Assuming product.image is a file
+      formData.append("image", product.image); 
+      // Assuming product.image is a file
     }
 
     return formData;
@@ -104,6 +105,8 @@ const AddProduct = () => {
       const updatedProducts = [...products];
       updatedProducts[index].image = file; // Update the image for the specific product
       setProducts(updatedProducts);
+      console.log("file",file);
+      
     } else {
       alert("File size is too large. Max size is 5MB.");
     }

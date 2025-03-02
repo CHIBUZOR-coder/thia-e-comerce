@@ -90,7 +90,7 @@ function App() {
     } else {
       setheightTrue(false);
     }
-    setSearchTem(value); // Update search term state
+    // setSearchTem(value); // Update search term state
     HandleFetchStart(value); // Perform the fetch
     if (value.length <= 0) {
       setheightTrue(false);
