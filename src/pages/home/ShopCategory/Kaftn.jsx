@@ -6,13 +6,19 @@ import useFetch from "../Usefetch";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Footer from "../Footer";
 import { PreloadImages } from "../../../Components/PreloadImages";
-import { FaFilter } from "react-icons/fa";
+import { FaFilter, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DataResolve from "../DataResolve";
 import { DataContext } from "../../../Components/DataContext";
 
 const Kaftn = () => {
-  const { KaftanProducts: items, error, isLoading } = useContext(DataContext);
+  const {
+    KaftanProducts: items,
+    error,
+    isLoading,
+    popStates,
+    HandlePopCart,
+  } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -111,27 +117,38 @@ const Kaftn = () => {
           ) : (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
               {filteredItems.map((item) => (
-                <Link
-                  to={`/Kaftan/${item.id}`}
+                <div
                   key={item.id}
                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >
-                  <div
+                  <Link
+                    to={`/Kaftan/${item.id}`}
                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                     style={{
                       background: `url(${item.image}) center center/ cover`,
                     }}
-                  ></div>
+                  ></Link>
                   <div className="mt-4 px-3 flex flex-col justify-center items-center gap-2">
-                    <p className="mt-2 w-full font-semibold">
-                      {item.style} <br />
-                    </p>
+                    <div className="mt-2 w-full font-semibold flex justify-between">
+                      <p> {item.style} </p>
+                      <button
+                        onClick={() => {
+                          HandlePopCart(item.id);
+                              AddToCart(item, 1, item?.price);
+                        }}
+                        className={` ${
+                          popStates[item.id] ? "pop" : ""
+                        }   cursor-pointer  bg-red-500 text-white font-bold border-red-500 rounded-md transition ease-in-out duration-300 shadow-slate-800 hover:bg-red-200 hover:text-red-500 p-2`}
+                      >
+                        <FaPlus />
+                      </button>
+                    </div>
                     <div className="flex justify-between w-full items-center">
                       <p className="italic">{item.status}</p>
                       <p className="font-semibold">${item.price}</p>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           )}

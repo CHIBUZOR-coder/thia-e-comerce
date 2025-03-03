@@ -49,7 +49,7 @@ const Account = () => {
       if (res.ok) {
         data = await res.json();
         console.log(data);
-        window.location.href = "/thia-e-comerce/";
+        window.location.href = "/";
         localStorage.clear();
       }
     } catch (error) {

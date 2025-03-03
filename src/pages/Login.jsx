@@ -5,56 +5,27 @@ import { DataContext } from "../Components/DataContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState(null);
-  const [message, setMessage] = useState("");
-  const [errColor, setErrColor] = useState(null);
+
   const navigate = useNavigate();
 
-  const { HandlePop, pop, handleLogin, UserInfo, IsAuthentified } =
+  const { HandlePop, pop, handleLogin, errColor, message, user, isLoadingg } =
     useContext(DataContext);
-  const HandleLogin = async (e) => {
-    e.preventDefault();
-
-    const data = await handleLogin(email, password);
-
-    try {
-      if (data) {
-        console.log(data.role);
-        setUser(data.role);
-        setIsLoading(false);
-        setMessage(data.message);
-        console.log("Login successful:", data.message);
-      } else {
-        throw new Error("You are not a user.");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setMessage("Invalid Credentials");
-      setErrColor("text-red-600");
-      setTimeout(() => {
-        setErrColor("");
-        setMessage("");
-      }, 4000); // Clear the message after 4 seconds
-    } finally {
-      setIsLoading(false);
-    }
+  const HandleLogin = async () => {
+    handleLogin(email, password);
   };
 
   useEffect(() => {
     if (user) {
       console.log(user);
       const redirectTimeout = setTimeout(() => {
-        navigate(
-          user === "ADMIN" ? "/Admin" : "/"
-        );
+        navigate(user === "ADMIN" ? "/Admin" : "/");
       }, 2000);
       return () => clearTimeout(redirectTimeout);
     }
   }, [user, navigate]);
 
   const renderContent = () => {
-    if (isLoading) {
+    if (isLoadingg) {
       return (
         <div className="w-full flex justify-center items-center">
           <div className="h-16 w-16 border-4 flex justify-center items-center rounded-full border-x-blue-600 border-y-transparent animate-spinRight">
@@ -81,9 +52,9 @@ const Login = () => {
               type="email"
               placeholder="Email"
               value={email}
-              onChange={(e) =>{ setEmail(e.target.value)
+              onChange={(e) => {
+                setEmail(e.target.value);
                 console.log(email);
-                
               }}
               required
             />
@@ -100,11 +71,15 @@ const Login = () => {
             className={`addRemovebtnLightMode_AddProduct p-2 rounded-md font-semibold ${
               pop ? "pop" : ""
             } hover:bg-trans2 hover:text-white transition ease-in-out duration-500`}
-            onClick={HandlePop}
+            onClick={(e) => {
+              e.preventDefault();
+              HandlePop();
+              HandleLogin();
+            }}
             type="submit"
-            disabled={isLoading} // Disable button while loading
+            disabled={isLoadingg} // Disable button while loading
           >
-            {isLoading ? "Logging in..." : "Login"}
+            {isLoadingg ? "Logging in..." : "Login"}
           </button>
           <div>
             <div className="w-full flex justify-center items-center gap-2">

@@ -9,11 +9,12 @@ export const Second = () => {
 
   const { Allproducts } = useContext(DataContext);
 
-  const product = Allproducts.find((item) => item.price === 688);
+  const product = Allproducts.find((item) => item.style === "Blue Gown");
   // console.log(product);
 
   // const imageUrl = `./images/${endpoint}.jpg`;
-  const imageUrl = product.image;
+  const imageUrl = product?.image;
+  // console.log("imageUrl:", imageUrl);
 
   PreloadImages([imageUrl]);
   const { style } = useFetch(imageUrl); // Call the custom hook to get the style object
@@ -24,10 +25,10 @@ export const Second = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
-        to={`/Ashoebi/${product.id}`}
+        to={`/Ankara/${product?.id}`}
         className="flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white"
       >
-        Buy{" "}
+        Buyy
       </Link>
     </div>
   );

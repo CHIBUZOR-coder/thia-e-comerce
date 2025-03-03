@@ -25,31 +25,31 @@ const AdminNav = () => {
   const Navlists = [
     {
       tittle: "Products",
-      path: "/thia-e-comerce/Admin/Products",
+      path: "/Admin/Products",
       icon: <CgProductHunt />,
       id: "1",
     },
     {
       tittle: "Orders",
-      path: "/thia-e-comerce/Admin",
+      path: "/Admin",
       icon: <MdOutlineProductionQuantityLimits />,
       id: "2",
     },
     {
       tittle: "Reviews",
-      path: "/thia-e-comerce/Reviews",
+      path: "/Reviews",
       icon: <MdOutlineReviews />,
       id: "3",
     },
     {
       tittle: "Transactions",
-      path: "/thia-e-comerce/Contact",
+      path: "/Contact",
       icon: <AiOutlineTransaction />,
       id: "4",
     },
     {
       tittle: "Customers",
-      path: "/thia-e-comerce/Contact",
+      path: "/Contact",
       icon: <IoIosContact />,
       id: "5",
     },
@@ -101,7 +101,7 @@ const AdminNav = () => {
                   }  flex flex-col  `}
                 >
                   <Link
-                    to={`/thia-e-comerce/`}
+                    to={`/`}
                   
                     className={`font-semibold w-[60%]  flex justify-start items-center gap-1 ${
                       lightMode
@@ -113,7 +113,7 @@ const AdminNav = () => {
                     <p>Webstore</p>
                   </Link>
                   <Link
-                    to={`/thia-e-comerce/Admin`}
+                    to={`/Admin`}
                 
                     className={`font-semibold w-[65%]  flex justify-start items-center gap-1 ${
                       lightMode
@@ -126,7 +126,7 @@ const AdminNav = () => {
                   </Link>
 
                   <Link
-                    to={`/thia-e-comerce/Admin/AddProduct`}
+                    to={`/Admin/AddProduct`}
                 
                     className={`font-semibold w-[60%]  flex justify-start items-center gap-1 ${
                       lightMode

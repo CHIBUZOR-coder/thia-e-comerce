@@ -51,7 +51,7 @@ const ANavbar = () => {
           <div className={`${isMenuOpen ? "block" : "hidden"}`}>
             <div className={`flex flex-col justify-center gap-2 items-start`}>
               <Link
-                to={`/thia-e-comerce/`}
+                to={`/`}
                 target="_blank"
                 className={`font-semibold flex justify-center items-center gap-1 ${
                   lightMode
@@ -63,7 +63,7 @@ const ANavbar = () => {
                 <FaCartShopping />
               </Link>
               <Link
-                to={`/thia-e-comerce/Admin`}
+                to={`/Admin`}
                 target="_blank"
                 className={`font-semibold flex justify-center items-center gap-1 ${
                   lightMode
@@ -75,7 +75,7 @@ const ANavbar = () => {
                 <GrView />
               </Link>
               <Link
-                to={`/thia-e-comerce/Admin/AddProduct`}
+                to={`/Admin/AddProduct`}
                 target="_blank"
                 className={`font-semibold flex justify-center items-center gap-1 ${
                   lightMode
@@ -90,7 +90,7 @@ const ANavbar = () => {
           </div>
         </div>{" "}
         <Link
-          to={`/thia-e-comerce/`}
+          to={`/`}
           target="_blank"
           className={`font-semibold   flex justify-start items-center gap-1 ${
             lightMode

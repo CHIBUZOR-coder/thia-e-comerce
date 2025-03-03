@@ -24,6 +24,13 @@ const DataProvider = ({ children }) => {
 
   const [appCart, setAppcart] = useState(null);
   const [sizeError, setSizeError] = useState(false);
+  const [popStates, setPopStates] = useState({});
+
+  // login
+  const [isLoadingg, setIsLoadingg] = useState(false);
+  const [user, setUser] = useState(null);
+  const [message, setMessage] = useState("");
+  const [errColor, setErrColor] = useState(null);
 
   //*********************** */
   //Retrieving all stored data in loca storage for user authentification
@@ -161,6 +168,7 @@ const DataProvider = ({ children }) => {
   //****************************************** */
   //Login form. it is called from login component when a user tries to login
   const handleLogin = async (email, password) => {
+    setIsLoadingg(true);
     try {
       const response = await fetch("http://localhost:5000/api/loginUser", {
         method: "POST",
@@ -171,13 +179,17 @@ const DataProvider = ({ children }) => {
         credentials: "include",
       });
 
-      let data;
       let localCartItems;
-      data = await response.json();
+      const data = await response.json();
       if (response.ok) {
+        console.log(data);
+
         localStorage.removeItem("UsercartIems");
         console.log("Login successful:", data.message);
         // UserLogALert(data.role);
+        setMessage(data.message);
+
+        setUser(data.role);
         setIsLogin(true);
         localCartItems = getItem("cartItems");
 
@@ -207,14 +219,21 @@ const DataProvider = ({ children }) => {
             })
           );
         }
-
-        return data;
       } else {
-        throw new Error(data.message || "Invalid credentials.");
+        console.log(data);
+        setErrColor("text-red-600");
+        setMessage(data.message);
       }
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("You are not a user.", error);
+      setMessage(error.message);
       setErrorMess(error.message);
+    } finally {
+      setIsLoadingg(false);
+      setTimeout(() => {
+        setErrColor("");
+        setMessage("");
+      }, 4000); // Clear the message after 4 second
     }
   };
 
@@ -259,6 +278,13 @@ const DataProvider = ({ children }) => {
 
   const HandleModeChangeWeb = () => {
     setlightModeWeb(!lightModWeb);
+  };
+
+  const HandlePopCart = (id) => {
+    setPopStates((prev) => ({ ...prev, [id]: true })); // Set only the clicked item's pop state
+    setTimeout(() => {
+      setPopStates((prev) => ({ ...prev, [id]: false })); // Reset after 200ms
+    }, 200);
   };
 
   const HandlePop = () => {
@@ -392,7 +418,13 @@ const DataProvider = ({ children }) => {
         handleLogin,
         pop,
         setErrorMess,
+        popStates,
+        HandlePopCart,
         HandlePop,
+        errColor,
+        message,
+        user,
+        isLoadingg,
       }}
     >
       {children}

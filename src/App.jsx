@@ -37,16 +37,37 @@ function App() {
   const localData = JSON.parse(localStorage.getItem("cartItems")) || false;
   const UserInfo = JSON.parse(localStorage.getItem("userInfo")) || false;
   console.log("Local Storage Data:", localData);
+  const [Total, setTotal] = useState(false);
+  const [cartitems, setCartItems] = useState(null);
 
-  let cartitems;
-  if (!UserInfo) {
-    cartitems = localData ? localData.products : [];
-  } else {
-    cartitems = localData ? localData : [];
-  }
-
-  console.log("Cart Items:", cartitems);
+  useEffect(() => {
+    if (UserInfo) {
+      if (UserInfo) {
+        setCartItems(UserInfo);
+      }
+    } else if (!UserInfo) {
+      setCartItems(localData ? localData.products : []);
+    } else {
+      setCartItems(localData ? localData : []);
+    }
+    console.log("Cart Items:", cartitems);
+  }, []);
+  //
   // console.log(typeof cartitems);
+
+  useEffect(() => {
+    const totalAmount =
+      cartitems &&
+      cartitems.reduce((acc, curr) => {
+        return acc + curr?.product?.price;
+      }, 0);
+
+    setTotal(totalAmount);
+  }, [cartitems]);
+
+  useEffect(() => {
+    console.log("Total:", Total);
+  }, [Total]);
 
   const HandleFetchStart = async (value) => {
     try {
@@ -98,11 +119,11 @@ function App() {
   };
 
   const NavItems = [
-    { tittle: "Home", path: "/thia-e-comerce/", id: "1" },
-    { tittle: "About", path: "/thia-e-comerce/About", id: "2" },
-    { tittle: "Reviews", path: "/thia-e-comerce/Reviews", id: "4" },
-    { tittle: "Contact", path: "/thia-e-comerce/Contact", id: "5" },
-    { tittle: "Custom Fit", path: "/thia-e-comerce/Custom", id: "6" },
+    { tittle: "Home", path: "/", id: "1" },
+    { tittle: "About", path: "/About", id: "2" },
+    { tittle: "Reviews", path: "/Reviews", id: "4" },
+    { tittle: "Contact", path: "/Contact", id: "5" },
+    { tittle: "Custom Fit", path: "/Custom", id: "6" },
     { tittle: "Shop All", path: "/", id: "7" },
   ];
   const toggle = () => {
@@ -211,7 +232,7 @@ function App() {
                     <a
                       className=""
                       style={{ display: "inline-block", width: "fit-content" }}
-                      href="/thia-e-comerce/"
+                      href="/"
                     >
                       <div className="w-24 h-24 logo bg-slate-500"></div>
                     </a>
@@ -264,23 +285,21 @@ function App() {
                                 >
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Akara"
+                                      location.pathname === "/Akara"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Akara"
+                                    to="/Akara"
                                   >
                                     Ankara
                                   </Link>
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Ashebi"
+                                      location.pathname === "/Ashebi"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Ashebi"
+                                    to="/Ashebi"
                                   >
                                     Ashoebi
                                   </Link>
@@ -290,51 +309,47 @@ function App() {
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Coprate"
+                                    to="/Coprate"
                                   >
                                     Coperate
                                   </Link>
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Kaftn"
+                                      location.pathname === "/Kaftn"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Kaftn"
+                                    to="/Kaftn"
                                   >
                                     Kaftan
                                   </Link>
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Bridls"
+                                      location.pathname === "/Bridls"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Bridls"
+                                    to="/Bridls"
                                   >
                                     Bridals
                                   </Link>
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Matchng"
+                                      location.pathname === "/Matchng"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Matchng"
+                                    to="/Matchng"
                                   >
                                     Matching Set
                                   </Link>
                                   <Link
                                     className={`decorate2 ${
-                                      location.pathname ===
-                                      "/thia-e-comerce/Kidis"
+                                      location.pathname === "/Kidis"
                                         ? "text-red-500"
                                         : ""
                                     }`}
-                                    to="/thia-e-comerce/Kidis"
+                                    to="/Kidis"
                                   >
                                     Kiddies
                                   </Link>
@@ -351,10 +366,7 @@ function App() {
 
                       <div className=" flex flex-col gap-4">
                         <div className="text-lg flex h-1/2.5 text-white sm:flex gap-4 md:hidden">
-                          <a
-                            href="/thia-e-comerce/Login"
-                            className="flex items-baseline"
-                          >
+                          <a href="/Login" className="flex items-baseline">
                             <FaUser />
                             Account
                           </a>
@@ -379,67 +391,103 @@ function App() {
                   </div>
                   {/* Cart navbar  Menu conten  */}
                 </header>
+                {/* Checkout */}
+                <div className="p-2 w-full">
+                  <div className="w-full flex  justify-center items-center">
+                    {cartitems && cartitems.length > 0 ? (
+                      <div className="w-full flex flex-col gap-3">
+                        <div className="w-full flex justify-start h-[300px] flex-col overflow-scroll md:justify-center items-start">
+                          <table className="table-auto text-gray-500 bg-primary   w-full">
+                            <thead>
+                              <tr className="bg-btn sticky top-0 left-0">
+                                <th className="w-[10%]">S/n</th>
+                                <th className="">Style</th>
+                                <th className="">Size</th>
+                                <th className="">Quantity</th>
+                                <th className="">Amount</th>
+                                <th className="">Image</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {cartitems.map((item, index) => (
+                                <tr key={item.id} className="font-semibold">
+                                  <td>{Number(index + 1)}</td>
+                                  <td>
+                                    {UserInfo ? item.style : item.product.style}
+                                  </td>
+                                  <td>
+                                    {UserInfo ? item.sizee : item.product.size}
+                                  </td>
+                                  <td>
+                                    {UserInfo
+                                      ? item?.product?.quantity
+                                      : item.quantity}
+                                  </td>
+                                  <td>
+                                    $
+                                    {UserInfo
+                                      ? item.amount
+                                      : item?.product?.price}
+                                  </td>
+                                  <td className="flex justify-center items-center">
+                                    <img
+                                      src={
+                                        UserInfo
+                                          ? item.image
+                                          : item.product.image
+                                      }
+                                      alt={
+                                        UserInfo
+                                          ? item.image
+                                          : item.product.image
+                                      }
+                                      className="h-[50px] w-[40px] object-cover"
+                                    />
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
 
-                <div className="w-full flex  justify-center items-center">
-                  {cartitems && cartitems.length >= 1 ? (
-                    <div className="w-full flex justify-start h-[300px] overflow-scroll md:justify-center items-start">
-                      <table className="table-auto text-gray-500  bg-slate-700   w-full">
-                        <thead>
-                          <tr className="bg-red-400 sticky top-0 left-0">
-                            <th className="w-[10%]">S/n</th>
-                            <th className="">Style</th>
-                            <th className="">Size</th>
-                            <th className="">Quantity</th>
-                            <th className="">Amount</th>
-                            <th className="">Image</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {cartitems.map((item, index) => (
-                            <tr key={item.id} className="font-semibold">
-                              <td>{Number(index + 1)}</td>
-                              <td>
-                                {UserInfo ? item.style : item.product.style}
-                              </td>
-                              <td>
-                                {UserInfo ? item.sizee : item.product.size}
-                              </td>
-                              <td>
-                                {UserInfo
-                                  ? item.quantity
-                                  : item.product.quantity}
-                              </td>
-                              <td>
-                                ${UserInfo ? item.amount : item.product.amount}
-                              </td>
-                              <td className="flex justify-center items-center">
-                                <img
-                                  src={
-                                    UserInfo ? item.image : item.product.image
-                                  }
-                                  alt={
-                                    UserInfo ? item.image : item.product.image
-                                  }
-                                  className="h-[50px] w-[40px] object-cover"
-                                />
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  ) : (
-                    <div className="w-full flex justify-center items-center cartSection text-center">
-                      <span className="md:w-[200px] w-full">
-                        You have no items in your shopping bag
-                      </span>
-                    </div>
-                  )}
+                        <div className="flex flex-col gap-1">
+                          <p className="text-adminTex text-small italic">
+                            Total: {Total}N
+                          </p>
+                          <p className="text-adminTex text-small italic">
+                            Vat: 100N
+                          </p>
+                          <p className="text-adminTex text-small italic">
+                            Bill: {Total + 100}N
+                          </p>
+                        </div>
+
+                        <div className="w-full flex justify-center items-center">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              HandlePop();
+                            }}
+                            className={`${
+                              pop ? "pop" : ""
+                            } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                          >
+                            Checkout
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-full flex justify-center items-center cartSection text-center ">
+                        <span className="md:w-[200px] w-full  rounded-sm text-white">
+                          You have no items in your shopping bag
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-
                 <div className="  flex justify-center items-center w-full   md:top-1/2  py-4 ">
                   <a
-                    href={`/thia-e-comerce/Allshops`}
+                    href={`/Allshops`}
                     className="w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white "
                   >
                     {cartitems && cartitems.length >= 1
@@ -481,16 +529,15 @@ function App() {
                         placeholder="What are you looking for?"
                       />
 
-                      <Link
-                        onClick={handleSearch}
-                        to="/thia-e-comerce/SearchPage"
-                      >
+                      <Link onClick={handleSearch} to="/SearchPage">
                         <IoIosArrowDropright className="rounded-full h-7 w-7" />
                       </Link>
                     </div>
                   </div>
 
                   <hr className="my-2" />
+
+                  {/************************************* * Search *******************************************/}
                   <div
                     className={` w-full ${
                       heightTrue ? " h-[200px] " : ""
@@ -499,7 +546,7 @@ function App() {
                     {result && result.length > 0 ? (
                       result.map((product) => (
                         <Link
-                          to={`/thia-e-comerce/${product?.brand}/${product?.id}`}
+                          to={`/${product?.brand}/${product?.id}`}
                           key={product.id}
                           onClick={handleSearch}
                           className="result-item p-4 border-b w-full    bg-spinbg  flex justify-start items-center gap-4"
@@ -532,13 +579,13 @@ function App() {
 
                   <div className="flex flex-col gap-2">
                     <span className="help">Customer Care</span>
-                    <Link to="/thia-e-comerce/Terms" className="help">
+                    <Link to="/Terms" className="help">
                       Delivery Information
                     </Link>
-                    <Link to="/thia-e-comerce/Care" className="help">
+                    <Link to="/Care" className="help">
                       Care Guide
                     </Link>
-                    <a href="/thia-e-comerce/FAQs" className="help">
+                    <a href="/FAQs" className="help">
                       FAQs
                     </a>
                   </div>

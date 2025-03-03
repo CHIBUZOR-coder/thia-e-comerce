@@ -9,10 +9,10 @@ const AdminHome4= () => {
   );
 
   const links = [
-    { id: 1, path: "/thia-e-comerce/Admin" },
-    { id: 2, path: "/thia-e-comerce/Admin/AdminHome2" },
-    { id: 3, path: "/thia-e-comerce/Admin/AdminHome3" },
-    { id: 4, path: "/thia-e-comerce/Admin/AdminHome4" },
+    { id: 1, path: "/Admin" },
+    { id: 2, path: "/Admin/AdminHome2" },
+    { id: 3, path: "/Admin/AdminHome3" },
+    { id: 4, path: "/Admin/AdminHome4" },
   ];
   return (
     <div
