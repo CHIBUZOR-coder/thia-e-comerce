@@ -38,6 +38,7 @@ import Signin from "../../Signup.jsx";
 import Signup from "../../Signup.jsx";
 
 import Matching from "./Matchingg.jsx";
+import Thankyou from "../../Thankyou.jsx";
 
 const RenderAppWithData = () => {
   const {
@@ -117,6 +118,7 @@ const RenderAppWithData = () => {
         { path: "/Login", element: <Login /> },
         { path: "/Account", element: <Account /> },
         { path: "/Signup", element: <Signup /> },
+        { path: "/thankyou", element: <Thankyou /> },
         {
           path: "/Ankara/:id",
           element: <Shopp dataItems={AnkaraProducts} />,

@@ -19,6 +19,7 @@ const Coprate = () => {
     CoperateProducts: items,
     popStates,
     HandlePopCart,
+    AddToCart,
   } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");

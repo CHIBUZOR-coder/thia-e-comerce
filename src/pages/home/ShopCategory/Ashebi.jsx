@@ -18,6 +18,7 @@ const Ashebi = () => {
     isLoading,
     popStates,
     HandlePopCart,
+    AddToCart,
   } = useContext(DataContext);
   const [selectCategory, setSelectCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);

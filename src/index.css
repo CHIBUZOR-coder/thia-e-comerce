@@ -446,13 +446,38 @@ td {
   z-index: 10; /* Ensure it's above other content */
 }
 
-
 @media screen and (max-width: 500px) {
   /* Styles for small screens */
-  .navcart {
+  .navcattt{
     /* background-color: gray; */
-    margin-top: -7rem;
+    margin-top: 17rem;
   }
+}
+
+@keyframes ringg {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px rgba(27, 30, 50, 1);
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px rgba(242, 0, 0, 1);
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px rgb(27, 50, 37);
+  }
+}
+
+.ringg::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 3px rgba(242, 0, 0, 1);
+  border-radius: 50%;
+  animation: ringg 2s linear infinite;
+  display: block;
 }
 
 @media screen and (max-width: 321px) {

@@ -23,7 +23,7 @@ function App() {
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   //Search Featues initialization below
-  const [fetchStart, setFetchStart] = useState(false);
+  // const [fetchStart, setFetchStart] = useState(false);
   const [result, setResult] = useState(null);
   const [searchTem, setSearchTem] = useState("");
   const [error, setError] = useState(true);
@@ -32,7 +32,8 @@ function App() {
   const location = useLocation();
   const textRef = useRef(null);
   const [isLoading, setIsloading] = useState(true);
-  const { pop, setErrorMess, HandlePop } = useContext(DataContext);
+  const { pop, setErrorMess, HandlePop, cartRender, setCartRender } =
+    useContext(DataContext);
 
   const localData = JSON.parse(localStorage.getItem("cartItems")) || false;
   const UserInfo = JSON.parse(localStorage.getItem("userInfo")) || false;
@@ -40,33 +41,53 @@ function App() {
   const [Total, setTotal] = useState(false);
   const [cartitems, setCartItems] = useState(null);
 
-  useEffect(() => {
+  const HandleCartUpdateActions = () => {
+    console.log("cartAction called");
+
+    let updatedCartItems;
+
     if (UserInfo) {
-      if (UserInfo) {
-        setCartItems(UserInfo);
-      }
-    } else if (!UserInfo) {
-      setCartItems(localData ? localData.products : []);
+      console.log("UserInfo", UserInfo);
+
+      updatedCartItems = localData ? localData : [];
     } else {
-      setCartItems(localData ? localData : []);
+      updatedCartItems = localData ? localData.products : [];
     }
-    console.log("Cart Items:", cartitems);
-  }, []);
-  //
-  // console.log(typeof cartitems);
+
+    setCartItems(updatedCartItems);
+    console.log("Cart Items Updated:", updatedCartItems); // ✅ This will now show updated values
+  };
 
   useEffect(() => {
-    const totalAmount =
-      cartitems &&
-      cartitems.reduce((acc, curr) => {
-        return acc + curr?.product?.price;
-      }, 0);
+    HandleCartUpdateActions();
+  }, [cartRender]); // ✅ Calls once per cartRender change
 
-    setTotal(totalAmount);
+  // ✅ Now calculate Total only when cartitems updates
+  useEffect(() => {
+    if (cartitems && cartitems.length > 0) {
+      if (UserInfo) {
+        const totalAmount = cartitems.reduce(
+          (acc, curr) => acc + (curr?.price || 0), // Ensure price is handled safely
+          0
+        );
+        setTotal(totalAmount);
+      } else {
+        const totalAmount = cartitems.reduce(
+          (acc, curr) => acc + (curr?.product?.price || 0), // Ensure price is handled safely
+          0
+        );
+        setTotal(totalAmount);
+      }
+    } else {
+      setTotal(0); // Reset if cart is empty
+    }
   }, [cartitems]);
 
+  // ✅ Log total only when it changes
   useEffect(() => {
-    console.log("Total:", Total);
+    if (Total !== false) {
+      console.log("Total:", Total);
+    }
   }, [Total]);
 
   const HandleFetchStart = async (value) => {
@@ -155,12 +176,30 @@ function App() {
     }
   };
 
+  // const stopScreenScroll = (isOpen) => {
+  //   const body = document.body;
+  //   const scrollBarWidth =
+  //     window.innerWidth - document.documentElement.clientWidth;
+  //   body.style.overflowY = isOpen ? "hidden" : "auto";
+  //   body.style.paddingRight = isOpen ? `${scrollBarWidth}px` : "0";
+  // };
+
   const stopScreenScroll = (isOpen) => {
     const body = document.body;
     const scrollBarWidth =
       window.innerWidth - document.documentElement.clientWidth;
-    body.style.overflowY = isOpen ? "hidden" : "auto";
-    body.style.paddingRight = isOpen ? `${scrollBarWidth}px` : "0";
+
+    if (isOpen) {
+      body.style.overflow = "hidden"; // Disable scrolling
+      body.style.overflowX = "hidden"; // Prevent horizontal scrolling
+      body.style.position = "fixed"; // Prevent mobile scrolling
+      body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      body.style.overflow = ""; // Restore default
+      body.style.overflowX = "";
+      body.style.position = "";
+      body.style.paddingRight = "0";
+    }
   };
 
   const closeSearchModal = (e) => {
@@ -216,7 +255,7 @@ function App() {
             {/* smallscreen Cart header */}
             <div
               onClick={closeCartModal}
-              className={`absolute  w-full top-0 left-0 min-h-[100vh] z-10 coverDiv2  ${
+              className={`absolute  w-full top-0 left-0 min-h-[200vh] z-10 coverDiv2  ${
                 IsCartOpen ? "open" : ""
               } `}
             >
@@ -226,9 +265,9 @@ function App() {
                   IsCartOpen ? "open" : "closed"
                 }  `}
               >
-                <header className=" top-0 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 ">
+                <header className=" top-32 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 ">
                   {/* Cart Navbar */}
-                  <nav className="container navcart relative bg-blue-800  flex justify-between md:justify-center  p-2 ">
+                  <nav className="container mt-32 navcattt  md:mt-52  relative bg-blue-800  flex justify-between md:justify-center  p-2 ">
                     <a
                       className=""
                       style={{ display: "inline-block", width: "fit-content" }}
@@ -408,9 +447,11 @@ function App() {
                                 <th className="">Image</th>
                               </tr>
                             </thead>
+                            <div className="space my-0 md:my-24"></div>
+
                             <tbody>
                               {cartitems.map((item, index) => (
-                                <tr key={item.id} className="font-semibold">
+                                <tr key={index} className="font-semibold">
                                   <td>{Number(index + 1)}</td>
                                   <td>
                                     {UserInfo ? item.style : item.product.style}

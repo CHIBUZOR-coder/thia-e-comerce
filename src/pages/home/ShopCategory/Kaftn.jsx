@@ -18,6 +18,7 @@ const Kaftn = () => {
     isLoading,
     popStates,
     HandlePopCart,
+    AddToCart,
   } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
@@ -134,7 +135,7 @@ const Kaftn = () => {
                       <button
                         onClick={() => {
                           HandlePopCart(item.id);
-                              AddToCart(item, 1, item?.price);
+                          AddToCart(item, 1, item?.price);
                         }}
                         className={` ${
                           popStates[item.id] ? "pop" : ""

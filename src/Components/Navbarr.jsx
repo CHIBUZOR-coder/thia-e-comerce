@@ -20,16 +20,20 @@ const Navbar = ({ handleSearch, handleCart }) => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+ 
   const location = useLocation();
 
   const handleClose = () => {
     setIsMenuOpen(!IsMenuOpen);
   };
 
-  const { isUser, cartCount } = useContext(DataContext);
+  const { isUser, cartCount, cartRender } = useContext(DataContext);
 
   console.log(cartCount);
   
+useEffect(() => {
+  console.log("cartRender changed:", cartRender);
+}, [cartRender]);
 
 
   // useEffect(() => {

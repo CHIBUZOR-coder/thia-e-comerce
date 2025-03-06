@@ -31,6 +31,7 @@ const DataProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [errColor, setErrColor] = useState(null);
+  const [cartRender, setCartRender] = useState(false);
 
   //*********************** */
   //Retrieving all stored data in loca storage for user authentification
@@ -94,6 +95,11 @@ const DataProvider = ({ children }) => {
       console.error("An error occurred:", error);
     }
   };
+
+
+    useEffect(() => {
+      console.log("cartRender:", cartRender);
+    }, [cartRender]);
 
   // *********************************/
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
@@ -376,6 +382,7 @@ const DataProvider = ({ children }) => {
       }
 
       localStorage.setItem("cartItems", JSON.stringify(storedCart));
+      setCartRender(true);
 
       SetCartItems(storedCart); // Update state
       showHide(true, "Product was added to cart successfully", "false");
@@ -425,6 +432,9 @@ const DataProvider = ({ children }) => {
         message,
         user,
         isLoadingg,
+        cartRender,
+        setCartRender,
+        CartItems,
       }}
     >
       {children}

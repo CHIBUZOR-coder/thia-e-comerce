@@ -19,6 +19,8 @@ const Akara = () => {
     popStates,
     HandlePopCart,
     AddToCart,
+    cartRender,
+    setCartRender,
   } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
@@ -135,8 +137,8 @@ const Akara = () => {
                       <button
                         onClick={() => {
                           HandlePopCart(item.id);
-                           AddToCart(item, 1, item?.price);
-
+                          setCartRender((prev) => !prev);
+                          AddToCart(item, 1, item?.price);
                         }}
                         className={` ${
                           popStates[item.id] ? "pop" : ""

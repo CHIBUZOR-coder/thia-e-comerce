@@ -23,6 +23,7 @@ const Reviews = () => {
     BridalProducts: items,
     popStates,
     HandlePopCart,
+    AddToCart,
   } = useContext(DataContext);
 
   // Function to filter items based on the selected category
