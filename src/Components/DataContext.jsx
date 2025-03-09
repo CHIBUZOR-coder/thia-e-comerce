@@ -96,10 +96,9 @@ const DataProvider = ({ children }) => {
     }
   };
 
-
-    useEffect(() => {
-      console.log("cartRender:", cartRender);
-    }, [cartRender]);
+  useEffect(() => {
+    console.log("cartRender:", cartRender);
+  }, [cartRender]);
 
   // *********************************/
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
@@ -135,41 +134,48 @@ const DataProvider = ({ children }) => {
     checkTokenExpiry();
   }, []);
 
-  const fetchCart = async () => {
-    if (isUser) {
-      // Authenticated user
-      try {
-        const res = await fetch("http://localhost:5000/api/getCart", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include", // Keep it only here
-        });
-        const data = await res.json();
+const fetchCart = async () => {
+  if (isUser) {
+    // Authenticated user
+    try {
+      const res = await fetch("http://localhost:5000/api/getCart", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // Keep it only here
+      });
+      const data = await res.json();
 
-        if (res.ok) {
-          console.log(data);
-          // Save to local storage and update state
+      if (res.ok) {
+        console.log(data);
+        // Save to local storage and update state
 
-          SetCartItems(data.data); // Assuming data is an array of cart items
-          localStorage.setItem("cartItems", JSON.stringify(data.data));
-        } else {
-          console.log("error", "Could not get cart");
-        }
-      } catch (error) {
-        console.error("Failed to fetch cart:", error);
-      }
-    } else {
-      // Unauthenticated user
-      const localCart = localStorage.getItem("cartItems");
-      if (localCart) {
-        SetCartItems(JSON.parse(localCart));
+        SetCartItems(data.data); // Assuming data is an array of cart items
+        localStorage.setItem("cartItems", JSON.stringify(data.data));
       } else {
-        SetCartItems([]); // Clear cart items if nothing is in local storage
+        console.log("error", "Could not get cart");
       }
+    } catch (error) {
+      console.error("Failed to fetch cart:", error);
     }
-  };
+  } else {
+    // Unauthenticated user
+    const localCart = localStorage.getItem("cartItems");
+    if (localCart) {
+      SetCartItems(JSON.parse(localCart));
+    } else {
+      SetCartItems([]); // Clear cart items if nothing is in local storage
+    }
+  }
+};
+
+
+  useEffect(() => {
+    if (isLogin) {
+      fetchCart();
+    }
+  }, [isLogin]);
 
   //****************************************** */
   //Login form. it is called from login component when a user tries to login
@@ -197,6 +203,7 @@ const DataProvider = ({ children }) => {
 
         setUser(data.role);
         setIsLogin(true);
+
         localCartItems = getItem("cartItems");
 
         if (localCartItems) {
@@ -268,7 +275,7 @@ const DataProvider = ({ children }) => {
     } else if (localCart) {
       SetProducts(localCart);
     }
-    console.log("products", Products);
+    // console.log("products", Products);
     // console.log("count", cartCount);
   }, [CartItems]); // Dependency is CartItems to ensure this effect runs only when CartItems change
 
@@ -323,6 +330,10 @@ const DataProvider = ({ children }) => {
   const KidiesProducts = filterProductsByBrand("kidies");
   const Featured = filterProductsByBrand("featured");
 
+  const cartEffect = (setter) => {
+    setter((prev) => !prev);
+  };
+
   const AddToCart = async (prod, num, clothSize) => {
     if (!clothSize) {
       setSizeError(true);
@@ -350,6 +361,8 @@ const DataProvider = ({ children }) => {
           SetCartItems(data.data); // Set updated cart items
           fetchCart(); // Fetch updated cart from server
           showHide(true, "Product was added to cart successfully", "false");
+          console.log("Product was added to cart successfully");
+          
         } else {
           showHide(false, "Error", "Product was not added to cart");
         }
@@ -434,7 +447,9 @@ const DataProvider = ({ children }) => {
         isLoadingg,
         cartRender,
         setCartRender,
+        fetchCart,
         CartItems,
+        cartEffect,
       }}
     >
       {children}

@@ -20,6 +20,7 @@ const Coprate = () => {
     popStates,
     HandlePopCart,
     AddToCart,
+    setCartRender,
   } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
@@ -123,7 +124,7 @@ const Coprate = () => {
                   className="relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md"
                 >
                   <Link
-                    to={`/Coperate${item.id}`}
+                    to={`/Coperate/${item?.id}`}
                     className="h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400"
                     style={{
                       background: `url(${item.image}) center center/ cover`,
@@ -135,6 +136,7 @@ const Coprate = () => {
                       <button
                         onClick={() => {
                           HandlePopCart(item.id);
+                              setCartRender((prev) => !prev);
                               AddToCart(item, 1, item?.price);
                         }}
                         className={` ${

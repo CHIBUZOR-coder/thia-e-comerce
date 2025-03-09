@@ -19,6 +19,7 @@ const Matching = () => {
     popStates,
     HandlePopCart,
     AddToCart,
+    setCartRender,
   } = useContext(DataContext);
 
   const [selectCategory, setSelectCategory] = useState("All");
@@ -135,6 +136,7 @@ const Matching = () => {
                       <button
                         onClick={() => {
                           HandlePopCart(item.id);
+                              setCartRender((prev) => !prev);
                           AddToCart(item, 1, item?.price);
                         }}
                         className={` ${

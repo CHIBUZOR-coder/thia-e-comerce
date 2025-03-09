@@ -19,7 +19,6 @@ const Akara = () => {
     popStates,
     HandlePopCart,
     AddToCart,
-    cartRender,
     setCartRender,
   } = useContext(DataContext);
 

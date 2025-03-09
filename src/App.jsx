@@ -28,67 +28,88 @@ function App() {
   const [searchTem, setSearchTem] = useState("");
   const [error, setError] = useState(true);
   const [heightTrue, setheightTrue] = useState(false);
+  const [state, setState] = useState(false);
   ////////End
   const location = useLocation();
   const textRef = useRef(null);
   const [isLoading, setIsloading] = useState(true);
-  const { pop, setErrorMess, HandlePop, cartRender, setCartRender } =
-    useContext(DataContext);
+  const {
+    pop,
+    setErrorMess,
+    HandlePop,
+    cartRender,
+    setCartRender,
+    fetchCart,
+    CartItems,
+    cartEffect,
+  } = useContext(DataContext);
 
-  const localData = JSON.parse(localStorage.getItem("cartItems")) || false;
+  const localData = JSON.parse(localStorage.getItem("cartItems")) || null;
   const UserInfo = JSON.parse(localStorage.getItem("userInfo")) || false;
   console.log("Local Storage Data:", localData);
-  const [Total, setTotal] = useState(false);
-  const [cartitems, setCartItems] = useState(null);
+  const [Total, setTotal] = useState(0);
+  const localTotal =
+    localData && localData.products
+      ? localData.products.reduce((acc, curr) => {
+          return acc + curr.product.price;
+        }, 0)
+      : [];
 
-  const HandleCartUpdateActions = () => {
-    console.log("cartAction called");
+  console.log("localTotal", localTotal);
+  const HandleCheckout = async () => {
+    const email = UserInfo?.email;
+    const bill = Total || 0;
 
-    let updatedCartItems;
+    console.log("Initiating payment with:", { email, bill });
 
-    if (UserInfo) {
-      console.log("UserInfo", UserInfo);
+    try {
+      const res = await fetch("http://localhost:5000/initiate_payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, bill }),
+      });
 
-      updatedCartItems = localData ? localData : [];
-    } else {
-      updatedCartItems = localData ? localData.products : [];
+      console.log("Response Status:", res.status);
+
+      const text = await res.text(); // Log raw response before JSON parsing
+      console.log("Raw Response:", text);
+
+      const data = JSON.parse(text);
+      console.log("Parsed Data:", data);
+
+      if (res.ok && data?.success) {
+        console.log("Redirecting to payment page:", data.payment_link);
+        window.location.href = data.payment_link;
+      } else {
+        console.error("Payment Error:", data?.message || "Unknown error");
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error.message);
     }
-
-    setCartItems(updatedCartItems);
-    console.log("Cart Items Updated:", updatedCartItems); // ✅ This will now show updated values
   };
 
   useEffect(() => {
-    HandleCartUpdateActions();
-  }, [cartRender]); // ✅ Calls once per cartRender change
-
-  // ✅ Now calculate Total only when cartitems updates
-  useEffect(() => {
-    if (cartitems && cartitems.length > 0) {
-      if (UserInfo) {
-        const totalAmount = cartitems.reduce(
-          (acc, curr) => acc + (curr?.price || 0), // Ensure price is handled safely
-          0
-        );
-        setTotal(totalAmount);
-      } else {
-        const totalAmount = cartitems.reduce(
-          (acc, curr) => acc + (curr?.product?.price || 0), // Ensure price is handled safely
-          0
-        );
-        setTotal(totalAmount);
-      }
-    } else {
-      setTotal(0); // Reset if cart is empty
+    if (CartItems && CartItems.length) {
+      const total = CartItems.reduce((acc, curr) => {
+        return acc + curr.price;
+      }, 0);
+      setTotal(total);
     }
-  }, [cartitems]);
+  }, [CartItems]);
 
-  // ✅ Log total only when it changes
+  const [cartitems, setCartItems] = useState(null);
+
   useEffect(() => {
     if (Total !== false) {
       console.log("Total:", Total);
     }
   }, [Total]);
+
+  useEffect(() => {
+    if (UserInfo) {
+      fetchCart();
+    }
+  }, []);
 
   const HandleFetchStart = async (value) => {
     try {
@@ -190,10 +211,12 @@ function App() {
       window.innerWidth - document.documentElement.clientWidth;
 
     if (isOpen) {
-      body.style.overflow = "hidden"; // Disable scrolling
-      body.style.overflowX = "hidden"; // Prevent horizontal scrolling
-      body.style.position = "fixed"; // Prevent mobile scrolling
-      body.style.paddingRight = `${scrollBarWidth}px`;
+      // body.style.overflow = "hidden"; // Disable scrolling
+      // body.style.overflowX = "hidden"; // Prevent horizontal scrolling
+      // body.style.position = "fixed"; // Prevent mobile scrolling
+      // body.style.paddingRight = `${scrollBarWidth}px`;
+      body.style.overflowY = isOpen ? "hidden" : "auto";
+      body.style.paddingRight = isOpen ? `${scrollBarWidth}px` : "0";
     } else {
       body.style.overflow = ""; // Restore default
       body.style.overflowX = "";
@@ -433,12 +456,15 @@ function App() {
                 {/* Checkout */}
                 <div className="p-2 w-full">
                   <div className="w-full flex  justify-center items-center">
-                    {cartitems && cartitems.length > 0 ? (
+                    {CartItems && CartItems.length > 0 ? (
                       <div className="w-full flex flex-col gap-3">
-                        <div className="w-full flex justify-start h-[300px] flex-col overflow-scroll md:justify-center items-start">
+                        <div
+                          id="tableContainer"
+                          className="w-full flex flex-col overflow-auto max-h-[300px]"
+                        >
                           <table className="table-auto text-gray-500 bg-primary   w-full">
-                            <thead>
-                              <tr className="bg-btn sticky top-0 left-0">
+                            <thead className="sticky top-0">
+                              <tr className="bg-btn  top-0 left-0">
                                 <th className="w-[10%]">S/n</th>
                                 <th className="">Style</th>
                                 <th className="">Size</th>
@@ -447,79 +473,182 @@ function App() {
                                 <th className="">Image</th>
                               </tr>
                             </thead>
-                            <div className="space my-0 md:my-24"></div>
 
                             <tbody>
-                              {cartitems.map((item, index) => (
-                                <tr key={index} className="font-semibold">
-                                  <td>{Number(index + 1)}</td>
-                                  <td>
-                                    {UserInfo ? item.style : item.product.style}
-                                  </td>
-                                  <td>
-                                    {UserInfo ? item.sizee : item.product.size}
-                                  </td>
-                                  <td>
-                                    {UserInfo
-                                      ? item?.product?.quantity
-                                      : item.quantity}
-                                  </td>
-                                  <td>
-                                    $
-                                    {UserInfo
-                                      ? item.amount
-                                      : item?.product?.price}
-                                  </td>
-                                  <td className="flex justify-center items-center">
-                                    <img
-                                      src={
-                                        UserInfo
-                                          ? item.image
-                                          : item.product.image
-                                      }
-                                      alt={
-                                        UserInfo
-                                          ? item.image
-                                          : item.product.image
-                                      }
-                                      className="h-[50px] w-[40px] object-cover"
-                                    />
-                                  </td>
-                                </tr>
-                              ))}
+                              {CartItems &&
+                                CartItems.map((item, index) => (
+                                  <tr key={index} className="font-semibold">
+                                    <td>{Number(index + 1)}</td>
+                                    <td>
+                                      {UserInfo
+                                        ? item.style
+                                        : item.product.style}
+                                    </td>
+                                    <td>
+                                      {UserInfo
+                                        ? item.sizee
+                                        : item.product.size}
+                                    </td>
+                                    <td>
+                                      {UserInfo
+                                        ? item?.product?.quantity
+                                        : item.quantity}
+                                    </td>
+                                    <td>
+                                      $
+                                      {UserInfo
+                                        ? item.amount
+                                        : item?.product?.price}
+                                    </td>
+                                    <td className="flex justify-center items-center">
+                                      <img
+                                        src={
+                                          UserInfo
+                                            ? item.image
+                                            : item.product.image
+                                        }
+                                        alt={
+                                          UserInfo
+                                            ? item.image
+                                            : item.product.image
+                                        }
+                                        className="h-[50px] w-[40px] object-cover"
+                                      />
+                                    </td>
+                                  </tr>
+                                ))}
+                            </tbody>
+                          </table>
+                          {CartItems && CartItems?.length > 0 ? (
+                            <>
+                              <div className="flex flex-col gap-1">
+                                <p className="text-adminTex text-small italic">
+                                  Total: {Total}N
+                                </p>
+                                <p className="text-adminTex text-small italic">
+                                  Vat: 100N
+                                </p>
+                                <p className="text-adminTex text-small italic">
+                                  Bill: {Total + 100}N
+                                </p>
+                              </div>
+                              <div className="w-full flex justify-center items-center">
+                                <button
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    HandlePop();
+                                     HandleCheckout();
+                                  }}
+                                  className={`${
+                                    pop ? "pop" : ""
+                                  } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                                >
+                                  Checkout
+                                </button>
+                              </div>
+                            </>
+                          ) : null}
+                        </div>
+                      </div>
+                    ) : localData && localData.products?.length ? (
+                      <div className="w-full flex flex-col gap-3">
+                        <div
+                          id="tableContainer"
+                          className="w-full flex flex-col overflow-auto max-h-[300px]"
+                        >
+                          <table className="table-auto text-gray-500 bg-primary   w-full">
+                            <thead>
+                              <tr className="bg-btn sticky  top-0 left-0">
+                                <th className="w-[10%]">S/n</th>
+                                <th className="">Style</th>
+                                <th className="">Size</th>
+                                <th className="">Quantity</th>
+                                <th className="">Amount</th>
+                                <th className="">Image</th>
+                              </tr>
+                            </thead>
+
+                            {/* <div className="my-0 md:my-[380px]"></div> */}
+                            <tbody>
+                              {localData &&
+                                localData.products.map((item, index) => (
+                                  <tr key={index} className="font-semibold">
+                                    <td>{Number(index + 1)}</td>
+                                    <td>
+                                      {UserInfo
+                                        ? item.style
+                                        : item.product.style}
+                                    </td>
+                                    <td>
+                                      {UserInfo
+                                        ? item.sizee
+                                        : item.product.size}
+                                    </td>
+                                    <td>
+                                      {UserInfo
+                                        ? item?.product?.quantity
+                                        : item.quantity}
+                                    </td>
+                                    <td>
+                                      $
+                                      {UserInfo
+                                        ? item.amount
+                                        : item?.product?.price}
+                                    </td>
+                                    <td className="flex justify-center items-center">
+                                      <img
+                                        src={
+                                          UserInfo
+                                            ? item.image
+                                            : item.product.image
+                                        }
+                                        alt={
+                                          UserInfo
+                                            ? item.image
+                                            : item.product.image
+                                        }
+                                        className="h-[50px] w-[40px] object-cover"
+                                      />
+                                    </td>
+                                  </tr>
+                                ))}
                             </tbody>
                           </table>
                         </div>
-
-                        <div className="flex flex-col gap-1">
-                          <p className="text-adminTex text-small italic">
-                            Total: {Total}N
-                          </p>
-                          <p className="text-adminTex text-small italic">
-                            Vat: 100N
-                          </p>
-                          <p className="text-adminTex text-small italic">
-                            Bill: {Total + 100}N
-                          </p>
-                        </div>
-
-                        <div className="w-full flex justify-center items-center">
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              HandlePop();
-                            }}
-                            className={`${
-                              pop ? "pop" : ""
-                            } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
-                          >
-                            Checkout
-                          </button>
-                        </div>
+                        {localData && localData.products.length > 0 ? (
+                          <>
+                            {" "}
+                            <div className="flex flex-col gap-1">
+                              <p className="text-adminTex text-small italic">
+                                Total: {localTotal && localTotal}N
+                              </p>
+                              <p className="text-adminTex text-small italic">
+                                Vat: 100N
+                              </p>
+                              <p className="text-adminTex text-small italic">
+                                Bill: {Total + 100}N
+                              </p>
+                            </div>
+                            <div className="w-full flex justify-center items-center">
+                              <button
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  HandlePop();
+                                  // HandleCheckout();
+                                }}
+                                className={`${
+                                  pop ? "pop" : ""
+                                } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                              >
+                                Checkout
+                              </button>
+                            </div>
+                          </>
+                        ) : null}
                       </div>
                     ) : (
                       <div className="w-full flex justify-center items-center cartSection text-center ">
-                        <span className="md:w-[200px] w-full  rounded-sm text-white">
+                        <span className="md:w-[200px] w-full  rounded-sm ">
                           You have no items in your shopping bag
                         </span>
                       </div>
@@ -531,7 +660,8 @@ function App() {
                     href={`/Allshops`}
                     className="w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white "
                   >
-                    {cartitems && cartitems.length >= 1
+                    {(CartItems && CartItems.length >= 0) ||
+                    (localData && localData.products.lenght > 0)
                       ? "Shop More"
                       : "Shop Our Collections"}
                   </a>

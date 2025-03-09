@@ -8,7 +8,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const { HandlePop, pop, handleLogin, errColor, message, user, isLoadingg } =
+  const { HandlePop, pop, handleLogin, errColor, message, user, isLoadingg,  } =
     useContext(DataContext);
   const HandleLogin = async () => {
     handleLogin(email, password);
@@ -18,7 +18,8 @@ const Login = () => {
     if (user) {
       console.log(user);
       const redirectTimeout = setTimeout(() => {
-        navigate(user === "ADMIN" ? "/Admin" : "/");
+        // navigate();
+        window.location.href = user === "ADMIN" ? "/Admin" : "/";
       }, 2000);
       return () => clearTimeout(redirectTimeout);
     }

@@ -19,6 +19,7 @@ const Ashebi = () => {
     popStates,
     HandlePopCart,
     AddToCart,
+    setCartRender,
   } = useContext(DataContext);
   const [selectCategory, setSelectCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -133,6 +134,7 @@ const Ashebi = () => {
                       <button
                         onClick={() => {
                           HandlePopCart(item.id);
+                              setCartRender((prev) => !prev);
                               AddToCart(item, 1, item?.price);
                         }}
                         className={` ${

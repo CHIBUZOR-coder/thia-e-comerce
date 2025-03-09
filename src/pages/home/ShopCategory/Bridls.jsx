@@ -24,6 +24,7 @@ const Reviews = () => {
     popStates,
     HandlePopCart,
     AddToCart,
+    setCartRender,
   } = useContext(DataContext);
 
   // Function to filter items based on the selected category
@@ -143,8 +144,9 @@ const Reviews = () => {
                       <p> {item.style} </p>
                       <button
                         onClick={() => {
-                          HandlePopCart(item.id);
-                              AddToCart(item, 1, item?.price);
+                          HandlePopCart(item?.id);
+                          setCartRender((prev) => !prev);
+                          AddToCart(item, 1, item?.price);
                         }}
                         className={` ${
                           popStates[item.id] ? "pop" : ""
