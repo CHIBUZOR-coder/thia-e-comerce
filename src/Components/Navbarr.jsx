@@ -60,7 +60,7 @@ useEffect(() => {
     { tittle: "Reviews", path: "/Reviews", id: "4" },
     { tittle: "Contact", path: "/Contact", id: "5" },
     { tittle: "Custom Fit", path: "/Custom", id: "6" },
-    { tittle: "Shop All", path: "/", id: "7" },
+    { tittle: "Shop All", path: "", id: "7" },
   ];
 
   useEffect(() => {

@@ -13,6 +13,7 @@ import useLocalStorage from "./UseLstorag";
 export const DataContext = createContext();
 const DataProvider = ({ children }) => {
   const [lightMode, setlightMode] = useState(true);
+  const [isAdded, setIsAdded] = useState(false);
   const [lightModWeb, setlightModeWeb] = useState(true);
   const [pop, setPop] = useState(false);
   const [cartCount, setCartCount] = useState(0);
@@ -134,42 +135,41 @@ const DataProvider = ({ children }) => {
     checkTokenExpiry();
   }, []);
 
-const fetchCart = async () => {
-  if (isUser) {
-    // Authenticated user
-    try {
-      const res = await fetch("http://localhost:5000/api/getCart", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // Keep it only here
-      });
-      const data = await res.json();
+  const fetchCart = async () => {
+    if (isUser) {
+      // Authenticated user
+      try {
+        const res = await fetch("http://localhost:5000/api/getCart", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // Keep it only here
+        });
+        const data = await res.json();
 
-      if (res.ok) {
-        console.log(data);
-        // Save to local storage and update state
+        if (res.ok) {
+          console.log(data);
+          // Save to local storage and update state
 
-        SetCartItems(data.data); // Assuming data is an array of cart items
-        localStorage.setItem("cartItems", JSON.stringify(data.data));
-      } else {
-        console.log("error", "Could not get cart");
+          SetCartItems(data.data); // Assuming data is an array of cart items
+          localStorage.setItem("cartItems", JSON.stringify(data.data));
+        } else {
+          console.log("error", "Could not get cart");
+        }
+      } catch (error) {
+        console.error("Failed to fetch cart:", error);
       }
-    } catch (error) {
-      console.error("Failed to fetch cart:", error);
-    }
-  } else {
-    // Unauthenticated user
-    const localCart = localStorage.getItem("cartItems");
-    if (localCart) {
-      SetCartItems(JSON.parse(localCart));
     } else {
-      SetCartItems([]); // Clear cart items if nothing is in local storage
+      // Unauthenticated user
+      const localCart = localStorage.getItem("cartItems");
+      if (localCart) {
+        SetCartItems(JSON.parse(localCart));
+      } else {
+        SetCartItems([]); // Clear cart items if nothing is in local storage
+      }
     }
-  }
-};
-
+  };
 
   useEffect(() => {
     if (isLogin) {
@@ -359,10 +359,10 @@ const fetchCart = async () => {
         const data = await res.json();
         if (res.ok) {
           SetCartItems(data.data); // Set updated cart items
+          setIsAdded(true);
           fetchCart(); // Fetch updated cart from server
           showHide(true, "Product was added to cart successfully", "false");
           console.log("Product was added to cart successfully");
-          
         } else {
           showHide(false, "Error", "Product was not added to cart");
         }
@@ -450,6 +450,8 @@ const fetchCart = async () => {
         fetchCart,
         CartItems,
         cartEffect,
+        isAdded,
+        setIsAdded,
       }}
     >
       {children}

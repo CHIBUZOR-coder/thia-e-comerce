@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbarr";
-import { FaXmark } from "react-icons/fa6";
+import { FaDeleteLeft, FaXmark } from "react-icons/fa6";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -42,6 +42,8 @@ function App() {
     fetchCart,
     CartItems,
     cartEffect,
+    isAdded,
+    isUser,
   } = useContext(DataContext);
 
   const localData = JSON.parse(localStorage.getItem("cartItems")) || null;
@@ -96,6 +98,13 @@ function App() {
       setTotal(total);
     }
   }, [CartItems]);
+
+  useEffect(() => {
+    console.log("isAdded:", isAdded);
+    if (isAdded === true) {
+      fetchCart();
+    }
+  }, [isAdded]);
 
   const [cartitems, setCartItems] = useState(null);
 
@@ -456,7 +465,7 @@ function App() {
                 {/* Checkout */}
                 <div className="p-2 w-full">
                   <div className="w-full flex  justify-center items-center">
-                    {CartItems && CartItems.length > 0 ? (
+                    {UserInfo && CartItems?.length > 0 ? (
                       <div className="w-full flex flex-col gap-3">
                         <div
                           id="tableContainer"
@@ -471,6 +480,7 @@ function App() {
                                 <th className="">Quantity</th>
                                 <th className="">Amount</th>
                                 <th className="">Image</th>
+                                <th className="">Action</th>
                               </tr>
                             </thead>
 
@@ -515,6 +525,18 @@ function App() {
                                         className="h-[50px] w-[40px] object-cover"
                                       />
                                     </td>
+
+                                    <td>
+                                      <button
+                                        // onClick={(e) => {
+                                        //   HandeleDelete(e, item.id);
+                                        //   HandleGetCategories();
+                                        // }}
+                                        className="bg-subMain text-white rounded flexCol w-6 h-6 hover:bg-main transi border border-subMain delete  "
+                                      >
+                                        <FaDeleteLeft />
+                                      </button>
+                                    </td>
                                   </tr>
                                 ))}
                             </tbody>
@@ -537,7 +559,7 @@ function App() {
                                   onClick={(e) => {
                                     e.preventDefault();
                                     HandlePop();
-                                     HandleCheckout();
+                                    HandleCheckout();
                                   }}
                                   className={`${
                                     pop ? "pop" : ""
@@ -565,6 +587,7 @@ function App() {
                                 <th className="">Quantity</th>
                                 <th className="">Amount</th>
                                 <th className="">Image</th>
+                                <th className="">Action</th>
                               </tr>
                             </thead>
 
@@ -609,6 +632,18 @@ function App() {
                                         }
                                         className="h-[50px] w-[40px] object-cover"
                                       />
+                                    </td>
+
+                                    <td>
+                                      <button
+                                        // onClick={(e) => {
+                                        //   HandeleDelete(e, item.id);
+                                        //   HandleGetCategories();
+                                        // }}
+                                        className="bg-subMain text-gray-500 rounded flexCol w-6 h-6 hover:bg-main transi border border-subMain delete  "
+                                      >
+                                        <FaDeleteLeft />
+                                      </button>
                                     </td>
                                   </tr>
                                 ))}

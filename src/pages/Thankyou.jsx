@@ -49,12 +49,9 @@ const Thankyou = () => {
         setBill(data?.data?.bill);
         setProducts(data?.data?.products);
         Autentification();
-        setTimeout(() => {
-          navigate("/");
-        }, 4000);
+        localStorage.removeItem("cartItems")
       } else {
         console.log(data || "Something went wrong");
-        console.log("status", data.data.status);
       }
     } catch (error) {
       console.log(error);
@@ -112,7 +109,7 @@ const Thankyou = () => {
             Thank you for your patronage!
           </p>
           <p className="font-semibold text-2xl text-green">
-            You will be redirected to the home page.
+            Head to the home page to gt more products.
           </p>
           <p className="font-semibold text-4xl text-green animate-bounce">🤗</p>
         </div>
