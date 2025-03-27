@@ -1,6 +1,15 @@
+import { useContext, useEffect } from "react";
 import Footer from "./Footer";
+import { DataContext } from "../../Components/DataContext";
+
 
 const About = () => {
+ const { isUser, cartCount, cartRender, Products } = useContext(DataContext);
+  useEffect(() => {
+    console.log("cartRender changed:", cartRender);
+    console.log("cartNav:", Products);
+  }, [cartRender, Products]);
+
   return (
     <div>
       <div className="">

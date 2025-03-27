@@ -9,6 +9,7 @@ import { PreloadImages } from "../../Components/PreloadImages";
 import { FaFilter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../Components/DataContext";
+import { useSelector, useDispatch } from "react-redux";
 
 const ShopAll = () => {
   const [selectCategory, setSelectCategory] = useState("All");
@@ -16,6 +17,7 @@ const ShopAll = () => {
   const [sortOptions, setSortOptions] = useState("Default");
   const { Allproducts } = useContext(DataContext);
   
+
   const items = Allproducts;
   // console.log();
   

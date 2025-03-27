@@ -59,3 +59,114 @@ user:
 
 
 
+
+
+
+
+
+
+
+ : Products && Products.length ? (
+                      <div className="w-full flex flex-col gap-3">
+                        <div
+                          id="tableContainer"
+                          className="w-full flex flex-col overflow-auto max-h-[300px]"
+                        >
+                          <table className="table-auto text-gray-500 bg-primary   w-full">
+                            <thead>
+                              <tr className="bg-btn sticky  top-0 left-0">
+                                <th className="w-[10%]">S/n</th>
+                                <th className="">Style</th>
+                                <th className="">Size</th>
+
+                                <th className="">Quantity</th>
+                                <th className="">Amount</th>
+                                <th className="">Image</th>
+                                <th className="">Action</th>
+                              </tr>
+                            </thead>
+
+                            {/* <div className="my-0 md:my-[380px]"></div> */}
+                            <tbody>
+                              {Products &&
+                                Products?.map((item, index) => (
+                                  <tr key={index} className="font-semibold">
+                                    <td>{Number(index + 1)}</td>
+                                    <td>{item?.product?.style}</td>
+                                    <td>{item?.product?.size}</td>
+                                    <td>{item?.quantity}</td>
+                                    <td>${item?.product?.price}</td>
+                                    <td className="flex justify-center items-center">
+                                      <img
+                                        src={item?.product?.image}
+                                        alt={item?.product?.image}
+                                        className="h-[50px] w-[40px] object-cover"
+                                      />
+                                    </td>
+
+                                    <td>
+                                      <button
+                                        onClick={(e) => {
+                                          HandleDeleteCart(
+                                            e,
+                                            item?.product?.id,
+                                            UserInfo.id
+                                          );
+                                        }}
+                                        className="bg-subMain text-gray-500 rounded flexCol w-6 h-6 hover:bg-main transi border border-subMain delete  "
+                                      >
+                                        <MdDelete />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        {Products && localTotal ? (
+                          <>
+                            {" "}
+                            <div className="flex flex-col gap-1">
+                              <p className="text-adminTex text-small italic">
+                                Total: {localTotal && localTotal}N
+                              </p>
+                              <p className="text-adminTex text-small italic">
+                                Vat: 100N
+                              </p>
+                              <p className="text-adminTex text-small italic">
+                                Bill: {localTotal + 100}N
+                              </p>
+                            </div>
+                            <div className="w-full flex justify-center items-center">
+                              <button
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  HandlePop();
+                                  // HandleCheckout();
+                                }}
+                                className={`${
+                                  pop ? "pop" : ""
+                                } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                              >
+                                Checkout
+                              </button>
+                            </div>
+                          </>
+                        ) : null}
+                      </div>
+                    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

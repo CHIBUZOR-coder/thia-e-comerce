@@ -215,6 +215,9 @@ body {
   @apply text-2xl font-semibold;
 }
 
+.transi {
+  @apply transition-all ease-in-out duration-150;
+}
 /* 
 .headerrr{
     z-index: 4;
@@ -448,7 +451,7 @@ td {
 
 @media screen and (max-width: 500px) {
   /* Styles for small screens */
-  .navcattt{
+  .navcattt {
     /* background-color: gray; */
     margin-top: 17rem;
   }
@@ -478,6 +481,21 @@ td {
   border-radius: 50%;
   animation: ringg 2s linear infinite;
   display: block;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
+  pointer-events: none;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @media screen and (max-width: 321px) {

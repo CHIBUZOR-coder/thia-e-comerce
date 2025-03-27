@@ -33,6 +33,7 @@ export default {
         subnav: "rgba(255,255,255,.7)",
         footerlinks: "rgb(101,99,99)",
         location: "rgb(79,70,229)",
+        alert:"rgb(247, 244, 244)",
         media: "rgb(122,102,251)",
         green: "rgb(0,128,0)",
         adminTex: "rgb(143,143,143)",

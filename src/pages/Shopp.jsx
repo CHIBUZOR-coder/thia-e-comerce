@@ -1,34 +1,43 @@
-import React, { useState, useEffect, useMemo, useContext, useRef } from "react";
-import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
-import { FaPlus, FaStar } from "react-icons/fa6";
+import React, { useState, useEffect, useMemo, useContext, useRef } from 'react'
+import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
+import { FaPlus, FaStar } from 'react-icons/fa6'
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart } from '../features/cart/cartSlice'
+import { cartActions } from '../features/cart/cartSlice'
 
-import Footer from "./home/Footer";
-import { DataContext } from "../Components/DataContext";
-import QuantityInput from "./home/ShopCategory/Qantity";
+import Footer from './home/Footer'
+import { DataContext } from '../Components/DataContext'
+import QuantityInput from './home/ShopCategory/Qantity'
 
 const Shopp = ({ dataItems }) => {
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const [item, setItem] = useState(null);
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedValue, setSelectedValue] = useState(null);
-  const [Quantity, setQuantity] = useState(1);
+  const [item, setItem] = useState(null)
+  const [selectedSize, setSelectedSize] = useState(null)
+  const [selectedValue, setSelectedValue] = useState(null)
+  const [Quantity, setQuantity] = useState(1)
   // const InputRef = useRef();
-  const { AddToCart, HandlePop, pop } = useContext(DataContext);
-  console.log(Quantity);
-  const HandleAddCartPop = (val1, val2, val3) => {
-    HandlePop();
-    AddToCart(val1, val2, val3);
-  };
+  const { AddToCart, HandlePop, pop } = useContext(DataContext)
+  const dispatch = useDispatch()
+  console.log(Quantity)
+  const HandleAddCartPop = (prod, num, clothSize) => {
+    HandlePop()
+    if (user?.role) {
+      dispatch(addToCart({ prod, num, clothSize, isUser }))
+    } else {
+      dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
+    }
+  }
+  const user = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
-    console.log(pop);
-  }, [pop]);
+    console.log(pop)
+  }, [pop])
 
-  const InputCounter = (event) => {
-    setQuantity(Number(event.target.value) || 1);
-  };
+  const InputCounter = event => {
+    setQuantity(Number(event.target.value) || 1)
+  }
 
   const sizeValues = useMemo(
     () => ({
@@ -36,90 +45,90 @@ const Shopp = ({ dataItems }) => {
       B: { value: 36 },
       C: { value: 38 },
       D: { value: 40 },
-      E: { value: 42 },
+      E: { value: 42 }
     }),
     []
-  );
+  )
 
   useEffect(() => {
     const foundItem =
-      dataItems && dataItems.find((item) => item.id === parseInt(id));
+      dataItems && dataItems.find(item => item.id === parseInt(id))
     if (foundItem) {
-      setItem(foundItem); // Set the item once it's found
+      setItem(foundItem) // Set the item once it's found
     }
-  }, [id, dataItems]);
+  }, [id, dataItems])
 
   useEffect(() => {
     if (item) {
-      const defaultSizeKey = Object.keys(sizeValues)[0]; // Default to first size
-      setSelectedSize(defaultSizeKey);
-      setSelectedValue(sizeValues[defaultSizeKey].value);
+      const defaultSizeKey = Object.keys(sizeValues)[0] // Default to first size
+      setSelectedSize(defaultSizeKey)
+      setSelectedValue(sizeValues[defaultSizeKey].value)
     }
-  }, [item, sizeValues]);
+  }, [item, sizeValues])
 
   // useEffect(() => {
   //   localStorage.setItem("quantity", Quantity);
   // }, [Quantity]);
-  const handleSizeSelect = (sizeKey) => {
-    setSelectedSize(sizeKey); // Update the selected size key
+  const handleSizeSelect = sizeKey => {
+    setSelectedSize(sizeKey) // Update the selected size key
 
     // Log the value associated with the selected key
-    const selected = sizeValues[sizeKey]?.value;
-    setSelectedValue(selected);
-    console.log(selectedValue);
+    const selected = sizeValues[sizeKey]?.value
+    setSelectedValue(selected)
+    console.log(selectedValue)
 
-    console.log(`Selected size value: ${selectedValue}`);
-  };
+    console.log(`Selected size value: ${selectedValue}`)
+  }
 
   const handleIncrease = () => {
-    console.log("Increase button clicked");
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
+    console.log('Increase button clicked')
+    setQuantity(prevQuantity => prevQuantity + 1)
+  }
 
   useEffect(() => {
     if (selectedSize) {
-      console.log(`Selected size: ${selectedSize}`);
+      console.log(`Selected size: ${selectedSize}`)
     }
-  }, [selectedSize]);
+  }, [selectedSize])
 
   useEffect(() => {
-    console.log(`Selected val: ${selectedValue}`);
-  }, []);
+    console.log(`Selected val: ${selectedValue}`)
+  }, [])
 
   const handleDecrease = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-  };
+    setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1))
+  }
 
   if (!item) {
-    return <p>Loading...</p>; // Show "item not found" message if the item is not found
+    return <p>Loading...</p> // Show "item not found" message if the item is not found
   }
 
   // const itemWithQuantity = { ...item, quantity: Quantity, amount: 0 };
   const itemWithQuantity = {
     ...item,
     quantity: Quantity,
-    amount: item.price * Quantity,
-  };
+    amount: item.price * Quantity
+  }
 
   return (
     <div>
-      <div className="md:px-28 py-10 px-4">
-        <div className="flex flex-col md:flex-row w-full gap-5 md:gap-8">
+      <div className='md:px-28 py-10 px-4'>
+        <div className='flex flex-col md:flex-row w-full gap-5 md:gap-8'>
           <div
-            className="h-[500px] w-3/4 rounded-sm"
+            className='h-[500px] w-3/4 rounded-sm'
             style={{
-              background: `url(${item.image}) center center/cover`,
+              background: `url(${item.image}) center center/cover`
             }}
           ></div>
-          <div className="pr-0 md:pr-10">
-            <p className="text-3xl font-semibold">{item.title}</p>
+          <div className='pr-0 md:pr-10'>
+            <p className='text-3xl font-semibold'>{item.title}</p>
 
-            <p className="my-4">
+            <p className='my-4'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam
               vel ratione atque eum iure placeat doloremque laborum et, quaerat
               ullam animi rem nam enim architecto quod perferendis numquam sed?
             </p>
-            <span className="flex justify-start items-start gap-1 my-4 text-yellow-400">
+            <span className='flex justify-start items-start gap-1 my-4 text-yellow-400'>
               <FaStar />
               <FaStar />
               <FaStar />
@@ -127,28 +136,27 @@ const Shopp = ({ dataItems }) => {
               <FaStar />
             </span>
 
-            <p className="text-3xl md:text-xl text-red-500 font-semibold">
+            <p className='text-3xl md:text-xl text-red-500 font-semibold'>
               ${item.price}
             </p>
 
-            <div className="w-1/2 my-4">
+            <div className='w-1/2 my-4'>
               <div>
-                <p className="font-semibold my-2">Size</p>
+                <p className='font-semibold my-2'>Size</p>
 
-                <div className="flex justify-start gap-2 items-center w-full">
+                <div className='flex justify-start gap-2 items-center w-full'>
                   {Object.keys(sizeValues).map((sizeKey, index) => (
                     <span
                       key={index}
                       className={`sizeval ${
-                        selectedSize === sizeKey ? "active" : ""
+                        selectedSize === sizeKey ? 'active' : ''
                       }`}
                       onClick={() => handleSizeSelect(sizeKey)}
                       style={{
                         backgroundColor:
-                          selectedSize === sizeKey ? "#EF4444" : "",
-                        color: selectedSize === sizeKey ? "#ffffff" : "",
-                        border:
-                          selectedSize === sizeKey ? "1px solid #000" : "",
+                          selectedSize === sizeKey ? '#EF4444' : '',
+                        color: selectedSize === sizeKey ? '#ffffff' : '',
+                        border: selectedSize === sizeKey ? '1px solid #000' : ''
                       }}
                     >
                       {sizeValues[sizeKey].value}
@@ -156,10 +164,10 @@ const Shopp = ({ dataItems }) => {
                   ))}
                 </div>
               </div>
-              <div className="w-full flex flex-col gap-2 my-6">
+              <div className='w-full flex flex-col gap-2 my-6'>
                 <label
-                  htmlFor="quantity"
-                  className="font-semibold flex justify-start items-center gap-2"
+                  htmlFor='quantity'
+                  className='font-semibold flex justify-start items-center gap-2'
                 >
                   <p> Quantity</p>
                   {/* <p className="text-red-600">{sizeError ? "Required" : ""}</p> */}
@@ -174,14 +182,14 @@ const Shopp = ({ dataItems }) => {
               <div>
                 <span
                   className={`w-full ${
-                    pop ? "pop" : ""
+                    pop ? 'pop' : ''
                   } h-10 flex justify-center my-4 cursor-pointer items-center gap-3 bg-red-500 text-white font-bold border-red-500 rounded-md transition ease-in-out duration-300 shadow-slate-800 hover:bg-red-200 hover:text-red-500 px-4`}
                   onClick={() => {
                     HandleAddCartPop(
                       itemWithQuantity,
-                      itemWithQuantity.quantity,
+                      itemWithQuantity?.quantity,
                       selectedValue
-                    );
+                    )
                     // console.log(itemWithQuantity);
                     // console.log(Quantity);
                   }}
@@ -195,7 +203,7 @@ const Shopp = ({ dataItems }) => {
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Shopp;
+export default Shopp
