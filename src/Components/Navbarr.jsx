@@ -18,7 +18,7 @@ import { DataContext } from './DataContext'
 import { cartActions } from '../features/cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
+const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false)
   const [isLinkOpen, setIsLinkOpen] = useState(false)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -124,7 +124,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
     console.log(myRef.current.children[1])
   }
   return (
-    <header className='relative px-4 bg-white md:px-28 headerrr md:z-40 z-10 '>
+    <header className={`relative px-4 bg-white md:px-28 headerrr md:z-40 z-10 ${isSticky ? "sticky" : "hidden"} `}>
       <nav className='container relative flex justify-between py-4 md:py-4   '>
         {/* Search Bar */}
         <FaSearch

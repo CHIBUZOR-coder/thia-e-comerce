@@ -317,6 +317,26 @@ function App () {
   }, [])
   // console.log('cloth:', cloth)
 
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isSticky, setIsSticky] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < lastScrollY) {
+        setIsSticky(true) // Scrolling up: Show navbar
+      } else {
+        setIsSticky(false) // Scrolling down: Hide navbar
+      }
+      setLastScrollY(window.scrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [lastScrollY])
+
   return (
     <div>
       {isLoading ? (
@@ -329,8 +349,7 @@ function App () {
         <>
           <DataProvider>
             <div className='relative min-h-screen'>
-              <div className='sticky top-0 left-0 right-0 z-40 '>
-                
+              <div className=' z-40 '>
                 <Navbar
                   handleSearch={handleSearch}
                   handleCart={handleCart}
@@ -338,6 +357,7 @@ function App () {
                   closeCartModal={closeCartModal}
                   close={close}
                   triggerRender={triggerRender}
+                  isSticky={isSticky}
                 />
               </div>
               <Outlet />
