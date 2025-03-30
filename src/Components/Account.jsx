@@ -42,7 +42,7 @@ const Account = () => {
 
   const HandleLogout = async () => {
     try {
-      const res = await fetch('http://localhost:5000/clear-cookies', {
+      const res = await fetch('https://thia-backend.onrender.com/clear-cookies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

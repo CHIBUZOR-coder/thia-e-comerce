@@ -83,7 +83,7 @@ const Signup = () => {
         formData.append('image', image)
       }
 
-      const res = await fetch('http://localhost:5000/api/registerUser', {
+      const res = await fetch('https://thia-backend.onrender.com/api/registerUser', {
         method: 'POST',
         body: formData // Do NOT manually set Content-Type
       })

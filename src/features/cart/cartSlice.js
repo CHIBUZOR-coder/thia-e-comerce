@@ -16,7 +16,7 @@ export const fetchCart = createAsyncThunk(
   'cart/fetchCart',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:5000/api/getCart', {
+      const response = await fetch('https://thia-backend.onrender.com/api/getCart', {
         method: 'GET',
         credentials: 'include'
       })
@@ -42,7 +42,7 @@ export const addToCart = createAsyncThunk(
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/addToCart', {
+      const response = await fetch('https://thia-backend.onrender.com/api/addToCart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ export const deleteFromCart = createAsyncThunk(
   'cart/deleteFromCart',
   async ({ itemId, userId }, { rejectWithValue }) => {
     try {
-      const response = await fetch('http://localhost:5000/api/deleteCart', {
+      const response = await fetch('https://thia-backend.onrender.com/api/deleteCart', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

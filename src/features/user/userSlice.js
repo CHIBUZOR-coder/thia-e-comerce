@@ -16,7 +16,7 @@ export const loginUser = createAsyncThunk(
   "user/loginUser",
   async ({ email, password }, { rejectWithValue, getState }) => {
     try {
-      const response = await fetch("http://localhost:5000/api/loginUser", {
+      const response = await fetch("https://thia-backend.onrender.com/api/loginUser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
       if (localCartItems.length > 0) {
         await Promise.all(
           localCartItems.map(async (item) => {
-            const res = await fetch("http://localhost:5000/api/addToCart", {
+            const res = await fetch("https://thia-backend.onrender.com/api/addToCart", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -67,7 +67,7 @@ export const UserAuthentification = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     const isLogin = localStorage.getItem("isLogin");
     try {
-      const res = await fetch("http://localhost:5000/api/protectedRoute", {
+      const res = await fetch("https://thia-backend.onrender.com/api/protectedRoute", {
         method: "GET",
         headers: {
           "Content-Type": "application/json", // Opt
@@ -105,7 +105,7 @@ export const AddReview = createAsyncThunk(
     console.log("redux:", text);
 
     try {
-      const res = await fetch("http://localhost:5000/add_reviews", {
+      const res = await fetch("https://thia-backend.onrender.com/add_reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
@@ -124,7 +124,7 @@ export const getReview = createAsyncThunk(
   "user/getReview",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:5000/get_client_reviews", {
+      const res = await fetch("https://thia-backend.onrender.com/get_client_reviews", {
         method: "GET",
       });
       const data = await res.json();

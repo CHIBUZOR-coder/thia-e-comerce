@@ -30,7 +30,7 @@ const Thankyou = () => {
 
   const createReciept = async (transaction_id, orderId, email) => {
     try {
-      const response = await fetch("http://localhost:5000/verify_payment", {
+      const response = await fetch("https://thia-backend.onrender.com/verify_payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

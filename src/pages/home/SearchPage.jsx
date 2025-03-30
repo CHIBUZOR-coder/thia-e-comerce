@@ -13,7 +13,7 @@ const SearchPage = () => {
   const HandleFetchStart = async (value) => {
     try {
       let data;
-      const res = await fetch("http://localhost:5000/api/cloths", {
+      const res = await fetch("https://thia-backend.onrender.com/api/cloths", {
         method: "GET",
         headers: {
           "Content-Type": "Application/Json",

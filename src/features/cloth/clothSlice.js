@@ -15,7 +15,9 @@ export const fetchCloths = createAsyncThunk(
   "cloth/fetchUsers",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:5000/api/Cloths");
+      const response = await axios.get(
+        "https://thia-backend.onrender.com/api/Cloths"
+      );
       return response.data;
     } catch (error) {
       console.log("Message:", error.message);

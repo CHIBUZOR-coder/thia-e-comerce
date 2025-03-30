@@ -88,7 +88,7 @@ const DataProvider = ({ children }) => {
         // localStorage.removeItem("UsercartIems");
         localStorage.clear()
         // Send a request to the backend to clear the HTTP-only cookie
-        const res = await fetch('http://localhost:5000/clear-cookies', {
+        const res = await fetch('https://thia-backend.onrender.com/clear-cookies', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -121,7 +121,7 @@ const DataProvider = ({ children }) => {
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
   const Autentification = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/protectedRoute', {
+      const res = await fetch('https://thia-backend.onrender.com/api/protectedRoute', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json' // Opt
@@ -159,7 +159,7 @@ const DataProvider = ({ children }) => {
   //   if (user?.isUser === true) {
   //     // Authenticated user
   //     try {
-  //       const res = await fetch('http://localhost:5000/api/getCart', {
+  //       const res = await fetch('https://thia-backend.onrender.com/api/getCart', {
   //         method: 'GET',
   //         headers: {
   //           'Content-Type': 'application/json'
@@ -202,7 +202,7 @@ const DataProvider = ({ children }) => {
   const handleLogin = async (email, password) => {
     setIsLoadingg(true)
     try {
-      const response = await fetch('http://localhost:5000/api/loginUser', {
+      const response = await fetch('https://thia-backend.onrender.com/api/loginUser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -230,7 +230,7 @@ const DataProvider = ({ children }) => {
         if (localCartItems) {
           await Promise.all(
             localCartItems.products.map(async item => {
-              const res = await fetch('http://localhost:5000/api/addToCart', {
+              const res = await fetch('https://thia-backend.onrender.com/api/addToCart', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -322,7 +322,7 @@ const DataProvider = ({ children }) => {
     data: Allproducts,
     isLoading,
     error
-  } = DataResolve('http://localhost:5000/api/Cloths', 'GET')
+  } = DataResolve('https://thia-backend.onrender.com/api/Cloths', 'GET')
 
   // console.log(Allproducts);
 
@@ -353,7 +353,7 @@ const DataProvider = ({ children }) => {
     if (isUser) {
       HandlePop()
       try {
-        const res = await fetch('http://localhost:5000/api/addToCart', {
+        const res = await fetch('https://thia-backend.onrender.com/api/addToCart', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -417,7 +417,7 @@ const DataProvider = ({ children }) => {
   const HandleDeleteCart = async productId => {
     if (isUser) {
       try {
-        const res = await fetch('http://localhost:5000/api/deleteCart', {
+        const res = await fetch('https://thia-backend.onrender.com/api/deleteCart', {
           method: 'DELETE',
           credentials: 'include',
           headers: {

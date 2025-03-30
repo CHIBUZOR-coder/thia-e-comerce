@@ -15,7 +15,7 @@ const VerifyEmail = () => {
   const verifyEmail = async token => {
     try {
       const response = await fetch(
-        'http://localhost:5000/verifyEmail',
+        'https://thia-backend.onrender.com/verifyEmail',
         {
           method: 'POST',
 
