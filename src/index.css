@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"); /* Corrected font-family */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); /* Corrected font-family */
+@import url("https://fonts.googleapis.com/css2?family=Agu+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   overflow-x: hidden;
 }
@@ -295,6 +298,7 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 1s ease-in-out;
   opacity: 0;
+    max-width: 100%;
   /* Start with invisible */
   visibility: hidden;
   /* Start as hidden */
@@ -303,6 +307,7 @@ body {
   opacity: 1;
   /* Fully visible when open */
   visibility: visible;
+    max-width: 100%;
   /* Fully visible when open */
 }
 
@@ -380,6 +385,10 @@ td {
 
 .formLight {
   background-color: rgba(226, 253, 255, 0.8);
+}
+
+.formLight2 {
+  background-color: rgba(226, 253, 255, 0.9);
 }
 
 .ainput {
@@ -504,4 +513,12 @@ td {
     background-color: yellow;
     margin-top: 6rem;
   }
+}
+
+
+
+.thiaLearn {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+ 
 }

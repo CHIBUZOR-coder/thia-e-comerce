@@ -6,12 +6,14 @@ import { loginUser } from '../features/user/userSlice'
 import { UserAuthentification } from '../features/user/userSlice'
 import { use } from 'react'
 import Footer from './home/Footer'
+import { LuLoaderPinwheel } from 'react-icons/lu'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const navigate = useNavigate()
+  const [isLoading, setIsloading] = useState(false)
 
   const { HandlePop, pop, errColor, isLoadingg } = useContext(DataContext)
 
@@ -31,10 +33,12 @@ const Login = () => {
   }, [user, navigate])
 
   const handleLogin = async () => {
+    setIsloading(true)
     const result = await dispatch(loginUser({ email, password })).unwrap()
     console.log('logResult', result)
 
     if (result.success === true) {
+      setIsloading(false)
       const authUserData = await dispatch(UserAuthentification()).unwrap()
       console.log('authUserData:', authUserData)
     }
@@ -52,7 +56,6 @@ const Login = () => {
         <div className='flex flex-col mt-14 justify-center items-center gap-4 w-full'>
           <h2 className='text-2xl font-semibold'>Login User</h2>
 
-
           <div className='formLight w-[85%] md:w-[60%] p-10 rounded-sm border-2 border-formBorder'>
             {user && (
               <h2
@@ -62,6 +65,17 @@ const Login = () => {
               >
                 {message}
               </h2>
+            )}
+
+            {isLoading && (
+              <div
+                className={`${
+                  isLoading ? 'show' : 'hide'
+                } p-3  z-20 my-2  animate flex justify-center items-center font-semibold text-gray-500`}
+              >
+                <p className='text-2xl font-semibold '>Loging in</p>
+                <LuLoaderPinwheel className='h-10 w-10 animate-spin' />
+              </div>
             )}
             <form className='w-full flex flex-col justify-center items-center gap-5'>
               <div className='w-[100%] md:w-[70%] flex flex-col gap-4'>

@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import './App.css'
 import Navbar from './Components/Navbarr'
-import { FaDeleteLeft, FaXmark } from 'react-icons/fa6'
+import { FaDeleteLeft, FaScissors, FaXmark } from 'react-icons/fa6'
 import { IoIosArrowDropleft, IoIosArrowDropright } from 'react-icons/io'
 import { MdDelete } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -13,6 +13,7 @@ import { fetchCloths } from './features/cloth/clothSlice'
 import { cartActions } from './features/cart/cartSlice'
 import { deleteFromCart } from './features/cart/cartSlice'
 import { fetchCart } from './features/cart/cartSlice'
+import { ImCancelCircle } from 'react-icons/im'
 
 import {
   FaBars,
@@ -22,6 +23,8 @@ import {
   FaUser
 } from 'react-icons/fa'
 import DataProvider, { DataContext } from './Components/DataContext'
+import { LuLoaderPinwheel } from 'react-icons/lu'
+import Apply from './pages/home/Apply'
 
 function App () {
   const [IsSearchOpen, SetIsSearchOpen] = useState(false)
@@ -38,6 +41,17 @@ function App () {
   const [heightTrue, setheightTrue] = useState(false)
   const [rerender, setRerender] = useState(false)
   const [Total, setTotal] = useState(0)
+  const [reload, setReload] = useState(useSelector(state => state.cart.render))
+  const [AppllyModal, setAppllyModal] = useState(false)
+
+  const HandelApply = e => {
+    e.preventDefault()
+    setAppllyModal(prev => !prev)
+  }
+
+  useEffect(() => {
+    console.log('ApplyModal:', AppllyModal)
+  }, [AppllyModal])
 
   // const []
 
@@ -64,9 +78,9 @@ function App () {
 
   // console.log("localTotal", localTotal);
 
-  // useEffect(() => {
-  //   console.log('AppN:', Products)
-  // }, [Products])
+  useEffect(() => {
+    console.log('AppN:', reload)
+  }, [])
 
   const [count, setCount] = useState(0)
 
@@ -81,11 +95,14 @@ function App () {
     console.log('Initiating payment with:', { email, bill })
 
     try {
-      const res = await fetch('https://thia-backend.onrender.com/initiate_payment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, bill })
-      })
+      const res = await fetch(
+        'https://thia-backend.onrender.com/initiate_payment',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, bill })
+        }
+      )
 
       console.log('Response Status:', res.status)
 
@@ -274,10 +291,11 @@ function App () {
   // console.log('user:', user)
 
   const userAuth = JSON.parse(localStorage.getItem('userDetails'))
-
+  const [DeleteLoading, setDeleteLoading] = useState(false)
   const HandleDeleteCart = async (e, itemId) => {
     e.preventDefault()
     console.log('itemId:', itemId)
+    setDeleteLoading(prev => ({ ...prev, [itemId]: true }))
 
     if (user && user?.role) {
       try {
@@ -292,11 +310,16 @@ function App () {
         if (result.success === true) {
           const fetchCartData = await dispatch(fetchCart()).unwrap()
           console.log('fetchCart After delete:', fetchCartData)
+          if (fetchCartData.success === true) {
+            setDeleteLoading(prev => ({ ...prev, [itemId]: false }))
+          }
         }
       } catch (error) {
         console.error('error:', error.message)
       }
     } else {
+      console.log('deleting cart...')
+
       dispatch(cartActions.removeFromCartLocal({ itemId }))
     }
 
@@ -304,39 +327,20 @@ function App () {
   }
 
   useEffect(() => {
-    console.log('App has rerendred:', rerender)
+    console.log('App has rerendred')
 
     const newTotal = CartItems.reduce(
       (acc, curr) => acc + curr.price * curr.quantity,
       0
     )
     setTotal(parseFloat(newTotal.toFixed(2)))
-  }, [rerender, CartItems])
+  }, [CartItems])
   useEffect(() => {
     dispatch(fetchCloths())
   }, [])
   // console.log('cloth:', cloth)
 
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [isSticky, setIsSticky] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY < lastScrollY) {
-        setIsSticky(true) // Scrolling up: Show navbar
-      } else {
-        setIsSticky(false) // Scrolling down: Hide navbar
-      }
-      setLastScrollY(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [lastScrollY])
-
+  const [spin, setSpin] = useState(false)
   return (
     <div>
       {isLoading ? (
@@ -346,10 +350,10 @@ function App () {
           </div>
         </div>
       ) : (
-        <>
+        <div className='overflow-hidden w-full relative'>
           <DataProvider>
             <div className='relative min-h-screen'>
-              <div className=' z-40 '>
+              <div className=' '>
                 <Navbar
                   handleSearch={handleSearch}
                   handleCart={handleCart}
@@ -357,13 +361,52 @@ function App () {
                   closeCartModal={closeCartModal}
                   close={close}
                   triggerRender={triggerRender}
-                  isSticky={isSticky}
                 />
               </div>
               <Outlet />
             </div>
 
+            {/****************************************Apply Modal********************************** */}
+            {/* ************************************************************************************** */}
+            <div className={` ${AppllyModal ? 'hidden' : 'block'}`}>
+              <button
+                onClick={e => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                  HandelApply(e)
+                }}
+                className={`fixed bottom-5 right-5 bg-gray-300 text-gray-500 flex justify-center items-center p-2 rounded-lg gap-3 border-2 border-black `}
+              >
+                <span className='text-xl font-semibold thiaLearn'>
+                  {' '}
+                  Learn From Thia
+                </span>
+                <FaScissors className=' ' />
+              </button>
+            </div>
+
+            <div
+              className={`w-full min-h-[200vh] bg-trans py-12 absolute top-0 left-0 flex justify-center  px-10 z-50  ${
+                AppllyModal ? 'block' : 'hidden'
+              }`}
+            >
+              <div
+                onMouseOver={e => {
+                  e.preventDefault()
+                  setSpin(true)
+                }}
+                onClick={() => setAppllyModal(prev => !prev)}
+                className='absolute  top-20 cursor-pointer right-36 rounded-full  text-gray-500 bg-white flex justify-center items-center'
+              >
+                <ImCancelCircle className='h-10 w-10 ' />
+              </div>
+
+              <div className='  w-[60%] mt-28'>
+                <Apply />
+              </div>
+            </div>
+
             {/* smallscreen Cart header */}
+
             <div
               onClick={closeCartModal}
               className={`absolute  w-full top-0 left-0 min-h-[200vh] z-10 coverDiv2  ${
@@ -372,7 +415,7 @@ function App () {
             >
               {/* Cart section */}
               <div
-                className={`search2 absolute w-full md:w-[45%] h-[100vh] overflow-y-scroll  gap-3  top-0 right-0 flex flex-col justify-center  items-start bg-white  z-50 text-black  ${
+                className={`search2 absolute w-full lg:w-[45%] h-[100vh] overflow-y-scroll  gap-3  top-0 right-0 flex flex-col justify-center  items-start bg-white  z-50 text-black  ${
                   IsCartOpen ? 'open' : 'closed'
                 }  `}
               >
@@ -587,11 +630,20 @@ function App () {
                                       <td>
                                         <button
                                           onClick={e => {
-                                            HandleDeleteCart(e, item?.itemid)
+                                            HandleDeleteCart(
+                                              e,
+                                              user && user.role
+                                                ? item?.id
+                                                : item?.id
+                                            )
                                           }}
-                                          className='bg-subMain text-white rounded flexCol w-6 h-6 hover:bg-main transi border border-subMain delete  '
+                                          className='bg-subMain text-gray-500 rounded flexCol w-6 h-6 hover:bg-main transi flex justify-center items-center  border border-gray-500 delete   '
                                         >
-                                          <MdDelete />
+                                          {DeleteLoading[item?.id] ? (
+                                            <LuLoaderPinwheel className='animate-spin' />
+                                          ) : (
+                                            <MdDelete />
+                                          )}
                                         </button>
                                       </td>
                                     </tr>
@@ -641,6 +693,7 @@ function App () {
                     )}
                   </div>
                 </div>
+
                 <div className='  flex justify-center items-center w-full   md:top-1/2  py-4 '>
                   <a
                     href={`/Allshops`}
@@ -654,6 +707,7 @@ function App () {
                 </div>
               </div>
             </div>
+
             {/* --- */}
 
             {/* Cart navbar */}
@@ -749,10 +803,8 @@ function App () {
                 </div>
               </div>
             </div>
-
-            <data />
           </DataProvider>
-        </>
+        </div>
       )}
     </div>
   )

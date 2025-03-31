@@ -18,13 +18,15 @@ import { cartActions } from '../../../features/cart/cartSlice'
 import { addToCart } from '../../../features/cart/cartSlice'
 
 const Akara = () => {
+
+
   const {
     // AnkaraProducts: items,
     error,
     isLoading,
     popStates,
     HandlePopCart,
-    // AddToCart,
+
     setCartRender
   } = useContext(DataContext)
   useEffect(() => {
@@ -46,6 +48,7 @@ const Akara = () => {
   const cloth = useSelector(state =>
     state?.cloth?.data.filter(item => item.brand === 'Ankara')
   )
+
   useEffect(() => {
     dispatch(fetchCloths())
   }, [])
@@ -69,6 +72,8 @@ const Akara = () => {
         console.error('Unexpected error:', error)
       }
     } else {
+      console.log('Adding Localcart... ')
+
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
   }

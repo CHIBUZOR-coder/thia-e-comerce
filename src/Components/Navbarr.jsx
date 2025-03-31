@@ -18,14 +18,15 @@ import { DataContext } from './DataContext'
 import { cartActions } from '../features/cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
+const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false)
   const [isLinkOpen, setIsLinkOpen] = useState(false)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   const dispatch = useDispatch()
-  // const cartCount = useSelector((state) => state.cart.cartCount);
-  const cartCount = localStorage.getItem('cartCount')
+  const LocalcartCount = localStorage.getItem('cartCount')
+
+  const cartCount = useSelector(state => state.cart.cartCount) || LocalcartCount
 
   // const user = useSelector(state => state.user)
   const user = JSON.parse(localStorage.getItem('user'))
@@ -124,12 +125,14 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
     console.log(myRef.current.children[1])
   }
   return (
-    <header className={`relative px-4 bg-white md:px-28 headerrr md:z-40 z-10 ${isSticky ? "sticky" : "hidden"} `}>
+    <header
+      className={`relative px-4 bg-white md:px-28 headerrr md:z-40 z-10   `}
+    >
       <nav className='container relative flex justify-between py-4 md:py-4   '>
         {/* Search Bar */}
         <FaSearch
           onClick={handleSearch}
-          className='hidden w-5 h-5 text-black cursor-pointer md:block'
+          className='hidden w-5 h-5 text-black cursor-pointer md:block '
         />
 
         {/* Logo */}
@@ -142,15 +145,15 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
         </Link>
 
         {/* Account & User */}
-        <div className='hidden gap-10 text-lg text-black md:flex justify-center items-start z-20 '>
+        <div className='hidden gap-10 text-lg text-black md:flex justify-center items-start z-20  '>
           {/* Cart count*/}
           <span
             ref={myRef}
             onClick={handleCart}
-            className={`parrent  cursor-pointer  transition ease-in-out duration-700 h-8 w-8 rounded-full flex justify-center items-baseline relative z-20`}
+            className={`parrent   cursor-pointer  transition ease-in-out duration-700 h-8 w-8 rounded-full flex justify-center items-baseline relative z-20`}
           >
             <FaShoppingBag className='w-7 h-7 text-black  relative'></FaShoppingBag>
-            <p className='absolute font-semibold top-1 text-white z-10'>
+            <p className='absolute font-semibold top-1 text-white z-10 '>
               {(cartCount && cartCount) || 0}
             </p>
             {/* <span
@@ -161,7 +164,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
           </span>
           <Link
             to={`${user && user?.role ? '/Account' : '/Login'}`}
-            className='flex items-baseline '
+            className='flex items-baseline  '
           >
             <FaUser className='w-7 h-7' />
             Account
@@ -169,8 +172,8 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
         </div>
 
         {/* Navbar toggler for sm devices */}
-        <div className='block md:hidden'>
-          <button onClick={togglee}>
+        <div className='block md:hidden '>
+          <button onClick={togglee} >
             {IsMenuOpen ? (
               <FaTimes className='w-6 h-6 text-black' />
             ) : (
@@ -182,7 +185,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
       <hr />
 
       {/* Big Screen */}
-      <div className='hidden pt-4 largeScreen hider md:block '>
+      <div className='hidden pt-4 largeScreen hider md:block  '>
         <ul className='items-center justify-between hidden gap-4 font-semibold text-black md:flex'>
           {NavItems.map(({ tittle, path }) => (
             <li
@@ -283,7 +286,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
             IsMenuOpen && screenWidth < 760 ? '' : 'hidden'
           }`}
         >
-          <div className='flex flex-col gap-4'>
+          <div className='flex flex-col gap-4 '>
             {NavItems.map(({ tittle, path }) => (
               <li
                 key={tittle}
@@ -376,7 +379,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender, isSticky }) => {
           </div>
 
           {/**************************mobile menu icons **************************************/}
-          <div className='flex  w-3/4 justify-end items-start px-4 '>
+          <div className='flex  w-3/4 justify-end items-start px-4  '>
             <div className='text-lg flex h-1/2.5 text-white sm:flex gap-8 md:hidden'>
               <Link
                 onClick={togglee}
