@@ -9,14 +9,9 @@ const Apply = () => {
   const [lastName, setLastname] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmpassword] = useState('')
+
   const [address, setAddress] = useState('')
-  const [address2, setAddress2] = useState('')
-  const [city, setCity] = useState('')
-  const [postal_code, setPostal_code] = useState('')
-  const [country, setCountry] = useState('')
-  const [post, setPost] = useState(false)
+
   const [image, setImage] = useState(null)
   const [feedback, setFeedback] = useState('')
   const [isLoading, setIsloading] = useState(false)
@@ -27,13 +22,13 @@ const Apply = () => {
   const HandleSignup = async () => {
     setIsloading(true)
 
-    if (!firstName || !lastName || !email || phone ) {
+    if (
+      !(firstName && firstName) ||
+      !(lastName && lastName) ||
+      !(email && email) ||
+      !(phone && phone)
+    ) {
       console.log('Please fill in all required fields.')
-      return
-    }
-
-    if (password !== confirmPassword) {
-      console.log('Passwords do not match!')
       return
     }
 
@@ -49,7 +44,7 @@ const Apply = () => {
       }
 
       const res = await fetch(
-        'https://thia-backend.onrender.com/api/registerUser',
+        'https://thia-backend.onrender.com/registerApplicants',
         {
           method: 'POST',
           body: formData // Do NOT manually set Content-Type
@@ -108,7 +103,7 @@ const Apply = () => {
               onChange={e => {
                 e.preventDefault()
                 setFirstname(e.target.value)
-                // console.log(firstname);
+                console.log(firstName)
               }}
               className='createAcctInput'
               type='text'
@@ -123,7 +118,7 @@ const Apply = () => {
               onChange={e => {
                 e.preventDefault()
                 setLastname(e.target.value)
-                // console.log(lastname);
+                console.log(lastName)
               }}
               className='createAcctInput'
               type='text'
@@ -138,7 +133,7 @@ const Apply = () => {
               onChange={e => {
                 e.preventDefault()
                 setEmail(e.target.value)
-                // console.log(email);
+                console.log(email)
               }}
               type='text'
               className='createAcctInput'
@@ -153,7 +148,7 @@ const Apply = () => {
               onChange={e => {
                 e.preventDefault()
                 setPhone(e.target.value)
-                // console.log(phone);
+                console.log(phone)
               }}
               type='text'
               className='createAcctInput'
@@ -164,6 +159,21 @@ const Apply = () => {
             />
           </div>
 
+          <div className='createAcctInputDiv'>
+            <input
+              onChange={e => {
+                e.preventDefault()
+                setAddress(e.target.value)
+                console.log(address)
+              }}
+              className='createAcctInput'
+              type='text'
+              name='adress'
+              required
+              id='adress'
+              placeholder='Billing Adress'
+            />
+          </div>
           <div className='createAcctInputDiv'>
             <p className='text-gray-500 font-semibold'>Profile picture</p>
             <input
