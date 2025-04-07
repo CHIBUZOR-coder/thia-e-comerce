@@ -42,16 +42,7 @@ function App () {
   const [rerender, setRerender] = useState(false)
   const [Total, setTotal] = useState(0)
   const [reload, setReload] = useState(useSelector(state => state.cart.render))
-  const [AppllyModal, setAppllyModal] = useState(false)
-
-  const HandelApply = e => {
-    e.preventDefault()
-    setAppllyModal(prev => !prev)
-  }
-
-  useEffect(() => {
-    console.log('ApplyModal:', AppllyModal)
-  }, [AppllyModal])
+ 
 
   // const []
 
@@ -368,42 +359,9 @@ function App () {
 
             {/****************************************Apply Modal********************************** */}
             {/* ************************************************************************************** */}
-            <div className={` ${AppllyModal ? 'hidden' : 'block'}`}>
-              <button
-                onClick={e => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                  HandelApply(e)
-                }}
-                className={`fixed bottom-5 right-5 bg-gray-300 text-gray-500 flex justify-center items-center p-2 rounded-lg gap-3 border-2 border-black `}
-              >
-                <span className='text-xl font-semibold thiaLearn'>
-                  {' '}
-                  Learn From Thia
-                </span>
-                <FaScissors className=' ' />
-              </button>
-            </div>
+          
 
-            <div
-              className={`w-full min-h-[200vh] bg-trans py-12 absolute top-0 left-0 flex justify-center  px-10 z-50  ${
-                AppllyModal ? 'block' : 'hidden'
-              }`}
-            >
-              <div
-                onMouseOver={e => {
-                  e.preventDefault()
-                  setSpin(true)
-                }}
-                onClick={() => setAppllyModal(prev => !prev)}
-                className='absolute  top-20 cursor-pointer right-36 rounded-full  text-gray-500 bg-white flex justify-center items-center'
-              >
-                <ImCancelCircle className='h-10 w-10 ' />
-              </div>
-
-              <div className='  w-[60%] mt-28'>
-                <Apply />
-              </div>
-            </div>
+            
 
             {/* smallscreen Cart header */}
 

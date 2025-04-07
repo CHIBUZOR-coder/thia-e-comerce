@@ -43,13 +43,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchCloths } from '../../../features/cloth/clothSlice.js'
 import Bridals from './Bridls.jsx'
 import VerifyEmail from '../../verifyEmail.jsx'
+import Admission from '../../../Admin/Admission.jsx'
+import Payment from '../Payment.jsx'
 
 const RenderAppWithData = () => {
   // const [Data, setData] = useState()
 
-  const { lightMode, Data } = useContext(DataContext)
+  const { Data } = useContext(DataContext)
   //using redox below
- 
+
   const AnkaraProducts = Data.filter(item => item.brand === 'Ankara')
   const AhebiProducts = Data.filter(item => item.brand === 'Ashoebi')
   const CoperateProducts = Data.filter(item => item.brand === 'coperate')
@@ -103,7 +105,7 @@ const RenderAppWithData = () => {
         },
         {
           path: '/Bridls',
-          element: <Bridals  />
+          element: <Bridals />
         },
         {
           path: '/Matchng',
@@ -120,7 +122,7 @@ const RenderAppWithData = () => {
         { path: '/Account', element: <Account /> },
         { path: '/Signup', element: <Signup /> },
         { path: '/thankyou', element: <Thankyou /> },
-         { path: '/verifyEmail', element: <VerifyEmail/> },
+        { path: '/verifyEmail', element: <VerifyEmail /> },
         {
           path: '/Ankara/:id',
           element: <Shopp dataItems={AnkaraProducts} />
@@ -149,6 +151,10 @@ const RenderAppWithData = () => {
           path: '/Kidies/:id',
           element: <Shopp dataItems={KidiesProducts} />
         },
+        {
+          path: '/payment',
+          element: <Payment />
+        }
       ]
     },
 
@@ -175,6 +181,10 @@ const RenderAppWithData = () => {
         {
           path: '/Admin/AdminHome4',
           element: <AdminHome4 />
+        },
+        {
+          path: '/Admin/applicants',
+          element: <Admission />
         }
       ]
     }

@@ -11,6 +11,7 @@ import { LuLoaderPinwheel } from 'react-icons/lu'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
   const navigate = useNavigate()
   const [isLoading, setIsloading] = useState(false)
@@ -32,6 +33,9 @@ const Login = () => {
     }
   }, [user, navigate])
 
+  const logError = useSelector(state => state.user.error)
+  // console.log('error', error)
+
   const handleLogin = async () => {
     setIsloading(true)
     const result = await dispatch(loginUser({ email, password })).unwrap()
@@ -41,10 +45,14 @@ const Login = () => {
       setIsloading(false)
       const authUserData = await dispatch(UserAuthentification()).unwrap()
       console.log('authUserData:', authUserData)
+      setMessage(result.message)
+    } else {
+      setMessage(result.message)
+      console.log('error')
     }
   }
-  const message =
-    user?.user?.success === true ? user?.user?.message : user?.user?.error || ''
+  // const message =
+  //   user?.user?.success === true ? user?.user?.message : user?.user?.error || ''
 
   return (
     <div>
@@ -63,14 +71,14 @@ const Login = () => {
                   user?.errColor ? 'text-red-700' : ''
                 } text-center font-bold mb-4`}
               >
-                {message}
+                {message || logError}
               </h2>
             )}
 
             {isLoading && (
               <div
                 className={`${
-                  isLoading ? 'show' : 'hide'
+                  isLoading && !logError ? 'show' : 'hide'
                 } p-3  z-20 my-2  animate flex justify-center items-center font-semibold text-gray-500`}
               >
                 <p className='text-2xl font-semibold '>Loging in</p>

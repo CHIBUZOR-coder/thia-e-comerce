@@ -474,11 +474,11 @@ td {
   }
   50% {
     transform: rotate(180deg);
-    box-shadow: 1px 5px 2px rgba(242, 0, 0, 1);
+    box-shadow: 1px 5px 2px rgb(98, 97, 97);
   }
   100% {
     transform: rotate(360deg);
-    box-shadow: 1px 5px 2px rgb(27, 50, 37);
+    box-shadow: 1px 5px 2px rgb(50, 63, 56);
   }
 }
 
@@ -487,7 +487,7 @@ td {
   position: absolute;
   height: 100%;
   width: 100%;
-  box-shadow: 0 0 3px rgba(242, 0, 0, 1);
+  box-shadow: 0 0 3px rgb(40, 11, 11);
   border-radius: 50%;
   animation: ringg 2s linear infinite;
   display: block;
@@ -501,7 +501,22 @@ td {
   pointer-events: none;
 }
 
+.hide2 {
+  opacity: 0;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
+  pointer-events: none;
+}
+
 .show {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.show2 {
   opacity: 1;
   transform: translateX(0);
   visibility: visible;

@@ -88,13 +88,16 @@ const DataProvider = ({ children }) => {
         // localStorage.removeItem("UsercartIems");
         localStorage.clear()
         // Send a request to the backend to clear the HTTP-only cookie
-        const res = await fetch('https://thia-backend.onrender.com/clear-cookies', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include'
-        })
+        const res = await fetch(
+          'https://thia-backend.onrender.com/clear-cookies',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+          }
+        )
 
         let data
 
@@ -121,15 +124,18 @@ const DataProvider = ({ children }) => {
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
   const Autentification = async () => {
     try {
-      const res = await fetch('https://thia-backend.onrender.com/api/protectedRoute', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json' // Opt
-          //
-          // ional, depending on your API
-        },
-        credentials: 'include' // Include cookies in the request
-      })
+      const res = await fetch(
+        'https://thia-backend.onrender.com/api/protectedRoute',
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json' // Opt
+            //
+            // ional, depending on your API
+          },
+          credentials: 'include' // Include cookies in the request
+        }
+      )
 
       if (!res.ok) {
         const errorData = await res.json()
@@ -155,61 +161,102 @@ const DataProvider = ({ children }) => {
     }
   }, [])
 
-  // const fetchCart = async () => {
-  //   if (user?.isUser === true) {
-  //     // Authenticated user
-  //     try {
-  //       const res = await fetch('https://thia-backend.onrender.com/api/getCart', {
-  //         method: 'GET',
-  //         headers: {
-  //           'Content-Type': 'application/json'
-  //         },
-  //         credentials: 'include' // Keep it only here
-  //       })
-  //       const data = await res.json()
+  const [applicants, setApplicants] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('applicants')) || []
+    } catch (error) {
+      console.error('Error parsing localStorage data:', error)
+      return []
+    }
+  })
 
-  //       if (res.ok) {
-  //         console.log(data)
-  //         // Save to local storage and update state
+  const [apprentice, setApprentice] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('apprentice')) || []
+    } catch (error) {
+      console.error('Error parsing localStorage data:', error)
+      return []
+    }
+  })
 
-  //         SetCartItems(data.data) // Assuming data is an array of cart items
-  //         localStorage.setItem('cartItems', JSON.stringify(data.data))
-  //       } else {
-  //         console.log('error', 'Could not get cart')
-  //       }
-  //     } catch (error) {
-  //       console.error('Failed to fetch cart:', error)
-  //     }
-  //   } else {
-  //     // Unauthenticated user
-  //     // const localCart = localStorage.getItem("cartItems");
-  //     if (localCart) {
-  //       SetCartItems(JSON.parse(localCart))
-  //     } else {
-  //       SetCartItems([]) // Clear cart items if nothing is in local storage
-  //     }
-  //   }
-  // }
+  const [loading, setLoading] = useState(false)
+  const HandelGetApplicants = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch(
+        'https://thia-backend.onrender.com/getApplicants',
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include'
+        }
+      )
 
-  // useEffect(() => {
-  //   if (isLogin) {
-  //     fetchCart()
-  //   }
-  // }, [isLogin])
+      const data = await res.json()
+      if (!res.ok) {
+        console.log(data)
+      } else if (data && data.data) {
+        console.log(data);
+        setApplicants(data.data)
+        localStorage.setItem('applicants', JSON.stringify(data.data)) // Corrected this line
+      }
+    } catch (error) {
+      console.error('Fetch error:', error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
 
+  const HandelGetApprentice = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch(
+        'https://thia-backend.onrender.com/getApprentice',
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include'
+        }
+      )
+      const data = await res.json()
+      if (!res.ok) {
+        console.log(data)
+      } else {
+        console.log(data)
+        setApprentice(data.data)
+        localStorage.setItem('apprentice', JSON.stringify(data.data)) // Corrected this line
+      }
+    } catch (error) {
+      console.error('Fetch error:', error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    HandelGetApplicants()
+    HandelGetApprentice()
+  }, [])
   //****************************************** */
   //Login form. it is called from login component when a user tries to login
   const handleLogin = async (email, password) => {
     setIsLoadingg(true)
     try {
-      const response = await fetch('https://thia-backend.onrender.com/api/loginUser', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password }),
-        credentials: 'include'
-      })
+      const response = await fetch(
+        'https://thia-backend.onrender.com/api/loginUser',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password }),
+          credentials: 'include'
+        }
+      )
 
       let localCartItems
       const data = await response.json()
@@ -230,17 +277,20 @@ const DataProvider = ({ children }) => {
         if (localCartItems) {
           await Promise.all(
             localCartItems.products.map(async item => {
-              const res = await fetch('https://thia-backend.onrender.com/api/addToCart', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  clothId: parseInt(item.product.id),
-                  quantity: parseInt(item.quantity)
-                }),
-                credentials: 'include'
-              })
+              const res = await fetch(
+                'https://thia-backend.onrender.com/api/addToCart',
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    clothId: parseInt(item.product.id),
+                    quantity: parseInt(item.quantity)
+                  }),
+                  credentials: 'include'
+                }
+              )
 
               const cartdata = await res.json()
 
@@ -289,16 +339,6 @@ const DataProvider = ({ children }) => {
     }
   }, [isLogin])
 
-  // useEffect(() => {
-  //   console.log('CartItems:', CartItems)
-  // }, [CartItems]) // Dependency is CartItems to ensure this effect runs only when CartItems change
-
-  // Dependencies: Products array should trigger when items are added/removed
-
-  // useEffect(() => {
-  //   console.log('cartcount', cartCount)
-  // }, [cartCount])
-
   const HandleModeChangeWeb = () => {
     setlightModeWeb(!lightModWeb)
   }
@@ -318,171 +358,50 @@ const DataProvider = ({ children }) => {
   const showHide = (success, trueText, falseText) =>
     success === 'true' ? <h2>{trueText}</h2> : <h2>{falseText}</h2>
 
-  const {
-    data: Allproducts,
-    isLoading,
-    error
-  } = DataResolve('https://thia-backend.onrender.com/api/Cloths', 'GET')
-
-  // console.log(Allproducts);
-
-  const filterProductsByBrand = brand =>
-    Allproducts?.filter(product => product.brand === brand) || []
-
-  const AnkaraProducts = filterProductsByBrand('Ankara')
-  const AhebiProducts = filterProductsByBrand('Ashoebi')
-  //THE Inconsitency happend when i had the name Ashebi
-  const CoperateProducts = filterProductsByBrand('coperate')
-  const KaftanProducts = filterProductsByBrand('kaftan')
-  const MatchingProducts = filterProductsByBrand('matching')
-
-  const BridalProducts = filterProductsByBrand('bridals')
-  const KidiesProducts = filterProductsByBrand('kidies')
-  const Featured = filterProductsByBrand('featured')
-
   const cartEffect = setter => {
     setter(prev => !prev)
   }
 
-  const AddToCart = async (prod, num, clothSize) => {
-    if (!localDelete && !clothSize) {
-      setSizeError(true)
-      return
-    }
+  const [DeleteLoading, setDeleteLoading] = useState(false)
 
-    if (isUser) {
-      HandlePop()
-      try {
-        const res = await fetch('https://thia-backend.onrender.com/api/addToCart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            clothId: prod.id,
-            quantity: num,
-            sizee: clothSize
-          }),
-          credentials: 'include'
-        })
+  const HandleDeleteApplicant = async id => {
+    setDeleteLoading(prev => ({ ...prev, [id]: true }))
 
-        const data = await res.json()
-        if (res.ok) {
-          SetCartItems(data.data) // Set updated cart items
-          setIsAdded(true)
-          fetchCart() // Fetch updated cart from server
-          showHide(true, 'Product was added to cart successfully', 'false')
-          console.log('Product was added to cart successfully')
-        } else {
-          showHide(false, 'Error', 'Product was not added to cart')
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    } else {
-      // Handling localStorage for anonymous users
-      let storedCart = JSON.parse(localStorage.getItem('cartItems')) || {
-        products: []
-      }
-
-      const existingItemIndex = storedCart?.products?.findIndex(
-        item => item.product.id === prod.id && item.size === clothSize
-      )
-
-      if (existingItemIndex !== -1) {
-        // If item exists, update the quantity and amount
-        storedCart.products[existingItemIndex].quantity += num
-        storedCart.products[existingItemIndex].amount =
-          storedCart.products[existingItemIndex].quantity * prod.price
-      } else {
-        // If item doesn't exist, add new item
-        storedCart.products.push({
-          product: prod,
-          quantity: num,
-          size: clothSize,
-          amount: prod.price * num
-        })
-      }
-
-      localStorage.setItem('cartItems', JSON.stringify(storedCart))
-      setCartRender(true)
-
-      SetCartItems(storedCart) // Update state
-      showHide(true, 'Product was added to cart successfully', 'false')
-      updateState(cartCount && cartCount)
-      setForceRender(prev => !prev)
-    }
-  }
-
-  const HandleDeleteCart = async productId => {
-    if (isUser) {
-      try {
-        const res = await fetch('https://thia-backend.onrender.com/api/deleteCart', {
+    // e.preventDefault()
+    try {
+      const res = await fetch(
+        'https://thia-backend.onrender.com/deleteApplicants',
+        {
           method: 'DELETE',
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ userId, itemId })
-        })
-        const data = await res.json()
-        if (!res.ok) {
-          console.log(data)
+          body: JSON.stringify({ id })
         }
-        console.log(data)
-        localStorage.setItem('cartItems', JSON.stringify(data.data))
-        fetchCart()
-      } catch (error) {
-        console.log(error.message)
-      }
-
-      // authenticated done
-    } else {
-      // unauthenticated
-      const storedCart = JSON.parse(localStorage.getItem('cartItems')) || {
-        products: []
-      }
-      const itemIndex = storedCart.products.findIndex(
-        item => item.product.id === productId
       )
-
-      if (itemIndex >= 0) {
-        storedCart.products.splice(itemIndex, 1)
-        localStorage.setItem('cartItems', JSON.stringify(storedCart))
-        SetCartItems(storedCart) // Update state
-        showHide(true, 'Product was added to cart successfully', 'false')
-        updateState(cartCount && cartCount)
-        setForceRender(prev => !prev)
-        // Update the state to reflect changes in local storage
+      const data = await res.json()
+      if (!res.ok) {
+        setDeleteLoading(prev => ({ ...prev, [id]: false }))
+        console.log('datetedResult:', data)
       } else {
-        console.log('error', 'Product not found in cart.')
+        setDeleteLoading(prev => ({ ...prev, [id]: false }))
+        console.log(data)
+        HandelGetApplicants()
       }
-      // unauthenticated done
+    } catch (error) {
+      setDeleteLoading(prev => ({ ...prev, [id]: false }))
+      console.log(error.message)
     }
+
+    // authenticated done
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
 
-  if (error) {
-    return <div>Error: {error.message}</div>
-  }
 
   return (
     <DataContext.Provider
       value={{
-        AnkaraProducts,
-        AhebiProducts,
-        error,
-        isLoading,
-        CoperateProducts,
-        KaftanProducts,
-        MatchingProducts,
-        BridalProducts,
-        KidiesProducts,
-        Allproducts,
-        AddToCart,
         cartCount,
         sizeError,
         appCart,
@@ -505,7 +424,7 @@ const DataProvider = ({ children }) => {
         isLoadingg,
         cartRender,
         setCartRender,
-   
+        apprentice,
         CartItems,
         cartEffect,
         isAdded,
@@ -514,7 +433,11 @@ const DataProvider = ({ children }) => {
         forceRender,
         state,
         Data,
-        HandleDeleteCart
+        loading,
+        applicants,
+        DeleteLoading,
+        HandelGetApprentice,
+        HandleDeleteApplicant
       }}
     >
       {children}

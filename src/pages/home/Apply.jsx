@@ -84,13 +84,14 @@ const Apply = () => {
   }
 
   return (
-    <div className='p-5'>
+    <div className=' p-1 md:p-5 w-full'>
       <div className='formLight2 w-full   rounded-lg border-2 border-formBorder p-2 '>
         <div className='w-full flex justify-center items-center'>
           <p className=' text-xl font-semibold text-gray-500 py-2'>
             Become A Simstress
           </p>
         </div>
+
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -190,6 +191,17 @@ const Apply = () => {
               placeholder='country (optional for non Nigerians)'
             />
           </div>
+
+          {isLoading ? (
+            <div className='rounded-full text-gray-500'>
+              <LuLoaderPinwheel className='h-12 w-12 animate-spin' />
+            </div>
+          ) : feedback ? (
+            <p className='font-semibold text-gray-500'>{feedback && feedback}</p>
+          ) : (
+            ''
+          )}
+
           <div className='w-full flex justify-center items-center mt-4'>
             <button
               className={`addRemovebtnLightMode_AddProduct p-2 w-[80%] rounded-md font-semibold ${
