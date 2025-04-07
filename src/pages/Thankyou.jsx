@@ -64,6 +64,9 @@ const Thankyou = () => {
         setProducts(data?.data?.products)
         Autentification()
         localStorage.removeItem('cartItems')
+        setTimeout(() => {
+          navigate('/')
+        }, 7000)
       } else {
         console.log(data || 'Something went wrong')
         setErrorMessage(data.message || 'Something went wrong')
@@ -122,7 +125,7 @@ const Thankyou = () => {
           </div>
         ) : ErrorMessage ? (
           <h2 className='text-2xl font-bold text-red-500'>
-            {ErrorMessage && ErrorMessage} 
+            {ErrorMessage && ErrorMessage}
           </h2>
         ) : (
           <h2 className='text-2xl font-bold text-red-500'>
