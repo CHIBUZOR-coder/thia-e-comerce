@@ -69,7 +69,7 @@ const Allslides = () => {
       </h1>
       {cloth.length > 0 ? (
         <>
-          ;
+          
           <div className='carsel w-full carsel  '>
             <div
               className='relative   flex w-full transition ease-in-out duration-1000'
