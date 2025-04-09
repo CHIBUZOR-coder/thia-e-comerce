@@ -57,8 +57,11 @@ const RenderAppWithData = () => {
   const AnkaraProducts = Data.filter(item => item.brand === 'Ankara')
   const AhebiProducts = Data.filter(item => item.brand === 'Ashoebi')
   const CoperateProducts = Data.filter(item => item.brand === 'coperate')
+
+
   const KaftanProducts = Data.filter(item => item.brand === 'kaftan')
-  const MatchingProducts = Data.filter(item => item.brand === 'matchin')
+  const MatchingProducts = Data.filter(item => item.brand === 'matching')
+
   const BridalProducts = Data.filter(item => item.brand === 'bridals')
   const KidiesProducts = Data.filter(item => item.brand === 'kidies')
 

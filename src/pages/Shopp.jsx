@@ -13,6 +13,8 @@ import QuantityInput from './home/ShopCategory/Qantity'
 const Shopp = ({ dataItems }) => {
   const { id } = useParams()
 
+  console.log("Itemss:",dataItems)
+
   const [item, setItem] = useState(null)
   const [selectedSize, setSelectedSize] = useState(null)
   const [selectedValue, setSelectedValue] = useState(null)
@@ -52,7 +54,7 @@ const Shopp = ({ dataItems }) => {
 
   useEffect(() => {
     const foundItem =
-      dataItems && dataItems.find(item => item.id === parseInt(id))
+      dataItems && dataItems.find(item => item?.id === parseInt(id))
     if (foundItem) {
       setItem(foundItem) // Set the item once it's found
     }
