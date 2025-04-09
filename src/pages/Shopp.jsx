@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import { FaPlus, FaStar } from 'react-icons/fa6'
 import { useSelector, useDispatch } from 'react-redux'
-import { addToCart } from '../features/cart/cartSlice'
+import { addToCart, fetchCart } from '../features/cart/cartSlice'
 import { cartActions } from '../features/cart/cartSlice'
 
 import Footer from './home/Footer'
@@ -28,14 +28,40 @@ const Shopp = ({ dataItems }) => {
   const { AddToCart, HandlePop, pop } = useContext(DataContext)
   const dispatch = useDispatch()
   console.log(Quantity)
-  const HandleAddCartPop = (prod, num, clothSize) => {
-    HandlePop()
+  // const HandleAddCartPop = (prod, num, clothSize) => {
+  //   HandlePop()
+  //   if (user?.role) {
+  //     dispatch(addToCart({ prod, num, clothSize }))
+  //   } else {
+  //     dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
+  //   }
+  // }
+
+  const HandleAddCartPop = async (prod, num, clothSize) => {
     if (user?.role) {
-      dispatch(addToCart({ prod, num, clothSize }))
+      console.log('Post fetching...')
+      // console.log('Adding to cart:', { prod, num, clothSize })
+
+      try {
+        const result = await dispatch(
+          addToCart({ prod, num, clothSize })
+        ).unwrap()
+
+        console.log('Server Response:', result)
+        if (result.success === true) {
+          const fetchCartData = await dispatch(fetchCart()).unwrap()
+          console.log('fetchCart:', fetchCartData)
+        }
+      } catch (error) {
+        console.error('Unexpected error:', error)
+      }
     } else {
+      console.log('Adding Localcart... ')
+
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
   }
+
   const user = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {

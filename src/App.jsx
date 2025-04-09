@@ -379,7 +379,9 @@ function App () {
               >
                 <header className=' top-32 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 '>
                   {/* Cart Navbar */}
-                  <nav className='container mt-32 navcattt  md:mt-52  relative bg-blue-800  flex justify-between md:justify-center  p-2 '>
+                  {/* bg-blue-800 */}
+
+                  <nav className='container mt-32 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
                     <a
                       className=''
                       style={{ display: 'inline-block', width: 'fit-content' }}

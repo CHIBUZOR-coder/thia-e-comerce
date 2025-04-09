@@ -76,6 +76,8 @@ const Akara = () => {
 
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
+
+    
   }
 
   // console.log('cloth:', cloth)
