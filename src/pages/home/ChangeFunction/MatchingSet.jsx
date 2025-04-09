@@ -6,8 +6,6 @@ import { DataContext } from '../../../Components/DataContext'
 import { useSelector } from 'react-redux'
 
 export const MatchingSet = () => {
-
-
   const MatchingProducts = useSelector(state =>
     state?.cloth?.data.filter(item => item.brand === 'matching')
   )
@@ -25,6 +23,9 @@ export const MatchingSet = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }}
         to='/Matchng'
         className='italic  flex justify-center names  w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white'
       >

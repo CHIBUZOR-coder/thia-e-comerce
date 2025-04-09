@@ -21,6 +21,9 @@ export const Ankara = () => {
       style={style} // Use the style object returned by the custom hook
     >
       <Link
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }}
         to='/Akara'
         className='flex italic justify-center names w-40 rounded-md h-10 my-6 bg-trans text-3xl text-white'
       >
