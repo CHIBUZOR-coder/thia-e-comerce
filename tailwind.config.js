@@ -29,6 +29,7 @@ export default {
         primary2: "rgba(255,255,255,1)",
         trans: "rgba(30, 26, 26, 0.6)",
         trans2: "rgb(0,0,0,0.5)",
+        trans3: "rgb(0,0,0,0.9)",
         btn: "rgba(229,231,235,0.6)",
         subnav: "rgba(255,255,255,.7)",
         footerlinks: "rgb(101,99,99)",

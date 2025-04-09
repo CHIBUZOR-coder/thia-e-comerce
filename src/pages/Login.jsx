@@ -45,6 +45,8 @@ const Login = () => {
       setIsloading(false)
       const authUserData = await dispatch(UserAuthentification()).unwrap()
       console.log('authUserData:', authUserData)
+      HandelGetApprentice()
+
       setMessage(result.message)
     } else {
       setMessage(result.message)
@@ -130,7 +132,7 @@ const Login = () => {
                 </div>
                 <div className='w-full flex justify-center items-center gap-2'>
                   <p> Forgot your</p>
-                  <Link className='text-blue-500' to={''}>
+                  <Link className='text-blue-500' to={'/accountrecovery'}>
                     password
                   </Link>
                 </div>

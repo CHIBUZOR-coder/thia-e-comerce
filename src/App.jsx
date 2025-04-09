@@ -676,7 +676,7 @@ function App () {
               } `}
             >
               <div
-                className={`search absolute w-full md:w-1/2 top-0 left-0  h-[100vh] z-30 text-black bg-white ${
+                className={`search absolute w-full md:w-1/2 top-0 left-0  min-h-[100vh] overflow-auto z-30 text-black bg-white ${
                   result ? 'overflow-y-scroll' : ''
                 } ${IsSearchOpen ? 'open' : 'closed'}  `}
               >
@@ -718,7 +718,7 @@ function App () {
                           to={`/${product?.brand}/${product?.id}`}
                           key={product.id}
                           onClick={handleSearch}
-                          className='result-item p-4 border-b w-full    bg-spinbg  flex justify-start items-center gap-4'
+                          className='result-item p-4 border-b w-full    bg-spinbg  flex justify-between items-center gap-4'
                         >
                           <p className='product-name  font-semibold'>
                             {product.style}
@@ -746,7 +746,7 @@ function App () {
                     <p className='font-bold'>Help</p>
                   </div>
 
-                  <div className='flex flex-col gap-2'>
+                  <div className='flex flex-col gap-2 mt-2'>
                     <span className='help'>Customer Care</span>
                     <Link to='/Terms' className='help'>
                       Delivery Information
@@ -758,6 +758,7 @@ function App () {
                       FAQs
                     </a>
                   </div>
+                  <br />
                 </div>
               </div>
             </div>

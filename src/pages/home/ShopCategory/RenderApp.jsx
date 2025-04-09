@@ -45,6 +45,8 @@ import Bridals from './Bridls.jsx'
 import VerifyEmail from '../../verifyEmail.jsx'
 import Admission from '../../../Admin/Admission.jsx'
 import Payment from '../Payment.jsx'
+import AccountRecovery from '../../AccountRecovery.jsx'
+import ResetPassword from '../../ResetPassword.jsx'
 
 const RenderAppWithData = () => {
   // const [Data, setData] = useState()
@@ -154,6 +156,14 @@ const RenderAppWithData = () => {
         {
           path: '/payment',
           element: <Payment />
+        },
+        {
+          path: '/accountrecovery',
+          element: <AccountRecovery />
+        },
+        {
+          path: '/resetPassword/:token',
+          element: <ResetPassword />
         }
       ]
     },

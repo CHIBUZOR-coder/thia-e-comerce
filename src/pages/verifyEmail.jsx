@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 
-
-
 const VerifyEmail = () => {
   const [searchParams] = useSearchParams()
   const [status, setStatus] = useState(false)
@@ -34,7 +32,7 @@ const VerifyEmail = () => {
         localStorage.setItem('token', data.data)
         setIsLoading(false)
         setTimeout(() => {
-          navigate('/login')
+          window.location = '/Login'
         }, 4000)
       } else {
         setResult(false, data.message || 'Email verification failed!')
@@ -75,48 +73,47 @@ const VerifyEmail = () => {
   }, [status])
 
   return (
-    
-      <div className='flex flex-col items-center justify-center min-h-screen bg-main px-10 gap-10 relative overflow-hidden'>
-        {isLoading ? (
-          <div className='bg-white flex justify-center items-center ringg shadow-lg max-w-md text-center rounded-full p-2 h-48 w-48 relative'>
-            <div className='text-subMain font-semibold animate-pulse'>
-              Verifying Email...
-            </div>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-main px-10 gap-10 relative overflow-hidden'>
+      {isLoading ? (
+        <div className='bg-white flex justify-center items-center ringg shadow-lg max-w-md text-center rounded-full p-2 h-48 w-48 relative'>
+          <div className='text-subMain font-semibold animate-pulse'>
+            Verifying Email...
           </div>
-        ) : status && status === true ? (
-          <div>
-            <h2 className='text-2xl font-bold text-white text-center'>
-              Email verification successfull <br />
-              You will be redirected to login page
-            </h2>
-            <p className='font-semibold text-4xl text-white animate-bounce'>
-              🤗
-            </p>
-          </div>
-        ) : (
-          <h2 className='text-2xl font-bold text-red-500'>
-            {' '}
-            Email verification Failed!
+        </div>
+      ) : status && status === true ? (
+        <div>
+          <h2 className='text-2xl font-bold text-gray-500 text-center'>
+            Email verification successfull <br />
+            You will be redirected to login page
           </h2>
-        )}
+          <p className='font-semibold text-4xl text-center text-white animate-bounce'>
+            🤗
+          </p>
+        </div>
+      ) : (
+        <h2 className='text-2xl font-bold text-red-500'>
+          {' '}
+          Email verification Failed!
+        </h2>
+      )}
 
-        {/* Animated Party Emojis 🎉 */}
-        {status === true &&
-          emojis.map(emoji => (
-            <span
-              key={emoji.id}
-              className='absolute text-4xl animate-fall'
-              style={{
-                left: emoji.left,
-                animationDuration: emoji.animationDuration
-              }}
-            >
-              🎉
-            </span>
-          ))}
+      {/* Animated Party Emojis 🎉 */}
+      {status === true &&
+        emojis.map(emoji => (
+          <span
+            key={emoji.id}
+            className='absolute text-4xl animate-fall'
+            style={{
+              left: emoji.left,
+              animationDuration: emoji.animationDuration
+            }}
+          >
+            🎉
+          </span>
+        ))}
 
-        <style>
-          {`
+      <style>
+        {`
             @keyframes fall {
               0% { transform: translateY(-100vh); opacity: 1; }
               100% { transform: translateY(100vh); opacity: 0; }
@@ -127,9 +124,8 @@ const VerifyEmail = () => {
               animation: fall linear infinite;
             }
           `}
-        </style>
-      </div>
- 
+      </style>
+    </div>
   )
 }
 

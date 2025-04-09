@@ -27,6 +27,7 @@ const DataProvider = ({ children }) => {
   const [appCart, setAppcart] = useState(null)
   const [sizeError, setSizeError] = useState(false)
   const [popStates, setPopStates] = useState({})
+  const [SingleApprentice, setSingleApprentice] = useState([])
 
   // login
   const [state, setState] = useState({ count: 0 })
@@ -123,6 +124,8 @@ const DataProvider = ({ children }) => {
   // *********************************/
   //Authentification Retriver. It gets  all user details for uthentification and stores thwm in local storagre
   const Autentification = async () => {
+    console.log('calling Authentification...')
+
     try {
       const res = await fetch(
         'https://thia-backend.onrender.com/api/protectedRoute',
@@ -137,14 +140,16 @@ const DataProvider = ({ children }) => {
         }
       )
 
-      if (!res.ok) {
-        const errorData = await res.json()
-        throw new Error(errorData.message || 'Authorization failed')
-      }
-
       const data = await res.json()
-      if (isLogin) {
-        localStorage.setItem('userDetails', JSON.stringify(data.userInfo))
+
+      if (!res.ok) {
+        console.log(data.message)
+      } else {
+        console.log(data)
+
+        if (isLogin) {
+          localStorage.setItem('userDetails', JSON.stringify(data.userInfo))
+        }
       }
 
       // Assuming setUserRole is defined
@@ -198,7 +203,7 @@ const DataProvider = ({ children }) => {
       if (!res.ok) {
         console.log(data)
       } else if (data && data.data) {
-        console.log(data);
+        console.log(data)
         setApplicants(data.data)
         localStorage.setItem('applicants', JSON.stringify(data.data)) // Corrected this line
       }
@@ -231,11 +236,44 @@ const DataProvider = ({ children }) => {
         localStorage.setItem('apprentice', JSON.stringify(data.data)) // Corrected this line
       }
     } catch (error) {
+      // console.error('Fetch error:', error.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const HandelGetSingleApprentice = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch(
+        'https://thia-backend.onrender.com/getSingleApprentice',
+        {
+          method: 'GET',
+          credentials: 'include'
+        }
+      )
+
+      const data = await res.json()
+      if (!res.ok) {
+        console.log(data)
+      } else {
+        console.log(data)
+        setSingleApprentice(data.data)
+        localStorage.setItem('SingleApprentice', JSON.stringify(data.data)) // Corrected this line
+      }
+    } catch (error) {
       console.error('Fetch error:', error.message)
     } finally {
       setLoading(false)
     }
   }
+
+  const isApprentice = JSON.parse(localStorage.getItem('userDetails'))
+  useEffect(() => {
+    if (isApprentice && isApprentice.role === 'Apprentice') {
+      HandelGetSingleApprentice()
+    }
+  }, [])
 
   useEffect(() => {
     HandelGetApplicants()
@@ -397,7 +435,20 @@ const DataProvider = ({ children }) => {
     // authenticated done
   }
 
+  useEffect(() => {
+    const storedMode = localStorage.getItem('lightmode') === "true"
+    setlightMode(storedMode) 
+  }, [])
 
+  const HandleToggleLightMode = () => {
+    if (lightMode && lightMode === true) {
+      setlightMode(false)
+      localStorage.setItem('lightmode', false)
+    } else {
+      setlightMode(true)
+      localStorage.setItem('lightmode', true)
+    }
+  }
 
   return (
     <DataContext.Provider
@@ -406,7 +457,7 @@ const DataProvider = ({ children }) => {
         sizeError,
         appCart,
         lightMode,
-
+        Autentification,
         IsAuthentified,
         isLogin,
         HandleModeChangeWeb,
@@ -437,7 +488,8 @@ const DataProvider = ({ children }) => {
         applicants,
         DeleteLoading,
         HandelGetApprentice,
-        HandleDeleteApplicant
+        HandleDeleteApplicant,
+        HandleToggleLightMode
       }}
     >
       {children}

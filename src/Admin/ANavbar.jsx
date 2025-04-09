@@ -1,7 +1,7 @@
 import { MdOutlineLightMode } from 'react-icons/md'
 import { CgDarkMode } from 'react-icons/cg'
 import { DataContext } from '../Components/DataContext'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GrView } from 'react-icons/gr'
 import { IoAddCircle } from 'react-icons/io5'
@@ -11,8 +11,11 @@ import { RiArrowDropDownLine } from 'react-icons/ri'
 import { RiArrowDropUpLine } from 'react-icons/ri'
 
 const ANavbar = () => {
-  const { lightMode, HandleModeChange } = useContext(DataContext)
+  const { lightMode, HandleModeChange, HandleToggleLightMode } =
+    useContext(DataContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const user = JSON.parse(localStorage.getItem('userDetails'))
+  // console.log('user:', user)
 
   const HandleTogleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -20,6 +23,10 @@ const ANavbar = () => {
   {
     /* nav edit for smallscreen */
   }
+
+  useEffect(() => {
+    console.log('lightModeNav:', lightMode)
+  }, [lightMode])
   return (
     // bg - Anav
 
@@ -129,7 +136,7 @@ const ANavbar = () => {
                 lightMode ? 'text-black' : 'text-white'
               } text-lg font-semibold`}
             >
-              Nachi Cynthia
+              {user && user?.firstname} {user?.lastname}
             </p>
             <p className={`${lightMode ? 'text-gray-500' : 'text-blue-300'}`}>
               Admin
@@ -139,6 +146,7 @@ const ANavbar = () => {
         <div className='flex justify-end '>
           {lightMode ? (
             <p
+              onClick={() => HandleToggleLightMode()}
               className={`  ${
                 lightMode ? ' text-black' : ' text-adminTex'
               }   text-[33px] transition-all ease-in-out duration-150 cursor-pointer hover:scale-110`}
@@ -147,6 +155,7 @@ const ANavbar = () => {
             </p>
           ) : (
             <p
+              onClick={() => HandleToggleLightMode()}
               className={`  ${
                 lightMode ? ' text-black' : ' text-adminTex'
               }   text-[33px] transition-all ease-in-out duration-150 cursor-pointer hover:scale-110`}

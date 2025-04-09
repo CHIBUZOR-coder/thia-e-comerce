@@ -4,7 +4,7 @@ import DataResolve from './home/DataResolve'
 import { DataContext } from '../Components/DataContext'
 import { LuLoaderPinwheel } from 'react-icons/lu'
 
-const Signup = () => {
+const UpdateProfile = () => {
   const [firstName, setFirstname] = useState('')
   const [lastName, setLastname] = useState('')
   const [email, setEmail] = useState('')
@@ -21,9 +21,10 @@ const Signup = () => {
   const [feedback, setFeedback] = useState('')
   const [isLoading, setIsloading] = useState(false)
 
-  const { HandlePop, pop, handleLogin, UserInfo, IsAuthentified } =
+  const { HandlePop, pop } =
     useContext(DataContext)
   const navigate = useNavigate()
+
 
   const HandleSignup = async () => {
     setIsloading(true)
@@ -56,34 +57,36 @@ const Signup = () => {
       }
 
       const res = await fetch(
-        'https://thia-backend.onrender.com/api/registerUser',
+        'https://thia-backend.onrender.com/updateProfile',
         {
           method: 'POST',
           body: formData // Do NOT manually set Content-Type
         }
       )
-      const data = await res.json()
 
       if (!res.ok) {
+        const errorData = await res.json()
         setIsloading(false)
 
-        console.log('Error:', data.message)
-        setFeedback(data.message)
+        console.log('Error:', errorData.message)
+        setFeedback(errorData.message)
         setTimeout(() => {
           setFeedback('')
-        }, 4000)
-      } else {
-        console.log(data)
+        }, 2000)
 
-        localStorage.removeItem('UsercartItems')
-        setIsloading(false)
-        setFeedback(data.message)
-
-        setTimeout(() => {
-          setFeedback('')
-        }, 4000)
+        return
       }
 
+      const data = await res.json()
+      console.log(data)
+
+      localStorage.removeItem('UsercartItems')
+      setIsloading(false)
+      setFeedback(data.message)
+
+      setTimeout(() => {
+        setFeedback('')
+      }, 2000)
       // setTimeout(() => {
       //   navigate('/Login')
       // }, 2000)
@@ -102,11 +105,20 @@ const Signup = () => {
         <div
           className={`${
             feedback ? 'show' : 'hide'
-          } p-2  z-20 fixed top-[5%] w-full  animate flex justify-center items-center font-semibold`}
+          } p-2  z-20 absolute top-[75%] left-[1%] animate flex justify-center items-center font-semibold text-alert bg-gray-800`}
         >
-          <div className=' text-alert bg-gray-500 p-3'>
-            <p>{feedback && feedback}</p>
-          </div>
+          <p>{feedback && feedback}</p>
+        </div>
+      )}
+
+      {isLoading && (
+        <div
+          className={`${
+            isLoading ? 'show' : 'hide'
+          } p-3  z-20 absolute top-[80%] left-[1%] animate flex justify-center items-center font-semibold text-alert bg-gray-800`}
+        >
+          <p>Loging in</p>
+          <LuLoaderPinwheel className='h-6 w-6 animate-spin' />
         </div>
       )}
 
@@ -296,17 +308,6 @@ const Signup = () => {
             />
           </div>
 
-          {isLoading && (
-            <div className={`${isLoading ? 'show' : 'hide'} w-full flex justify-center items-center  `}>
-              <div
-                className=' flex justify-center items-center p-3 animate font-semibold text-alert bg-gray-500'
-              >
-                <p>Loging in</p>
-                <LuLoaderPinwheel className='h-6 w-6 animate-spin' />
-              </div>
-            </div>
-          )}
-
           <div className='w-full flex justify-center items-center mt-4'>
             <button
               className={`addRemovebtnLightMode_AddProduct p-2 w-[80%] rounded-md font-semibold ${
@@ -326,4 +327,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default UpdateProfile

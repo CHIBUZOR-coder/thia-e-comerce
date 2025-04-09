@@ -9,7 +9,7 @@ const AdminHome2 = () => {
   // console.log(Allproducts);
 
   const Allproducts = useSelector(state => state.cloth.data)
-const loading = useSelector(state => state.cloth.isLoading)
+  const loading = useSelector(state => state.cloth.isLoading)
 
   const selected = Allproducts.filter(prod => prod.id >= 24 && prod.id <= 42)
 
@@ -20,7 +20,13 @@ const loading = useSelector(state => state.cloth.isLoading)
     { id: 4, path: '/Admin4' }
   ]
   return (
-    <>
+    <div
+      className={`${
+        lightMode
+          ? "bg-[url('/images/admin.jpg')]"
+          : "bg-[url('/images/adark.jpg')]"
+      } pb-8 min-h-100vh`}
+    >
       {loading ? (
         <div
           className={`${
@@ -31,74 +37,68 @@ const loading = useSelector(state => state.cloth.isLoading)
           <p className='font-semibold'>Getting Prroducts...</p>
         </div>
       ) : (
-        <>
-          <div>
-            <div
-              className={`${
-                lightMode
-                  ? "bg-[url('/images/admin.jpg')]"
-                  : "bg-[url('/images/adark.jpg')]"
-              } w-full min-h-[100vh] flex justify-center items-start p-3 bg-center bg-cover`}
-            >
-              {/* Scrollable container for the table */}
-              <div className='w-full overflow-x-auto flex justify-start md:justify-center   '>
-                <table
-                  className={`min-w-[800px]  ${
-                    lightMode ? ' bg-pink1' : 'bg-AnavDark2'
-                  } text-gray-500 mt-2 `}
-                >
-                  <thead>
-                    <tr
-                      className={`${
-                        lightMode ? 'lightModeTh_tr ' : 'darkModeTh_tr'
-                      } `}
-                    >
-                      <th>id</th>
-                      <th>Brand</th>
-                      <th>Style</th>
-                      <th>Price</th>
-                      <th>Size</th>
-                      <th>Quantity</th>
-                      <th>Status</th>
-                      <th>Image</th>
-                    </tr>
-                  </thead>
+        <div>
+          <div
+            className={` w-full min-h-[100vh] flex justify-center items-start p-3 bg-center bg-cover`}
+          >
+            {/* Scrollable container for the table */}
+            <div className='w-full overflow-x-auto flex justify-start md:justify-center   '>
+              <table
+                className={`min-w-[800px]  ${
+                  lightMode ? ' bg-pink1' : 'bg-AnavDark2'
+                } text-gray-500 mt-2 `}
+              >
+                <thead>
+                  <tr
+                    className={`${
+                      lightMode ? 'lightModeTh_tr ' : 'darkModeTh_tr'
+                    } `}
+                  >
+                    <th>id</th>
+                    <th>Brand</th>
+                    <th>Style</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Image</th>
+                  </tr>
+                </thead>
 
-                  <tbody>
-                    {selected.map(item => (
-                      <tr
-                        key={item.id}
-                        className={`${
-                          lightMode ? 'lightMode' : 'darkMode'
-                        } font-semibold`}
-                      >
-                        <td>{item.id}</td>
-                        <td>{item.brand}</td>
-                        <td>{item.style}</td>
-                        <td>{item.price}</td>
-                        <td>{item.size}</td>
-                        <td>2</td>
-                        <td>{item.status}</td>
-                        <td className='flex justify-center items-center'>
-                          <img
-                            src={`${item.image}`}
-                            alt={item.image}
-                            className='h-[50px] w-[40px] object-cover'
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className='my-3'>
-              <Pagination />
+                <tbody>
+                  {selected.map(item => (
+                    <tr
+                      key={item.id}
+                      className={`${
+                        lightMode ? 'lightMode' : 'darkMode'
+                      } font-semibold`}
+                    >
+                      <td>{item.id}</td>
+                      <td>{item.brand}</td>
+                      <td>{item.style}</td>
+                      <td>{item.price}</td>
+                      <td>{item.size}</td>
+                      <td>2</td>
+                      <td>{item.status}</td>
+                      <td className='flex justify-center items-center'>
+                        <img
+                          src={`${item.image}`}
+                          alt={item.image}
+                          className='h-[50px] w-[40px] object-cover'
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-        </>
+          <div className='my-3'>
+            <Pagination />
+          </div>
+        </div>
       )}
-    </>
+    </div>
   )
 }
 
