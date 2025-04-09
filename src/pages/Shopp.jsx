@@ -12,11 +12,14 @@ import QuantityInput from './home/ShopCategory/Qantity'
 
 const Shopp = ({ dataItems }) => {
   const { id } = useParams()
-  useEffect(() => {
-    if (dataItems && dataItems.length > 0) {
-      localStorage.setItem('dataItems', JSON.stringify(dataItems))
-    }
-  }, [dataItems])
+
+  const cloth = useSelector(state => state?.cloth?.data)
+  //  const cloth = useSelector(state => state?.cloth?.data)
+  // useEffect(() => {
+  //   if (dataItems && dataItems.length > 0) {
+  //     localStorage.setItem('dataItems', JSON.stringify(dataItems))
+  //   }
+  // }, [dataItems])
 
   console.log('Itemss:', dataItems)
 
@@ -83,15 +86,16 @@ const Shopp = ({ dataItems }) => {
     []
   )
 
-  const storedItem = JSON.parse(localStorage.getItem('dataItems'))
+  //  const storedItem = JSON.parse(localStorage.getItem('dataItems'))
 
   useEffect(() => {
-    const foundItem =
-      storedItem && storedItem.find(item => item?.id === parseInt(id))
-    if (foundItem) {
-      setItem(foundItem) // Set the item once it's found
+    const storedItem = cloth.find(item => item?.id === parseInt(id))
+    console.log('Stored:', storedItem)
+
+    if (storedItem) {
+      setItem(storedItem) // Set the item once it's found
     }
-  }, [id, dataItems])
+  }, [id])
 
   useEffect(() => {
     if (item) {
