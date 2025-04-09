@@ -26,7 +26,7 @@ const Shopp = ({ dataItems }) => {
   const HandleAddCartPop = (prod, num, clothSize) => {
     HandlePop()
     if (user?.role) {
-      dispatch(addToCart({ prod, num, clothSize, isUser }))
+      dispatch(addToCart({ prod, num, clothSize}))
     } else {
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
