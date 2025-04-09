@@ -155,6 +155,9 @@ const Kaftn = () => {
                   className='relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md'
                 >
                   <Link
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
                     to={`/Kaftan/${item.id}`}
                     className='h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400'
                     style={{
@@ -165,7 +168,7 @@ const Kaftn = () => {
                     <div className='mt-2 w-full font-semibold flex justify-between'>
                       <p> {item.style} </p>
                       <button
-                        onClick={(e) => {
+                        onClick={e => {
                           HandlePopCart(item.id)
                           setCartRender(prev => !prev)
                           e.preventDefault()

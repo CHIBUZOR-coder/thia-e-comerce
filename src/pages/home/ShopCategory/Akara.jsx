@@ -18,8 +18,6 @@ import { cartActions } from '../../../features/cart/cartSlice'
 import { addToCart } from '../../../features/cart/cartSlice'
 
 const Akara = () => {
-
-
   const {
     // AnkaraProducts: items,
     error,
@@ -76,8 +74,6 @@ const Akara = () => {
 
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
-
-    
   }
 
   // console.log('cloth:', cloth)
@@ -216,6 +212,9 @@ const Akara = () => {
                   className='relative bg-white hover:scale-105 transition ease-in-out duration-300 h-[700px] md:h-[550px] rounded-md shadow-md'
                 >
                   <Link
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
                     to={`/Ankara/${item.id}`}
                     className='h-[600px] md:h-[450px] flex justify-center items-center p-2 rounded-t-md w-full bg-blue-400'
                     style={{
