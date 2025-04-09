@@ -109,7 +109,7 @@ const Allslides = () => {
               </div>
             </div>
           </div>
-          {/* Navigation dots */};
+          {/* Navigation dots */}
           <div className='flex justify-center mt-4'>
             {slides.map((_, index) => (
               <span
