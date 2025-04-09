@@ -12,8 +12,13 @@ import QuantityInput from './home/ShopCategory/Qantity'
 
 const Shopp = ({ dataItems }) => {
   const { id } = useParams()
+  useEffect(() => {
+    if (dataItems && dataItems.length > 0) {
+      localStorage.setItem('dataItems', JSON.stringify(dataItems))
+    }
+  }, [dataItems])
 
-  console.log("Itemss:",dataItems)
+  console.log('Itemss:', dataItems)
 
   const [item, setItem] = useState(null)
   const [selectedSize, setSelectedSize] = useState(null)
@@ -26,7 +31,7 @@ const Shopp = ({ dataItems }) => {
   const HandleAddCartPop = (prod, num, clothSize) => {
     HandlePop()
     if (user?.role) {
-      dispatch(addToCart({ prod, num, clothSize}))
+      dispatch(addToCart({ prod, num, clothSize }))
     } else {
       dispatch(cartActions.addToCartLocal({ prod, num, clothSize }))
     }
@@ -52,9 +57,11 @@ const Shopp = ({ dataItems }) => {
     []
   )
 
+  const storedItem = JSON.parse(localStorage.getItem('dataItems'))
+
   useEffect(() => {
     const foundItem =
-      dataItems && dataItems.find(item => item?.id === parseInt(id))
+      storedItem && storedItem.find(item => item?.id === parseInt(id))
     if (foundItem) {
       setItem(foundItem) // Set the item once it's found
     }
@@ -190,7 +197,7 @@ const Shopp = ({ dataItems }) => {
                     HandleAddCartPop(
                       itemWithQuantity,
                       itemWithQuantity?.quantity,
-                      selectedValue
+                      selectedValue || 34
                     )
                     // console.log(itemWithQuantity);
                     // console.log(Quantity);
