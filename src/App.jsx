@@ -42,7 +42,7 @@ function App () {
   const [rerender, setRerender] = useState(false)
   const [Total, setTotal] = useState(0)
   const [reload, setReload] = useState(useSelector(state => state.cart.render))
-
+  const [Iphone5Toggle, setIphone5Toggle] = useState(false)
   // const []
 
   ////////End
@@ -373,6 +373,25 @@ function App () {
                   IsCartOpen ? 'open' : 'closed'
                 }  `}
               >
+                <div
+                  className={`${
+                    Iphone5Toggle ? '' : 'hidden'
+                  } fixed top-[30%] left-0 w-full p-3 z-50`}
+                >
+                  <div className='iphone5 showIphone5'>
+                    <div className='  flex justify-center items-center w-full rounded-md p-4 bg-primary2'>
+                      <a
+                        href={`/Allshops`}
+                        className='w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white '
+                      >
+                        {(CartItems && CartItems.length >= 0) ||
+                        (Products && Products)
+                          ? 'Shop More'
+                          : 'Shop Our Collections'}
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 <div className='  w-full px-4 md:px-28  md:z-40  '>
                   {/* Cart Navbar */}
                   {/* bg-blue-800 */}
@@ -537,7 +556,6 @@ function App () {
                   </div>
                   {/* Cart navbar  Menu conten  */}
                 </div>
-
                 {/* Checkout */}
                 <div className='p-2 w-full mt-6 md:mt-0'>
                   <div className='w-full flex  justify-center items-center'>
@@ -545,7 +563,7 @@ function App () {
                       <div className='w-full flex flex-col gap-3'>
                         <div
                           id='tableContainer'
-                          className='w-full flex flex-col overflow-auto max-h-[250px]  md:max-h-[300px]'
+                          className='w-full flex flex-col overflow-auto max-h-[250px] carttth  md:max-h-[300px]'
                         >
                           <table className='table-auto text-gray-500 bg-primary   w-full'>
                             <thead className='sticky top-0'>
@@ -617,19 +635,22 @@ function App () {
 
                         <div className=''>
                           {CartItems && CartItems?.length > 0 ? (
-                            <>
-                              <div className='flex flex-col gap-1'>
-                                <p className='text-adminTex text-small italic'>
-                                  Total: {Total && Total}N
-                                </p>
-                                <p className='text-adminTex text-small italic'>
-                                  Vat: 100N
-                                </p>
-                                <p className='text-adminTex text-small italic'>
-                                  Bill: {Total + 100}N
-                                </p>
+                            <div className='IphoneMedai '>
+                              <div className='w-full'>
+                                <div className='flex flex-col gap-1'>
+                                  <p className='text-adminTex text-small italic'>
+                                    Total: {Total && Total}N
+                                  </p>
+                                  <p className='text-adminTex text-small italic'>
+                                    Vat: 100N
+                                  </p>
+                                  <p className='text-adminTex text-small italic'>
+                                    Bill: {Total + 100}N
+                                  </p>
+                                </div>
                               </div>
-                              <div className='w-full flex justify-center items-center my-4'>
+
+                              <div className='w-full flex justify-center  items-center my-4 hideFromIphone5'>
                                 <button
                                   onClick={e => {
                                     e.preventDefault()
@@ -643,7 +664,36 @@ function App () {
                                   Checkout
                                 </button>
                               </div>
-                            </>
+
+                              {/* hideFromIphone5 */}
+                              <div className='showIphone5'>
+                                <div className='w-full flex gap-2   items-center my-4'>
+                                  <button
+                                    onClick={e => {
+                                      e.preventDefault()
+                                      HandlePop()
+                                      HandleCheckout()
+                                    }}
+                                    className={`${
+                                      pop ? 'pop' : ''
+                                    } p-2  bg-red-600   hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                                  >
+                                    Checkout
+                                  </button>
+
+                                  <div
+                                    onClick={() =>
+                                      setIphone5Toggle(prev => !prev)
+                                    }
+                                    className='border p-2 rounded-md border-gray-500 text-gray-500 transi hover:bg-gray-500 hover:border-black hover:text-white'
+                                  >
+                                    <span>More</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <p></p>
+                            </div>
                           ) : (
                             ''
                           )}
@@ -657,18 +707,18 @@ function App () {
                       </div>
                     )}
                   </div>
-                </div>
 
-                <div className='  flex justify-center items-center w-full   md:top-1/2  py-4 '>
-                  <a
-                    href={`/Allshops`}
-                    className='w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white '
-                  >
-                    {(CartItems && CartItems.length >= 0) ||
-                    (Products && Products)
-                      ? 'Shop More'
-                      : 'Shop Our Collections'}
-                  </a>
+                  <div className='  flex justify-center items-center w-full   md:top-1/2  py-4 '>
+                    <a
+                      href={`/Allshops`}
+                      className='w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white '
+                    >
+                      {(CartItems && CartItems.length >= 0) ||
+                      (Products && Products)
+                        ? 'Shop More'
+                        : 'Shop Our Collections'}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

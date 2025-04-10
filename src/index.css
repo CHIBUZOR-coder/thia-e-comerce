@@ -2,9 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); /* Corrected font-family */
 @import url("https://fonts.googleapis.com/css2?family=Agu+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -299,7 +296,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 1s ease-in-out;
   opacity: 0;
-    max-width: 100%;
+  max-width: 100%;
   /* Start with invisible */
   visibility: hidden;
   /* Start as hidden */
@@ -308,7 +305,7 @@
   opacity: 1;
   /* Fully visible when open */
   visibility: visible;
-    max-width: 100%;
+  max-width: 100%;
   /* Fully visible when open */
 }
 
@@ -459,8 +456,6 @@ td {
   z-index: 10; /* Ensure it's above other content */
 }
 
-
-
 @keyframes ringg {
   0% {
     transform: rotate(0deg);
@@ -508,7 +503,8 @@ td {
   opacity: 0;
   transform: translateX(-100%);
   visibility: hidden;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    visibility 0.3s;
   pointer-events: none;
 }
 
@@ -516,7 +512,8 @@ td {
   opacity: 0;
   transform: translateX(-100%);
   visibility: hidden;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    visibility 0.3s;
   pointer-events: none;
 }
 
@@ -534,20 +531,42 @@ td {
   pointer-events: auto;
 }
 
-@media screen and (max-width: 321px) {
-  /* Styles for small screens */
-  .navcart {
-    background-color: yellow;
-    margin-top: 6rem;
-  }
+.moreee {
+  display: none;
 }
 
+.showIphone5 {
+  display: none;
+}
 
+@media screen and (max-width: 321px) {
+  /* Styles for small screens */
+  .carttth {
+    max-height: 200px;
+  }
+  .moreee {
+    display: block;
+  }
+
+  .showIphone5 {
+    display: block;
+  }
+
+  .hideFromIphone5 {
+    display: none;
+  }
+
+  .rowForphone5{
+    display: flex;
+  }
+  .IphoneMedai {
+    /* background-color: rgb(215, 192, 192); */
+    display: flex;
+
+  }
+}
 
 .thiaLearn {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
- 
 }
-
-

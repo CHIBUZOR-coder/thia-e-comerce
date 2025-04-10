@@ -477,3 +477,18 @@ headerrr
                     )}
                   </div>
                 </div>
+
+
+div className='fixed w-full iphone5 left-0 bg-black  z-50 '>
+                  <div className='  flex justify-center items-center w-full  md:top-1/2  py-4 '>
+                    <a
+                      href={`/Allshops`}
+                      className='w-1/2   h-[60px] flex justify-center py-5 items-center  hover:bg-red-700 transition text-center ease-in-out duration-500 bg-red-600 rounded-sm text-white '
+                    >
+                      {(CartItems && CartItems.length >= 0) ||
+                      (Products && Products)
+                        ? 'Shop More'
+                        : 'Shop Our Collections'}
+                    </a>
+                  </div>
+                </div>
