@@ -544,7 +544,7 @@ function App () {
                       <div className='w-full flex flex-col gap-3'>
                         <div
                           id='tableContainer'
-                          className='w-full flex flex-col overflow-auto max-h-[300px]'
+                          className='w-full flex flex-col overflow-auto max-h-[250px]  md:max-h-[300px]'
                         >
                           <table className='table-auto text-gray-500 bg-primary   w-full'>
                             <thead className='sticky top-0'>
