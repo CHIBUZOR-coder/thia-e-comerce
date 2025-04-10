@@ -42,7 +42,6 @@ function App () {
   const [rerender, setRerender] = useState(false)
   const [Total, setTotal] = useState(0)
   const [reload, setReload] = useState(useSelector(state => state.cart.render))
- 
 
   // const []
 
@@ -359,9 +358,6 @@ function App () {
 
             {/****************************************Apply Modal********************************** */}
             {/* ************************************************************************************** */}
-          
-
-            
 
             {/* smallscreen Cart header */}
 
@@ -599,10 +595,18 @@ function App () {
                                           }}
                                           className='bg-subMain text-gray-500 rounded flexCol w-6 h-6 hover:bg-main transi flex justify-center items-center  border border-gray-500 delete   '
                                         >
-                                          {DeleteLoading[item?.id] ? (
-                                            <LuLoaderPinwheel className='animate-spin' />
+                                          {}
+
+                                          {user ? (
+                                            DeleteLoading[item?.id] ? (
+                                              <LuLoaderPinwheel className='animate-spin' />
+                                            ) : (
+                                              <MdDelete />
+                                            )
                                           ) : (
-                                            <MdDelete />
+                                            <>
+                                              <MdDelete />
+                                            </>
                                           )}
                                         </button>
                                       </td>
@@ -611,6 +615,9 @@ function App () {
                               </>
                             </tbody>
                           </table>
+                        </div>
+
+                        <div>
                           {CartItems && CartItems?.length > 0 ? (
                             <>
                               <div className='flex flex-col gap-1'>

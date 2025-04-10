@@ -123,8 +123,8 @@ const Login = () => {
               >
                 {user?.isLoadingg ? 'Logging in...' : 'Login'}
               </button>
-              <div>
-                <div className='w-full flex justify-center items-center gap-2'>
+              <div className='flex flex-col gap-3 md:gap-0'>
+                <div className='w-full flex flex-col md:flex-row justify-center items-center md:gap-2 gap-0'>
                   <p>Dont have an account?</p>
                   <Link className='text-blue-500' to={'/Signup'}>
                     Create Account

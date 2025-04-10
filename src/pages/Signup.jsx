@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import DataResolve from './home/DataResolve'
 import { DataContext } from '../Components/DataContext'
 import { LuLoaderPinwheel } from 'react-icons/lu'
@@ -95,7 +95,7 @@ const Signup = () => {
 
   return (
     <div
-      className="w-full flex justify-center items-center p-8 min-h-[100vh] bg-[url('https://res.cloudinary.com/dtjgj2odu/image/upload/v1732998862/admin_h2sd6s.jpg')] bg-cover bg-center relative
+      className="w-full flex justify-center items-center p-4  md:p-8 min-h-[100vh] bg-[url('https://res.cloudinary.com/dtjgj2odu/image/upload/v1732998862/admin_h2sd6s.jpg')] bg-cover bg-center relative
 "
     >
       {feedback && (
@@ -110,15 +110,15 @@ const Signup = () => {
         </div>
       )}
 
-      <div className='formLight w-[70%] md:w-[60%] p-10 rounded-sm border-2 border-formBorder '>
+      <div className='formLight w-[90%] md:w-[60%] p-0 md:p-10 rounded-sm border-2 border-formBorder '>
         <form
           onSubmit={e => {
             e.preventDefault()
             HandleSignup()
           }}
-          className='w-full  flex flex-col justify-center items-center p-2 gap-4'
+          className='w-full b  flex flex-col justify-center items-center p-2 gap-4'
         >
-          <div className='createAcctInputDiv'>
+          <div className='createAcctInputDiv '>
             <input
               onChange={e => {
                 e.preventDefault()
@@ -297,10 +297,12 @@ const Signup = () => {
           </div>
 
           {isLoading && (
-            <div className={`${isLoading ? 'show' : 'hide'} w-full flex justify-center items-center  `}>
-              <div
-                className=' flex justify-center items-center p-3 animate font-semibold text-alert bg-gray-500'
-              >
+            <div
+              className={`${
+                isLoading ? 'show' : 'hide'
+              } w-full flex justify-center items-center  `}
+            >
+              <div className=' flex justify-center items-center p-3 animate font-semibold text-alert bg-gray-500'>
                 <p>Loging in</p>
                 <LuLoaderPinwheel className='h-6 w-6 animate-spin' />
               </div>
@@ -319,6 +321,21 @@ const Signup = () => {
               {/* {isLoading ? "Logging in..." : "Login"} */}
               Submit
             </button>
+          </div>
+
+          <div className='flex flex-col gap-3 md:gap-0'>
+            <div className='w-full flex flex-col md:flex-row justify-center items-center md:gap-2 gap-0'>
+              <p>Dont have an account?</p>
+              <Link className='text-blue-500' to={'/Login'}>
+                Login
+              </Link>
+            </div>
+            <div className='w-full flex justify-center items-center gap-2'>
+              <p> Forgot your</p>
+              <Link className='text-blue-500' to={'/accountrecovery'}>
+                password
+              </Link>
+            </div>
           </div>
         </form>
       </div>
