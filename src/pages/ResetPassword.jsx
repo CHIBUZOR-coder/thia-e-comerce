@@ -106,7 +106,7 @@ const ResetPassword = () => {
         </div>
       )}
 
-      <div className='formLight w-[70%] md:w-[60%] p-10 rounded-sm border-2 border-formBorder '>
+      <div className='formLight w-[100%] md:w-[60%] py-4 px-0  md:py-10 md:px-10 rounded-sm border-2 border-formBorder '>
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -150,7 +150,7 @@ const ResetPassword = () => {
               <div
                 className={`${
                   isLoading ? 'show' : 'hide'
-                } p-3  z-20  animate flex justify-center items-center font-semibold  text-alert bg-gray-500`}
+                } p-3  z-20  animate flex justify-center items-center gap-2 font-semibold  text-alert bg-gray-500`}
               >
                 <p>Loging in</p>
                 <LuLoaderPinwheel className='h-6 w-6 animate-spin' />
@@ -172,7 +172,7 @@ const ResetPassword = () => {
             </button>
           </div>
 
-          <div>
+          <div className='flex flex-col gap-3'>
             <div className='w-full flex justify-center items-center gap-2'>
               <p>Back to login</p>
               <Link className='text-blue-500' to={'/login'}>

@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className='relative'>
       <div
-        className={`w-full h-[100%] bg-trans py-12 absolute top-0 left-0 flex justify-center  px-10 z-50  ${
+        className={`w-full h-[100%] bg-trans p-4 md:py-12 absolute top-0 left-0 flex justify-center  px-10 z-50  ${
           AppllyModal ? 'block' : 'hidden'
         }`}
       >

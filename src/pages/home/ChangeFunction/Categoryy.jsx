@@ -183,7 +183,7 @@ const Category = () => {
 
   return (
     <div className='w-full px-1 md:px-2 md:w-1/2 overflow-hidden md:m-0 mt-10 md:mt-5  md:py-16'>
-      <h1 className='text-3xl md:py-6 font-sans flex justify-center font-semibold'>
+      <h1 className={`text-3xl  py-2  md:py-7 font-sans flex justify-center font-semibold`}>
         Category
       </h1>
 

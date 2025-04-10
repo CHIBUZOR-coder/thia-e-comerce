@@ -16,6 +16,7 @@ const Admission = () => {
   const [Address, setAddress] = useState('')
   const [Image, setImage] = useState(null)
   const [Add, setAdd] = useState('')
+  const [feedback, setFeedback] = useState('')
 
   useEffect(() => {
     console.log('apprentice:', apprentice)
@@ -110,9 +111,18 @@ const Admission = () => {
         ''
       )}
 
+      {feedback && (
+        <div
+          className={`${
+            feedback ? 'show' : 'hide'
+          } p-2  z-20 fixed top-[25%] w-full  animate flex justify-center items-center font-semibold`}
+        >
+          <div className={` text-alert ${lightMode? "bg-gray-500":"bg-AdminnavDark"} p-3`}>
+            <p>{feedback && feedback}</p>
+          </div>
+        </div>
+      )}
 
-
-      
       {loading ? (
         <div
           className={`${
