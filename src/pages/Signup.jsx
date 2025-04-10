@@ -95,7 +95,7 @@ const Signup = () => {
 
   return (
     <div
-      className="w-full flex justify-center items-center p-4  md:p-8 min-h-[100vh] bg-[url('https://res.cloudinary.com/dtjgj2odu/image/upload/v1732998862/admin_h2sd6s.jpg')] bg-cover bg-center relative
+      className="w-full flex justify-center items-center p-2  md:p-8 min-h-[100vh] bg-[url('https://res.cloudinary.com/dtjgj2odu/image/upload/v1732998862/admin_h2sd6s.jpg')] bg-cover bg-center relative
 "
     >
       {feedback && (
@@ -110,7 +110,7 @@ const Signup = () => {
         </div>
       )}
 
-      <div className='formLight w-[90%] md:w-[60%] p-0 md:p-10 rounded-sm border-2 border-formBorder '>
+      <div className='formLight w-[90%] md:w-[60%] py-4 px-0  md:py-10 md:px-10 rounded-sm border-2 border-formBorder '>
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -325,7 +325,7 @@ const Signup = () => {
 
           <div className='flex flex-col gap-3 md:gap-0'>
             <div className='w-full flex flex-col md:flex-row justify-center items-center md:gap-2 gap-0'>
-              <p>Dont have an account?</p>
+              <p>Already have an account?</p>
               <Link className='text-blue-500' to={'/Login'}>
                 Login
               </Link>

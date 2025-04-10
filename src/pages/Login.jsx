@@ -66,7 +66,7 @@ const Login = () => {
         <div className='flex flex-col mt-14 justify-center items-center gap-4 w-full'>
           <h2 className='text-2xl font-semibold'>Login User</h2>
 
-          <div className='formLight w-[85%] md:w-[60%] p-10 rounded-sm border-2 border-formBorder'>
+          <div className='formLight w-[85%] md:w-[60%] p-5 md:p-10 rounded-sm border-2 border-formBorder'>
             {user && (
               <h2
                 className={`${
@@ -121,8 +121,9 @@ const Login = () => {
                 type='submit'
                 disabled={user?.isLoading} // Disable button while loading
               >
-                {user?.isLoadingg ? 'Logging in...' : 'Login'}
+                Login
               </button>
+
               <div className='flex flex-col gap-3 md:gap-0'>
                 <div className='w-full flex flex-col md:flex-row justify-center items-center md:gap-2 gap-0'>
                   <p>Dont have an account?</p>

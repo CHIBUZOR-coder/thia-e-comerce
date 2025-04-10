@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import DataResolve from './home/DataResolve'
 import { DataContext } from '../Components/DataContext'
 import { LuLoaderPinwheel } from 'react-icons/lu'
@@ -82,7 +82,7 @@ const AccountRecovery = () => {
         </div>
       )}
 
-      <div className='formLight w-[70%] md:w-[60%] p-10 rounded-sm border-2 border-formBorder '>
+      <div className='formLight w-[100%] md:w-[60%] py-4 px-0  md:py-10 md:px-10 rounded-sm border-2 border-formBorder '>
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -143,7 +143,7 @@ const AccountRecovery = () => {
               <div
                 className={`${
                   isLoading ? 'show' : 'hide'
-                } p-3  z-20  animate  font-semibold text-alert bg-gray-500`}
+                } p-3  z-20  animate flex justify-center items-center gap-2  font-semibold text-alert bg-gray-500`}
               >
                 <p>Loging in</p>
                 <LuLoaderPinwheel className='h-6 w-6 animate-spin' />
@@ -165,6 +165,21 @@ const AccountRecovery = () => {
             </button>
           </div>
         </form>
+
+        <div className='flex flex-col gap-3 md:gap-0'>
+          <div className='w-full flex flex-col md:flex-row justify-center items-center md:gap-2 gap-0'>
+            <p>Dont have an account?</p>
+            <Link className='text-blue-500' to={'/Signup'}>
+              Signup
+            </Link>
+          </div>
+          <div className='w-full flex justify-center items-center gap-2'>
+            <p> Forgot your</p>
+            <Link className='text-blue-500' to={'/accountrecovery'}>
+              password
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )
