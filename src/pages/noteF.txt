@@ -170,3 +170,310 @@ user:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+headerrr
+
+
+
+  <div className=' w-full px-4 bg-blue-500 md:px-28  md:z-40  '>
+                  {/* Cart Navbar */}
+                  {/* bg-blue-800 */}
+
+                  <div className='container nav -mt-36 bg-red-400 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
+                    <a
+                      className=''
+                      style={{ display: 'inline-block', width: 'fit-content' }}
+                      href='/'
+                    >
+                      <div className='w-24 h-24 logo bg-slate-500'></div>
+                    </a>
+                    <div className='block md:hidden'>
+                      <button onClick={toggle}>
+                        {isMenuOpen ? (
+                          <FaTimes className='w-6 h-6 text-black' />
+                        ) : (
+                          <FaBars className='w-6 h-6 text-black' />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                  <hr />
+
+                  {/* Cart navbar  Menu conten small screen */}
+                  <div className='block md:hidden '>
+                    <ul
+                      className={`bg-black relative flex justify-between text-white px-4 py-4 rounded ${
+                        isMenuOpen && screenWidth < 760 ? '' : 'hidden'
+                      }`}
+                    >
+                      <div className='  flex flex-col gap-4 '>
+                        {NavItems.map(({ tittle, path }) => (
+                          <li
+                            key={tittle}
+                            className={`decorate  no-underline hover:underline text-white transition ease-in-out duration-700 ${
+                              location.pathname === path
+                                ? 'active-nav-item'
+                                : ''
+                            }`}
+                          >
+                            {tittle === 'Shop All' ? (
+                              <span className='relative  flex w-24 gap-1'>
+                                {tittle}
+                                <span
+                                  onClick={toggleLink}
+                                  className='text-red-500'
+                                >
+                                  {isLinkOpen ? (
+                                    <FaTimes className='w-6 h-6 text-white' />
+                                  ) : (
+                                    <IoIosArrowDropright className='w-6 h-6 text-white' />
+                                  )}
+                                </span>
+                                <ul
+                                  className={`bg-white text-black absolute subnav -top-[209.5px]  flex flex-col justify-center w-36 gap-2 z-20 px-4 py-3 transition ease-in-out duration-700 ${
+                                    isLinkOpen ? 'subopen' : 'hidden hide'
+                                  }`}
+                                >
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Akara'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Akara'
+                                  >
+                                    Ankara
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Ashebi'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Ashebi'
+                                  >
+                                    Ashoebi
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Coprate'
+                                  >
+                                    Coperate
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Kaftn'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Kaftn'
+                                  >
+                                    Kaftan
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Bridls'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Bridls'
+                                  >
+                                    Bridals
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Matchng'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Matchng'
+                                  >
+                                    Matching Set
+                                  </Link>
+                                  <Link
+                                    className={`decorate2 ${
+                                      location.pathname === '/Kidis'
+                                        ? 'text-red-500'
+                                        : ''
+                                    }`}
+                                    to='/Kidis'
+                                  >
+                                    Kiddies
+                                  </Link>
+                                </ul>
+                              </span>
+                            ) : (
+                              <Link onClick={DoubleToggle} to={path}>
+                                {tittle}
+                              </Link>
+                            )}
+                          </li>
+                        ))}
+                      </div>
+
+                      <div className=' flex flex-col gap-4'>
+                        <div className='text-lg flex h-1/2.5 text-white sm:flex gap-4 md:hidden'>
+                          <a href='/Login' className='flex items-baseline'>
+                            <FaUser />
+                            Account
+                          </a>
+
+                          {/* <span
+                        onClick={DoubleToggle}
+                        className="flex items-baseline"
+                      >
+                        <FaShoppingBag />
+                        Shop
+                      </span> */}
+                        </div>
+
+                        <div className='flex justify-end mt-3'>
+                          <FaSearch
+                            onClick={handleSearch}
+                            className='w-5 h-5 text-white cursor-pointer md:hidden'
+                          />
+                        </div>
+                      </div>
+                    </ul>
+                  </div>
+                  {/* Cart navbar  Menu conten  */}
+                </div>
+
+
+
+
+
+                ********************************************************
+                 <div className='p-2 w-full'>
+                  <div className='w-full flex  justify-center items-center'>
+                    {CartItems && CartItems?.length > 0 ? (
+                      <div className='w-full flex flex-col gap-3'>
+                        <div
+                          id='tableContainer'
+                          className='w-full flex flex-col overflow-auto max-h-[300px]'
+                        >
+                          <table className='table-auto text-gray-500 bg-primary   w-full'>
+                            <thead className='sticky top-0'>
+                              <tr className='bg-btn  top-0 left-0'>
+                                <th className='w-[10%]'>S/n</th>
+                                <th className=''>Style</th>
+                                <th className=''>Size</th>
+                                <th className=''>Quantity</th>
+                                <th className=''>Amount</th>
+                                <th className=''>Image</th>
+                                <th className=''>Action</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <>
+                                {CartItems &&
+                                  CartItems?.map((item, index) => (
+                                    <tr key={index} className='font-semibold'>
+                                      <td>{Number(index + 1)}</td>
+                                      <td>{item?.style}</td>
+                                      <td>
+                                        {user && user.role
+                                          ? item?.sizee
+                                          : item.size}
+                                      </td>
+                                      <td>{item?.quantity}</td>
+                                      <td>${item?.amount}</td>
+                                      <td className='flex justify-center items-center'>
+                                        <img
+                                          src={item?.image}
+                                          alt={item?.image}
+                                          className='h-[50px] w-[40px] object-cover'
+                                        />
+                                      </td>
+                                      <td>
+                                        <button
+                                          onClick={e => {
+                                            HandleDeleteCart(
+                                              e,
+                                              user && user.role
+                                                ? item?.id
+                                                : item?.id
+                                            )
+                                          }}
+                                          className='bg-subMain text-gray-500 rounded flexCol w-6 h-6 hover:bg-main transi flex justify-center items-center  border border-gray-500 delete   '
+                                        >
+                                          {}
+
+                                          {user ? (
+                                            DeleteLoading[item?.id] ? (
+                                              <LuLoaderPinwheel className='animate-spin' />
+                                            ) : (
+                                              <MdDelete />
+                                            )
+                                          ) : (
+                                            <>
+                                              <MdDelete />
+                                            </>
+                                          )}
+                                        </button>
+                                      </td>
+                                    </tr>
+                                  ))}
+                              </>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div>
+                          {CartItems && CartItems?.length > 0 ? (
+                            <>
+                              <div className='flex flex-col gap-1'>
+                                <p className='text-adminTex text-small italic'>
+                                  Total: {Total && Total}N
+                                </p>
+                                <p className='text-adminTex text-small italic'>
+                                  Vat: 100N
+                                </p>
+                                <p className='text-adminTex text-small italic'>
+                                  Bill: {Total + 100}N
+                                </p>
+                              </div>
+                              <div className='w-full flex justify-center items-center'>
+                                <button
+                                  onClick={e => {
+                                    e.preventDefault()
+                                    HandlePop()
+                                    HandleCheckout()
+                                  }}
+                                  className={`${
+                                    pop ? 'pop' : ''
+                                  } p-2  bg-red-600 w-1/2  hover:bg-red-700 transition text-center ease-in-out duration-500 text-white rounded-sm`}
+                                >
+                                  Checkout
+                                </button>
+                              </div>
+                            </>
+                          ) : (
+                            ''
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className='w-full flex justify-center items-center cartSection text-center '>
+                        <span className='md:w-[200px] w-full  rounded-sm '>
+                          You have no items in your shopping bag
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>

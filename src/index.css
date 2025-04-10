@@ -459,13 +459,7 @@ td {
   z-index: 10; /* Ensure it's above other content */
 }
 
-@media screen and (max-width: 500px) {
-  /* Styles for small screens */
-  .navcattt {
-    /* background-color: gray; */
-    margin-top: 17rem;
-  }
-}
+
 
 @keyframes ringg {
   0% {
@@ -555,3 +549,5 @@ td {
   font-optical-sizing: auto;
  
 }
+
+

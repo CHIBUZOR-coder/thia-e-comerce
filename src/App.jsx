@@ -363,21 +363,21 @@ function App () {
 
             <div
               onClick={closeCartModal}
-              className={`absolute  w-full top-0 left-0 min-h-[200vh] z-10 coverDiv2  ${
+              className={`absolute  w-full top-0 left-0 z-10 coverDiv2  ${
                 IsCartOpen ? 'open' : ''
               } `}
             >
               {/* Cart section */}
               <div
-                className={`search2 absolute w-full lg:w-[45%] h-[100vh] overflow-y-scroll  gap-3  top-0 right-0 flex flex-col justify-center  items-start bg-white  z-50 text-black  ${
+                className={`search2  absolute w-full lg:w-[45%] h-[120vh]  md:h-[100vh]  overflow-y-scroll  gap-3  top-0 right-0 flex flex-col justify-start  items-start bg-white  z-50 text-black  ${
                   IsCartOpen ? 'open' : 'closed'
                 }  `}
               >
-                <header className=' top-32 w-full px-4 bg-white md:px-28 headerrr md:z-40 z-10 '>
+                <div className='  w-full px-4 md:px-28  md:z-40  '>
                   {/* Cart Navbar */}
                   {/* bg-blue-800 */}
 
-                  <nav className='container mt-32 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
+                  <div className='container nav mt-0 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
                     <a
                       className=''
                       style={{ display: 'inline-block', width: 'fit-content' }}
@@ -394,17 +394,19 @@ function App () {
                         )}
                       </button>
                     </div>
-                  </nav>
+                  </div>
                   <hr />
 
                   {/* Cart navbar  Menu conten small screen */}
-                  <div className='block md:hidden '>
+                  <div
+                    className={`block absolute top-0 left-0 w-full z-30  md:hidden ${
+                      isMenuOpen && screenWidth < 760 ? '' : 'hidden'
+                    } `}
+                  >
                     <ul
-                      className={`bg-black relative flex justify-between text-white px-4 py-4 rounded ${
-                        isMenuOpen && screenWidth < 760 ? '' : 'hidden'
-                      }`}
+                      className={`bg-black  flex justify-between text-white px-4 py-4 rounded `}
                     >
-                      <div className='  flex flex-col gap-4 '>
+                      <div className=' w-1/2  flex flex-col gap-4 '>
                         {NavItems.map(({ tittle, path }) => (
                           <li
                             key={tittle}
@@ -513,35 +515,30 @@ function App () {
                         ))}
                       </div>
 
-                      <div className=' flex flex-col gap-4'>
-                        <div className='text-lg flex h-1/2.5 text-white sm:flex gap-4 md:hidden'>
+                      <div className='w-1/2 flex items-start justify-between gap-4 '>
+                        <div className='text-lg flex text-white sm:flex gap-4 md:hidden'>
                           <a href='/Login' className='flex items-baseline'>
-                            <FaUser />
-                            Account
+                            <FaUser className = 'w-8 h-8 text-white cursor-pointer md:hidden' />
                           </a>
-
-                          {/* <span
-                        onClick={DoubleToggle}
-                        className="flex items-baseline"
-                      >
-                        <FaShoppingBag />
-                        Shop
-                      </span> */}
                         </div>
-
-                        <div className='flex justify-end mt-3'>
+                        <div className='flex'>
                           <FaSearch
                             onClick={handleSearch}
-                            className='w-5 h-5 text-white cursor-pointer md:hidden'
+                            className='w-8 h-8 text-white cursor-pointer md:hidden'
                           />
                         </div>
+
+                        <button className='text-white' onClick={toggle}>
+                          <FaTimes className='w-8 h-8 text-white cursor-pointer md:hidden' />
+                        </button>
                       </div>
                     </ul>
                   </div>
                   {/* Cart navbar  Menu conten  */}
-                </header>
+                </div>
+
                 {/* Checkout */}
-                <div className='p-2 w-full'>
+                <div className='p-2 w-full mt-6 md:mt-0'>
                   <div className='w-full flex  justify-center items-center'>
                     {CartItems && CartItems?.length > 0 ? (
                       <div className='w-full flex flex-col gap-3'>
@@ -617,7 +614,7 @@ function App () {
                           </table>
                         </div>
 
-                        <div>
+                        <div className=''>
                           {CartItems && CartItems?.length > 0 ? (
                             <>
                               <div className='flex flex-col gap-1'>
@@ -631,7 +628,7 @@ function App () {
                                   Bill: {Total + 100}N
                                 </p>
                               </div>
-                              <div className='w-full flex justify-center items-center'>
+                              <div className='w-full flex justify-center items-center my-4'>
                                 <button
                                   onClick={e => {
                                     e.preventDefault()
