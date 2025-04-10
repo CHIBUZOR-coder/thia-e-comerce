@@ -378,13 +378,14 @@ function App () {
                   {/* bg-blue-800 */}
 
                   <div className='container nav mt-0 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
-                    <a
+                    <Link
+                      onClick={() => handleCart()}
+                      to={'/'}
                       className=''
                       style={{ display: 'inline-block', width: 'fit-content' }}
-                      href='/'
                     >
                       <div className='w-24 h-24 logo bg-slate-500'></div>
-                    </a>
+                    </Link>
                     <div className='block md:hidden'>
                       <button onClick={toggle}>
                         {isMenuOpen ? (
@@ -518,7 +519,7 @@ function App () {
                       <div className='w-1/2 flex items-start justify-between gap-4 '>
                         <div className='text-lg flex text-white sm:flex gap-4 md:hidden'>
                           <a href='/Login' className='flex items-baseline'>
-                            <FaUser className = 'w-8 h-8 text-white cursor-pointer md:hidden' />
+                            <FaUser className='w-8 h-8 text-white cursor-pointer md:hidden' />
                           </a>
                         </div>
                         <div className='flex'>
