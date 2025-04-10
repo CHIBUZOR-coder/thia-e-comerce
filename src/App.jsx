@@ -363,7 +363,7 @@ function App () {
 
             <div
               onClick={closeCartModal}
-              className={`absolute  w-full top-0 left-0 z-10 coverDiv2  ${
+              className={`absolute  w-full top-0 left-0 z-10 coverDiv2 min-h-screen   ${
                 IsCartOpen ? 'open' : ''
               } `}
             >
