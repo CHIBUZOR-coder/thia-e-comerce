@@ -211,7 +211,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
                   >
                     <Link
                       className={`decorate2 ${
-                        location.pathname === '/thia-e-comerce/Akara'
+                        location.pathname === '/Akara'
                           ? 'text-red-500'
                           : ''
                       }`}
@@ -221,7 +221,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
                     </Link>
                     <Link
                       className={`decorate2 ${
-                        location.pathname === '/thia-e-comerce/Ashebi'
+                        location.pathname === '/Ashebi'
                           ? 'text-red-500'
                           : ''
                       }`}
@@ -329,7 +329,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
                       </Link>
                       <Link
                         className={`decorate2 ${
-                          location.pathname === '/' ? 'text-red-500' : ''
+                          location.pathname === '/Coprate' ? 'text-red-500' : ''
                         }`}
                         to='/Coprate'
                       >
