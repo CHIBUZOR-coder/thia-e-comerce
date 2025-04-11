@@ -50,6 +50,17 @@ const Akara = () => {
   useEffect(() => {
     dispatch(fetchCloths())
   }, [])
+  const shimaItems = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 }
+  ]
 
   const HandleAddToCart = async (prod, num, clothSize) => {
     if (user?.role) {
@@ -78,48 +89,7 @@ const Akara = () => {
 
   // console.log('cloth:', cloth)
   const items = cloth && cloth
-
-  // New useEffect hook to handle filtering and sorting
-  // useEffect(() => {
-  //   if (items) {
-  //     let sortedItems =
-  //       selectCategory === 'All'
-  //         ? [...items]
-  //         : items.filter(item => item.category === selectCategory)
-
-  //     switch (sortOptions) {
-  //       case 'Low-High':
-  //         sortedItems.sort((a, b) => a.price - b.price)
-  //         break
-  //       case 'High-Low':
-  //         sortedItems.sort((a, b) => b.price - a.price)
-  //         break
-  //       case 'Default':
-  //       default:
-  //         // No sorting applied, just filtered items
-  //         break
-  //     }
-  //     setFilteredItems(sortedItems)
-  //   }
-  // }, [sortOptions, selectCategory, items])
-
-  // const filteredItems = useMemo(() => {
-  //   if (!items) return []
-
-  //   let sortedItems =
-  //     selectCategory === 'All'
-  //       ? [...items]
-  //       : items.filter(item => item.category === selectCategory)
-
-  //   switch (sortOptions) {
-  //     case 'Low-High':
-  //       return sortedItems.sort((a, b) => a.price - b.price)
-  //     case 'High-Low':
-  //       return sortedItems.sort((a, b) => b.price - a.price)
-  //     default:
-  //       return sortedItems
-  //   }
-  // }, [sortOptions, selectCategory, items])
+  console.log('Temms:', items)
 
   const filteredItems = useMemo(() => {
     if (!items) return []
@@ -200,11 +170,7 @@ const Akara = () => {
           </div>
         </div>
         <div>
-          {isLoading ? (
-            <div>Loading Data...</div>
-          ) : error ? (
-            <div>Error: {error}</div>
-          ) : (
+          {items.length > 0 ? (
             <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 '>
               {filteredItems.map(item => (
                 <div
@@ -245,6 +211,15 @@ const Akara = () => {
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          ) : (
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 '>
+              {shimaItems.map((item, i) => (
+                <div
+                  key={i}
+                  className='h-[700px] w-full md:h-[550px] shimmer2'
+                ></div>
               ))}
             </div>
           )}

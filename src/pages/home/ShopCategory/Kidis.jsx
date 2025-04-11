@@ -32,6 +32,17 @@ const Kidis = () => {
   }, [isLoading])
 
   const user = JSON.parse(localStorage.getItem('user'))
+  const shimaItems = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 }
+  ]
 
   const [selectCategory, setSelectCategory] = useState('All')
   // const [filteredItems, setFilteredItems] = useState([])
@@ -193,11 +204,7 @@ const Kidis = () => {
           </div>
         </div>
         <div>
-          {isLoading ? (
-            <div>Loading Data...</div>
-          ) : error ? (
-            <div>Error: {error}</div>
-          ) : (
+          {items.length > 0 ? (
             <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 '>
               {filteredItems.map(item => (
                 <div
@@ -239,6 +246,15 @@ const Kidis = () => {
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          ) : (
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 '>
+              {shimaItems.map((item, i) => (
+                <div
+                  key={i}
+                  className='h-[700px] w-full md:h-[550px] shimmer2'
+                ></div>
               ))}
             </div>
           )}
