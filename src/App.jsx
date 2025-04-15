@@ -331,6 +331,35 @@ function App () {
   // console.log('cloth:', cloth)
 
   const [spin, setSpin] = useState(false)
+
+  const [isNavbarHidden, setIsNavbarHidden] = useState(false)
+  const lastScrollTop = useRef(0)
+  const delta = 5
+  const navbarRef = useRef(null)
+  useEffect(() => {
+    const handleScroll = () => {
+      const st = window.scrollY
+      const navbarHeight = navbarRef.current?.offsetHeight || 0
+
+      if (Math.abs(lastScrollTop.current - st) > delta) {
+        if (st > lastScrollTop.current && st > navbarHeight) {
+          // Scrolling down
+          if (!isNavbarHidden) setIsNavbarHidden(true)
+        } else {
+          // Scrolling up
+          if (isNavbarHidden) setIsNavbarHidden(false)
+        }
+        lastScrollTop.current = st
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isNavbarHidden])
+
   return (
     <div>
       {isLoading ? (
@@ -343,7 +372,20 @@ function App () {
         <div className='overflow-hidden w-full relative'>
           <DataProvider>
             <div className='relative min-h-screen'>
-              <div className=' '>
+              <div
+                style={{
+                  transform: isNavbarHidden
+                    ? 'translateY(-100%)'
+                    : 'translateY(0)',
+                  transition: 'transform 0.8s ease',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+
+                  zIndex: 1000
+                }}
+                className=' w-full'
+              >
                 <Navbar
                   handleSearch={handleSearch}
                   handleCart={handleCart}
