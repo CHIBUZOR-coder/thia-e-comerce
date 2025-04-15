@@ -50,7 +50,7 @@ const FormReview = () => {
 
   return (
     <div className="bg-primary py-10 my-3 w-full">
-      <div className="flex  flex-col md:flex-row py-10 justify-center items-center md:px-28 px-6 gap-20">
+      <div className="flex mt-40  flex-col md:flex-row py-10 justify-center items-center md:px-28 px-6 gap-20">
         <div className="flex flex-col justify-center w-full md:w-1/2">
           <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
 

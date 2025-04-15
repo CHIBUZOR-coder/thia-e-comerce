@@ -104,7 +104,7 @@ const Ashebi = () => {
 
   return (
     <div className='relative bg-primary'>
-      <div className='px-6 py-10 mb-10'>
+      <div className='px-6 py-10 mb-10 mt-40'>
         <div className='flex justify-between py-6 items-start md:items-center'>
           <div className='flex flex-col md:flex-row justify-center gap-2 md:gap-6 items-start md:items-center'>
             <span className='cursor-pointer' onClick={() => filterItems('All')}>

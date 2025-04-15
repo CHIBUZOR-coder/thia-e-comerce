@@ -13,7 +13,7 @@ const About = () => {
   return (
     <div>
       <div className="">
-        <div className="flex  flex-col items-center justify-center w-full px-4 py-10 md:px-28 bg-primary md:min-h-primary md:flex-row md:items-start">
+        <div className="flex  flex-col items-center justify-center w-full mt-40 px-4 py-10 md:px-28 bg-primary md:min-h-primary md:flex-row md:items-start">
           <div className="w-full md:w-1/2">
             <div>
               <h2 className="my-2 text-xl font-semibold capitalize">

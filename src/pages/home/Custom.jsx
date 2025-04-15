@@ -3,7 +3,7 @@ import Footer from "./Footer";
 const Custom = () => {
   return (
     <div id="custom" className=" ">
-      <div className="flex flex-col  bg-primary items-start  py-10">
+      <div className="flex flex-col  bg-primary items-start mt-40  py-10">
         <div className="md:px-28 px-4">
           <div>
             <p className=" text-4xl my-4 font-semibold capitalize">

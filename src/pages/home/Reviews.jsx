@@ -81,7 +81,7 @@ const Reviews = () => {
 
   return (
     <div className='relative '>
-      <div className=' bg-primary px-2 py-10 mb-10 '>
+      <div className=' bg-primary px-2 py-10 mb-10 mt-40 '>
         <div className='relative'>
           <Slider {...settings}>
             {data &&
