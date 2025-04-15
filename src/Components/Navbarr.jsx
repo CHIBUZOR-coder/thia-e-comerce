@@ -126,9 +126,9 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
   }
   return (
     <header
-      className={`relative px-4 bg-white md:px-28 headerrr md:z-40 z-10   `}
+      className={`relative px-4 bg-white md:px-28 headerrr   `}
     >
-      <nav className='container relative flex justify-between py-4 md:py-4   '>
+      <nav className='container relative flex justify-between py-4 md:py-4    bg-red-400 '>
         {/* Search Bar */}
         <FaSearch
           onClick={handleSearch}
@@ -185,7 +185,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
       <hr />
 
       {/* Big Screen */}
-      <div className='hidden pt-4 largeScreen hider md:block  '>
+      <div className='hidden pt-4 largeScreen hider md:block   '>
         <ul className='items-center justify-between hidden gap-4 font-semibold text-black md:flex'>
           {NavItems.map(({ tittle, path }) => (
             <li

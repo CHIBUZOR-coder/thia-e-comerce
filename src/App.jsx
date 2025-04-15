@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useEffect } from 'react'
+import React, { useState, useRef, useContext, useEffect, useCallback } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import './App.css'
 import Navbar from './Components/Navbarr'
@@ -197,11 +197,35 @@ function App () {
   const handleClose = () => {
     setIsMenuOpen(!setIsMenuOpen)
   }
-  const handleCart = () => {
-    console.log('Cart open')
-    SetIsCarthOpen(!IsCartOpen)
-    stopScreenScroll(!IsCartOpen)
+  // const handleCart = () => {
+  //   console.log('Cart open')
+  //   SetIsCarthOpen(!IsCartOpen)
+  //   stopScreenScroll(!IsCartOpen)
+  // }
+
+
+
+  const handleCart = useCallback(() => {
+  console.log('Cart open')
+  SetIsCarthOpen(prev => {
+    stopScreenScroll(!prev)
+    return !prev
+  })
+}, [])
+
+useEffect(() => {
+  const handlePopState = () => {
+    handleCart() // This runs when user presses back arrow or navigates back
   }
+
+  window.addEventListener('popstate', handlePopState)
+
+  return () => {
+    window.removeEventListener('popstate', handlePopState)
+  }
+}, [handleCart])
+
+  
 
   const handleSearch = () => {
     console.log('open')
@@ -371,7 +395,7 @@ function App () {
       ) : (
         <div className='overflow-hidden w-full relative'>
           <DataProvider>
-            <div className='relative min-h-screen'>
+            <div className='relative min-h-screen '>
               <div
                 style={{
                   transform: isNavbarHidden
@@ -381,10 +405,10 @@ function App () {
                   position: 'fixed',
                   top: 0,
                   width: '100%',
-
-                  zIndex: 1000
+             
+                  // zIndex: 400
                 }}
-                className=' w-full'
+                className=' w-full z-10'
               >
                 <Navbar
                   handleSearch={handleSearch}
@@ -438,7 +462,7 @@ function App () {
                   {/* Cart Navbar */}
                   {/* bg-blue-800 */}
 
-                  <div className='container nav mt-0 navcattt  md:mt-52  relative   flex justify-between md:justify-center  p-2 '>
+                  <div className='container nav mt-0 navcattt  md:mt-52  relative bg-blue-400 z-30  flex justify-between md:justify-center  p-2 '>
                     <Link
                       onClick={() => handleCart()}
                       to={'/'}
