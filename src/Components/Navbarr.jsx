@@ -128,7 +128,7 @@ const Navbar = ({ handleSearch, handleCart, triggerRender }) => {
     <header
       className={`relative px-4 bg-white md:px-28 headerrr   `}
     >
-      <nav className='container relative flex justify-between py-4 md:py-4    bg-red-400 '>
+      <nav className='container relative flex justify-between py-4 md:py-4     '>
         {/* Search Bar */}
         <FaSearch
           onClick={handleSearch}
