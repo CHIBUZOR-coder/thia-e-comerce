@@ -462,7 +462,7 @@ useEffect(() => {
                   {/* Cart Navbar */}
                   {/* bg-blue-800 */}
 
-                  <div className='container nav mt-0 navcattt  md:mt-52  relative bg-blue-400 z-30  flex justify-between md:justify-center  p-2 '>
+                  <div className='container nav mt-0 navcattt  md:mt-52  relative z-30  flex justify-between md:justify-center  p-2 '>
                     <Link
                       onClick={() => handleCart()}
                       to={'/'}
