@@ -88,10 +88,10 @@ function App () {
   const HandleCheckout = async () => {
     if (!user) {
       setCheckoutFeedback(
-        'Loging signup to complet transaction for ease database tracking '
+        'Login or create an account For easy storing of transaction in our database and tracking you'
       )
       console.log(
-        'Loging signup to complet transaction for ease database tracking'
+        'Login or create an account For easy storing of transaction in our database and tracking you'
       )
 
       setTimeout(() => {
