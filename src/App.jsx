@@ -88,7 +88,7 @@ function App () {
   const HandleCheckout = async () => {
     if (!user) {
       setCheckoutFeedback(
-        'Login or create an account For easy storing of transaction in our database and tracking you'
+        'Login or create an account For easy storing of transaction in our database and tracking your past transactions'
       )
       console.log(
         'Login or create an account For easy storing of transaction in our database and tracking you'
