@@ -96,7 +96,7 @@ function App () {
 
       setTimeout(() => {
         setCheckoutFeedback('')
-      }, 4000)
+      }, 5000)
 
       return
     }
