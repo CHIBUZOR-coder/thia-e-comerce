@@ -1,4 +1,10 @@
-import React, { useState, useRef, useContext, useEffect, useCallback } from 'react'
+import React, {
+  useState,
+  useRef,
+  useContext,
+  useEffect,
+  useCallback
+} from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import './App.css'
 import Navbar from './Components/Navbarr'
@@ -43,6 +49,7 @@ function App () {
   const [Total, setTotal] = useState(0)
   const [reload, setReload] = useState(useSelector(state => state.cart.render))
   const [Iphone5Toggle, setIphone5Toggle] = useState(false)
+  const [checkoutFeedBack, setCheckoutFeedback] = useState('')
   // const []
 
   ////////End
@@ -79,6 +86,20 @@ function App () {
   }
 
   const HandleCheckout = async () => {
+    if (!user) {
+      setCheckoutFeedback(
+        'Loging signup to complet transaction for ease database tracking '
+      )
+      console.log(
+        'Loging signup to complet transaction for ease database tracking'
+      )
+
+      setTimeout(() => {
+        setCheckoutFeedback('')
+      }, 4000)
+
+      return
+    }
     const email = user && user.userInfo.email
     const bill = Total || 0
 
@@ -203,29 +224,25 @@ function App () {
   //   stopScreenScroll(!IsCartOpen)
   // }
 
-
-
   const handleCart = useCallback(() => {
-  console.log('Cart open')
-  SetIsCarthOpen(prev => {
-    stopScreenScroll(!prev)
-    return !prev
-  })
-}, [])
+    console.log('Cart open')
+    SetIsCarthOpen(prev => {
+      stopScreenScroll(!prev)
+      return !prev
+    })
+  }, [])
 
-useEffect(() => {
-  const handlePopState = () => {
-    handleCart() // This runs when user presses back arrow or navigates back
-  }
+  useEffect(() => {
+    const handlePopState = () => {
+      handleCart() // This runs when user presses back arrow or navigates back
+    }
 
-  window.addEventListener('popstate', handlePopState)
+    window.addEventListener('popstate', handlePopState)
 
-  return () => {
-    window.removeEventListener('popstate', handlePopState)
-  }
-}, [handleCart])
-
-  
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [handleCart])
 
   const handleSearch = () => {
     console.log('open')
@@ -404,8 +421,8 @@ useEffect(() => {
                   transition: 'transform 0.8s ease',
                   position: 'fixed',
                   top: 0,
-                  width: '100%',
-             
+                  width: '100%'
+
                   // zIndex: 400
                 }}
                 className=' w-full z-10'
@@ -439,6 +456,16 @@ useEffect(() => {
                   IsCartOpen ? 'open' : 'closed'
                 }  `}
               >
+                <div
+                  className={` ${
+                    checkoutFeedBack ? '' : 'hidden'
+                  } absolute z-50 top-32 w-full p-4 flex justify-center items-center`}
+                >
+                  <p className={`bg-gray-500 text-white font-semibold p-2`}>
+                    {checkoutFeedBack && checkoutFeedBack}
+                  </p>
+                </div>
+
                 <div
                   className={`${
                     Iphone5Toggle ? '' : 'hidden'
