@@ -224,12 +224,16 @@ function App () {
   //   stopScreenScroll(!IsCartOpen)
   // }
 
-  const handleCart = useCallback(() => {
+  const handleCart = useCallback((e) => {
+     e.preventDefault();
     console.log('Cart open')
     SetIsCarthOpen(prev => {
       stopScreenScroll(!prev)
       return !prev
     })
+
+    // SetIsCarthOpen(false)
+    //  stopScreenScroll(false)
   }, [])
 
   useEffect(() => {

@@ -151,7 +151,7 @@ const Shopp = ({ dataItems }) => {
 
   return (
     <div>
-      <div className='md:px-28 py-10 px-4'>
+      <div className='md:px-28 py-10 px-4 mt-40 '>
         <div className='flex flex-col md:flex-row w-full gap-5 md:gap-8'>
           <div
             className='h-[500px] w-3/4 rounded-sm'
